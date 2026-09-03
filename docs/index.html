@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Turnauksen pelikirja</title>
+<style>
+:root {
+  --bg: #ffffff; --fg: #1a1d21; --muted: #5c6670; --line: #d8dee4;
+  --accent: #b02a2a; --card: #f6f8fa; --thead: #eef2f6; --zebra: #fafbfc;
+  --link: #14508c; --warn-bg: #fff8e5; --warn-line: #d8a531;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14171a; --fg: #e6e9ec; --muted: #9aa4ae; --line: #2c3238;
+    --accent: #ff6b6b; --card: #1b1f23; --thead: #21262c; --zebra: #191d21;
+    --link: #79b8ff; --warn-bg: #2a2313; --warn-line: #c9a227;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, sans-serif;
+}
+header.top {
+  position: sticky; top: 0; z-index: 10;
+  background: var(--bg); border-bottom: 1px solid var(--line);
+  padding: 12px 20px; display: flex; gap: 12px; align-items: baseline;
+  flex-wrap: wrap;
+}
+header.top a.home { color: var(--accent); font-weight: 700; text-decoration: none; }
+header.top .crumb { color: var(--muted); font-size: 14px; }
+main { max-width: 1000px; margin: 0 auto; padding: 24px 20px 80px; }
+h1 { font-size: 28px; line-height: 1.25; margin: 8px 0 4px; }
+h2 {
+  font-size: 21px; margin: 36px 0 10px; padding-bottom: 6px;
+  border-bottom: 2px solid var(--accent);
+}
+h3 {
+  font-size: 17px; margin: 26px 0 6px; color: var(--accent);
+  scroll-margin-top: 70px;
+}
+p { margin: 10px 0; }
+ul { margin: 10px 0 10px 22px; padding: 0; }
+li { margin: 4px 0; }
+a { color: var(--link); }
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.88em; background: var(--card); padding: 1px 5px;
+  border-radius: 4px;
+}
+blockquote {
+  margin: 14px 0; padding: 10px 14px; background: var(--warn-bg);
+  border-left: 4px solid var(--warn-line); border-radius: 0 6px 6px 0;
+}
+.tw { overflow-x: auto; margin: 12px 0 20px; -webkit-overflow-scrolling: touch; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td {
+  border: 1px solid var(--line); padding: 7px 10px; text-align: left;
+  vertical-align: top; white-space: nowrap;
+}
+td:last-child, th:last-child { white-space: normal; }
+th { background: var(--thead); font-weight: 600; position: sticky; top: 0; }
+tbody tr:nth-child(even) td { background: var(--zebra); }
+footer {
+  max-width: 1000px; margin: 0 auto; padding: 24px 20px 60px;
+  color: var(--muted); font-size: 13px; border-top: 1px solid var(--line);
+}
+.teamgrid {
+  display: grid; gap: 12px; margin: 18px 0 4px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+.teamgrid a {
+  display: block; padding: 14px 16px; background: var(--card);
+  border: 1px solid var(--line); border-radius: 8px; text-decoration: none;
+  color: var(--fg); font-weight: 600;
+}
+.teamgrid a:hover { border-color: var(--accent); }
+.teamgrid span { display: block; font-weight: 400; color: var(--muted);
+                 font-size: 13px; margin-top: 3px; }
+@media (max-width: 640px) {
+  body { font-size: 15px; }
+  h1 { font-size: 23px; }
+  main { padding: 16px 14px 60px; }
+  th, td { padding: 6px 8px; }
+}
+</style>
+</head>
+<body>
+<header class="top"><a class="home" href="./">Turnauksen pelikirja</a></header>
+<main>
+<h1>Turnauksen pelikirja — vastustajaskouttaus</h1>
+<p><em>Generoitu 2026-09-04 · lähde: <a href="https://www.opendota.com/">OpenDota</a> · aineisto: <code>joukkueet.txt</code></em></p>
+<p>Jokaisesta pelaajasta: kaikkien aikojen top-8 heropoolia, viimeisimmät ottelut (muoto + tämänhetkinen heropooli, enintään 100 ottelua) ja pelipaikkajakauma. Heropoolista on karsittu heropit joita on pelattu alle 3 kertaa. Turbo-ottelut jätetään muoto- ja heropoolilaskennasta pois aina kun normaaleja otteluita on tarpeeksi.</p>
+<p>Jokaisella joukkueella on oma kansionsa, josta löytyy raportti Markdownina sekä <code>raw/</code>-alikansiossa OpenDotan käsittelemätön vastausdata pelaajittain.</p>
+<h2 class="first">Joukkueet</h2>
+<div class="tw"><table><thead><tr><th width="28.3%">Joukkue</th><th width="20.2%">Pelaajia</th><th width="18.2%">Varalla</th><th width="14.0%">Keski-MMR</th><th width="19.3%">MMR-haitari</th></tr></thead><tbody>
+<tr><td><a href="michael-bay-leffa/">Michael Bay Leffa</a></td><td>5</td><td>0</td><td>4 797</td><td>2831–6000</td></tr>
+<tr><td><a href="baki-hanma-bankai-tensei/">BAKI HANMA BANKAI TENSEI</a></td><td>5</td><td>0</td><td>4 774</td><td>3372–6500</td></tr>
+<tr><td><a href="team-eclipse/">Team Eclipse</a></td><td>5</td><td>0</td><td>4 751</td><td>3332–6000</td></tr>
+<tr><td><a href="lph-voide/">LPH-VOIDE</a></td><td>5</td><td>1</td><td>4 747</td><td>3795–5434</td></tr>
+<tr><td><a href="roshan-ja-rahmasilmat/">Roshan ja Rähmäsilmät</a></td><td>5</td><td>0</td><td>4 732</td><td>3652–6000</td></tr>
+<tr><td><a href="lxt-ddf490z/">LXT DDF490Z</a></td><td>5</td><td>0</td><td>4 715</td><td>3402–5750</td></tr>
+<tr><td><a href="liminka-demons/">Liminka Demons</a></td><td>5</td><td>1</td><td>4 437</td><td>3639–5750</td></tr>
+<tr><td><a href="cherry-cherry-lady/">Cherry Cherry Lady</a></td><td>5</td><td>0</td><td>4 342</td><td>3068–6500</td></tr>
+</tbody></table></div>
+<h2>⚠️ Huomioita aineiston laadusta</h2>
+<p><strong>Samat Steam ID:t esiintyvät useammalla pelaajalla</strong> — todennäköisesti kopiointivirhe <code>joukkueet.txt</code>:ssä, ja näiden pelaajien tiedot raportissa ovat siksi epäluotettavia:</p>
+<ul>
+<li><code>STEAM_0:1:59970345</code> → LXT DDF490Z / Morality, LXT DDF490Z / Jiri</li>
+<li><code>STEAM_0:1:116425</code> → LXT DDF490Z / wAly, LXT DDF490Z / FatKO</li>
+</ul>
+<p><strong>Ei julkista dataa OpenDotassa</strong> (yksityinen profiili tai Steam ID osoittaa väärään tiliin): Roshan ja Rähmäsilmät / Reijo (Kantor)</p>
+<p><strong>Steam-nimi ei muistuta listan nickiä</strong> — yleensä pelaaja on vain vaihtanut Steam-nimeään, mutta tarkista ettei Steam ID osoita väärään tiliin:</p>
+<ul>
+<li>BAKI HANMA BANKAI TENSEI / raato234 → Steam-nimi "Just fucking better" (<a href="https://www.opendota.com/players/169387405">profiili</a>)</li>
+<li>Team Eclipse / Fbr → Steam-nimi "ImperialZod" (<a href="https://www.opendota.com/players/79108787">profiili</a>)</li>
+<li>Liminka Demons / Hitsuri:D → Steam-nimi "BUMTSIBUM :D :D" (<a href="https://www.opendota.com/players/98915726">profiili</a>)</li>
+<li>Michael Bay Leffa / Jaasz → Steam-nimi "zsj" (<a href="https://www.opendota.com/players/231633161">profiili</a>)</li>
+<li>Michael Bay Leffa / quasmane → Steam-nimi "noSpoon" (<a href="https://www.opendota.com/players/26266405">profiili</a>)</li>
+<li>LXT DDF490Z / Morality → Steam-nimi "Jiri" (<a href="https://www.opendota.com/players/119940691">profiili</a>)</li>
+<li>LXT DDF490Z / wAly → Steam-nimi "fatKO" (<a href="https://www.opendota.com/players/232851">profiili</a>)</li>
+<li>LXT DDF490Z / Ade → Steam-nimi "Alan 2 Rings" (<a href="https://www.opendota.com/players/31724584">profiili</a>)</li>
+</ul>
+<blockquote>Tarkista aina että raportin <strong>Steam-nimi</strong> vastaa odotettua pelaajaa. Jos ei vastaa, listan Steam ID on väärä.</blockquote>
+<div class="teamgrid">
+<a href="lph-voide/">LPH-VOIDE<span>6 pelaajaa · keski-MMR 4 747</span></a>
+<a href="baki-hanma-bankai-tensei/">BAKI HANMA BANKAI TENSEI<span>5 pelaajaa · keski-MMR 4 774</span></a>
+<a href="roshan-ja-rahmasilmat/">Roshan ja Rähmäsilmät<span>5 pelaajaa · keski-MMR 4 732</span></a>
+<a href="cherry-cherry-lady/">Cherry Cherry Lady<span>5 pelaajaa · keski-MMR 4 342</span></a>
+<a href="team-eclipse/">Team Eclipse<span>5 pelaajaa · keski-MMR 4 751</span></a>
+<a href="liminka-demons/">Liminka Demons<span>6 pelaajaa · keski-MMR 4 437</span></a>
+<a href="michael-bay-leffa/">Michael Bay Leffa<span>5 pelaajaa · keski-MMR 4 797</span></a>
+<a href="lxt-ddf490z/">LXT DDF490Z<span>5 pelaajaa · keski-MMR 4 715</span></a>
+</div>
+</main>
+<footer>Generoitu 2026-09-04 · data: <a href="https://www.opendota.com/">OpenDota</a> · <a href="https://github.com/tenderi/roshanin-pelikirja">lähdekoodi ja raakadata GitHubissa</a></footer>
+</body>
+</html>

@@ -1,23 +1,23 @@
 # Turnauksen pelikirja — vastustajaskouttaus
 
-_Generoitu 2026-09-03 · lähde: [OpenDota](https://www.opendota.com/) · aineisto: `joukkueet.txt`_
+_Generoitu 2026-09-04 · lähde: [OpenDota](https://www.opendota.com/) · aineisto: `joukkueet.txt`_
 
 Jokaisesta pelaajasta: kaikkien aikojen top-8 heropoolia, viimeisimmät ottelut (muoto + tämänhetkinen heropooli, enintään 100 ottelua) ja pelipaikkajakauma. Heropoolista on karsittu heropit joita on pelattu alle 3 kertaa. Turbo-ottelut jätetään muoto- ja heropoolilaskennasta pois aina kun normaaleja otteluita on tarpeeksi.
 
-Jokaisella joukkueella on oma kansionsa, josta löytyy raportti Markdownina ja PDF:nä sekä `raw/`-alikansiossa OpenDotan käsittelemätön vastausdata pelaajittain.
+Jokaisella joukkueella on oma kansionsa, josta löytyy raportti Markdownina sekä `raw/`-alikansiossa OpenDotan käsittelemätön vastausdata pelaajittain.
 
 ## Joukkueet
 
-| Joukkue | Pelaajia | Varalla | Keski-MMR | MMR-haitari | PDF |
-|---|---|---|---|---|---|
-| [Michael Bay Leffa](michael-bay-leffa/michael-bay-leffa.md) | 5 | 0 | 4 797 | 2831–6000 | [PDF](michael-bay-leffa/michael-bay-leffa.pdf) |
-| [BAKI HANMA BANKAI TENSEI](baki-hanma-bankai-tensei/baki-hanma-bankai-tensei.md) | 5 | 0 | 4 774 | 3372–6500 | [PDF](baki-hanma-bankai-tensei/baki-hanma-bankai-tensei.pdf) |
-| [Team Eclipse](team-eclipse/team-eclipse.md) | 5 | 0 | 4 751 | 3332–6000 | [PDF](team-eclipse/team-eclipse.pdf) |
-| [LPH-VOIDE](lph-voide/lph-voide.md) | 5 | 1 | 4 747 | 3795–5434 | [PDF](lph-voide/lph-voide.pdf) |
-| [Roshan ja Rähmäsilmät](roshan-ja-rahmasilmat/roshan-ja-rahmasilmat.md) | 5 | 0 | 4 732 | 3652–6000 | [PDF](roshan-ja-rahmasilmat/roshan-ja-rahmasilmat.pdf) |
-| [LXT DDF490Z](lxt-ddf490z/lxt-ddf490z.md) | 5 | 0 | 4 715 | 3402–5750 | [PDF](lxt-ddf490z/lxt-ddf490z.pdf) |
-| [Liminka Demons](liminka-demons/liminka-demons.md) | 5 | 1 | 4 437 | 3639–5750 | [PDF](liminka-demons/liminka-demons.pdf) |
-| [Cherry Cherry Lady](cherry-cherry-lady/cherry-cherry-lady.md) | 5 | 0 | 4 342 | 3068–6500 | [PDF](cherry-cherry-lady/cherry-cherry-lady.pdf) |
+| Joukkue | Pelaajia | Varalla | Keski-MMR | MMR-haitari |
+|---|---|---|---|---|
+| [Michael Bay Leffa](michael-bay-leffa/michael-bay-leffa.md) | 5 | 0 | 4 797 | 2831–6000 |
+| [BAKI HANMA BANKAI TENSEI](baki-hanma-bankai-tensei/baki-hanma-bankai-tensei.md) | 5 | 0 | 4 774 | 3372–6500 |
+| [Team Eclipse](team-eclipse/team-eclipse.md) | 5 | 0 | 4 751 | 3332–6000 |
+| [LPH-VOIDE](lph-voide/lph-voide.md) | 5 | 1 | 4 747 | 3795–5434 |
+| [Roshan ja Rähmäsilmät](roshan-ja-rahmasilmat/roshan-ja-rahmasilmat.md) | 5 | 0 | 4 732 | 3652–6000 |
+| [LXT DDF490Z](lxt-ddf490z/lxt-ddf490z.md) | 5 | 0 | 4 715 | 3402–5750 |
+| [Liminka Demons](liminka-demons/liminka-demons.md) | 5 | 1 | 4 437 | 3639–5750 |
+| [Cherry Cherry Lady](cherry-cherry-lady/cherry-cherry-lady.md) | 5 | 0 | 4 342 | 3068–6500 |
 
 ## ⚠️ Huomioita aineiston laadusta
 

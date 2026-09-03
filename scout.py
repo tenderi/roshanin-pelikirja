@@ -15,20 +15,36 @@ pelaajasta OpenDota API:sta (https://www.opendota.com/, ei vaadi API-avainta):
 KÄYTTÖ
 ------
     pip install requests
-    python3 scout.py              # kirjoittaa .md, .pdf ja raakadatan
-    python3 scout.py --no-pdf     # vain Markdown + raakadata
+    python3 scout.py              # raportit, raakadata ja verkkosivusto
+    python3 scout.py --pdf        # sama + PDF per joukkue (valinnainen)
 
-Tuloksena syntyy hakemisto `scouting-results/`, jossa on yksi kansio per
-joukkue:
+Syntyy kaksi hakemistoa: `scouting-results/` (lähdeaineisto ja raportit)
+sekä `docs/` (julkaistava sivusto).
 
     scouting-results/
         README.md                    <- yleiskatsaus + linkit
         lph-voide/
             lph-voide.md             <- joukkueen pelikirja
-            lph-voide.pdf            <- sama PDF:nä
+            lph-voide.pdf            <- vain jos --pdf annettu
             raw/                     <- OpenDotan raakavastaukset
                 seinis-104984836.json
                 ...
+    docs/
+        .nojekyll
+        index.html                   <- etusivu
+        lph-voide/index.html         <- joukkueen sivu
+        ...
+
+JULKAISU GITHUB PAGESIIN
+------------------------
+Sivusto on valmista staattista HTML:ää hakemistossa `docs/`. Kytke se
+päälle kerran repon asetuksista:
+
+    Settings -> Pages -> Source: "Deploy from a branch"
+                      -> Branch: main,  kansio: /docs  -> Save
+
+Tämän jälkeen jokainen `docs/`-muutoksen push päivittää sivuston
+osoitteessa https://<käyttäjä>.github.io/<repo>/
 
 HUOM
 ----
@@ -74,6 +90,7 @@ except ImportError:
 HERE = os.path.dirname(os.path.abspath(__file__))
 INPUT_FILE = os.path.join(HERE, "joukkueet.txt")
 OUTPUT_DIR = os.path.join(HERE, "scouting-results")
+SITE_DIR = os.path.join(HERE, "docs")   # GitHub Pages: main-haara, /docs
 CACHE_DIR = os.path.join(HERE, ".cache")
 
 OPENDOTA_BASE = "https://api.opendota.com/api"
@@ -210,8 +227,13 @@ def load_hero_names() -> dict:
 
 
 def fetch_player(account_id: int) -> dict:
-    """Hakee yhden pelaajan kaikki tarvittavat tiedot."""
+    """Hakee yhden pelaajan kaikki tarvittavat tiedot.
+
+    `haettu` kertoo milloin data oikeasti noudettiin OpenDotasta: välimuistista
+    luettaessa se on välimuistitiedoston aikaleima, ei ajohetki.
+    """
     out = {}
+    stamps = []
     for key, path, params in (
         ("profile", f"/players/{account_id}", None),
         ("wl",      f"/players/{account_id}/wl", None),
@@ -219,10 +241,15 @@ def fetch_player(account_id: int) -> dict:
         ("matches", f"/players/{account_id}/matches", {"limit": MATCH_FETCH_LIMIT}),
         ("counts",  f"/players/{account_id}/counts", None),
     ):
-        cached = os.path.exists(_cache_path(path, params or {}))
+        cache_file = _cache_path(path, params or {})
+        cached = os.path.exists(cache_file)
         out[key] = api_get(path, params)
         if not cached:
             time.sleep(REQUEST_DELAY)
+        if os.path.exists(cache_file):
+            stamps.append(os.path.getmtime(cache_file))
+    out["haettu"] = (datetime.date.fromtimestamp(min(stamps)).isoformat()
+                     if stamps else datetime.date.today().isoformat())
     return out
 
 
@@ -470,7 +497,7 @@ def _col_widths(header, rows):
 
 
 
-def markdown_to_html(md_text: str, title: str) -> str:
+def markdown_to_html(md_text: str, title: str, fragment: bool = False) -> str:
     """Kääntää raportin Markdownin siistiksi tulostettavaksi HTML:ksi.
 
     Tukee juuri sitä osajoukkoa jota tämä raportti käyttää: otsikot, taulukot,
@@ -540,6 +567,9 @@ def markdown_to_html(md_text: str, title: str) -> str:
 
         body.append(f"<p>{_inline_md(stripped)}</p>")
         i += 1
+
+    if fragment:
+        return "\n".join(body)
 
     return (f"<!DOCTYPE html>\n<html lang=\"fi\"><head><meta charset=\"utf-8\">"
             f"<title>{html.escape(title)}</title><style>{PDF_CSS}</style></head>"
@@ -621,6 +651,183 @@ def write_pdf(md_text: str, pdf_path: str) -> bool:
         return False
     finally:
         shutil.rmtree(tmpdir, ignore_errors=True)
+
+
+# ---------------------------------------------------------------------------
+# GITHUB PAGES -SIVUSTO
+# ---------------------------------------------------------------------------
+
+SITE_CSS = """
+:root {
+  --bg: #ffffff; --fg: #1a1d21; --muted: #5c6670; --line: #d8dee4;
+  --accent: #b02a2a; --card: #f6f8fa; --thead: #eef2f6; --zebra: #fafbfc;
+  --link: #14508c; --warn-bg: #fff8e5; --warn-line: #d8a531;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14171a; --fg: #e6e9ec; --muted: #9aa4ae; --line: #2c3238;
+    --accent: #ff6b6b; --card: #1b1f23; --thead: #21262c; --zebra: #191d21;
+    --link: #79b8ff; --warn-bg: #2a2313; --warn-line: #c9a227;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, sans-serif;
+}
+header.top {
+  position: sticky; top: 0; z-index: 10;
+  background: var(--bg); border-bottom: 1px solid var(--line);
+  padding: 12px 20px; display: flex; gap: 12px; align-items: baseline;
+  flex-wrap: wrap;
+}
+header.top a.home { color: var(--accent); font-weight: 700; text-decoration: none; }
+header.top .crumb { color: var(--muted); font-size: 14px; }
+main { max-width: 1000px; margin: 0 auto; padding: 24px 20px 80px; }
+h1 { font-size: 28px; line-height: 1.25; margin: 8px 0 4px; }
+h2 {
+  font-size: 21px; margin: 36px 0 10px; padding-bottom: 6px;
+  border-bottom: 2px solid var(--accent);
+}
+h3 {
+  font-size: 17px; margin: 26px 0 6px; color: var(--accent);
+  scroll-margin-top: 70px;
+}
+p { margin: 10px 0; }
+ul { margin: 10px 0 10px 22px; padding: 0; }
+li { margin: 4px 0; }
+a { color: var(--link); }
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.88em; background: var(--card); padding: 1px 5px;
+  border-radius: 4px;
+}
+blockquote {
+  margin: 14px 0; padding: 10px 14px; background: var(--warn-bg);
+  border-left: 4px solid var(--warn-line); border-radius: 0 6px 6px 0;
+}
+.tw { overflow-x: auto; margin: 12px 0 20px; -webkit-overflow-scrolling: touch; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td {
+  border: 1px solid var(--line); padding: 7px 10px; text-align: left;
+  vertical-align: top; white-space: nowrap;
+}
+td:last-child, th:last-child { white-space: normal; }
+th { background: var(--thead); font-weight: 600; position: sticky; top: 0; }
+tbody tr:nth-child(even) td { background: var(--zebra); }
+footer {
+  max-width: 1000px; margin: 0 auto; padding: 24px 20px 60px;
+  color: var(--muted); font-size: 13px; border-top: 1px solid var(--line);
+}
+.teamgrid {
+  display: grid; gap: 12px; margin: 18px 0 4px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+.teamgrid a {
+  display: block; padding: 14px 16px; background: var(--card);
+  border: 1px solid var(--line); border-radius: 8px; text-decoration: none;
+  color: var(--fg); font-weight: 600;
+}
+.teamgrid a:hover { border-color: var(--accent); }
+.teamgrid span { display: block; font-weight: 400; color: var(--muted);
+                 font-size: 13px; margin-top: 3px; }
+@media (max-width: 640px) {
+  body { font-size: 15px; }
+  h1 { font-size: 23px; }
+  main { padding: 16px 14px 60px; }
+  th, td { padding: 6px 8px; }
+}
+"""
+
+
+def git_repo_web_url() -> str:
+    """Päättelee GitHub-osoitteen `origin`-remotesta (tyhjä jos ei löydy)."""
+    try:
+        r = subprocess.run(["git", "-C", HERE, "remote", "get-url", "origin"],
+                           stdout=subprocess.PIPE, stderr=subprocess.DEVNULL,
+                           timeout=10, text=True)
+    except (OSError, subprocess.SubprocessError):
+        return ""
+    if r.returncode != 0:
+        return ""
+    url = r.stdout.strip()
+    m = re.match(r"(?:https://github\.com/|git@github\.com:)(.+?)(?:\.git)?$", url)
+    return f"https://github.com/{m.group(1)}" if m else ""
+
+
+def site_page(md_text: str, title: str, crumb: str, depth: int, today: str,
+              repo_url: str, extra_body: str = "") -> str:
+    """Kääntää raportin Markdownin sivuston HTML-sivuksi."""
+    body = markdown_to_html(md_text, title, fragment=True)
+
+    # Taulukot vieritettäviksi kapealla näytöllä
+    body = body.replace("<table>", '<div class="tw"><table>')
+    body = body.replace("</table>", "</table></div>")
+    # Sivuston sisäiset linkit: joukkue/joukkue.md -> joukkue/
+    body = re.sub(r'href="([^"/]+)/\1\.md"', r'href="\1/"', body)
+    # PDF-linkkejä ei julkaista sivustolla
+    body = re.sub(r'\s*\(?<a href="[^"]+\.pdf">[^<]*</a>\)?', "", body)
+
+    root = "../" * depth
+    nav = (f'<a class="home" href="{root or "./"}">Turnauksen pelikirja</a>'
+           + (f'<span class="crumb">{html.escape(crumb)}</span>' if crumb else ""))
+    src = (f' · <a href="{repo_url}">lähdekoodi ja raakadata GitHubissa</a>'
+           if repo_url else "")
+    return f"""<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{html.escape(title)}</title>
+<style>{SITE_CSS}</style>
+</head>
+<body>
+<header class="top">{nav}</header>
+<main>
+{body}
+{extra_body}
+</main>
+<footer>Generoitu {today} · data: <a href="https://www.opendota.com/">OpenDota</a>{src}</footer>
+</body>
+</html>
+"""
+
+
+def build_site(site_dir: str, index_md: str, team_pages, today: str, repo_url: str):
+    """Kirjoittaa staattisen sivuston GitHub Pagesia varten.
+
+    Rakenne:  docs/index.html  ja  docs/<joukkue>/index.html
+    `.nojekyll` estää GitHubia ajamasta Jekylliä turhaan.
+    """
+    os.makedirs(site_dir, exist_ok=True)
+    with open(os.path.join(site_dir, ".nojekyll"), "w") as f:
+        f.write("")
+
+    # Etusivulle korttilinkit joukkueisiin
+    cards = ['<div class="teamgrid">']
+    for team, slug, _md, sub in team_pages:
+        cards.append(f'<a href="{slug}/">{html.escape(team)}'
+                     f'<span>{sub}</span></a>')
+    cards.append("</div>")
+
+    with open(os.path.join(site_dir, "index.html"), "w", encoding="utf-8") as f:
+        f.write(site_page(index_md, "Turnauksen pelikirja", "", 0, today,
+                          repo_url, extra_body="\n".join(cards)))
+
+    for team, slug, md, _sub in team_pages:
+        d = os.path.join(site_dir, slug)
+        os.makedirs(d, exist_ok=True)
+        raw_link = ""
+        if repo_url:
+            raw_link = (f'<h2>Raakadata</h2><p>Tämän joukkueen käsittelemätön '
+                        f'OpenDota-data: <a href="{repo_url}/tree/main/'
+                        f'scouting-results/{slug}/raw">scouting-results/{slug}/raw</a></p>')
+        with open(os.path.join(d, "index.html"), "w", encoding="utf-8") as f:
+            f.write(site_page(md, f"{team} — pelikirja", team, 1, today,
+                              repo_url, extra_body=raw_link))
+    return len(team_pages) + 1
 
 
 # ---------------------------------------------------------------------------
@@ -810,13 +1017,15 @@ def team_report(team, players, data, hero_names, dupes, today,
     return "\n".join(L).rstrip() + "\n"
 
 
-def index_report(teams, data, today, dupes, no_data, bad_ids, mismatches):
+def index_report(teams, data, today, dupes, no_data, bad_ids, mismatches,
+                 with_pdf=False):
     """Hakemistosivu: yleiskatsaus + linkit joukkueiden raportteihin."""
     L = ["# Turnauksen pelikirja — vastustajaskouttaus", ""]
     L += intro_lines(today)
     L += ["Jokaisella joukkueella on oma kansionsa, josta löytyy raportti "
-          "Markdownina ja PDF:nä sekä `raw/`-alikansiossa OpenDotan "
-          "käsittelemätön vastausdata pelaajittain.", ""]
+          "Markdownina" + (" ja PDF:nä" if with_pdf else "") + " sekä "
+          "`raw/`-alikansiossa OpenDotan käsittelemätön vastausdata "
+          "pelaajittain.", ""]
 
     L += ["## Joukkueet", ""]
     rows = []
@@ -826,13 +1035,17 @@ def index_report(teams, data, today, dupes, no_data, bad_ids, mismatches):
         mmrs = [p[1] for p in mains if p[1]]
         avg = sum(mmrs) / len(mmrs) if mmrs else 0
         slug = slugify(team)
-        rows.append([f"[{team}]({slug}/{slug}.md)", len(mains), len(subs),
-                     f"{avg:,.0f}".replace(",", " ") if mmrs else "–",
-                     f"{min(mmrs)}–{max(mmrs)}" if mmrs else "–",
-                     f"[PDF]({slug}/{slug}.pdf)", avg])
-    rows.sort(key=lambda r: -r[-1])
-    L += md_table(["Joukkue", "Pelaajia", "Varalla", "Keski-MMR", "MMR-haitari", "PDF"],
-                  [r[:-1] for r in rows])
+        row = [f"[{team}]({slug}/{slug}.md)", len(mains), len(subs),
+               f"{avg:,.0f}".replace(",", " ") if mmrs else "–",
+               f"{min(mmrs)}–{max(mmrs)}" if mmrs else "–"]
+        if with_pdf:
+            row.append(f"[PDF]({slug}/{slug}.pdf)")
+        rows.append((row, avg))
+    rows.sort(key=lambda r: -r[1])
+    headers = ["Joukkue", "Pelaajia", "Varalla", "Keski-MMR", "MMR-haitari"]
+    if with_pdf:
+        headers.append("PDF")
+    L += md_table(headers, [r for r, _ in rows])
     L.append("")
     L += quality_lines(dupes, no_data, bad_ids, mismatches, team=None, level=2)
     return "\n".join(L).rstrip() + "\n"
@@ -845,7 +1058,7 @@ def write_raw_data(raw_dir: str, team: str, players, data, today: str) -> int:
     for nick, mmr, sid, is_sub in players:
         d = data.get((team, nick), {})
         payload = {
-            "haettu": today,
+            "haettu": d.get("haettu", today),
             "joukkue": team,
             "nick": nick,
             "mmr_listalla": mmr,
@@ -910,8 +1123,9 @@ def main():
     # --- Kirjoitus: yksi kansio per joukkue ---
     today = datetime.date.today().isoformat()
     os.makedirs(OUTPUT_DIR, exist_ok=True)
-    make_pdf = "--no-pdf" not in sys.argv
+    make_pdf = "--pdf" in sys.argv      # PDF on valinnainen, oletuksena pois
     pdf_ok = pdf_fail = 0
+    team_pages = []
 
     print()
     for team, players in teams:
@@ -927,6 +1141,11 @@ def main():
 
         n_raw = write_raw_data(os.path.join(team_dir, "raw"), team, players,
                                data, today)
+        mains = [p for p in players if not p[3]]
+        mmrs = [p[1] for p in mains if p[1]]
+        avg = f"{sum(mmrs) / len(mmrs):,.0f}".replace(",", " ") if mmrs else "–"
+        team_pages.append((team, slug, md_text,
+                           f"{len(players)} pelaajaa · keski-MMR {avg}"))
         print(f"{team}: {os.path.relpath(md_path, HERE)} (+{n_raw} raw-tiedostoa)")
 
         if make_pdf:
@@ -935,12 +1154,20 @@ def main():
             else:
                 pdf_fail += 1
 
+    index_md = index_report(teams, data, today, dupes, no_data, bad_ids,
+                            mismatches, with_pdf=make_pdf)
     index_path = os.path.join(OUTPUT_DIR, "README.md")
     with open(index_path, "w", encoding="utf-8") as f:
-        f.write(index_report(teams, data, today, dupes, no_data, bad_ids, mismatches))
+        f.write(index_md)
+
+    # --- GitHub Pages -sivusto ---
+    n_pages = build_site(SITE_DIR, index_md, team_pages, today,
+                         git_repo_web_url())
 
     print(f"\nValmis! {len(teams)} joukkuetta -> {os.path.relpath(OUTPUT_DIR, HERE)}/")
     print(f"Hakemistosivu: {os.path.relpath(index_path, HERE)}")
+    print(f"Sivusto: {n_pages} sivua -> {os.path.relpath(SITE_DIR, HERE)}/ "
+          f"(GitHub Pages: main-haara, /docs)")
     if make_pdf:
         print(f"PDF:t: {pdf_ok} onnistui" + (f", {pdf_fail} epäonnistui" if pdf_fail else ""))
     if no_data:

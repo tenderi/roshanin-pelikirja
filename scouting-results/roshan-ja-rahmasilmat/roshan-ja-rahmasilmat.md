@@ -1,6 +1,6 @@
 # Roshan ja Rähmäsilmät — pelikirja
 
-_Generoitu 2026-09-03 · lähde: [OpenDota](https://www.opendota.com/) · aineisto: `joukkueet.txt`_
+_Generoitu 2026-09-04 · lähde: [OpenDota](https://www.opendota.com/) · aineisto: `joukkueet.txt`_
 
 Jokaisesta pelaajasta: kaikkien aikojen top-8 heropoolia, viimeisimmät ottelut (muoto + tämänhetkinen heropooli, enintään 100 ottelua) ja pelipaikkajakauma. Heropoolista on karsittu heropit joita on pelattu alle 3 kertaa. Turbo-ottelut jätetään muoto- ja heropoolilaskennasta pois aina kun normaaleja otteluita on tarpeeksi.
 

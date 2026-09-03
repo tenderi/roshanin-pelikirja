@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Liminka Demons — pelikirja</title>
+<style>
+:root {
+  --bg: #ffffff; --fg: #1a1d21; --muted: #5c6670; --line: #d8dee4;
+  --accent: #b02a2a; --card: #f6f8fa; --thead: #eef2f6; --zebra: #fafbfc;
+  --link: #14508c; --warn-bg: #fff8e5; --warn-line: #d8a531;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14171a; --fg: #e6e9ec; --muted: #9aa4ae; --line: #2c3238;
+    --accent: #ff6b6b; --card: #1b1f23; --thead: #21262c; --zebra: #191d21;
+    --link: #79b8ff; --warn-bg: #2a2313; --warn-line: #c9a227;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, sans-serif;
+}
+header.top {
+  position: sticky; top: 0; z-index: 10;
+  background: var(--bg); border-bottom: 1px solid var(--line);
+  padding: 12px 20px; display: flex; gap: 12px; align-items: baseline;
+  flex-wrap: wrap;
+}
+header.top a.home { color: var(--accent); font-weight: 700; text-decoration: none; }
+header.top .crumb { color: var(--muted); font-size: 14px; }
+main { max-width: 1000px; margin: 0 auto; padding: 24px 20px 80px; }
+h1 { font-size: 28px; line-height: 1.25; margin: 8px 0 4px; }
+h2 {
+  font-size: 21px; margin: 36px 0 10px; padding-bottom: 6px;
+  border-bottom: 2px solid var(--accent);
+}
+h3 {
+  font-size: 17px; margin: 26px 0 6px; color: var(--accent);
+  scroll-margin-top: 70px;
+}
+p { margin: 10px 0; }
+ul { margin: 10px 0 10px 22px; padding: 0; }
+li { margin: 4px 0; }
+a { color: var(--link); }
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.88em; background: var(--card); padding: 1px 5px;
+  border-radius: 4px;
+}
+blockquote {
+  margin: 14px 0; padding: 10px 14px; background: var(--warn-bg);
+  border-left: 4px solid var(--warn-line); border-radius: 0 6px 6px 0;
+}
+.tw { overflow-x: auto; margin: 12px 0 20px; -webkit-overflow-scrolling: touch; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td {
+  border: 1px solid var(--line); padding: 7px 10px; text-align: left;
+  vertical-align: top; white-space: nowrap;
+}
+td:last-child, th:last-child { white-space: normal; }
+th { background: var(--thead); font-weight: 600; position: sticky; top: 0; }
+tbody tr:nth-child(even) td { background: var(--zebra); }
+footer {
+  max-width: 1000px; margin: 0 auto; padding: 24px 20px 60px;
+  color: var(--muted); font-size: 13px; border-top: 1px solid var(--line);
+}
+.teamgrid {
+  display: grid; gap: 12px; margin: 18px 0 4px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+.teamgrid a {
+  display: block; padding: 14px 16px; background: var(--card);
+  border: 1px solid var(--line); border-radius: 8px; text-decoration: none;
+  color: var(--fg); font-weight: 600;
+}
+.teamgrid a:hover { border-color: var(--accent); }
+.teamgrid span { display: block; font-weight: 400; color: var(--muted);
+                 font-size: 13px; margin-top: 3px; }
+@media (max-width: 640px) {
+  body { font-size: 15px; }
+  h1 { font-size: 23px; }
+  main { padding: 16px 14px 60px; }
+  th, td { padding: 6px 8px; }
+}
+</style>
+</head>
+<body>
+<header class="top"><a class="home" href="../">Turnauksen pelikirja</a><span class="crumb">Liminka Demons</span></header>
+<main>
+<h1>Liminka Demons — pelikirja</h1>
+<p><em>Generoitu 2026-09-04 · lähde: <a href="https://www.opendota.com/">OpenDota</a> · aineisto: <code>joukkueet.txt</code></em></p>
+<p>Jokaisesta pelaajasta: kaikkien aikojen top-8 heropoolia, viimeisimmät ottelut (muoto + tämänhetkinen heropooli, enintään 100 ottelua) ja pelipaikkajakauma. Heropoolista on karsittu heropit joita on pelattu alle 3 kertaa. Turbo-ottelut jätetään muoto- ja heropoolilaskennasta pois aina kun normaaleja otteluita on tarpeeksi.</p>
+<h2 class="first">⚠️ Huomioita aineiston laadusta</h2>
+<p><strong>Steam-nimi ei muistuta listan nickiä</strong> — yleensä pelaaja on vain vaihtanut Steam-nimeään, mutta tarkista ettei Steam ID osoita väärään tiliin:</p>
+<ul>
+<li>Hitsuri:D → Steam-nimi "BUMTSIBUM :D :D" (<a href="https://www.opendota.com/players/98915726">profiili</a>)</li>
+</ul>
+<blockquote>Tarkista aina että raportin <strong>Steam-nimi</strong> vastaa odotettua pelaajaa. Jos ei vastaa, listan Steam ID on väärä.</blockquote>
+<h2>Rosteri</h2>
+<div class="tw"><table><thead><tr><th width="15.1%">Pelaaja</th><th width="8.4%">MMR</th><th width="15.1%">Steam-nimi</th><th width="13.7%">Medal</th><th width="18.9%">Pelipaikat</th><th width="12.4%">Muoto</th><th width="16.4%">Viim. peli</th></tr></thead><tbody>
+<tr><td><strong>Hitsuri:D</strong></td><td>3639</td><td>BUMTSIBUM :D :D</td><td>Ancient 2</td><td>Off 49% / Safe 37% / Mid 14%</td><td>51% (51-49)</td><td>2026-09-03</td></tr>
+<tr><td><strong>raky</strong></td><td>4500</td><td>raky</td><td>Ancient 3</td><td>Safe 95%</td><td>55% (55-45)</td><td>2026-09-02</td></tr>
+<tr><td><strong>boho</strong></td><td>5750</td><td>boho</td><td>Divine 3</td><td>Safe 61% / Off 37%</td><td>35% (35-65)</td><td>2026-09-03</td></tr>
+<tr><td><strong>tavern player</strong></td><td>4298</td><td>tavern player</td><td>Ancient 4</td><td>Off 89% / Safe 11%</td><td>47% (47-53)</td><td>2026-08-31</td></tr>
+<tr><td><strong>russian nightmare</strong></td><td>4000</td><td>russian nightmare</td><td>Legend 2</td><td>Mid 69% / Safe 31%</td><td>46% (46-54)</td><td>2026-09-03</td></tr>
+<tr><td><strong>Pebbles</strong> <em>(sub)</em></td><td>5750</td><td>pebbles</td><td>Immortal</td><td>Off 62% / Safe 31% / Mid 8%</td><td>52% (52-48)</td><td>2026-08-25</td></tr>
+</tbody></table></div>
+<h2>Joukkueen viimeaikaiset picksit</h2>
+<p>Kaikkien pelaajien viimeaikaiset ottelut yhdessä — todennäköisimmät bannikohteet:</p>
+<div class="tw"><table><thead><tr><th width="21.1%">Hero</th><th width="14.1%">Pelit</th><th width="16.2%">Voitot</th><th width="10.1%">WR%</th><th width="38.5%">Kuka pelaa</th></tr></thead><tbody>
+<tr><td>Windranger</td><td>29</td><td>11</td><td>38%</td><td>Hitsuri:D, Pebbles, raky, russian nightmare, tavern player</td></tr>
+<tr><td>Invoker</td><td>26</td><td>13</td><td>50%</td><td>Hitsuri:D, russian nightmare, tavern player</td></tr>
+<tr><td>Ember Spirit</td><td>22</td><td>10</td><td>45%</td><td>Hitsuri:D, russian nightmare, tavern player</td></tr>
+<tr><td>Tiny</td><td>22</td><td>11</td><td>50%</td><td>Hitsuri:D, boho, raky, russian nightmare, tavern player</td></tr>
+<tr><td>Earth Spirit</td><td>22</td><td>13</td><td>59%</td><td>tavern player</td></tr>
+<tr><td>Ogre Magi</td><td>16</td><td>9</td><td>56%</td><td>Hitsuri:D, Pebbles, boho, raky</td></tr>
+<tr><td>Pudge</td><td>15</td><td>8</td><td>53%</td><td>Hitsuri:D, Pebbles, raky, tavern player</td></tr>
+<tr><td>Centaur Warrunner</td><td>15</td><td>11</td><td>73%</td><td>Hitsuri:D, Pebbles, tavern player</td></tr>
+<tr><td>Nature's Prophet</td><td>14</td><td>2</td><td>14%</td><td>Hitsuri:D, Pebbles, raky, russian nightmare</td></tr>
+<tr><td>Jakiro</td><td>13</td><td>4</td><td>31%</td><td>Hitsuri:D, boho</td></tr>
+<tr><td>Lina</td><td>13</td><td>10</td><td>77%</td><td>Hitsuri:D, Pebbles, raky, russian nightmare, tavern player</td></tr>
+<tr><td>Shadow Fiend</td><td>12</td><td>4</td><td>33%</td><td>Hitsuri:D, Pebbles, raky, russian nightmare, tavern player</td></tr>
+</tbody></table></div>
+<h2>Pelaajat</h2>
+<h3>Hitsuri:D</h3>
+<ul>
+<li>Steam-nimi <strong>BUMTSIBUM :D :D</strong> · Listan MMR ~3639 · medal Ancient 2 · Steam ID <code>STEAM_0:0:49457863</code> · <a href="https://www.opendota.com/players/98915726">OpenDota-profiili</a></li>
+<li>Kaikkien aikojen W/L: <strong>2115V / 2105H</strong> (50%)</li>
+<li>Viimeiset 100 ottelua: <strong>51V / 49H (51% WR)</strong> · viimeisin peli 2026-09-03 · <em>ei turbo-otteluita</em></li>
+<li>Pelipaikat: Off 49% / Safe 37% / Mid 14%</li>
+</ul>
+<p><strong>Viimeaikaiset heropit</strong> (viim. 100 ottelua)</p>
+<div class="tw"><table><thead><tr><th width="44.4%">Hero</th><th width="19.4%">Pelit</th><th width="22.2%">Voitot</th><th width="13.9%">WR%</th></tr></thead><tbody>
+<tr><td>Invoker</td><td>20</td><td>12</td><td>60%</td></tr>
+<tr><td>Windranger</td><td>11</td><td>5</td><td>45%</td></tr>
+<tr><td>Pudge</td><td>9</td><td>6</td><td>67%</td></tr>
+<tr><td>Magnus</td><td>4</td><td>3</td><td>75%</td></tr>
+<tr><td>Hoodwink</td><td>4</td><td>3</td><td>75%</td></tr>
+<tr><td>Nature's Prophet</td><td>3</td><td>1</td><td>33%</td></tr>
+</tbody></table></div>
+<p><strong>Top-heropit, kaikki ajat</strong> (väh. 3 peliä)</p>
+<div class="tw"><table><thead><tr><th width="44.4%">Hero</th><th width="19.4%">Pelit</th><th width="22.2%">Voitot</th><th width="13.9%">WR%</th></tr></thead><tbody>
+<tr><td>Invoker</td><td>325</td><td>152</td><td>47%</td></tr>
+<tr><td>Ogre Magi</td><td>225</td><td>147</td><td>65%</td></tr>
+<tr><td>Pudge</td><td>195</td><td>104</td><td>53%</td></tr>
+<tr><td>Phantom Assassin</td><td>172</td><td>91</td><td>53%</td></tr>
+<tr><td>Windranger</td><td>148</td><td>87</td><td>59%</td></tr>
+<tr><td>Sniper</td><td>114</td><td>62</td><td>54%</td></tr>
+<tr><td>Queen of Pain</td><td>88</td><td>48</td><td>55%</td></tr>
+<tr><td>Spirit Breaker</td><td>87</td><td>42</td><td>48%</td></tr>
+</tbody></table></div>
+<h3>raky</h3>
+<ul>
+<li>Steam-nimi <strong>raky</strong> · Listan MMR ~4500 · medal Ancient 3 · Steam ID <code>STEAM_0:1:26272133</code> · <a href="https://www.opendota.com/players/52544267">OpenDota-profiili</a></li>
+<li>Kaikkien aikojen W/L: <strong>672V / 641H</strong> (51%)</li>
+<li>Viimeiset 100 ottelua: <strong>55V / 45H (55% WR)</strong> · viimeisin peli 2026-09-02 · <em>ei turbo-otteluita</em></li>
+<li>Pelipaikat: Safe 95%</li>
+</ul>
+<p><strong>Viimeaikaiset heropit</strong> (viim. 100 ottelua)</p>
+<div class="tw"><table><thead><tr><th width="44.4%">Hero</th><th width="19.4%">Pelit</th><th width="22.2%">Voitot</th><th width="13.9%">WR%</th></tr></thead><tbody>
+<tr><td>Tiny</td><td>14</td><td>7</td><td>50%</td></tr>
+<tr><td>Luna</td><td>7</td><td>6</td><td>86%</td></tr>
+<tr><td>Templar Assassin</td><td>6</td><td>3</td><td>50%</td></tr>
+<tr><td>Troll Warlord</td><td>6</td><td>4</td><td>67%</td></tr>
+<tr><td>Juggernaut</td><td>6</td><td>4</td><td>67%</td></tr>
+<tr><td>Dragon Knight</td><td>5</td><td>2</td><td>40%</td></tr>
+</tbody></table></div>
+<p><strong>Top-heropit, kaikki ajat</strong> (väh. 3 peliä)</p>
+<div class="tw"><table><thead><tr><th width="44.4%">Hero</th><th width="19.4%">Pelit</th><th width="22.2%">Voitot</th><th width="13.9%">WR%</th></tr></thead><tbody>
+<tr><td>Drow Ranger</td><td>107</td><td>59</td><td>55%</td></tr>
+<tr><td>Juggernaut</td><td>98</td><td>63</td><td>64%</td></tr>
+<tr><td>Ursa</td><td>87</td><td>50</td><td>57%</td></tr>
+<tr><td>Sven</td><td>83</td><td>50</td><td>60%</td></tr>
+<tr><td>Shadow Fiend</td><td>83</td><td>48</td><td>58%</td></tr>
+<tr><td>Luna</td><td>65</td><td>32</td><td>49%</td></tr>
+<tr><td>Troll Warlord</td><td>54</td><td>34</td><td>63%</td></tr>
+<tr><td>Phantom Assassin</td><td>53</td><td>25</td><td>47%</td></tr>
+</tbody></table></div>
+<h3>boho</h3>
+<ul>
+<li>Steam-nimi <strong>boho</strong> · Listan MMR ~5750 · medal Divine 3 · Steam ID <code>STEAM_0:1:43830014</code> · <a href="https://www.opendota.com/players/87660029">OpenDota-profiili</a></li>
+<li>Kaikkien aikojen W/L: <strong>3681V / 3675H</strong> (50%)</li>
+<li>Viimeiset 100 ottelua: <strong>35V / 65H (35% WR)</strong> · viimeisin peli 2026-09-03 · <em>ei turbo-otteluita</em></li>
+<li>Pelipaikat: Safe 61% / Off 37%</li>
+</ul>
+<p><strong>Viimeaikaiset heropit</strong> (viim. 100 ottelua)</p>
+<div class="tw"><table><thead><tr><th width="35.5%">Hero</th><th width="22.6%">Pelit</th><th width="25.8%">Voitot</th><th width="16.1%">WR%</th></tr></thead><tbody>
+<tr><td>Jakiro</td><td>12</td><td>3</td><td>25%</td></tr>
+<tr><td>Ogre Magi</td><td>11</td><td>5</td><td>45%</td></tr>
+<tr><td>Omniknight</td><td>8</td><td>3</td><td>38%</td></tr>
+<tr><td>Elder Titan</td><td>7</td><td>4</td><td>57%</td></tr>
+<tr><td>Naga Siren</td><td>5</td><td>0</td><td>0%</td></tr>
+<tr><td>Anti-Mage</td><td>4</td><td>2</td><td>50%</td></tr>
+</tbody></table></div>
+<p><strong>Top-heropit, kaikki ajat</strong> (väh. 3 peliä)</p>
+<div class="tw"><table><thead><tr><th width="41.2%">Hero</th><th width="20.6%">Pelit</th><th width="23.5%">Voitot</th><th width="14.7%">WR%</th></tr></thead><tbody>
+<tr><td>Omniknight</td><td>297</td><td>168</td><td>57%</td></tr>
+<tr><td>Crystal Maiden</td><td>283</td><td>165</td><td>58%</td></tr>
+<tr><td>Elder Titan</td><td>280</td><td>158</td><td>56%</td></tr>
+<tr><td>Pudge</td><td>255</td><td>126</td><td>49%</td></tr>
+<tr><td>Lich</td><td>237</td><td>144</td><td>61%</td></tr>
+<tr><td>Disruptor</td><td>236</td><td>108</td><td>46%</td></tr>
+<tr><td>Jakiro</td><td>227</td><td>132</td><td>58%</td></tr>
+<tr><td>Bane</td><td>205</td><td>120</td><td>59%</td></tr>
+</tbody></table></div>
+<h3>tavern player</h3>
+<ul>
+<li>Steam-nimi <strong>tavern player</strong> · Listan MMR ~4298 · medal Ancient 4 · Steam ID <code>STEAM_0:1:53807710</code> · <a href="https://www.opendota.com/players/107615421">OpenDota-profiili</a></li>
+<li>Kaikkien aikojen W/L: <strong>55V / 67H</strong> (45%)</li>
+<li>Viimeiset 100 ottelua: <strong>47V / 53H (47% WR)</strong> · viimeisin peli 2026-08-31 · <em>ei turbo-otteluita</em></li>
+<li>Pelipaikat: Off 89% / Safe 11%</li>
+</ul>
+<p><strong>Viimeaikaiset heropit</strong> (viim. 100 ottelua)</p>
+<div class="tw"><table><thead><tr><th width="45.9%">Hero</th><th width="18.9%">Pelit</th><th width="21.6%">Voitot</th><th width="13.5%">WR%</th></tr></thead><tbody>
+<tr><td>Earth Spirit</td><td>22</td><td>13</td><td>59%</td></tr>
+<tr><td>Windranger</td><td>12</td><td>4</td><td>33%</td></tr>
+<tr><td>Centaur Warrunner</td><td>8</td><td>6</td><td>75%</td></tr>
+<tr><td>Tidehunter</td><td>4</td><td>2</td><td>50%</td></tr>
+<tr><td>Viper</td><td>4</td><td>1</td><td>25%</td></tr>
+<tr><td>Invoker</td><td>3</td><td>1</td><td>33%</td></tr>
+</tbody></table></div>
+<p><strong>Top-heropit, kaikki ajat</strong> (väh. 3 peliä)</p>
+<div class="tw"><table><thead><tr><th width="45.9%">Hero</th><th width="18.9%">Pelit</th><th width="21.6%">Voitot</th><th width="13.5%">WR%</th></tr></thead><tbody>
+<tr><td>Earth Spirit</td><td>22</td><td>13</td><td>59%</td></tr>
+<tr><td>Windranger</td><td>12</td><td>4</td><td>33%</td></tr>
+<tr><td>Centaur Warrunner</td><td>9</td><td>7</td><td>78%</td></tr>
+<tr><td>Tidehunter</td><td>5</td><td>2</td><td>40%</td></tr>
+<tr><td>Magnus</td><td>4</td><td>2</td><td>50%</td></tr>
+<tr><td>Viper</td><td>4</td><td>1</td><td>25%</td></tr>
+<tr><td>Primal Beast</td><td>4</td><td>1</td><td>25%</td></tr>
+<tr><td>Sand King</td><td>3</td><td>3</td><td>100%</td></tr>
+</tbody></table></div>
+<h3>russian nightmare</h3>
+<ul>
+<li>Steam-nimi <strong>russian nightmare</strong> · Listan MMR ~4000 · medal Legend 2 · Steam ID <code>STEAM_0:0:72782292</code> · <a href="https://www.opendota.com/players/145564584">OpenDota-profiili</a></li>
+<li>Kaikkien aikojen W/L: <strong>265V / 271H</strong> (49%)</li>
+<li>Viimeiset 100 ottelua: <strong>46V / 54H (46% WR)</strong> · viimeisin peli 2026-09-03 · <em>ei turbo-otteluita</em></li>
+<li>Pelipaikat: Mid 69% / Safe 31%</li>
+</ul>
+<p><strong>Viimeaikaiset heropit</strong> (viim. 100 ottelua)</p>
+<div class="tw"><table><thead><tr><th width="44.4%">Hero</th><th width="19.4%">Pelit</th><th width="22.2%">Voitot</th><th width="13.9%">WR%</th></tr></thead><tbody>
+<tr><td>Ember Spirit</td><td>20</td><td>10</td><td>50%</td></tr>
+<tr><td>Void Spirit</td><td>6</td><td>4</td><td>67%</td></tr>
+<tr><td>Nature's Prophet</td><td>6</td><td>1</td><td>17%</td></tr>
+<tr><td>Pangolier</td><td>6</td><td>4</td><td>67%</td></tr>
+<tr><td>Lina</td><td>5</td><td>4</td><td>80%</td></tr>
+<tr><td>Sniper</td><td>5</td><td>1</td><td>20%</td></tr>
+</tbody></table></div>
+<p><strong>Top-heropit, kaikki ajat</strong> (väh. 3 peliä)</p>
+<div class="tw"><table><thead><tr><th width="37.5%">Hero</th><th width="21.9%">Pelit</th><th width="25.0%">Voitot</th><th width="15.6%">WR%</th></tr></thead><tbody>
+<tr><td>Ember Spirit</td><td>86</td><td>43</td><td>50%</td></tr>
+<tr><td>Void Spirit</td><td>43</td><td>21</td><td>49%</td></tr>
+<tr><td>Tinker</td><td>40</td><td>23</td><td>57%</td></tr>
+<tr><td>Tiny</td><td>24</td><td>14</td><td>58%</td></tr>
+<tr><td>Slark</td><td>23</td><td>14</td><td>61%</td></tr>
+<tr><td>Lina</td><td>23</td><td>12</td><td>52%</td></tr>
+<tr><td>Sniper</td><td>23</td><td>11</td><td>48%</td></tr>
+<tr><td>Zeus</td><td>22</td><td>15</td><td>68%</td></tr>
+</tbody></table></div>
+<h3>Pebbles <em>(varapelaaja)</em></h3>
+<ul>
+<li>Steam-nimi <strong>pebbles</strong> · Listan MMR ~5750 · medal Immortal · Steam ID <code>STEAM_0:1:47768259</code> · <a href="https://www.opendota.com/players/95536519">OpenDota-profiili</a></li>
+<li>Kaikkien aikojen W/L: <strong>255V / 258H</strong> (50%)</li>
+<li>Viimeiset 100 ottelua: <strong>52V / 48H (52% WR)</strong> · viimeisin peli 2026-08-25 · <em>ei turbo-otteluita</em></li>
+<li>Pelipaikat: Off 62% / Safe 31% / Mid 8%</li>
+</ul>
+<p><strong>Viimeaikaiset heropit</strong> (viim. 100 ottelua)</p>
+<div class="tw"><table><thead><tr><th width="35.5%">Hero</th><th width="22.6%">Pelit</th><th width="25.8%">Voitot</th><th width="16.1%">WR%</th></tr></thead><tbody>
+<tr><td>Dawnbreaker</td><td>6</td><td>4</td><td>67%</td></tr>
+<tr><td>Doom</td><td>5</td><td>1</td><td>20%</td></tr>
+<tr><td>Tidehunter</td><td>5</td><td>2</td><td>40%</td></tr>
+<tr><td>Underlord</td><td>5</td><td>3</td><td>60%</td></tr>
+<tr><td>Magnus</td><td>5</td><td>2</td><td>40%</td></tr>
+<tr><td>Slardar</td><td>4</td><td>2</td><td>50%</td></tr>
+</tbody></table></div>
+<p><strong>Top-heropit, kaikki ajat</strong> (väh. 3 peliä)</p>
+<div class="tw"><table><thead><tr><th width="45.9%">Hero</th><th width="18.9%">Pelit</th><th width="21.6%">Voitot</th><th width="13.5%">WR%</th></tr></thead><tbody>
+<tr><td>Axe</td><td>23</td><td>12</td><td>52%</td></tr>
+<tr><td>Dark Seer</td><td>22</td><td>15</td><td>68%</td></tr>
+<tr><td>Nyx Assassin</td><td>14</td><td>9</td><td>64%</td></tr>
+<tr><td>Enchantress</td><td>13</td><td>8</td><td>62%</td></tr>
+<tr><td>Magnus</td><td>13</td><td>7</td><td>54%</td></tr>
+<tr><td>Centaur Warrunner</td><td>13</td><td>6</td><td>46%</td></tr>
+<tr><td>Doom</td><td>13</td><td>5</td><td>38%</td></tr>
+<tr><td>Timbersaw</td><td>12</td><td>7</td><td>58%</td></tr>
+</tbody></table></div>
+<h2>Raakadata</h2><p>Tämän joukkueen käsittelemätön OpenDota-data: <a href="https://github.com/tenderi/roshanin-pelikirja/tree/main/scouting-results/liminka-demons/raw">scouting-results/liminka-demons/raw</a></p>
+</main>
+<footer>Generoitu 2026-09-04 · data: <a href="https://www.opendota.com/">OpenDota</a> · <a href="https://github.com/tenderi/roshanin-pelikirja">lähdekoodi ja raakadata GitHubissa</a></footer>
+</body>
+</html>
