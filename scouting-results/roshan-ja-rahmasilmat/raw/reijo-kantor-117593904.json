@@ -1,0 +1,1364 @@
+{
+ "haettu": "2026-09-03",
+ "joukkue": "Roshan ja Rähmäsilmät",
+ "nick": "Reijo (Kantor)",
+ "mmr_listalla": 4844,
+ "varapelaaja": false,
+ "steam_id": "STEAM_0:0:58796952",
+ "account_id": 117593904,
+ "virhe": null,
+ "opendota": {
+  "profile": {
+   "profile": {
+    "account_id": 117593904,
+    "personaname": "Reijo",
+    "name": null,
+    "plus": false,
+    "cheese": 0,
+    "steamid": "76561198077859632",
+    "avatar": "https://avatars.steamstatic.com/2f51b5e5bb760922b3194eb0ea83aa30b75e1deb.jpg",
+    "avatarmedium": "https://avatars.steamstatic.com/2f51b5e5bb760922b3194eb0ea83aa30b75e1deb_medium.jpg",
+    "avatarfull": "https://avatars.steamstatic.com/2f51b5e5bb760922b3194eb0ea83aa30b75e1deb_full.jpg",
+    "profileurl": "https://steamcommunity.com/profiles/76561198077859632/",
+    "last_login": "2015-07-31T00:18:11.409Z",
+    "loccountrycode": null,
+    "status": null,
+    "fh_unavailable": true,
+    "is_contributor": false,
+    "is_subscriber": false
+   },
+   "rank_tier": 72,
+   "leaderboard_rank": null,
+   "computed_mmr": 4137.5,
+   "computed_mmr_turbo": null,
+   "aliases": [
+    {
+     "personaname": "30cm Reijo",
+     "name_since": "2023-11-15T20:16:23.000Z"
+    },
+    {
+     "personaname": "BOT RAUNO",
+     "name_since": "2019-07-28T13:06:14.000Z"
+    },
+    {
+     "personaname": "ChoboTheGenius",
+     "name_since": "2022-05-23T19:45:25.000Z"
+    },
+    {
+     "personaname": "Gandoo",
+     "name_since": "2022-04-01T23:29:49.000Z"
+    },
+    {
+     "personaname": "kantor",
+     "name_since": "2019-07-28T13:06:54.000Z"
+    },
+    {
+     "personaname": "Puotilan Pinochet",
+     "name_since": "2021-07-30T18:34:57.000Z"
+    },
+    {
+     "personaname": "Reijo",
+     "name_since": "2023-11-15T21:00:30.000Z"
+    },
+    {
+     "personaname": "why ruskies can play dota?",
+     "name_since": "2022-07-12T01:50:00.000Z"
+    },
+    {
+     "personaname": "Why they let russian criminals i",
+     "name_since": "2022-07-12T01:49:30.000Z"
+    },
+    {
+     "personaname": "xddd",
+     "name_since": "2023-09-09T05:32:40.000Z"
+    }
+   ]
+  },
+  "wl": {
+   "win": 0,
+   "lose": 0
+  },
+  "heroes": [
+   {
+    "hero_id": 1,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 2,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 3,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 4,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 5,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 6,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 7,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 8,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 9,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 10,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 11,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 12,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 13,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 14,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 15,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 16,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 17,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 18,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 19,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 20,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 21,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 22,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 23,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 25,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 26,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 27,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 28,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 29,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 30,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 31,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 32,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 33,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 34,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 35,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 36,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 37,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 38,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 39,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 40,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 41,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 42,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 43,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 44,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 45,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 46,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 47,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 48,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 49,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 50,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 51,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 52,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 53,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 54,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 55,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 56,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 57,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 58,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 59,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 60,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 61,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 62,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 63,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 64,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 65,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 66,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 67,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 68,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 69,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 70,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 71,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 72,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 73,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 74,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 75,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 76,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 77,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 78,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 79,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 80,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 81,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 82,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 83,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 84,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 85,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 86,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 87,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 88,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 89,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 90,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 91,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 92,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 93,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 94,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 95,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 96,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 97,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 98,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 99,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 100,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 101,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 102,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 103,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 104,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 105,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 106,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 107,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 108,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 109,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 110,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 111,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 112,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 113,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 114,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 119,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 120,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 121,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 123,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 126,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 128,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 129,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 131,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 135,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 136,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 137,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 138,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 145,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   },
+   {
+    "hero_id": 155,
+    "last_played": 0,
+    "games": 0,
+    "win": 0,
+    "with_games": 0,
+    "with_win": 0,
+    "against_games": 0,
+    "against_win": 0
+   }
+  ],
+  "matches": [],
+  "counts": {
+   "leaver_status": {},
+   "game_mode": {},
+   "lobby_type": {},
+   "lane_role": {},
+   "region": {},
+   "patch": {},
+   "is_radiant": {}
+  }
+ }
+}
