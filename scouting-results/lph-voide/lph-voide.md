@@ -34,22 +34,22 @@ Bannit vastustajan uhkaindeksin mukaan, pickit oman joukkueen heropoolista. Uhka
 | **Snapfire** | 70 | tenderi 9, Handels 5, tossu 3, Osmo –/27 | 49% | +1,0 pp | Witch Doctor +4,5 pp, Clockwerk +2,6 pp |
 | **Slardar** | 69 | tenderi 6, Handels 4, Osmo 1, tossu –/59 | 55% | +0,9 pp | Warlock +2,9 pp, Ogre Magi +2,8 pp |
 | **Treant Protector** | 69 | Handels –/89, tenderi –/35, Osmo 1, tossu –/17 | 57% | +4,3 pp | Jakiro +6,8 pp, Warlock +6,1 pp |
-| **Keeper of the Light** | 69 | Handels –/104, tossu 8, Osmo –/32 | 50% | +2,1 pp | Warlock +6,5 pp, Ringmaster +4,1 pp |
 | **Pangolier** | 66 | Handels 8, tossu 12, Osmo –/67, tenderi –/44 | 52% | -0,8 pp | Jakiro +4,1 pp, Ringmaster +1,5 pp |
 | **Venomancer** | 64 | Handels –/101, Osmo –/53, tossu –/26, tenderi 2 | 53% | +2,0 pp | Warlock +4,1 pp, Dawnbreaker +4,1 pp |
 | **Dazzle** | 63 | Handels –/103, Osmo –/59, tossu –/43, tenderi –/36 | 53% | +2,2 pp | Warlock +4,3 pp, Jakiro +3,9 pp |
 | **Lifestealer** | 62 | Osmo 2, Handels 2, tossu 1 | 52% | +1,4 pp | Witch Doctor +4,4 pp, Warlock +3,6 pp |
 | **Bane** | 62 | Handels 2, tossu –/32, Osmo –/25, tenderi –/19 | 50% | +2,1 pp | Dawnbreaker +4,5 pp, Warlock +3,6 pp |
 | **Alchemist** | 61 | tossu –/71, Osmo –/42, Handels –/41, tenderi –/20 | 48% | +2,5 pp | Ringmaster +5,3 pp, Undying +3,5 pp |
+| **Invoker** | 61 | tossu 12, Osmo –/133, Handels –/59 | 50% | +0,4 pp | Ringmaster +4,5 pp, Necrophos +2,4 pp |
 
 ### Pelaajakohtaisesti
 
 Kunkin oman pelaajan omasta poolista parhaat vaihtoehdot tätä vastustajaa vastaan:
 
-- **Handels**: **Bane** (154 peliä, 51%, +2,1 pp) · **Ember Spirit** (221 peliä, 52%, +1,8 pp) · **Faceless Void** (140 peliä, 61%, +0,2 pp)
-- **Osmo**: **Pudge** (141 peliä, 51%, +0,3 pp) · **Legion Commander** (136 peliä, 59%, -0,1 pp) · **Lifestealer** (104 peliä, 58%, +1,4 pp)
-- **tenderi**: **Slardar** (319 peliä, 52%, +0,9 pp) · **Nyx Assassin** (166 peliä, 49%, +0,5 pp) · **Dawnbreaker** (338 peliä, 54%, +0,7 pp)
-- **tossu**: **Ember Spirit** (160 peliä, 54%, +1,8 pp) · **Invoker** (726 peliä, 52%, +0,4 pp) · **Elder Titan** (163 peliä, 58%)
+- **Handels**: **Faceless Void** (140 peliä, 61%, +0,2 pp) · **Ember Spirit** (221 peliä, 52%, +1,8 pp) · **Pangolier** (273 peliä, 52%, -0,8 pp)
+- **Osmo**: **Legion Commander** (136 peliä, 59%, -0,1 pp) · **Lifestealer** (104 peliä, 58%, +1,4 pp) · **Shadow Fiend** (113 peliä, 52%, +0,5 pp)
+- **tenderi**: **Snapfire** (128 peliä, 51%, +1,0 pp) · **Sand King** (281 peliä, 52%, -0,8 pp) · **Enchantress** (95 peliä, 42%, +1,4 pp)
+- **tossu**: **Ember Spirit** (160 peliä, 54%, +1,8 pp) · **Invoker** (726 peliä, 52%, +0,4 pp) · **Outworld Destroyer** (290 peliä, 56%, -1,6 pp)
 
 ### Kiistellyt heropit
 
@@ -60,6 +60,7 @@ Näitä haluavat molemmat. Jos et banni, varaudu siihen että vastustaja ottaa n
 | **Dazzle** | Handels –/103, Osmo –/59, tossu –/43, tenderi –/36 | Seinis 25, Locke –/131, Muffinssi 4, Jooga –/70 | 46 |
 | **Clockwerk** | tenderi 5, Handels 3, Osmo 2, tossu –/35 | Jooga 7, Keikari (sub) –/212, Locke 3, Seinis –/23 | 39 |
 | **Dawnbreaker** | tenderi –/338, Handels 3, Osmo 3, tossu –/20 | Zonneb 31, Locke 2, Jooga 3 | 50 |
+| **Rubick** | Handels –/263, tossu 3, Osmo –/68, tenderi 1 | Keikari (sub) 24, Jooga –/83, Locke –/38, Seinis –/19 | 41 |
 
 ### Varo näitä ensimmäisillä pickeillä
 
@@ -75,7 +76,7 @@ Oman poolin heropit jotka pärjäävät heikoiten juuri tätä vastustajaa vasta
 
 ## Rosteri
 
-| Pelaaja | MMR | Steam-nimi | Medal | Pelipaikat | Muoto | Viim. peli |
+| Pelaaja | MMR | Steam-nimi | Medal | Linjat | Muoto | Viim. peli |
 |---|---|---|---|---|---|---|
 | **Seinis** | 5434 | Seinis | Divine 5 | Mid 70% / Off 14% / Safe 12% | 46% (46-54) | 2026-09-02 |
 | **Muffinssi** | 4064 | Muffinssi | Ancient 1 | Safe 56% / Off 39% / Mid 5% | 45% (45-55) | 2026-09-03 |

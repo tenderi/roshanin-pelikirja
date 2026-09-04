@@ -40,24 +40,24 @@ Bannit vastustajan uhkaindeksin mukaan, pickit oman joukkueen heropoolista. Uhka
 | **Earth Spirit** | 88 | tossu 22, Handels –/93, Osmo 12 | 48% | +0,8 pp | Clockwerk +2,2 pp, Dawnbreaker +1,7 pp |
 | **Ember Spirit** | 78 | tossu 10, Handels 1 | 53% | +2,8 pp | Axe +6,1 pp, Dark Seer +4,9 pp |
 | **Snapfire** | 75 | tenderi 9, Handels 5, tossu 3, Osmo –/27 | 49% | +1,7 pp | Underlord +3,7 pp, Zeus +2,7 pp |
-| **Keeper of the Light** | 71 | Handels –/104, tossu 8, Osmo –/32 | 50% | +2,7 pp | Clockwerk +3,8 pp, Axe +3,5 pp |
 | **Treant Protector** | 69 | Handels –/89, tenderi –/35, Osmo 1, tossu –/17 | 57% | +4,5 pp | Underlord +7,7 pp, Dawnbreaker +6,0 pp |
 | **Earthshaker** | 68 | Handels 1, tossu –/80, Osmo 1, tenderi 8 | 54% | +1,2 pp | Wraith King +4,1 pp, Axe +3,5 pp |
 | **Slardar** | 65 | tenderi 6, Handels 4, Osmo 1, tossu –/59 | 55% | +0,2 pp | Underlord +5,3 pp, Drow Ranger +3,2 pp |
 | **Venomancer** | 65 | Handels –/101, Osmo –/53, tossu –/26, tenderi 2 | 53% | +2,1 pp | Dawnbreaker +4,1 pp, Clockwerk +3,8 pp |
 | **Bane** | 65 | Handels 2, tossu –/32, Osmo –/25, tenderi –/19 | 50% | +3,8 pp | Axe +7,6 pp, Snapfire +4,9 pp |
-| **Bounty Hunter** | 62 | Handels –/104, Osmo –/63, tossu –/25 | 50% | +4,1 pp | Snapfire +4,1 pp |
-| **Mirana** | 61 | Handels –/134, Osmo –/91, tossu –/71 | 48% | +2,5 pp | Underlord +4,5 pp, Undying +3,7 pp |
 | **Lina** | 60 | Handels 3, tossu 6, Osmo 2, tenderi 1 | 51% | +0,1 pp | Underlord +2,5 pp, Undying +1,7 pp |
+| **Enchantress** | 60 | tenderi 18, Handels –/39 | 43% | +1,8 pp | Earthshaker +3,2 pp, Clockwerk +2,8 pp |
+| **Pangolier** | 60 | Handels 8, tossu 12, Osmo –/67, tenderi –/44 | 52% | -1,7 pp | Underlord +1,1 pp, Undying +1,0 pp |
+| **Alchemist** | 60 | tossu –/71, Osmo –/42, Handels –/41, tenderi –/20 | 48% | +2,3 pp | Undying +3,5 pp, Dawnbreaker +3,2 pp |
 
 ### Pelaajakohtaisesti
 
 Kunkin oman pelaajan omasta poolista parhaat vaihtoehdot tätä vastustajaa vastaan:
 
-- **Handels**: **Earthshaker** (190 peliä, 59%, +1,2 pp) · **Ember Spirit** (221 peliä, 52%, +2,8 pp) · **Bane** (154 peliä, 51%, +3,8 pp)
-- **Osmo**: **Pudge** (141 peliä, 51%, +0,3 pp) · **Legion Commander** (136 peliä, 59%, -0,9 pp) · **Shadow Fiend** (113 peliä, 52%, +0,5 pp)
-- **tenderi**: **Slardar** (319 peliä, 52%, +0,2 pp) · **Snapfire** (128 peliä, 51%, +1,7 pp) · **Nyx Assassin** (166 peliä, 49%, -0,0 pp)
-- **tossu**: **Ember Spirit** (160 peliä, 54%, +2,8 pp) · **Invoker** (726 peliä, 52%, -0,5 pp) · **Elder Titan** (163 peliä, 58%)
+- **Handels**: **Ember Spirit** (221 peliä, 52%, +2,8 pp) · **Faceless Void** (140 peliä, 61%, -0,6 pp) · **Slardar** (130 peliä, 58%, +0,2 pp)
+- **Osmo**: **Legion Commander** (136 peliä, 59%, -0,9 pp) · **Shadow Fiend** (113 peliä, 52%, +0,5 pp) · **Lifestealer** (104 peliä, 58%, +0,6 pp)
+- **tenderi**: **Snapfire** (128 peliä, 51%, +1,7 pp) · **Enchantress** (95 peliä, 42%, +1,8 pp) · **Sand King** (281 peliä, 52%, -1,0 pp)
+- **tossu**: **Ember Spirit** (160 peliä, 54%, +2,8 pp) · **Invoker** (726 peliä, 52%, -0,5 pp) · **Outworld Destroyer** (290 peliä, 56%, -2,3 pp)
 
 ### Kiistellyt heropit
 
@@ -85,7 +85,7 @@ Oman poolin heropit jotka pärjäävät heikoiten juuri tätä vastustajaa vasta
 
 ## Rosteri
 
-| Pelaaja | MMR | Steam-nimi | Medal | Pelipaikat | Muoto | Viim. peli |
+| Pelaaja | MMR | Steam-nimi | Medal | Linjat | Muoto | Viim. peli |
 |---|---|---|---|---|---|---|
 | **Morality** | 5250 | Morality | Divine 3 | Off 38% / Safe 37% / Mid 23% | 47% (47-53) | 2026-09-01 |
 | **wAly** | 4674 | wAlydesu~ | Divine 1 | Off 44% / Safe 42% / Mid 13% | 55% (55-45) | 2026-08-31 |

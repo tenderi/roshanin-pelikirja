@@ -34,22 +34,22 @@ Bannit vastustajan uhkaindeksin mukaan, pickit oman joukkueen heropoolista. Uhka
 | **Pangolier** | 71 | Handels 8, tossu 12, Osmo –/67, tenderi –/44 | 52% | -0,1 pp | Lion +4,8 pp, Queen of Pain +4,6 pp |
 | **Ember Spirit** | 70 | tossu 10, Handels 1 | 53% | +1,4 pp | Windranger +5,5 pp, Queen of Pain +4,6 pp |
 | **Treant Protector** | 69 | Handels –/89, tenderi –/35, Osmo 1, tossu –/17 | 57% | +5,4 pp | Invoker +8,0 pp, Windranger +7,9 pp |
-| **Keeper of the Light** | 69 | Handels –/104, tossu 8, Osmo –/32 | 50% | +2,2 pp | Queen of Pain +7,1 pp, Phoenix +5,9 pp |
 | **Earthshaker** | 65 | Handels 1, tossu –/80, Osmo 1, tenderi 8 | 54% | +0,8 pp | Invoker +3,4 pp, Crystal Maiden +2,6 pp |
 | **Nyx Assassin** | 62 | tenderi 8, Handels –/141, Osmo –/92, tossu –/43 | 52% | +0,8 pp | Skywrath Mage +2,3 pp, Invoker +2,2 pp |
 | **Enigma** | 62 | Handels –/55, tossu –/44, tenderi 1, Osmo –/24 | 48% | +4,5 pp | Windranger +4,5 pp |
 | **Clockwerk** | 61 | tenderi 5, Handels 3, Osmo 2, tossu –/35 | 48% | +1,1 pp | Silencer +5,2 pp, Queen of Pain +3,3 pp |
 | **Faceless Void** | 60 | Handels 4, tossu 1, Osmo –/66 | 58% | +0,3 pp | Dawnbreaker +4,3 pp, Silencer +2,0 pp |
 | **Invoker** | 59 | tossu 12, Osmo –/133, Handels –/59 | 50% | +0,2 pp | Silencer +3,8 pp, Lich +3,0 pp |
+| **Bane** | 59 | Handels 2, tossu –/32, Osmo –/25, tenderi –/19 | 50% | +1,7 pp | Windranger +5,0 pp, Dawnbreaker +4,5 pp |
 
 ### Pelaajakohtaisesti
 
 Kunkin oman pelaajan omasta poolista parhaat vaihtoehdot tätä vastustajaa vastaan:
 
-- **Handels**: **Earthshaker** (190 peliä, 59%, +0,8 pp) · **Faceless Void** (140 peliä, 61%, +0,3 pp) · **Pangolier** (273 peliä, 52%, -0,1 pp)
-- **Osmo**: **Legion Commander** (136 peliä, 59%, +0,1 pp) · **Pudge** (141 peliä, 51%, +0,0 pp) · **Shadow Fiend** (113 peliä, 52%, +0,3 pp)
-- **tenderi**: **Nyx Assassin** (166 peliä, 49%, +0,8 pp) · **Snapfire** (128 peliä, 51%, +2,0 pp) · **Clockwerk** (168 peliä, 46%, +1,1 pp)
-- **tossu**: **Ember Spirit** (160 peliä, 54%, +1,4 pp) · **Invoker** (726 peliä, 52%, +0,2 pp) · **Elder Titan** (163 peliä, 58%)
+- **Handels**: **Faceless Void** (140 peliä, 61%, +0,3 pp) · **Pangolier** (273 peliä, 52%, -0,1 pp) · **Ember Spirit** (221 peliä, 52%, +1,4 pp)
+- **Osmo**: **Legion Commander** (136 peliä, 59%, +0,1 pp) · **Shadow Fiend** (113 peliä, 52%, +0,3 pp) · **Lifestealer** (104 peliä, 58%, +0,2 pp)
+- **tenderi**: **Snapfire** (128 peliä, 51%, +2,0 pp) · **Sand King** (281 peliä, 52%, -1,7 pp) · **Enchantress** (95 peliä, 42%, +0,7 pp)
+- **tossu**: **Ember Spirit** (160 peliä, 54%, +1,4 pp) · **Invoker** (726 peliä, 52%, +0,2 pp) · **Outworld Destroyer** (290 peliä, 56%, -0,8 pp)
 
 ### Kiistellyt heropit
 
@@ -76,7 +76,7 @@ Oman poolin heropit jotka pärjäävät heikoiten juuri tätä vastustajaa vasta
 
 ## Rosteri
 
-| Pelaaja | MMR | Steam-nimi | Medal | Pelipaikat | Muoto | Viim. peli |
+| Pelaaja | MMR | Steam-nimi | Medal | Linjat | Muoto | Viim. peli |
 |---|---|---|---|---|---|---|
 | **Tivi** | 4412 | Tivi | Ancient 4 | Safe 54% / Off 26% / Mid 16% | 60% (60-40) | 2026-09-01 |
 | **Baguettecat** | 4249 | Baguettecat | Ancient 5 | Safe 64% / Off 27% / Mid 8% | 47% (47-53) | 2026-09-03 |

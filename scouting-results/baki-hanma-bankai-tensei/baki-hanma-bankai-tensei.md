@@ -39,7 +39,6 @@ Bannit vastustajan uhkaindeksin mukaan, pickit oman joukkueen heropoolista. Uhka
 |---|---|---|---|---|---|
 | **Earth Spirit** | 86 | tossu 22, Handels –/93, Osmo 12 | 48% | +0,6 pp | Undying +1,0 pp, Tidehunter +0,5 pp |
 | **Ember Spirit** | 73 | tossu 10, Handels 1 | 53% | +1,8 pp | Tidehunter +6,8 pp, Witch Doctor +4,9 pp |
-| **Keeper of the Light** | 70 | Handels –/104, tossu 8, Osmo –/32 | 50% | +2,3 pp | Tidehunter +4,0 pp, Spirit Breaker +3,1 pp |
 | **Treant Protector** | 69 | Handels –/89, tenderi –/35, Osmo 1, tossu –/17 | 57% | +3,8 pp | Tidehunter +6,0 pp, Spirit Breaker +5,8 pp |
 | **Dark Seer** | 69 | Osmo 5, Handels 1, tossu –/59, tenderi –/36 | 50% | +3,8 pp | Terrorblade +3,8 pp |
 | **Snapfire** | 67 | tenderi 9, Handels 5, tossu 3, Osmo –/27 | 49% | +0,6 pp | Tidehunter +4,8 pp, Witch Doctor +4,5 pp |
@@ -49,14 +48,15 @@ Bannit vastustajan uhkaindeksin mukaan, pickit oman joukkueen heropoolista. Uhka
 | **Juggernaut** | 62 | Handels 1, tossu –/115, Osmo 1 | 54% | +1,7 pp | Zeus +7,3 pp, Tidehunter +1,6 pp |
 | **Nyx Assassin** | 62 | tenderi 8, Handels –/141, Osmo –/92, tossu –/43 | 52% | +0,8 pp | Tidehunter +2,8 pp, Spirit Breaker +1,8 pp |
 | **Alchemist** | 61 | tossu –/71, Osmo –/42, Handels –/41, tenderi –/20 | 48% | +2,7 pp | Undying +3,5 pp, Tidehunter +2,7 pp |
+| **Drow Ranger** | 61 | Handels 5, Osmo 1, tossu –/19 | 46% | +1,8 pp | Spirit Breaker +2,5 pp, Zeus +2,2 pp |
 
 ### Pelaajakohtaisesti
 
 Kunkin oman pelaajan omasta poolista parhaat vaihtoehdot tätä vastustajaa vastaan:
 
-- **Handels**: **Ember Spirit** (221 peliä, 52%, +1,8 pp) · **Juggernaut** (194 peliä, 52%, +1,7 pp) · **Earthshaker** (190 peliä, 59%, -0,0 pp)
-- **Osmo**: **Legion Commander** (136 peliä, 59%, +0,5 pp) · **Pudge** (141 peliä, 51%, +0,4 pp) · **Dark Seer** (88 peliä, 57%, +3,8 pp)
-- **tenderi**: **Brewmaster** (304 peliä, 59%, +0,9 pp) · **Nyx Assassin** (166 peliä, 49%, +0,8 pp) · **Slardar** (319 peliä, 52%, -0,5 pp)
+- **Handels**: **Ember Spirit** (221 peliä, 52%, +1,8 pp) · **Pangolier** (273 peliä, 52%, -1,3 pp) · **Centaur Warrunner** (132 peliä, 55%, +0,8 pp)
+- **Osmo**: **Legion Commander** (136 peliä, 59%, +0,5 pp) · **Shadow Fiend** (113 peliä, 52%, +0,5 pp) · **Lifestealer** (104 peliä, 58%, +0,7 pp)
+- **tenderi**: **Snapfire** (128 peliä, 51%, +0,6 pp) · **Sand King** (281 peliä, 52%, -1,2 pp) · **Grimstroke** (111 peliä, 53%, +1,8 pp)
 - **tossu**: **Ember Spirit** (160 peliä, 54%, +1,8 pp) · **Invoker** (726 peliä, 52%, +0,2 pp) · **Outworld Destroyer** (290 peliä, 56%)
 
 ### Kiistellyt heropit
@@ -66,6 +66,7 @@ Näitä haluavat molemmat. Jos et banni, varaudu siihen että vastustaja ottaa n
 | Hero | Meillä | Heillä | Heidän uhkansa |
 |---|---|---|---|
 | **Juggernaut** | Handels 1, tossu –/115, Osmo 1 | raato234 4, Uuzo –/56, moula 8, osQ –/65 | 42 |
+| **Spirit Breaker** | tenderi 5, Handels 1, Osmo –/52, tossu –/17 | Uuzo 4, Wilhart 1, osQ –/41, raato234 –/30 | 40 |
 
 ### Varo näitä ensimmäisillä pickeillä
 
@@ -81,7 +82,7 @@ Oman poolin heropit jotka pärjäävät heikoiten juuri tätä vastustajaa vasta
 
 ## Rosteri
 
-| Pelaaja | MMR | Steam-nimi | Medal | Pelipaikat | Muoto | Viim. peli |
+| Pelaaja | MMR | Steam-nimi | Medal | Linjat | Muoto | Viim. peli |
 |---|---|---|---|---|---|---|
 | **moula** | 5750 | moula | Divine 5 | Safe 77% / Off 18% | 47% (47-53) | 2026-08-31 |
 | **raato234** | 4000 | Just fucking better | Legend 2 | Safe 69% / Off 16% / Mid 14% | 45% (45-55) | 2026-09-01 |

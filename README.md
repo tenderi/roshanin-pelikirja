@@ -75,8 +75,25 @@ Nick | MMR | STEAM_0:0:12345678
 (Varapelaaja | MMR | STEAM_0:0:87654321)
 
 ## Oma joukkueeni (oma)
-...
+Nick | MMR | STEAM_0:0:11111111 | safelane
+Toinen | MMR | STEAM_0:0:22222222 | hard support
 ```
+
+### Pelipaikat
+
+Neljäs kenttä on valinnainen **pelipaikka**. Kelpaavat esimerkiksi `1`–`5`,
+`safelane`, `mid`, `offlane`, `soft support`, `hard support` sekä suomeksi
+`kantaja`, `keskilinja`, `kolmonen`, `tuki`.
+
+Kun pelipaikka on annettu, pelaajan pick-ehdotukset rajataan siihen sopiviin
+heropeihin: hard support ei saa ehdotukseksi offlane-corea vaikka olisi
+pelannut sitä paljon. Sopivuus päätellään OpenDotan roolitageista
+(`Carry`, `Support`, `Initiator`, ...) ja se näkyy taulukossa merkkinä
+✓ / ~ / ✗.
+
+Rajoitus kannattaa tietää: roolitagit erottavat corit tukipelaajista, mutta
+**eivät nelosta viitosesta** — molemmat ovat OpenDotalle vain "Support".
+Soft ja hard support saavat siis samat ehdotukset.
 
 ### Oman joukkueen valinta
 

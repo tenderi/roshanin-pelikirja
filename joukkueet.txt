@@ -14,11 +14,11 @@ Wilhart | 3372 | STEAM_0:0:49942901
 Uuzo | 4250 | STEAM_0:0:29004
 
 ## Roshan ja Rähmäsilmät (oma)
-Osmo | 6000 | STEAM_0:0:11072197
-Handels | 3652 | STEAM_0:0:44546057
-Reijo (Kantor) | 4844 | STEAM_0:0:58796952
-tenderi | 3666 | STEAM_0:0:12066016
-tossu | 5500 | steam_0:0:6448173
+Osmo | 6000 | STEAM_0:0:11072197 | safelane
+Handels | 3652 | STEAM_0:0:44546057 | offlane
+Reijo (Kantor) | 4844 | STEAM_0:0:58796952 | soft support
+tenderi | 3666 | STEAM_0:0:12066016 | hard support
+tossu | 5500 | steam_0:0:6448173 | mid
 
 ## Cherry Cherry Lady
 Tivi / 4412 / STEAM_0:1:64619766

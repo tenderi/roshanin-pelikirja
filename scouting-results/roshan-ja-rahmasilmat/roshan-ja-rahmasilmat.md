@@ -14,28 +14,30 @@ Jokaisesta pelaajasta: kaikkien aikojen top-8 heropoolia, viimeisimmät ottelut 
 
 Yleispätevät pickit koko turnauskenttää vastaan — nämä eivät ole sidottuja yhteen vastustajaan, vaan kelpaavat lähtökohdaksi ketä tahansa vastaan. Indeksi yhdistää kolme asiaa: pelaajan oman mukavuusalueen (paino 60%), heropin pärjäämisen kaikkien vastustajien uhkaheropeille (22%) ja heropin yleisen voittoprosentin tässä patchissa (18%).
 
-| Pelaaja | Hero | Rooli | Pelit | Oma WR | Patch-WR | Kenttäetu | Indeksi |
-|---|---|---|---|---|---|---|---|
-| **Osmo** | Legion Commander | Carry, Disabler | 136 | 59% | 52,9% | -0,3 pp | 87 |
-|  | Pudge | Disabler, Initiator | 141 | 51% | 50,9% | -0,0 pp | 81 |
-|  | Lifestealer | Carry, Durable | 104 | 58% | 53,4% | +0,8 pp | 72 |
-|  | Night Stalker | Carry, Initiator | 104 | 62% | 52,6% | +0,1 pp | 68 |
-|  | Vengeful Spirit | Support, Initiator | 129 | 47% | 52,6% | -0,9 pp | 66 |
-| **Handels** | Vengeful Spirit | Support, Initiator | 222 | 59% | 52,6% | -0,9 pp | 84 |
-|  | Earthshaker | Support, Initiator | 190 | 59% | 50,8% | +0,5 pp | 77 |
-|  | Juggernaut | Carry, Pusher | 194 | 52% | 52,8% | +0,8 pp | 74 |
-|  | Disruptor | Support, Disabler | 215 | 57% | 50,4% | -0,4 pp | 73 |
-|  | Bane | Support, Disabler | 154 | 51% | 50,8% | +1,3 pp | 71 |
-| **tenderi** | Nyx Assassin | Disabler, Nuker | 166 | 49% | 52,5% | +0,4 pp | 87 |
-|  | Brewmaster | Carry, Initiator | 304 | 59% | 51,7% | +0,1 pp | 83 |
-|  | Slardar | Carry, Durable | 319 | 52% | 49,6% | +0,1 pp | 79 |
-|  | Dawnbreaker | Carry, Durable | 338 | 54% | 52,2% | +0,3 pp | 79 |
-|  | Axe | Initiator, Durable | 199 | 54% | 49,4% | +0,0 pp | 75 |
-| **tossu** | Ember Spirit | Carry, Escape | 160 | 54% | 49,5% | +1,8 pp | 86 |
-|  | Invoker | Carry, Nuker | 726 | 52% | 51,1% | +0,2 pp | 84 |
-|  | Elder Titan | Initiator, Disabler | 163 | 58% | 52,9% | – | 83 |
-|  | Outworld Destroyer | Carry, Nuker | 290 | 56% | 54,0% | -2,3 pp | 67 |
-|  | Earth Spirit | Nuker, Escape | 111 | 44% | 50,5% | +0,2 pp | 62 |
+Ehdotukset on rajattu pelaajan **pelipaikkaan** sopiviin heropeihin: sarake *Sopii* on ✓ kun heropin roolitagit vastaavat pelipaikkaa, ~ kun ne sopivat osittain ja ✗ kun eivät sovi. Roolitagit erottavat corit tukipelaajista, mutta eivät nelosta viitosesta — soft ja hard support saavat siis saman kohtelun.
+
+| Pelaaja | Pelipaikka | Hero | Rooli | Sopii | Pelit | Oma WR | Patch-WR | Kenttäetu | Indeksi |
+|---|---|---|---|---|---|---|---|---|---|
+| **Osmo** | Safelane (1) | Legion Commander | Carry, Durable | ✓ | 136 | 59% | 52,9% | -0,3 pp | 87 |
+|  |  | Lifestealer | Carry, Durable | ✓ | 104 | 58% | 53,4% | +0,8 pp | 72 |
+|  |  | Night Stalker | Carry, Durable | ✓ | 104 | 62% | 52,6% | +0,1 pp | 68 |
+|  |  | Invoker | Carry, Escape | ✓ | 133 | 45% | 51,1% | +0,2 pp | 62 |
+|  |  | Shadow Fiend | Carry, Nuker | ✓ | 113 | 52% | 48,2% | +0,7 pp | 59 |
+| **Handels** | Offlane (3) | Faceless Void | Initiator, Durable | ✓ | 140 | 61% | 49,3% | -0,4 pp | 74 |
+|  |  | Ember Spirit | Initiator, Carry | ✓ | 221 | 52% | 49,5% | +1,8 pp | 74 |
+|  |  | Nyx Assassin | Initiator, Disabler | ✓ | 141 | 52% | 52,5% | +0,4 pp | 70 |
+|  |  | Pudge | Initiator, Durable | ✓ | 247 | 48% | 50,9% | -0,0 pp | 69 |
+|  |  | Slardar | Durable, Initiator | ✓ | 130 | 58% | 49,6% | +0,1 pp | 68 |
+| **tenderi** | Hard support (5) | Snapfire | Support, Nuker | ✓ | 128 | 51% | 49,2% | +2,0 pp | 74 |
+|  |  | Grimstroke | Support, Nuker | ✓ | 111 | 53% | 52,1% | -0,0 pp | 58 |
+|  |  | Sand King | Support, Disabler | ✓ | 281 | 52% | 48,0% | -1,7 pp | 58 |
+|  |  | Vengeful Spirit | Support, Disabler | ✓ | 111 | 53% | 52,6% | -0,9 pp | 55 |
+|  |  | Enchantress | Support, Disabler | ✓ | 95 | 42% | 47,6% | +0,8 pp | 50 |
+| **tossu** | Mid (2) | Ember Spirit | Carry, Escape | ✓ | 160 | 54% | 49,5% | +1,8 pp | 86 |
+|  |  | Invoker | Carry, Nuker | ✓ | 726 | 52% | 51,1% | +0,2 pp | 84 |
+|  |  | Outworld Destroyer | Carry, Nuker | ✓ | 290 | 56% | 54,0% | -2,3 pp | 67 |
+|  |  | Juggernaut | Carry, Escape | ✓ | 115 | 55% | 52,8% | +0,8 pp | 61 |
+|  |  | Elder Titan | Nuker, Initiator | ~ | 163 | 58% | 52,9% | – | 46 |
 
 **Pelit** on pelaajan omat pelit heropilla (tuoreet + kaikkien aikojen), **Oma WR** hänen voittoprosenttinsa sillä. **Patch-WR** on heropin voittoprosentti kaikilla pelaajilla bracketeissa Legend-Divine. **Kenttäetu** on painotettu voittoprosenttiero turnauksen uhkaheropeille ammattilaisdatassa.
 
@@ -60,13 +62,13 @@ Tämä on **oma joukkueesi**, joten draft-suunnitelmien sijaan tässä sama uhka
 
 ## Rosteri
 
-| Pelaaja | MMR | Steam-nimi | Medal | Pelipaikat | Muoto | Viim. peli |
-|---|---|---|---|---|---|---|
-| **Osmo** | 6000 | Osmo | Immortal | Safe 48% / Off 42% / Mid 10% | 50% (50-50) | 2026-09-02 |
-| **Handels** | 3652 | Handels | Legend 4 | Off 40% / Safe 32% / Mid 27% | 50% (50-50) | 2026-09-02 |
-| **Reijo (Kantor)** | 4844 | Reijo | Divine 2 | – | – | – |
-| **tenderi** | 3666 | tenderi | Legend 5 | Off 68% / Safe 24% / Mid 8% | 49% (49-51) | 2026-09-03 |
-| **tossu** | 5500 | tossu | Divine 4 | Mid 56% / Off 22% / Safe 22% | 54% (54-46) | 2026-09-01 |
+| Pelaaja | MMR | Pelipaikka | Steam-nimi | Medal | Linjat | Muoto | Viim. peli |
+|---|---|---|---|---|---|---|---|
+| **Osmo** | 6000 | Safelane (1) | Osmo | Immortal | Safe 48% / Off 42% / Mid 10% | 50% (50-50) | 2026-09-02 |
+| **Handels** | 3652 | Offlane (3) | Handels | Legend 4 | Off 40% / Safe 32% / Mid 27% | 50% (50-50) | 2026-09-02 |
+| **Reijo (Kantor)** | 4844 | Soft support (4) | Reijo | Divine 2 | – | – | – |
+| **tenderi** | 3666 | Hard support (5) | tenderi | Legend 5 | Off 68% / Safe 24% / Mid 8% | 49% (49-51) | 2026-09-03 |
+| **tossu** | 5500 | Mid (2) | tossu | Divine 4 | Mid 56% / Off 22% / Safe 22% | 54% (54-46) | 2026-09-01 |
 
 ## Joukkueen viimeaikaiset picksit
 

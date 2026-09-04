@@ -48,16 +48,16 @@ Bannit vastustajan uhkaindeksin mukaan, pickit oman joukkueen heropoolista. Uhka
 | **Enigma** | 62 | Handels –/55, tossu –/44, tenderi 1, Osmo –/24 | 48% | +3,4 pp | Shadow Fiend +5,0 pp, Windranger +4,5 pp |
 | **Invoker** | 61 | tossu 12, Osmo –/133, Handels –/59 | 50% | +0,5 pp | Lina +4,2 pp, Lich +3,0 pp |
 | **Alchemist** | 61 | tossu –/71, Osmo –/42, Handels –/41, tenderi –/20 | 48% | +2,5 pp | Shadow Fiend +3,9 pp, Jakiro +3,0 pp |
-| **Keeper of the Light** | 61 | Handels –/104, tossu 8, Osmo –/32 | 50% | +1,0 pp | Lina +4,3 pp, Lich +3,2 pp |
+| **Earthshaker** | 60 | Handels 1, tossu –/80, Osmo 1, tenderi 8 | 54% | -0,0 pp | Invoker +3,4 pp, Crystal Maiden +2,6 pp |
 
 ### Pelaajakohtaisesti
 
 Kunkin oman pelaajan omasta poolista parhaat vaihtoehdot tätä vastustajaa vastaan:
 
-- **Handels**: **Vengeful Spirit** (222 peliä, 59%, -0,0 pp) · **Pangolier** (273 peliä, 52%, -0,3 pp) · **Earthshaker** (190 peliä, 59%, -0,0 pp)
-- **Osmo**: **Pudge** (141 peliä, 51%, +0,9 pp) · **Legion Commander** (136 peliä, 59%, +0,2 pp) · **Shadow Fiend** (113 peliä, 52%, +0,4 pp)
-- **tenderi**: **Nyx Assassin** (166 peliä, 49%, +1,1 pp) · **Slardar** (319 peliä, 52%, +0,1 pp) · **Brewmaster** (304 peliä, 59%, -0,0 pp)
-- **tossu**: **Ember Spirit** (160 peliä, 54%, +1,0 pp) · **Invoker** (726 peliä, 52%, +0,5 pp) · **Elder Titan** (163 peliä, 58%)
+- **Handels**: **Pangolier** (273 peliä, 52%, -0,3 pp) · **Faceless Void** (140 peliä, 61%, -0,5 pp) · **Ember Spirit** (221 peliä, 52%, +1,0 pp)
+- **Osmo**: **Legion Commander** (136 peliä, 59%, +0,2 pp) · **Shadow Fiend** (113 peliä, 52%, +0,4 pp) · **Lifestealer** (104 peliä, 58%, +0,5 pp)
+- **tenderi**: **Snapfire** (128 peliä, 51%, +1,2 pp) · **Sand King** (281 peliä, 52%, -0,8 pp) · **Enchantress** (95 peliä, 42%, +0,7 pp)
+- **tossu**: **Ember Spirit** (160 peliä, 54%, +1,0 pp) · **Invoker** (726 peliä, 52%, +0,5 pp) · **Outworld Destroyer** (290 peliä, 56%, -2,4 pp)
 
 ### Kiistellyt heropit
 
@@ -87,7 +87,7 @@ Oman poolin heropit jotka pärjäävät heikoiten juuri tätä vastustajaa vasta
 
 ## Rosteri
 
-| Pelaaja | MMR | Steam-nimi | Medal | Pelipaikat | Muoto | Viim. peli |
+| Pelaaja | MMR | Steam-nimi | Medal | Linjat | Muoto | Viim. peli |
 |---|---|---|---|---|---|---|
 | **Hitsuri:D** | 3639 | BUMTSIBUM :D :D | Ancient 2 | Off 49% / Safe 37% / Mid 14% | 51% (51-49) | 2026-09-03 |
 | **raky** | 4500 | raky | Ancient 3 | Safe 95% | 55% (55-45) | 2026-09-02 |

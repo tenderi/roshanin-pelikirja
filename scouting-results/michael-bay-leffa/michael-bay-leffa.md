@@ -46,19 +46,19 @@ Bannit vastustajan uhkaindeksin mukaan, pickit oman joukkueen heropoolista. Uhka
 | **Slardar** | 69 | tenderi 6, Handels 4, Osmo 1, tossu –/59 | 55% | +0,8 pp | Tidehunter +4,0 pp, Drow Ranger +3,2 pp |
 | **Clockwerk** | 66 | tenderi 5, Handels 3, Osmo 2, tossu –/35 | 48% | +1,8 pp | Tidehunter +8,0 pp, Luna +5,2 pp |
 | **Nyx Assassin** | 65 | tenderi 8, Handels –/141, Osmo –/92, tossu –/43 | 52% | +1,3 pp | Slardar +2,9 pp, Tidehunter +2,8 pp |
-| **Keeper of the Light** | 65 | Handels –/104, tossu 8, Osmo –/32 | 50% | +1,6 pp | Lina +4,3 pp, Luna +4,0 pp |
 | **Pudge** | 63 | Osmo 7, Handels 4, tossu –/114 | 49% | +1,0 pp | Lina +6,0 pp, Wraith King +5,7 pp |
 | **Axe** | 61 | tenderi 3, Handels 1, tossu 1, Osmo 1 | 53% | +1,0 pp | Sniper +3,4 pp, Tidehunter +2,5 pp |
 | **Bane** | 60 | Handels 2, tossu –/32, Osmo –/25, tenderi –/19 | 50% | +1,9 pp | Snapfire +4,9 pp, Tusk +3,1 pp |
+| **Earthshaker** | 60 | Handels 1, tossu –/80, Osmo 1, tenderi 8 | 54% | -0,1 pp | Wraith King +4,1 pp, Sniper +2,4 pp |
 
 ### Pelaajakohtaisesti
 
 Kunkin oman pelaajan omasta poolista parhaat vaihtoehdot tätä vastustajaa vastaan:
 
-- **Handels**: **Vengeful Spirit** (222 peliä, 59%, +0,0 pp) · **Ember Spirit** (221 peliä, 52%, +2,6 pp) · **Pangolier** (273 peliä, 52%, +0,1 pp)
-- **Osmo**: **Pudge** (141 peliä, 51%, +1,0 pp) · **Legion Commander** (136 peliä, 59%, -0,1 pp) · **Shadow Fiend** (113 peliä, 52%, +0,8 pp)
-- **tenderi**: **Nyx Assassin** (166 peliä, 49%, +1,3 pp) · **Slardar** (319 peliä, 52%, +0,8 pp) · **Axe** (199 peliä, 54%, +1,0 pp)
-- **tossu**: **Ember Spirit** (160 peliä, 54%, +2,6 pp) · **Invoker** (726 peliä, 52%, +0,2 pp) · **Elder Titan** (163 peliä, 58%)
+- **Handels**: **Ember Spirit** (221 peliä, 52%, +2,6 pp) · **Pangolier** (273 peliä, 52%, +0,1 pp) · **Faceless Void** (140 peliä, 61%, -0,2 pp)
+- **Osmo**: **Legion Commander** (136 peliä, 59%, -0,1 pp) · **Shadow Fiend** (113 peliä, 52%, +0,8 pp) · **Nature's Prophet** (99 peliä, 60%, +0,4 pp)
+- **tenderi**: **Snapfire** (128 peliä, 51%, +1,8 pp) · **Sand King** (281 peliä, 52%, -1,5 pp) · **Enchantress** (95 peliä, 42%, +0,8 pp)
+- **tossu**: **Ember Spirit** (160 peliä, 54%, +2,6 pp) · **Invoker** (726 peliä, 52%, +0,2 pp) · **Outworld Destroyer** (290 peliä, 56%, -2,1 pp)
 
 ### Kiistellyt heropit
 
@@ -86,7 +86,7 @@ Oman poolin heropit jotka pärjäävät heikoiten juuri tätä vastustajaa vasta
 
 ## Rosteri
 
-| Pelaaja | MMR | Steam-nimi | Medal | Pelipaikat | Muoto | Viim. peli |
+| Pelaaja | MMR | Steam-nimi | Medal | Linjat | Muoto | Viim. peli |
 |---|---|---|---|---|---|---|
 | **Jaasz** | 5430 | zsj | Divine 5 | Mid 46% / Safe 44% / Off 9% | 47% (47-53) | 2026-09-03 |
 | **WhaleHacker** | 6000 | WhaleHacker | Immortal | Mid 54% / Safe 26% / Off 19% | 56% (56-44) | 2026-09-03 |

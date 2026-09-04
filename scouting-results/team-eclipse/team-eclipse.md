@@ -43,21 +43,21 @@ Bannit vastustajan uhkaindeksin mukaan, pickit oman joukkueen heropoolista. Uhka
 | **Ember Spirit** | 66 | tossu 10, Handels 1 | 53% | +0,9 pp | Void Spirit +6,8 pp, Disruptor +2,5 pp |
 | **Slardar** | 66 | tenderi 6, Handels 4, Osmo 1, tossu –/59 | 55% | +0,4 pp | Void Spirit +4,8 pp, Sand King +3,7 pp |
 | **Pangolier** | 66 | Handels 8, tossu 12, Osmo –/67, tenderi –/44 | 52% | -0,8 pp | Lion +4,8 pp, Ringmaster +1,5 pp |
-| **Keeper of the Light** | 66 | Handels –/104, tossu 8, Osmo –/32 | 50% | +1,7 pp | Ringmaster +4,1 pp, Luna +4,0 pp |
 | **Bane** | 65 | Handels 2, tossu –/32, Osmo –/25, tenderi –/19 | 50% | +2,8 pp | Snapfire +4,9 pp, Lion +3,7 pp |
 | **Invoker** | 64 | tossu 12, Osmo –/133, Handels –/59 | 50% | +0,8 pp | Ringmaster +4,5 pp, Necrophos +2,4 pp |
 | **Nyx Assassin** | 62 | tenderi 8, Handels –/141, Osmo –/92, tossu –/43 | 52% | +0,8 pp | Void Spirit +6,7 pp, Luna +1,4 pp |
 | **Wraith King** | 61 | Handels 1, Osmo 3, tenderi –/51, tossu –/37 | 58% | +0,6 pp | Zeus +5,4 pp, Lion +4,3 pp |
 | **Faceless Void** | 59 | Handels 4, tossu 1, Osmo –/66 | 58% | +0,0 pp | Void Spirit +2,3 pp, Ringmaster +1,2 pp |
+| **Juggernaut** | 58 | Handels 1, tossu –/115, Osmo 1 | 54% | +1,1 pp | Zeus +7,3 pp, Ogre Magi +3,1 pp |
 
 ### Pelaajakohtaisesti
 
 Kunkin oman pelaajan omasta poolista parhaat vaihtoehdot tätä vastustajaa vastaan:
 
-- **Handels**: **Bane** (154 peliä, 51%, +2,8 pp) · **Vengeful Spirit** (222 peliä, 59%, -0,9 pp) · **Faceless Void** (140 peliä, 61%, +0,0 pp)
-- **Osmo**: **Legion Commander** (136 peliä, 59%, -0,1 pp) · **Pudge** (141 peliä, 51%, -0,7 pp) · **Shadow Fiend** (113 peliä, 52%, +0,6 pp)
-- **tenderi**: **Nyx Assassin** (166 peliä, 49%, +0,8 pp) · **Slardar** (319 peliä, 52%, +0,4 pp) · **Brewmaster** (304 peliä, 59%, -0,2 pp)
-- **tossu**: **Invoker** (726 peliä, 52%, +0,8 pp) · **Ember Spirit** (160 peliä, 54%, +0,9 pp) · **Elder Titan** (163 peliä, 58%)
+- **Handels**: **Faceless Void** (140 peliä, 61%, +0,0 pp) · **Pangolier** (273 peliä, 52%, -0,8 pp) · **Ember Spirit** (221 peliä, 52%, +0,9 pp)
+- **Osmo**: **Legion Commander** (136 peliä, 59%, -0,1 pp) · **Shadow Fiend** (113 peliä, 52%, +0,6 pp) · **Lifestealer** (104 peliä, 58%, +0,7 pp)
+- **tenderi**: **Snapfire** (128 peliä, 51%, +1,2 pp) · **Sand King** (281 peliä, 52%, -0,3 pp) · **Enchantress** (95 peliä, 42%, +1,1 pp)
+- **tossu**: **Invoker** (726 peliä, 52%, +0,8 pp) · **Ember Spirit** (160 peliä, 54%, +0,9 pp) · **Outworld Destroyer** (290 peliä, 56%, -1,0 pp)
 
 ### Kiistellyt heropit
 
@@ -82,7 +82,7 @@ Oman poolin heropit jotka pärjäävät heikoiten juuri tätä vastustajaa vasta
 
 ## Rosteri
 
-| Pelaaja | MMR | Steam-nimi | Medal | Pelipaikat | Muoto | Viim. peli |
+| Pelaaja | MMR | Steam-nimi | Medal | Linjat | Muoto | Viim. peli |
 |---|---|---|---|---|---|---|
 | **Illustral** | 6000 | Illustral | Divine 4 | Mid 52% / Safe 34% / Off 13% | 47% (47-53) | 2026-09-02 |
 | **Fbr** | 4583 | ImperialZod | Divine 1 | Mid 76% / Safe 14% / Off 10% | 52% (52-48) | 2026-09-02 |

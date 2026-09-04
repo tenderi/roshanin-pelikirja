@@ -23,6 +23,16 @@ KÄYTTÖ
     python3 scout.py --pdf        # sama + PDF per joukkue (valinnainen)
     python3 scout.py --oma "Joukkueeni"   # draft-suunnitelmat tätä varten
 
+Pelipaikat ilmoitetaan `joukkueet.txt`:ssä neljäntenä kenttänä:
+
+    Nick | MMR | STEAM_0:Y:Z | hard support
+
+Kelpaavat mm. "1".."5", "safelane", "mid", "offlane", "soft support",
+"hard support", "kantaja", "keskilinja" (ks. ROLE_ALIASES). Kun pelipaikka
+on annettu, pelaajan pick-ehdotukset rajataan siihen sopiviin heropeihin
+OpenDotan roolitagien perusteella. Tagit erottavat corit tukipelaajista,
+mutta eivät nelosta viitosesta.
+
 Oman joukkueen voi valita kolmella tavalla, tässä järjestyksessä:
     1. lipulla  --oma "Joukkueen nimi"  (osittainen nimi riittää)
     2. ympäristömuuttujalla  OMA_JOUKKUE
@@ -150,6 +160,41 @@ ALLROUND_FIELD_WEIGHT = 0.22     # matchup koko kenttää vastaan
 ALLROUND_PATCH_WEIGHT = 0.18     # heropin yleinen voittoprosentti tässä patchissa
 MATCHUP_GIVE_UP_AFTER = 5        # näin monen peräkkäisen epäonnistumisen jälkeen luovutetaan
 
+# Pelipaikat. Käyttäjä ilmoittaa ne `joukkueet.txt`:ssä neljäntenä kenttänä;
+# tunnistetaan numerolla, suomeksi ja englanniksi.
+ROLE_ALIASES = {
+    "1": "pos1", "pos1": "pos1", "p1": "pos1", "safe": "pos1",
+    "safelane": "pos1", "safe lane": "pos1", "carry": "pos1",
+    "hard carry": "pos1", "kantaja": "pos1", "ykkonen": "pos1",
+    "2": "pos2", "pos2": "pos2", "p2": "pos2", "mid": "pos2",
+    "midlane": "pos2", "mid lane": "pos2", "middle": "pos2",
+    "keskilinja": "pos2", "kakkonen": "pos2",
+    "3": "pos3", "pos3": "pos3", "p3": "pos3", "off": "pos3",
+    "offlane": "pos3", "off lane": "pos3", "offlaner": "pos3",
+    "offi": "pos3", "kolmonen": "pos3",
+    "4": "pos4", "pos4": "pos4", "p4": "pos4", "soft support": "pos4",
+    "softsupport": "pos4", "soft supp": "pos4", "soft": "pos4",
+    "roamer": "pos4", "nelonen": "pos4",
+    "5": "pos5", "pos5": "pos5", "p5": "pos5", "hard support": "pos5",
+    "hardsupport": "pos5", "hard supp": "pos5", "full support": "pos5",
+    "support": "pos5", "supp": "pos5", "tuki": "pos5", "viitonen": "pos5",
+}
+ROLE_LABELS = {"pos1": "Safelane (1)", "pos2": "Mid (2)", "pos3": "Offlane (3)",
+               "pos4": "Soft support (4)", "pos5": "Hard support (5)"}
+
+# Pelipaikka -> (ensisijaiset heroroolit, toissijaiset). OpenDotan roolitagit
+# erottavat coret tukipelaajista, mutta eivät nelosta viitosesta — molemmat
+# ovat "Support". Sitä eroa ei tästä datasta saa, eikä sitä siksi väitetä.
+ROLE_TAGS = {
+    "pos1": ({"Carry"}, {"Durable", "Escape", "Pusher"}),
+    "pos2": ({"Carry"}, {"Nuker", "Escape"}),
+    "pos3": ({"Initiator", "Durable"}, {"Carry", "Disabler", "Pusher"}),
+    "pos4": ({"Support"}, {"Initiator", "Escape", "Nuker"}),
+    "pos5": ({"Support"}, {"Disabler", "Nuker"}),
+}
+ROLE_FIT = (1.0, 0.55, 0.2)      # ensisijainen / toissijainen / ei sovi
+ROLE_OFF_TAGS = {"pos1": "Support", "pos2": "Support", "pos3": "Support"}
+
 RANK_NAMES = {1: "Herald", 2: "Guardian", 3: "Crusader", 4: "Archon",
               5: "Legend", 6: "Ancient", 7: "Divine", 8: "Immortal"}
 LANE_NAMES = {1: "Safe", 2: "Mid", 3: "Off", 4: "Jungle"}
@@ -165,12 +210,16 @@ OWN_TEAM_MARKER = re.compile(r"\s*\((oma|own)\)\s*$", re.IGNORECASE)
 def parse_teams(path: str):
     """Lukee `joukkueet.txt`:n.
 
-    Palauttaa ([(joukkue, [(nick, mmr, steam_id, on_sub), ...]), ...], oma)
+    Palauttaa ([(joukkue, [(nick, mmr, steam_id, on_sub, rooli), ...]), ...], oma)
     jossa `oma` on tiedostossa omaksi merkitty joukkue tai None.
 
-    Rivimuoto:  Nick | MMR | STEAM_0:Y:Z      (erottimena | tai /)
+    Rivimuoto:  Nick | MMR | STEAM_0:Y:Z [| pelipaikka]   (erotin | tai /)
     Sulkeissa oleva rivi tulkitaan varapelaajaksi: (Nick | MMR | STEAM_...)
     Otsikon perässä `(oma)` merkitsee oman joukkueen:  ## Joukkueeni (oma)
+
+    Neljäs kenttä on valinnainen pelipaikka: "1".."5", "mid", "offlane",
+    "hard support", "kantaja", ... (ks. ROLE_ALIASES). Kun se on annettu,
+    pick-ehdotukset rajataan pelipaikkaan sopiviin heropeihin.
     """
     teams = []
     current = None
@@ -197,16 +246,23 @@ def parse_teams(path: str):
                 continue
             is_sub = line.startswith("(") and line.rstrip().endswith(")")
             parts = re.split(r"\s*[|/]\s*", line.strip("()").strip())
-            if len(parts) != 3:
+            if len(parts) not in (3, 4):
                 print(f"  [VAROITUS] rivi {lineno} ei jäsenny: {line}")
                 continue
-            nick, mmr_s, steam_id = (p.strip() for p in parts)
+            nick, mmr_s, steam_id = (p.strip() for p in parts[:3])
+            role = None
+            if len(parts) == 4 and parts[3].strip():
+                key = re.sub(r"[^a-z0-9 ]", "", parts[3].strip().lower()).strip()
+                role = ROLE_ALIASES.get(key)
+                if not role:
+                    print(f"  [VAROITUS] rivi {lineno}: tuntematon pelipaikka "
+                          f"{parts[3].strip()!r} — jätetään huomiotta")
             try:
                 mmr = int(re.sub(r"\D", "", mmr_s))
             except ValueError:
                 print(f"  [VAROITUS] rivi {lineno}: MMR ei ole numero: {mmr_s}")
                 mmr = 0
-            current[1].append((nick, mmr, steam_id.upper(), is_sub))
+            current[1].append((nick, mmr, steam_id.upper(), is_sub, role))
     return teams, own
 
 
@@ -516,7 +572,7 @@ def hero_strengths_multi(rosters, data):
     """
     per_player, team_recent = [], 0
     for team, players in rosters:
-        for nick, _mmr, _sid, is_sub in players:
+        for nick, _mmr, _sid, is_sub, role in players:
             d = data.get((team, nick), {})
             matches = d.get("analyzed") or []
             team_recent += len(matches)
@@ -530,10 +586,10 @@ def hero_strengths_multi(rosters, data):
                     rw[hid] += 1
             alltime = {h["hero_id"]: (h.get("games", 0), h.get("win", 0))
                        for h in (d.get("heroes") or []) if h.get("games")}
-            per_player.append((team, nick, is_sub, rg, rw, alltime))
+            per_player.append((team, nick, is_sub, role, rg, rw, alltime))
 
     out = {}
-    for team, nick, is_sub, rg, rw, alltime in per_player:
+    for team, nick, is_sub, role, rg, rw, alltime in per_player:
         for hid in set(rg) | set(alltime):
             r_g, r_w = rg.get(hid, 0), rw.get(hid, 0)
             a_g, a_w = alltime.get(hid, (0, 0))
@@ -546,7 +602,8 @@ def hero_strengths_multi(rosters, data):
             rec["ag"] += a_g
             rec["aw"] += a_w
             rec["players"].append({
-                "nick": nick, "team": team, "sub": is_sub, "rg": r_g, "rw": r_w,
+                "nick": nick, "team": team, "sub": is_sub, "role": role,
+                "rg": r_g, "rw": r_w,
                 "ag": a_g, "aw": a_w,
                 "wr": (r_w + a_w) / (r_g + a_g) * 100 if r_g + a_g else 0.0,
                 "score": _strength_score(r_g, r_w, a_g, a_w, team_recent),
@@ -645,14 +702,22 @@ def _pick_index(score, best, edge) -> float:
                   + (1 - PICK_COMFORT_WEIGHT) * (0.5 + 0.5 * m))
 
 
-def pick_candidates(own_strengths, threats, matchups):
-    """Omat heropit paremmuusjärjestyksessä tätä vastustajaa vastaan."""
+def pick_candidates(own_strengths, threats, matchups, hero_stats=None):
+    """Omat heropit paremmuusjärjestyksessä tätä vastustajaa vastaan.
+
+    Kun pelipaikat on ilmoitettu, heropi arvioidaan sen pelaajan mukaan
+    jolle se parhaiten sopii — joukkueessa on viisi eri paikkaa, joten
+    heropin ei tarvitse sopia kaikille.
+    """
+    hero_stats = hero_stats or {}
     best = max((r["score"] for r in own_strengths), default=0.0) or 1.0
     out = []
     for rec in own_strengths:
         edge, details = matchup_edge(rec["hero_id"], threats, matchups)
-        out.append(dict(rec, edge=edge, vs=details,
-                        pick=_pick_index(rec["score"], best, edge)))
+        fit = max((role_fit(p["role"], rec["hero_id"], hero_stats)
+                   for p in rec["players"]), default=1.0)
+        out.append(dict(rec, edge=edge, vs=details, fit=fit,
+                        pick=_pick_index(rec["score"], best, edge) * fit))
     out.sort(key=lambda r: -r["pick"])
     return out
 
@@ -691,7 +756,7 @@ def ban_table(strengths, hero_names, count):
 
 
 def draft_plan_lines(opp_team, opp_strengths, own_team, own_strengths,
-                     hero_names, matchups, level=2):
+                     hero_names, matchups, hero_stats=None, level=2):
     """Draft-suunnitelma yhtä vastustajaa vastaan oman joukkueen kannalta."""
     h = "#" * level
     threats = opp_strengths[:THREAT_POOL]
@@ -718,7 +783,8 @@ def draft_plan_lines(opp_team, opp_strengths, own_team, own_strengths,
               "pick-ehdotuksia ei voi laskea._", ""]
         return L
 
-    cands = pick_candidates(own_strengths, threats, matchups)
+    hero_stats = hero_stats or {}
+    cands = pick_candidates(own_strengths, threats, matchups, hero_stats)
     have_edges = any(c["edge"] is not None for c in cands)
 
     L += [f"{h}# Pickit — omasta poolista tätä vastaan", ""]
@@ -755,17 +821,20 @@ def draft_plan_lines(opp_team, opp_strengths, own_team, own_strengths,
     per_player = defaultdict(list)
     for rec in cands:
         for p in rec["players"]:
-            per_player[p["nick"]].append((rec, p))
+            per_player[p["nick"]].append(
+                (rec, p, role_fit(p["role"], rec["hero_id"], hero_stats)))
     if per_player:
         L += [f"{h}# Pelaajakohtaisesti", "",
               "Kunkin oman pelaajan omasta poolista parhaat vaihtoehdot "
               "tätä vastustajaa vastaan:", ""]
         for nick in sorted(per_player):
             items = per_player[nick]
-            best = max(p["score"] for _rec, p in items) or 1.0
-            rank = lambda ip: _pick_index(ip[1]["score"], best, ip[0]["edge"])
+            fitting = [p["score"] for _r, p, f in items if f >= ROLE_FIT[1]]
+            best = max(fitting or [p["score"] for _r, p, _f in items]) or 1.0
+            rank = lambda ip: _pick_index(ip[1]["score"], best, ip[0]["edge"]) * ip[2]
             bits = []
-            for rec, p in sorted(items, key=rank, reverse=True)[:PLAYER_PICK_COUNT]:
+            for rec, p, _fit in sorted(items, key=rank,
+                                       reverse=True)[:PLAYER_PICK_COUNT]:
                 name = hero_names.get(rec["hero_id"], rec["hero_id"])
                 games = p["rg"] + p["ag"]
                 s = f"**{name}** ({games} peliä, {p['wr']:.0f}%"
@@ -829,6 +898,49 @@ def fetch_hero_stats() -> dict:
     return out
 
 
+def role_fit(role, hero_id, hero_stats):
+    """Kuinka hyvin heropi sopii pelaajan pelipaikkaan: 1.0 / 0.55 / 0.2.
+
+    Perustuu OpenDotan roolitageihin, jotka erottavat luotettavasti corit
+    tukipelaajista. Tagit eivät erota nelosta viitosesta — molemmat ovat
+    "Support" — joten niiden välillä tämä ei ota kantaa. Ilman ilmoitettua
+    pelipaikkaa tai roolidataa palautetaan 1.0, jolloin mikään ei muutu.
+    """
+    if not role:
+        return 1.0
+    tags = set((hero_stats.get(hero_id) or {}).get("roles") or [])
+    if not tags:
+        return 1.0
+    primary, secondary = ROLE_TAGS[role]
+    off = ROLE_OFF_TAGS.get(role)
+    if tags & primary and not (off and off in tags):
+        return ROLE_FIT[0]
+    if tags & secondary and not (off and off in tags):
+        return ROLE_FIT[1]
+    return ROLE_FIT[2]
+
+
+def fit_symbol(fit) -> str:
+    """Sopivuus taulukkoon: ✓ / ~ / ✗."""
+    return "✓" if fit >= ROLE_FIT[0] else ("~" if fit >= ROLE_FIT[1] else "✗")
+
+
+def role_tags_display(role, hero_id, hero_stats, limit=2) -> str:
+    """Heropin roolitagit niin, että pelipaikkaan osuneet näkyvät ensin.
+
+    Taulukkoon mahtuu vain pari tagia, joten järjestys ratkaisee: muuten
+    ✓ näyttäisi virheeltä kun sen perusteena oleva tagi jää pois näkyvistä
+    (esim. Sand Kingin "Support" on vasta kolmantena).
+    """
+    tags = (hero_stats.get(hero_id) or {}).get("roles") or []
+    if not tags:
+        return "–"
+    if role:
+        primary, secondary = ROLE_TAGS[role]
+        tags = sorted(tags, key=lambda t: (t not in primary, t not in secondary))
+    return ", ".join(tags[:limit])
+
+
 def allround_index(score, best, field_edge, patch_edge) -> float:
     """Yleispätevän pickin indeksi 0-100.
 
@@ -863,15 +975,19 @@ def allround_picks(own_strengths, field_threats, matchups, hero_stats):
         stat = hero_stats.get(hid)
         patch = stat["wr"] - 50 if stat else None
         for p in rec["players"]:
-            out[p["nick"]].append((rec, p, edges[hid], patch))
+            out[p["nick"]].append((rec, p, edges[hid], patch,
+                                   role_fit(p["role"], hid, hero_stats)))
 
     ranked = {}
     for nick, items in out.items():
-        best = max(p["score"] for _r, p, _e, _q in items) or 1.0
-        scored = [(rec, p, edge, patch,
-                   allround_index(p["score"], best, edge, patch))
-                  for rec, p, edge, patch in items]
-        scored.sort(key=lambda t: -t[4])
+        # Vertailukohta lasketaan pelipaikkaan sopivista heropeista, jotta
+        # off-role-hero ei jää kärkeen vain siksi että sitä on pelattu paljon.
+        fitting = [p["score"] for _r, p, _e, _q, f in items if f >= ROLE_FIT[1]]
+        best = max(fitting or [p["score"] for _r, p, _e, _q, _f in items]) or 1.0
+        scored = [(rec, p, edge, patch, fit,
+                   allround_index(p["score"], best, edge, patch) * fit)
+                  for rec, p, edge, patch, fit in items]
+        scored.sort(key=lambda t: -t[5])
         ranked[nick] = scored
     return ranked
 
@@ -886,6 +1002,7 @@ def allround_lines(own_team, own_players, own_strengths, field_threats,
 
     have_field = any(t[2] is not None for v in ranked.values() for t in v)
     have_patch = any(t[3] is not None for v in ranked.values() for t in v)
+    have_roles = any(p[4] for p in own_players)
 
     L = [f"{h} ⭐ Kunkin pelaajan {ALLROUND_COUNT} vahvinta heroa", "",
          f"Yleispätevät pickit koko turnauskenttää vastaan — nämä eivät ole "
@@ -895,8 +1012,17 @@ def allround_lines(own_team, own_players, own_strengths, field_threats,
          f"pärjäämisen kaikkien vastustajien uhkaheropeille "
          f"({ALLROUND_FIELD_WEIGHT:.0%}) ja heropin yleisen voittoprosentin "
          f"tässä patchissa ({ALLROUND_PATCH_WEIGHT:.0%}).", ""]
+    if have_roles:
+        L += ["Ehdotukset on rajattu pelaajan **pelipaikkaan** sopiviin "
+              "heropeihin: sarake *Sopii* on ✓ kun heropin roolitagit "
+              "vastaavat pelipaikkaa, ~ kun ne sopivat osittain ja ✗ kun "
+              "eivät sovi. Roolitagit erottavat corit tukipelaajista, mutta "
+              "eivät nelosta viitosesta — soft ja hard support saavat siis "
+              "saman kohtelun.", ""]
 
-    headers = ["Pelaaja", "Hero", "Rooli", "Pelit", "Oma WR"]
+    headers = ["Pelaaja", "Pelipaikka", "Hero", "Rooli", "Sopii", "Pelit", "Oma WR"]
+    if not have_roles:
+        headers = ["Pelaaja", "Hero", "Rooli", "Pelit", "Oma WR"]
     if have_patch:
         headers.append("Patch-WR")
     if have_field:
@@ -904,24 +1030,29 @@ def allround_lines(own_team, own_players, own_strengths, field_threats,
     headers.append("Indeksi")
 
     rows, missing = [], []
-    for nick, _mmr, _sid, is_sub in own_players:
+    for nick, _mmr, _sid, is_sub, role in own_players:
         items = ranked.get(nick)
         if not items:
             missing.append(nick)
             continue
         label = f"**{nick}**" + (" _(sub)_" if is_sub else "")
-        for rec, p, edge, patch, idx in items[:ALLROUND_COUNT]:
-            stat = hero_stats.get(rec["hero_id"]) or {}
-            row = [label, hero_names.get(rec["hero_id"], rec["hero_id"]),
-                   ", ".join((stat.get("roles") or ["–"])[:2]),
-                   p["rg"] + p["ag"], f"{p['wr']:.0f}%"]
+        role_label = ROLE_LABELS.get(role, "–")
+        for rec, p, edge, patch, fit, idx in items[:ALLROUND_COUNT]:
+            row = [label]
+            if have_roles:
+                row.append(role_label)
+            row += [hero_names.get(rec["hero_id"], rec["hero_id"]),
+                    role_tags_display(role, rec["hero_id"], hero_stats)]
+            if have_roles:
+                row.append(fit_symbol(fit))
+            row += [p["rg"] + p["ag"], f"{p['wr']:.0f}%"]
             if have_patch:
                 row.append(_pct1(patch + 50) if patch is not None else "–")
             if have_field:
                 row.append(_pp(edge) if edge is not None else "–")
             row.append(f"{idx:.0f}")
             rows.append(row)
-            label = ""      # nimi vain lohkon ensimmäiselle riville
+            label = role_label = ""   # nimi vain lohkon ensimmäiselle riville
     if not rows:
         return []
 
@@ -1488,29 +1619,34 @@ def team_report(team, players, data, hero_names, dupes, today,
         else:
             L += draft_plan_lines(team, strengths.get(team, []), own_team,
                                   strengths.get(own_team, []), hero_names,
-                                  draft.get("matchups") or {})
+                                  draft.get("matchups") or {},
+                                  draft.get("hero_stats") or {})
 
     # Rosteri
     L += ["## Rosteri", ""]
+    has_roles = any(p[4] for p in players)
     rows = []
-    for nick, mmr, sid, is_sub in players:
+    for nick, mmr, sid, is_sub, role in players:
         d = data.get((team, nick), {})
         prof = (d.get("profile") or {}).get("profile") or {}
         form = recent_form(d.get("analyzed"))
-        rows.append([f"**{nick}**" + (" _(sub)_" if is_sub else ""),
-                     mmr or "–",
-                     prof.get("personaname") or "–",
-                     rank_medal((d.get("profile") or {}).get("rank_tier")),
-                     lane_split(d.get("counts")) or "–",
-                     f"{form[2]:.0f}% ({form[0]}-{form[1] - form[0]})" if form else "–",
-                     form[3] if form else "–"])
-    L += md_table(["Pelaaja", "MMR", "Steam-nimi", "Medal", "Pelipaikat",
-                   "Muoto", "Viim. peli"], rows)
+        row = [f"**{nick}**" + (" _(sub)_" if is_sub else ""), mmr or "–"]
+        if has_roles:
+            row.append(ROLE_LABELS.get(role, "–"))
+        row += [prof.get("personaname") or "–",
+                rank_medal((d.get("profile") or {}).get("rank_tier")),
+                lane_split(d.get("counts")) or "–",
+                f"{form[2]:.0f}% ({form[0]}-{form[1] - form[0]})" if form else "–",
+                form[3] if form else "–"]
+        rows.append(row)
+    headers = ["Pelaaja", "MMR"] + (["Pelipaikka"] if has_roles else []) + [
+        "Steam-nimi", "Medal", "Linjat", "Muoto", "Viim. peli"]
+    L += md_table(headers, rows)
     L.append("")
 
     # Joukkueen yhteinen heropooli
     sig_games, sig_wins, sig_players = Counter(), Counter(), defaultdict(set)
-    for nick, _mmr, _sid, _sub in players:
+    for nick, _mmr, _sid, _sub, _role in players:
         for m in (data.get((team, nick), {}).get("analyzed") or []):
             hid = m.get("hero_id")
             if not hid:
@@ -1533,7 +1669,7 @@ def team_report(team, players, data, hero_names, dupes, today,
 
     # Pelaajat
     L += ["## Pelaajat", ""]
-    for nick, mmr, sid, is_sub in players:
+    for nick, mmr, sid, is_sub, role in players:
         d = data.get((team, nick), {})
         L.append(f"### {nick}" + (" _(varapelaaja)_" if is_sub else ""))
         L.append("")
@@ -1681,7 +1817,7 @@ def write_raw_data(raw_dir: str, team: str, players, data, today: str) -> int:
     os.makedirs(raw_dir, exist_ok=True)
     written = 0
     keep = set()
-    for nick, mmr, sid, is_sub in players:
+    for nick, mmr, sid, is_sub, role in players:
         d = data.get((team, nick), {})
         payload = {
             "haettu": d.get("haettu", today),
@@ -1756,7 +1892,7 @@ def main(argv=None):
     # --- Duplikaatti-Steam ID:t syötteessä (kopiointivirheet) ---
     seen = defaultdict(list)
     for team, players in teams:
-        for nick, _mmr, sid, _sub in players:
+        for nick, _mmr, sid, _sub, _role in players:
             seen[sid].append((team, nick))
     dupes = {sid: names for sid, names in seen.items() if len(names) > 1}
 
@@ -1764,7 +1900,7 @@ def main(argv=None):
     data, no_data, bad_ids, mismatches = {}, [], [], []
     for team, players in teams:
         print(f"\n=== Joukkue: {team} ===")
-        for nick, mmr, sid, is_sub in players:
+        for nick, mmr, sid, is_sub, role in players:
             print(f"  Pelaaja: {nick} ({sid})")
             try:
                 account_id = steam_id_to_account_id(sid)
