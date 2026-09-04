@@ -39,9 +39,16 @@ draft-suunnitelma juuri sinun näkökulmastasi:
 - **Varo näitä** — oman poolin heropit joilla on huono matchup tätä
   vastustajaa vastaan.
 
-Oman joukkueen omalle sivulle tulee sama analyysi käännettynä: mitä *sinulta*
-todennäköisesti bannataan. Etusivulla on lisäksi pikaviite kunkin vastustajan
-kärkibanneista.
+Oman joukkueen omalle sivulle tulee lisäksi kaksi asiaa: **kunkin pelaajan
+viisi vahvinta heroa** koko turnauskenttää vastaan (yleispätevä lähtökohta,
+ei sidottu yhteen vastustajaan) sekä sama uhka-analyysi käännettynä eli mitä
+*sinulta* todennäköisesti bannataan. Etusivulla on pikaviite kunkin
+vastustajan kärkibanneista.
+
+Pelaajakohtainen viiden kärki yhdistää pelaajan oman mukavuusalueen (60 %),
+heropin pärjäämisen kaikkien vastustajien uhkaheropeille (22 %) ja heropin
+yleisen voittoprosentin tässä patchissa (18 %, OpenDotan bracketit
+Legend–Divine).
 
 Matchup-luvut ovat OpenDotan hero-matchup-datasta, joka perustuu
 ammattilaispeleihin. Otokset ovat pieniä, joten havaittu voittoprosenttiero

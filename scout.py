@@ -138,6 +138,16 @@ MATCHUP_SHRINK = 150             # otoskoon tasoitus: n/(n+tämä) kutistaa etua
 MATCHUP_EDGE_SCALE = 2.5         # ±tämä prosenttiyksikköä = pickki-indeksin ääripäät
 PICK_COMFORT_WEIGHT = 0.65       # mukavuusalueen paino pickki-indeksissä (loppu matchupille)
 PICK_COMFORT_EXP = 1.5           # >1 korostaa kärkiheropeja satunnaisen historian sijaan
+
+# Yleispätevät pick-ehdotukset omille pelaajille ("all-around")
+ALLROUND_COUNT = 5               # montako heropia per oma pelaaja
+FIELD_THREAT_POOL = 20           # kuinka monta heropia koko kentän uhkalistalta
+PATCH_BRACKETS = (5, 6, 7)       # Legend / Ancient / Divine — bracket 8 on tyhjä
+PATCH_EDGE_SCALE = 3.0           # ±tämä prosenttiyksikköä = patch-osuuden ääripäät
+PATCH_MIN_PICKS = 2000           # tätä harvinaisemmasta heropista ei lasketa patch-lukua
+ALLROUND_COMFORT_WEIGHT = 0.60   # oma mukavuusalue
+ALLROUND_FIELD_WEIGHT = 0.22     # matchup koko kenttää vastaan
+ALLROUND_PATCH_WEIGHT = 0.18     # heropin yleinen voittoprosentti tässä patchissa
 MATCHUP_GIVE_UP_AFTER = 5        # näin monen peräkkäisen epäonnistumisen jälkeen luovutetaan
 
 RANK_NAMES = {1: "Herald", 2: "Guardian", 3: "Crusader", 4: "Archon",
@@ -487,7 +497,12 @@ def _strength_score(rg, rw, ag, aw, team_recent) -> float:
 
 
 def hero_strengths(team, players, data):
-    """Joukkueen heropit voimakkuusjärjestyksessä.
+    """Yhden joukkueen heropit voimakkuusjärjestyksessä."""
+    return hero_strengths_multi([(team, players)], data)
+
+
+def hero_strengths_multi(rosters, data):
+    """Yhden tai useamman joukkueen heropit voimakkuusjärjestyksessä.
 
     Sama laskenta kelpaa molempiin suuntiin: vastustajalle se on uhka-arvio
     (mitä he pickkaavat ja millä he voittavat), omalle joukkueelle se on
@@ -496,27 +511,29 @@ def hero_strengths(team, players, data):
     Palauttaa listan tietueita paras ensin:
         {hero_id, score, rg, rw, ag, aw, wr, players: [{nick, sub, ...}]}
     joissa `rg`/`rw` ovat viimeaikaiset pelit ja voitot, `ag`/`aw` kaikkien
-    aikojen vastaavat.
+    aikojen vastaavat. Usealla rosterilla kutsuttuna tuloksena on koko
+    kentän yhteinen uhkalista.
     """
     per_player, team_recent = [], 0
-    for nick, _mmr, _sid, is_sub in players:
-        d = data.get((team, nick), {})
-        matches = d.get("analyzed") or []
-        team_recent += len(matches)
-        rg, rw = Counter(), Counter()
-        for m in matches:
-            hid = m.get("hero_id")
-            if not hid:
-                continue
-            rg[hid] += 1
-            if match_is_win(m):
-                rw[hid] += 1
-        alltime = {h["hero_id"]: (h.get("games", 0), h.get("win", 0))
-                   for h in (d.get("heroes") or []) if h.get("games")}
-        per_player.append((nick, is_sub, rg, rw, alltime))
+    for team, players in rosters:
+        for nick, _mmr, _sid, is_sub in players:
+            d = data.get((team, nick), {})
+            matches = d.get("analyzed") or []
+            team_recent += len(matches)
+            rg, rw = Counter(), Counter()
+            for m in matches:
+                hid = m.get("hero_id")
+                if not hid:
+                    continue
+                rg[hid] += 1
+                if match_is_win(m):
+                    rw[hid] += 1
+            alltime = {h["hero_id"]: (h.get("games", 0), h.get("win", 0))
+                       for h in (d.get("heroes") or []) if h.get("games")}
+            per_player.append((team, nick, is_sub, rg, rw, alltime))
 
     out = {}
-    for nick, is_sub, rg, rw, alltime in per_player:
+    for team, nick, is_sub, rg, rw, alltime in per_player:
         for hid in set(rg) | set(alltime):
             r_g, r_w = rg.get(hid, 0), rw.get(hid, 0)
             a_g, a_w = alltime.get(hid, (0, 0))
@@ -529,7 +546,7 @@ def hero_strengths(team, players, data):
             rec["ag"] += a_g
             rec["aw"] += a_w
             rec["players"].append({
-                "nick": nick, "sub": is_sub, "rg": r_g, "rw": r_w,
+                "nick": nick, "team": team, "sub": is_sub, "rg": r_g, "rw": r_w,
                 "ag": a_g, "aw": a_w,
                 "wr": (r_w + a_w) / (r_g + a_g) * 100 if r_g + a_g else 0.0,
                 "score": _strength_score(r_g, r_w, a_g, a_w, team_recent),
@@ -643,6 +660,11 @@ def pick_candidates(own_strengths, threats, matchups):
 def _pp(x) -> str:
     """Prosenttiyksikköetu suomalaisittain: +4,1 pp."""
     return f"{x:+.1f}".replace(".", ",") + " pp"
+
+
+def _pct1(x) -> str:
+    """Prosentti yhdellä desimaalilla suomalaisittain: 52,9 %."""
+    return f"{x:.1f}".replace(".", ",") + "%"
 
 
 def _who_plays(rec) -> str:
@@ -784,6 +806,135 @@ def draft_plan_lines(opp_team, opp_strengths, own_team, own_strengths,
                                       for hid, adv in c["vs"][-2:]) or "–"]
                            for c in weak[:AVOID_COUNT]])
             L.append("")
+    return L
+
+
+def fetch_hero_stats() -> dict:
+    """hero_id -> {"wr": voitto-% tässä patchissa, "picks": otos, "roles": [...]}.
+
+    Voittoprosentti lasketaan bracketeista Legend-Divine (`PATCH_BRACKETS`),
+    jotka vastaavat amatööriturnauksen tasoa. Immortal-bracket on OpenDotan
+    datassa tyhjä, joten sitä ei käytetä.
+    """
+    print("Haetaan heropien patch-tilastoja OpenDotasta...")
+    rows = api_get("/heroStats")
+    out = {}
+    for h in (rows or []):
+        picks = sum(h.get(f"{b}_pick") or 0 for b in PATCH_BRACKETS)
+        wins = sum(h.get(f"{b}_win") or 0 for b in PATCH_BRACKETS)
+        if picks < PATCH_MIN_PICKS:
+            continue
+        out[h["id"]] = {"wr": wins / picks * 100, "picks": picks,
+                        "roles": h.get("roles") or []}
+    return out
+
+
+def allround_index(score, best, field_edge, patch_edge) -> float:
+    """Yleispätevän pickin indeksi 0-100.
+
+    Kolme signaalia: pelaajan oma mukavuusalue, heropin pärjääminen koko
+    turnauskentän uhkaheropeille ja heropin yleinen voittoprosentti tässä
+    patchissa. Puuttuvan signaalin paino jaetaan muille, jottei heropi
+    rankaistu siitä ettei siitä satu olemaan dataa.
+    """
+    terms = [(ALLROUND_COMFORT_WEIGHT,
+              min(score / best, 1.0) ** PICK_COMFORT_EXP)]
+    if field_edge is not None:
+        m = max(-1.0, min(1.0, field_edge / MATCHUP_EDGE_SCALE))
+        terms.append((ALLROUND_FIELD_WEIGHT, 0.5 + 0.5 * m))
+    if patch_edge is not None:
+        m = max(-1.0, min(1.0, patch_edge / PATCH_EDGE_SCALE))
+        terms.append((ALLROUND_PATCH_WEIGHT, 0.5 + 0.5 * m))
+    total = sum(w for w, _ in terms)
+    return 100 * sum(w * v for w, v in terms) / total
+
+
+def allround_picks(own_strengths, field_threats, matchups, hero_stats):
+    """Oma pelaaja -> [(hero-tietue, pelaajan osuus, indeksi)] paras ensin.
+
+    Ei sidottu yhteen vastustajaan: kenttäetu lasketaan kaikkien
+    vastustajien uhkaheropeista yhtenä joukkona.
+    """
+    edges, out = {}, defaultdict(list)
+    for rec in own_strengths:
+        hid = rec["hero_id"]
+        if hid not in edges:
+            edges[hid] = matchup_edge(hid, field_threats, matchups)[0]
+        stat = hero_stats.get(hid)
+        patch = stat["wr"] - 50 if stat else None
+        for p in rec["players"]:
+            out[p["nick"]].append((rec, p, edges[hid], patch))
+
+    ranked = {}
+    for nick, items in out.items():
+        best = max(p["score"] for _r, p, _e, _q in items) or 1.0
+        scored = [(rec, p, edge, patch,
+                   allround_index(p["score"], best, edge, patch))
+                  for rec, p, edge, patch in items]
+        scored.sort(key=lambda t: -t[4])
+        ranked[nick] = scored
+    return ranked
+
+
+def allround_lines(own_team, own_players, own_strengths, field_threats,
+                   matchups, hero_stats, hero_names, level=2):
+    """Kunkin oman pelaajan yleispätevimmät heropit koko turnausta vastaan."""
+    h = "#" * level
+    ranked = allround_picks(own_strengths, field_threats, matchups, hero_stats)
+    if not ranked:
+        return []
+
+    have_field = any(t[2] is not None for v in ranked.values() for t in v)
+    have_patch = any(t[3] is not None for v in ranked.values() for t in v)
+
+    L = [f"{h} ⭐ Kunkin pelaajan {ALLROUND_COUNT} vahvinta heroa", "",
+         f"Yleispätevät pickit koko turnauskenttää vastaan — nämä eivät ole "
+         f"sidottuja yhteen vastustajaan, vaan kelpaavat lähtökohdaksi ketä "
+         f"tahansa vastaan. Indeksi yhdistää kolme asiaa: pelaajan oman "
+         f"mukavuusalueen (paino {ALLROUND_COMFORT_WEIGHT:.0%}), heropin "
+         f"pärjäämisen kaikkien vastustajien uhkaheropeille "
+         f"({ALLROUND_FIELD_WEIGHT:.0%}) ja heropin yleisen voittoprosentin "
+         f"tässä patchissa ({ALLROUND_PATCH_WEIGHT:.0%}).", ""]
+
+    headers = ["Pelaaja", "Hero", "Rooli", "Pelit", "Oma WR"]
+    if have_patch:
+        headers.append("Patch-WR")
+    if have_field:
+        headers.append("Kenttäetu")
+    headers.append("Indeksi")
+
+    rows, missing = [], []
+    for nick, _mmr, _sid, is_sub in own_players:
+        items = ranked.get(nick)
+        if not items:
+            missing.append(nick)
+            continue
+        label = f"**{nick}**" + (" _(sub)_" if is_sub else "")
+        for rec, p, edge, patch, idx in items[:ALLROUND_COUNT]:
+            stat = hero_stats.get(rec["hero_id"]) or {}
+            row = [label, hero_names.get(rec["hero_id"], rec["hero_id"]),
+                   ", ".join((stat.get("roles") or ["–"])[:2]),
+                   p["rg"] + p["ag"], f"{p['wr']:.0f}%"]
+            if have_patch:
+                row.append(_pct1(patch + 50) if patch is not None else "–")
+            if have_field:
+                row.append(_pp(edge) if edge is not None else "–")
+            row.append(f"{idx:.0f}")
+            rows.append(row)
+            label = ""      # nimi vain lohkon ensimmäiselle riville
+    if not rows:
+        return []
+
+    L += md_table(headers, rows)
+    L.append("")
+    L += ["**Pelit** on pelaajan omat pelit heropilla (tuoreet + kaikkien "
+          "aikojen), **Oma WR** hänen voittoprosenttinsa sillä. "
+          + ("**Patch-WR** on heropin voittoprosentti kaikilla pelaajilla "
+             "bracketeissa Legend-Divine. " if have_patch else "")
+          + ("**Kenttäetu** on painotettu voittoprosenttiero turnauksen "
+             "uhkaheropeille ammattilaisdatassa." if have_field else ""), ""]
+    if missing:
+        L += [f"_Ei riittävästi julkista pelidataa: {', '.join(missing)}._", ""]
     return L
 
 
@@ -1329,6 +1480,10 @@ def team_report(team, players, data, hero_names, dupes, today,
     if own_team:
         strengths = draft["strengths"]
         if team == own_team:
+            L += allround_lines(own_team, players, strengths.get(team, []),
+                                (draft.get("field") or [])[:FIELD_THREAT_POOL],
+                                draft.get("matchups") or {},
+                                draft.get("hero_stats") or {}, hero_names)
             L += own_team_lines(own_team, strengths.get(team, []), hero_names)
         else:
             L += draft_plan_lines(team, strengths.get(team, []), own_team,
@@ -1633,9 +1788,14 @@ def main(argv=None):
     if own_team:
         strengths = {team: hero_strengths(team, players, data)
                      for team, players in teams}
+        # Koko kentän yhteinen uhkalista: kaikki vastustajat yhtenä joukkona.
+        # Sitä vastaan lasketaan omien pelaajien yleispätevät heropit.
+        field = hero_strengths_multi([(t, p) for t, p in teams if t != own_team],
+                                     data)
+        hero_stats = fetch_hero_stats()
         matchups = {}
         if args.matchups:
-            threat_ids = set()
+            threat_ids = set(r["hero_id"] for r in field[:FIELD_THREAT_POOL])
             for team, _players in teams:
                 if team == own_team:
                     continue
@@ -1645,8 +1805,9 @@ def main(argv=None):
             if not matchups:
                 print("  [VAROITUS] matchup-dataa ei saatu — pick-ehdotukset "
                       "perustuvat pelkkään omaan heropooliin.")
-        draft = {"team": own_team, "strengths": strengths,
-                 "matchups": matchups, "hero_names": hero_names}
+        draft = {"team": own_team, "strengths": strengths, "field": field,
+                 "matchups": matchups, "hero_stats": hero_stats,
+                 "hero_names": hero_names}
 
     # --- Kirjoitus: yksi kansio per joukkue ---
     today = datetime.date.today().isoformat()
