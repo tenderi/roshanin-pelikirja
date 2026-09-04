@@ -12,6 +12,74 @@ Jokaisesta pelaajasta: kaikkien aikojen top-8 heropoolia, viimeisimmät ottelut 
 
 > Tarkista aina että raportin **Steam-nimi** vastaa odotettua pelaajaa. Jos ei vastaa, listan Steam ID on väärä.
 
+## 🎯 Draft: Roshan ja Rähmäsilmät vs. Team Eclipse
+
+Bannit vastustajan uhkaindeksin mukaan, pickit oman joukkueen heropoolista. Uhkaindeksi yhdistää viimeaikaisen pelivolyymin, kaikkien aikojen kokemuksen ja voittoprosentin — suurempi on vaarallisempi. **Viim.** = pelit viimeisimmissä otteluissa, **Kaikkiaan** = pelit kaikkiaan. Sarakkeessa *Kuka pelaa* luku on pelaajan tuoreet pelit kyseisellä heropilla (`–/N` = ei tuoreita, N peliä historiassa).
+
+### Bannit — tässä järjestyksessä
+
+| # | Hero | Uhka | Viim. | Kaikkiaan | WR | Kuka pelaa |
+|---|---|---|---|---|---|---|
+| 1 | **Largo** | 66 | 61 | 274 | 49% | PostAlpha 61 |
+| 2 | **Snapfire** | 60 | 38 | 515 | 57% | Leipis 33, Illustral –/137, PostAlpha 1, KarvaTurpa<3 4 |
+| 3 | **Ember Spirit** | 59 | 50 | 685 | 49% | Fbr 50, Illustral –/437, Leipis –/35, KarvaTurpa<3 –/21 |
+| 4 | **Ringmaster** | 44 | 11 | 168 | 60% | Leipis 11 |
+| 5 | **Lion** | 42 | 21 | 547 | 49% | Leipis 20, Illustral –/74, KarvaTurpa<3 1 |
+| 6 | **Disruptor** | 39 | 15 | 459 | 50% | KarvaTurpa<3 9, Leipis 5, Illustral 1, Fbr –/24 |
+| 7 | **Necrophos** | 39 | 8 | 642 | 56% | Leipis 2, Illustral –/296, Fbr 6, KarvaTurpa<3 –/108 |
+| 8 | **Ogre Magi** | 38 | 14 | 325 | 49% | KarvaTurpa<3 14, PostAlpha –/112, Leipis –/69, Illustral –/47 |
+| 9 | **Zeus** | 37 | 7 | 545 | 55% | Fbr 7, Illustral –/172, Leipis –/97, KarvaTurpa<3 –/101 |
+| 10 | **Drow Ranger** | 37 | 2 | 499 | 59% | Illustral 2, KarvaTurpa<3 –/82, Leipis –/65, Fbr –/28 |
+
+### Pickit — omasta poolista tätä vastaan
+
+**Etu** on painotettu voittoprosenttiero vastustajan uhkaheropeille OpenDotan ammattilaispelidatassa (väh. 50 peliä paria kohden, ja lukua on kutistettu otoskoon mukaan). Otokset ovat pieniä ja ammattilaispelit eri peliä kuin amatööriturnaus, joten tämä on karkea suuntaviiva — oma mukavuusalue painaa enemmän.
+
+| Hero | Pickki | Kuka meiltä | WR | Etu vs. uhat | Toimii erityisesti vastaan |
+|---|---|---|---|---|---|
+| **Earth Spirit** | 78 | tossu 22, Handels –/93, Osmo 12 | 48% | -0,6 pp | Lion +4,7 pp, Ogre Magi +1,6 pp |
+| **Snapfire** | 72 | tenderi 9, Handels 5, tossu 3, Osmo –/27 | 49% | +1,2 pp | Lion +5,3 pp, Sand King +4,4 pp |
+| **Treant Protector** | 69 | Handels –/89, tenderi –/35, Osmo 1, tossu –/17 | 57% | +3,7 pp | Lion +5,7 pp, Void Spirit +5,0 pp |
+| **Ember Spirit** | 66 | tossu 10, Handels 1 | 53% | +0,9 pp | Void Spirit +6,8 pp, Disruptor +2,5 pp |
+| **Slardar** | 66 | tenderi 6, Handels 4, Osmo 1, tossu –/59 | 55% | +0,4 pp | Void Spirit +4,8 pp, Sand King +3,7 pp |
+| **Pangolier** | 66 | Handels 8, tossu 12, Osmo –/67, tenderi –/44 | 52% | -0,8 pp | Lion +4,8 pp, Ringmaster +1,5 pp |
+| **Keeper of the Light** | 66 | Handels –/104, tossu 8, Osmo –/32 | 50% | +1,7 pp | Ringmaster +4,1 pp, Luna +4,0 pp |
+| **Bane** | 65 | Handels 2, tossu –/32, Osmo –/25, tenderi –/19 | 50% | +2,8 pp | Snapfire +4,9 pp, Lion +3,7 pp |
+| **Invoker** | 64 | tossu 12, Osmo –/133, Handels –/59 | 50% | +0,8 pp | Ringmaster +4,5 pp, Necrophos +2,4 pp |
+| **Nyx Assassin** | 62 | tenderi 8, Handels –/141, Osmo –/92, tossu –/43 | 52% | +0,8 pp | Void Spirit +6,7 pp, Luna +1,4 pp |
+| **Wraith King** | 61 | Handels 1, Osmo 3, tenderi –/51, tossu –/37 | 58% | +0,6 pp | Zeus +5,4 pp, Lion +4,3 pp |
+| **Faceless Void** | 59 | Handels 4, tossu 1, Osmo –/66 | 58% | +0,0 pp | Void Spirit +2,3 pp, Ringmaster +1,2 pp |
+
+### Pelaajakohtaisesti
+
+Kunkin oman pelaajan omasta poolista parhaat vaihtoehdot tätä vastustajaa vastaan:
+
+- **Handels**: **Bane** (154 peliä, 51%, +2,8 pp) · **Vengeful Spirit** (222 peliä, 59%, -0,9 pp) · **Faceless Void** (140 peliä, 61%, +0,0 pp)
+- **Osmo**: **Legion Commander** (136 peliä, 59%, -0,1 pp) · **Pudge** (141 peliä, 51%, -0,7 pp) · **Shadow Fiend** (113 peliä, 52%, +0,6 pp)
+- **tenderi**: **Nyx Assassin** (166 peliä, 49%, +0,8 pp) · **Slardar** (319 peliä, 52%, +0,4 pp) · **Brewmaster** (304 peliä, 59%, -0,2 pp)
+- **tossu**: **Invoker** (726 peliä, 52%, +0,8 pp) · **Ember Spirit** (160 peliä, 54%, +0,9 pp) · **Elder Titan** (163 peliä, 58%)
+
+### Kiistellyt heropit
+
+Näitä haluavat molemmat. Jos et banni, varaudu siihen että vastustaja ottaa ne — tai pickkaa itse ensin:
+
+| Hero | Meillä | Heillä | Heidän uhkansa |
+|---|---|---|---|
+| **Snapfire** | tenderi 9, Handels 5, tossu 3, Osmo –/27 | Leipis 33, Illustral –/137, PostAlpha 1, KarvaTurpa<3 4 | 60 |
+| **Ember Spirit** | tossu 10, Handels 1 | Fbr 50, Illustral –/437, Leipis –/35, KarvaTurpa<3 –/21 | 59 |
+
+### Varo näitä ensimmäisillä pickeillä
+
+Oman poolin heropit jotka pärjäävät heikoiten juuri tätä vastustajaa vastaan:
+
+| Hero | Kuka meiltä | Etu vs. uhat | Kärsii vastaan |
+|---|---|---|---|
+| Sven | Osmo 2, Handels –/87, tossu –/22 | -2,1 pp | Void Spirit -3,6 pp, Lion -6,1 pp |
+| Medusa | Handels –/43, tossu –/27 | -2,1 pp | Ember Spirit -3,8 pp, Ogre Magi -6,8 pp |
+| Phantom Lancer | Osmo 3, tossu 1, Handels –/50, tenderi 1 | -2,0 pp | Disruptor -2,3 pp, Snapfire -3,5 pp |
+| Witch Doctor | Handels –/100, tenderi 1, Osmo –/45, tossu –/30 | -1,8 pp | Snapfire -4,5 pp, Ember Spirit -4,9 pp |
+| Dark Willow | tossu –/46, Handels 2, tenderi –/30, Osmo –/23 | -1,7 pp | Ember Spirit -5,2 pp, Snapfire -5,3 pp |
+
 ## Rosteri
 
 | Pelaaja | MMR | Steam-nimi | Medal | Pelipaikat | Muoto | Viim. peli |

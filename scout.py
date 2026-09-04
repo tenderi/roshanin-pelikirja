@@ -12,11 +12,22 @@ pelaajasta OpenDota API:sta (https://www.opendota.com/, ei vaadi API-avainta):
 
 ...ja koostaa niistä joukkuekohtaisen Markdown-pelikirjan.
 
+Kun oma joukkue on valittu, jokaiselle vastustajalle lasketaan lisäksi
+draft-suunnitelma: bannijärjestys heidän uhkiensa mukaan sekä pick-ehdotukset
+omasta heropoolista (mukavuusalue + OpenDotan hero-matchup-data).
+
 KÄYTTÖ
 ------
     pip install requests
     python3 scout.py              # raportit, raakadata ja verkkosivusto
     python3 scout.py --pdf        # sama + PDF per joukkue (valinnainen)
+    python3 scout.py --oma "Joukkueeni"   # draft-suunnitelmat tätä varten
+
+Oman joukkueen voi valita kolmella tavalla, tässä järjestyksessä:
+    1. lipulla  --oma "Joukkueen nimi"  (osittainen nimi riittää)
+    2. ympäristömuuttujalla  OMA_JOUKKUE
+    3. merkitsemällä joukkueet.txt:ssä otsikko:  ## Joukkueeni (oma)
+Ilman valintaa raportit syntyvät ennallaan, ilman draft-osioita.
 
 Syntyy kaksi hakemistoa: `scouting-results/` (lähdeaineisto ja raportit)
 sekä `docs/` (julkaistava sivusto).
@@ -67,6 +78,11 @@ HUOM
 - Vastaukset välimuistitetaan hakemistoon `.cache/`, joten ajon voi keskeyttää
   ja jatkaa myöhemmin ilman että kaikki haetaan uudelleen. Tyhjennä hakemisto
   kun haluat tuoreet luvut.
+- Draft-osion matchup-luvut tulevat OpenDotan hero-matchup-datasta, joka
+  perustuu ammattilaispeleihin. Otokset ovat pieniä (satoja pelejä paria
+  kohden), joten havaittu ero kutistetaan otoskoon mukaan kohti nollaa ja
+  pick-järjestyksessä oma mukavuusalue painaa enemmän kuin matchup. Haun voi
+  ohittaa lipulla `--ei-matchupeja`.
 """
 
 import os
@@ -74,6 +90,7 @@ import re
 import sys
 import time
 import json
+import argparse
 import datetime
 import difflib
 import html
@@ -105,6 +122,24 @@ RECENT_HERO_COUNT = 6            # montako viimeaikaista heropia per pelaaja
 MIN_GAMES_FOR_HERO = 3           # jätä pois heropit joita pelattu alle N kertaa
 TEAM_SIGNATURE_COUNT = 12        # montako heropia joukkueen yhteispooliin
 
+# Draft-analyysi (pick/ban-ehdotukset oman joukkueen näkökulmasta)
+MIN_RECENT_FOR_DRAFT = 2         # väh. näin monta tuoretta peliä...
+MIN_ALLTIME_FOR_DRAFT = 15       # ...tai näin monta kaikkiaan, jotta hero huomioidaan
+THREAT_POOL = 15                 # montako vastustajan heropia otetaan uhka-analyysiin
+DRAFT_BAN_COUNT = 10             # montako bannikohdetta listataan
+DRAFT_PICK_COUNT = 12            # montako pick-ehdotusta listataan
+PLAYER_PICK_COUNT = 3            # montako ehdotusta per oma pelaaja
+CONTESTED_POOL = 25              # kuinka syvältä omaa poolia kiistellyt heropit etsitään
+AVOID_COUNT = 5                  # montako vältettävää heropia listataan
+SUMMARY_BAN_COUNT = 3            # montako bannia hakemistosivun pikaviitteeseen
+AVOID_EDGE_LIMIT = -0.8          # tätä huonompi matchup-etu (pp) = varoitus
+MATCHUP_MIN_GAMES = 50           # matchup-pari huomioidaan vasta näin monesta pelistä
+MATCHUP_SHRINK = 150             # otoskoon tasoitus: n/(n+tämä) kutistaa etua nollaa kohti
+MATCHUP_EDGE_SCALE = 2.5         # ±tämä prosenttiyksikköä = pickki-indeksin ääripäät
+PICK_COMFORT_WEIGHT = 0.65       # mukavuusalueen paino pickki-indeksissä (loppu matchupille)
+PICK_COMFORT_EXP = 1.5           # >1 korostaa kärkiheropeja satunnaisen historian sijaan
+MATCHUP_GIVE_UP_AFTER = 5        # näin monen peräkkäisen epäonnistumisen jälkeen luovutetaan
+
 RANK_NAMES = {1: "Herald", 2: "Guardian", 3: "Crusader", 4: "Archon",
               5: "Legend", 6: "Ancient", 7: "Divine", 8: "Immortal"}
 LANE_NAMES = {1: "Safe", 2: "Mid", 3: "Off", 4: "Jungle"}
@@ -114,21 +149,37 @@ LANE_NAMES = {1: "Safe", 2: "Mid", 3: "Off", 4: "Jungle"}
 # SYÖTTEEN LUKU
 # ---------------------------------------------------------------------------
 
+OWN_TEAM_MARKER = re.compile(r"\s*\((oma|own)\)\s*$", re.IGNORECASE)
+
+
 def parse_teams(path: str):
-    """Lukee `joukkueet.txt`:n -> [(joukkue, [(nick, mmr, steam_id, on_sub), ...])].
+    """Lukee `joukkueet.txt`:n.
+
+    Palauttaa ([(joukkue, [(nick, mmr, steam_id, on_sub), ...]), ...], oma)
+    jossa `oma` on tiedostossa omaksi merkitty joukkue tai None.
 
     Rivimuoto:  Nick | MMR | STEAM_0:Y:Z      (erottimena | tai /)
     Sulkeissa oleva rivi tulkitaan varapelaajaksi: (Nick | MMR | STEAM_...)
+    Otsikon perässä `(oma)` merkitsee oman joukkueen:  ## Joukkueeni (oma)
     """
     teams = []
     current = None
+    own = None
     with open(path, encoding="utf-8") as f:
         for lineno, raw in enumerate(f, 1):
             line = raw.strip()
             if not line:
                 continue
             if line.startswith("#"):
-                current = (line.lstrip("#").strip(), [])
+                name = line.lstrip("#").strip()
+                if OWN_TEAM_MARKER.search(name):
+                    name = OWN_TEAM_MARKER.sub("", name).strip()
+                    if own and own != name:
+                        print(f"  [VAROITUS] rivi {lineno}: omaksi on merkitty jo "
+                              f"{own}, ohitetaan merkintä joukkueelle {name}")
+                    else:
+                        own = name
+                current = (name, [])
                 teams.append(current)
                 continue
             if current is None:
@@ -146,7 +197,34 @@ def parse_teams(path: str):
                 print(f"  [VAROITUS] rivi {lineno}: MMR ei ole numero: {mmr_s}")
                 mmr = 0
             current[1].append((nick, mmr, steam_id.upper(), is_sub))
-    return teams
+    return teams, own
+
+
+def resolve_own_team(teams, name: str):
+    """Etsii käyttäjän antamaa nimeä vastaavan joukkueen.
+
+    Sallii kirjainkoon, ääkkösten ja välimerkkien eroavan: "roshan" löytää
+    joukkueen "Roshan ja Rähmäsilmät". Palauttaa (nimi, virheilmoitus).
+    """
+    name = (name or "").strip()
+    if not name:
+        return None, ""
+    names = [t for t, _ in teams]
+    for t in names:
+        if t.lower() == name.lower():
+            return t, ""
+    slug = slugify(name)
+    exact = [t for t in names if slugify(t) == slug]
+    if exact:
+        return exact[0], ""
+    partial = [t for t in names if slug and slug in slugify(t)]
+    if len(partial) == 1:
+        return partial[0], ""
+    if len(partial) > 1:
+        return None, (f"Nimi \"{name}\" sopii useaan joukkueeseen: "
+                      + ", ".join(partial))
+    return None, (f"Joukkuetta \"{name}\" ei löydy. Tiedostossa ovat: "
+                  + ", ".join(names))
 
 
 def steam_id_to_account_id(steam_id: str) -> int:
@@ -387,6 +465,339 @@ def md_table(headers, rows):
     return out
 
 
+
+
+# ---------------------------------------------------------------------------
+# DRAFT: UHKA-ANALYYSI JA PICK/BAN-EHDOTUKSET
+# ---------------------------------------------------------------------------
+
+def _strength_score(rg, rw, ag, aw, team_recent) -> float:
+    """Yhden pelaajan yhden heropin "voima" yhtenä lukuna.
+
+    Kolme asiaa ratkaisee: kuinka usein heroa pelataan juuri nyt (volyymi),
+    kuinka paljon sillä on kokemusta kaikkiaan (rutiini) ja kuinka hyvin sillä
+    voitetaan. Voittoprosentti tasoitetaan 50 %:iin päin, jottei kolmen pelin
+    100 % nouse listan kärkeen.
+    """
+    volume = rg / max(team_recent, 1)
+    mastery = min(ag, 150) / 150
+    wr = (rw + aw + 3) / (rg + ag + 6)
+    edge = max(0.6, min(1.4, wr / 0.5))
+    return 50 * (6 * volume + 0.6 * mastery) * edge
+
+
+def hero_strengths(team, players, data):
+    """Joukkueen heropit voimakkuusjärjestyksessä.
+
+    Sama laskenta kelpaa molempiin suuntiin: vastustajalle se on uhka-arvio
+    (mitä he pickkaavat ja millä he voittavat), omalle joukkueelle se on
+    mukavuusalueen kartoitus (mitä me osaamme pelata).
+
+    Palauttaa listan tietueita paras ensin:
+        {hero_id, score, rg, rw, ag, aw, wr, players: [{nick, sub, ...}]}
+    joissa `rg`/`rw` ovat viimeaikaiset pelit ja voitot, `ag`/`aw` kaikkien
+    aikojen vastaavat.
+    """
+    per_player, team_recent = [], 0
+    for nick, _mmr, _sid, is_sub in players:
+        d = data.get((team, nick), {})
+        matches = d.get("analyzed") or []
+        team_recent += len(matches)
+        rg, rw = Counter(), Counter()
+        for m in matches:
+            hid = m.get("hero_id")
+            if not hid:
+                continue
+            rg[hid] += 1
+            if match_is_win(m):
+                rw[hid] += 1
+        alltime = {h["hero_id"]: (h.get("games", 0), h.get("win", 0))
+                   for h in (d.get("heroes") or []) if h.get("games")}
+        per_player.append((nick, is_sub, rg, rw, alltime))
+
+    out = {}
+    for nick, is_sub, rg, rw, alltime in per_player:
+        for hid in set(rg) | set(alltime):
+            r_g, r_w = rg.get(hid, 0), rw.get(hid, 0)
+            a_g, a_w = alltime.get(hid, (0, 0))
+            if r_g < MIN_RECENT_FOR_DRAFT and a_g < MIN_ALLTIME_FOR_DRAFT:
+                continue
+            rec = out.setdefault(hid, {"hero_id": hid, "rg": 0, "rw": 0,
+                                       "ag": 0, "aw": 0, "players": []})
+            rec["rg"] += r_g
+            rec["rw"] += r_w
+            rec["ag"] += a_g
+            rec["aw"] += a_w
+            rec["players"].append({
+                "nick": nick, "sub": is_sub, "rg": r_g, "rw": r_w,
+                "ag": a_g, "aw": a_w,
+                "wr": (r_w + a_w) / (r_g + a_g) * 100 if r_g + a_g else 0.0,
+                "score": _strength_score(r_g, r_w, a_g, a_w, team_recent),
+            })
+
+    for rec in out.values():
+        rec["score"] = _strength_score(rec["rg"], rec["rw"], rec["ag"],
+                                       rec["aw"], team_recent)
+        games = rec["rg"] + rec["ag"]
+        rec["wr"] = (rec["rw"] + rec["aw"]) / games * 100 if games else 0.0
+        rec["players"].sort(key=lambda p: -p["score"])
+    return sorted(out.values(), key=lambda r: -r["score"])
+
+
+def fetch_matchups(hero_ids):
+    """hero_id -> {vastahero_id: (pelit, voitot)} OpenDotan matchup-datasta.
+
+    `voitot` on kyselyheropin voitot vastaheroa vastaan, eli suoraan
+    vastakkainasettelun voittoprosentti kyselyheropin näkökulmasta. Data on
+    ammattilaispeleistä, joten otokset ovat pieniä (tyypillisesti satoja
+    pelejä paria kohden) — ks. `matchup_edge`.
+    """
+    ids = sorted(set(hero_ids))
+    if not ids:
+        return {}
+    print(f"\nHaetaan heromatchup-dataa ({len(ids)} heropia)...")
+    out, misses = {}, 0
+    for hid in ids:
+        path = f"/heroes/{hid}/matchups"
+        cached = os.path.exists(_cache_path(path, {}))
+        rows = api_get(path)
+        if not cached:
+            time.sleep(REQUEST_DELAY)
+        if not rows:
+            misses += 1
+            # Peräkkäiset epäonnistumiset tarkoittavat käytännössä aina
+            # katkennutta yhteyttä. Ei jäädä yrittämään kymmeniä kertoja.
+            if misses >= MATCHUP_GIVE_UP_AFTER and not out:
+                print(f"  [VAROITUS] {misses} peräkkäistä epäonnistunutta "
+                      f"matchup-hakua — jatketaan ilman matchup-dataa.")
+                return {}
+            continue
+        misses = 0
+        out[hid] = {r["hero_id"]: (r.get("games_played", 0), r.get("wins", 0))
+                    for r in rows if isinstance(r, dict) and r.get("games_played")}
+    return out
+
+
+def matchup_edge(hero_id, threats, matchups):
+    """Kuinka hyvin `hero_id` pärjää vastustajan uhkaheropeille.
+
+    Painotettu vastustajan uhkaindeksillä: iso etu vastustajan tärkeintä
+    heroa vastaan painaa enemmän kuin etu heroa vastaan jota tuskin nähdään.
+
+    OpenDotan matchup-otokset ovat pieniä, joten havaittu ero kutistetaan
+    kohti nollaa otoskoon mukaan (`n / (n + MATCHUP_SHRINK)`): sadan pelin
+    otoksesta jää noin 40 % ja tuhannen pelin otoksesta lähes kaikki. Näin
+    yksittäinen pieni otos ei nosta heroa listan kärkeen.
+
+    Palauttaa (etu prosenttiyksikköinä tai None, [(vastahero_id, etu), ...]).
+    """
+    num = den = 0.0
+    details = []
+    for t in threats:
+        pair = matchups.get(t["hero_id"], {}).get(hero_id)
+        if not pair:
+            continue
+        games, wins = pair
+        if games < MATCHUP_MIN_GAMES:
+            continue
+        adv = (0.5 - wins / games) * 100   # + = meidän hero voittaa heitä
+        adv *= games / (games + MATCHUP_SHRINK)
+        weight = max(t["score"], 0.1)
+        num += weight * adv
+        den += weight
+        details.append((t["hero_id"], adv))
+    if not den:
+        return None, []
+    details.sort(key=lambda d: -d[1])
+    return num / den, details
+
+
+def _pick_index(score, best, edge) -> float:
+    """Pickki-indeksi: oma mukavuusalue + vastakkainasetteluetu, 0-100.
+
+    Mukavuus painaa selvästi enemmän — turnauksessa pelataan sitä mitä
+    osataan pelata, eikä teoreettisesti hyvä matchup korvaa harjoittelua.
+    Eksponentti korostaa oikeaa kärkeä, jottei kauan sitten pelattu hero
+    nouse listan huipulle pelkän matchup-edun voimalla.
+    """
+    comfort = min(score / best, 1.0) ** PICK_COMFORT_EXP
+    if edge is None:
+        return 100 * comfort
+    m = max(-1.0, min(1.0, edge / MATCHUP_EDGE_SCALE))
+    return 100 * (PICK_COMFORT_WEIGHT * comfort
+                  + (1 - PICK_COMFORT_WEIGHT) * (0.5 + 0.5 * m))
+
+
+def pick_candidates(own_strengths, threats, matchups):
+    """Omat heropit paremmuusjärjestyksessä tätä vastustajaa vastaan."""
+    best = max((r["score"] for r in own_strengths), default=0.0) or 1.0
+    out = []
+    for rec in own_strengths:
+        edge, details = matchup_edge(rec["hero_id"], threats, matchups)
+        out.append(dict(rec, edge=edge, vs=details,
+                        pick=_pick_index(rec["score"], best, edge)))
+    out.sort(key=lambda r: -r["pick"])
+    return out
+
+
+def _pp(x) -> str:
+    """Prosenttiyksikköetu suomalaisittain: +4,1 pp."""
+    return f"{x:+.1f}".replace(".", ",") + " pp"
+
+
+def _who_plays(rec) -> str:
+    """"Kuka pelaa" -solu: nick ja tuoreet pelit, tai kokemus jos ei tuoreita."""
+    bits = []
+    for p in rec["players"][:4]:
+        tag = f"{p['nick']}" + (" (sub)" if p["sub"] else "")
+        if p["rg"]:
+            bits.append(f"{tag} {p['rg']}")
+        else:
+            bits.append(f"{tag} –/{p['ag']}")
+    return ", ".join(bits)
+
+
+def ban_table(strengths, hero_names, count):
+    """Bannijärjestystaulukko uhkaindeksin mukaan."""
+    rows = []
+    for i, rec in enumerate(strengths[:count], 1):
+        rows.append([i, f"**{hero_names.get(rec['hero_id'], rec['hero_id'])}**",
+                     f"{rec['score']:.0f}", rec["rg"], rec["ag"],
+                     f"{rec['wr']:.0f}%", _who_plays(rec)])
+    return md_table(["#", "Hero", "Uhka", "Viim.", "Kaikkiaan", "WR",
+                     "Kuka pelaa"], rows)
+
+
+def draft_plan_lines(opp_team, opp_strengths, own_team, own_strengths,
+                     hero_names, matchups, level=2):
+    """Draft-suunnitelma yhtä vastustajaa vastaan oman joukkueen kannalta."""
+    h = "#" * level
+    threats = opp_strengths[:THREAT_POOL]
+    if not threats:
+        return [f"{h} 🎯 Draft: {own_team} vs. {opp_team}", "",
+                "Vastustajasta ei ole tarpeeksi julkista pelidataa "
+                "draft-suunnitelmaa varten.", ""]
+
+    L = [f"{h} 🎯 Draft: {own_team} vs. {opp_team}", "",
+         f"Bannit vastustajan uhkaindeksin mukaan, pickit oman joukkueen "
+         f"heropoolista. Uhkaindeksi yhdistää viimeaikaisen pelivolyymin, "
+         f"kaikkien aikojen kokemuksen ja voittoprosentin — suurempi on "
+         f"vaarallisempi. **Viim.** = pelit viimeisimmissä otteluissa, "
+         f"**Kaikkiaan** = pelit kaikkiaan. Sarakkeessa *Kuka pelaa* luku on "
+         f"pelaajan tuoreet pelit kyseisellä heropilla (`–/N` = ei tuoreita, "
+         f"N peliä historiassa).", ""]
+
+    L += [f"{h}# Bannit — tässä järjestyksessä", ""]
+    L += ban_table(opp_strengths, hero_names, DRAFT_BAN_COUNT)
+    L.append("")
+
+    if not own_strengths:
+        L += ["_Omasta joukkueesta ei ole julkista pelidataa, joten "
+              "pick-ehdotuksia ei voi laskea._", ""]
+        return L
+
+    cands = pick_candidates(own_strengths, threats, matchups)
+    have_edges = any(c["edge"] is not None for c in cands)
+
+    L += [f"{h}# Pickit — omasta poolista tätä vastaan", ""]
+    if have_edges:
+        L += [f"**Etu** on painotettu voittoprosenttiero vastustajan "
+              f"uhkaheropeille OpenDotan ammattilaispelidatassa (väh. "
+              f"{MATCHUP_MIN_GAMES} peliä paria kohden, ja lukua on "
+              f"kutistettu otoskoon mukaan). Otokset ovat pieniä ja "
+              f"ammattilaispelit eri peliä kuin amatööriturnaus, joten tämä "
+              f"on karkea suuntaviiva — oma mukavuusalue painaa enemmän.", ""]
+    else:
+        L += ["_Matchup-dataa ei ole käytettävissä, joten ehdotukset "
+              "perustuvat pelkkään omaan mukavuusalueeseen._", ""]
+
+    rows = []
+    for rec in cands[:DRAFT_PICK_COUNT]:
+        row = [f"**{hero_names.get(rec['hero_id'], rec['hero_id'])}**",
+               f"{rec['pick']:.0f}", _who_plays(rec), f"{rec['wr']:.0f}%"]
+        if have_edges:
+            row.append(_pp(rec["edge"]) if rec["edge"] is not None else "–")
+            row.append(", ".join(
+                f"{hero_names.get(hid, hid)} {_pp(adv)}"
+                for hid, adv in rec["vs"][:2]) or "–")
+        rows.append(row)
+    headers = ["Hero", "Pickki", "Kuka meiltä", "WR"]
+    if have_edges:
+        headers += ["Etu vs. uhat", "Toimii erityisesti vastaan"]
+    L += md_table(headers, rows)
+    L.append("")
+
+    # Pelaajakohtaiset ehdotukset: kunkin oman pelaajan parhaat heropit.
+    # Järjestys lasketaan pelaajan omasta poolista, ei joukkueen yhteisestä —
+    # muuten kaikille suositeltaisiin samoja heropeja.
+    per_player = defaultdict(list)
+    for rec in cands:
+        for p in rec["players"]:
+            per_player[p["nick"]].append((rec, p))
+    if per_player:
+        L += [f"{h}# Pelaajakohtaisesti", "",
+              "Kunkin oman pelaajan omasta poolista parhaat vaihtoehdot "
+              "tätä vastustajaa vastaan:", ""]
+        for nick in sorted(per_player):
+            items = per_player[nick]
+            best = max(p["score"] for _rec, p in items) or 1.0
+            rank = lambda ip: _pick_index(ip[1]["score"], best, ip[0]["edge"])
+            bits = []
+            for rec, p in sorted(items, key=rank, reverse=True)[:PLAYER_PICK_COUNT]:
+                name = hero_names.get(rec["hero_id"], rec["hero_id"])
+                games = p["rg"] + p["ag"]
+                s = f"**{name}** ({games} peliä, {p['wr']:.0f}%"
+                if rec["edge"] is not None:
+                    s += f", {_pp(rec['edge'])}"
+                bits.append(s + ")")
+            L.append(f"- **{nick}**: " + " · ".join(bits))
+        L.append("")
+
+    # Kiistellyt: heropit joita molemmat haluavat
+    opp_ids = {r["hero_id"]: r for r in threats}
+    contested = [c for c in cands[:CONTESTED_POOL] if c["hero_id"] in opp_ids]
+    if contested:
+        L += [f"{h}# Kiistellyt heropit", "",
+              "Näitä haluavat molemmat. Jos et banni, varaudu siihen että "
+              "vastustaja ottaa ne — tai pickkaa itse ensin:", ""]
+        L += md_table(["Hero", "Meillä", "Heillä", "Heidän uhkansa"],
+                      [[f"**{hero_names.get(c['hero_id'], c['hero_id'])}**",
+                        _who_plays(c), _who_plays(opp_ids[c["hero_id"]]),
+                        f"{opp_ids[c['hero_id']]['score']:.0f}"]
+                       for c in contested])
+        L.append("")
+
+    # Vältettävät: oman poolin heropit joilla on selvä miinusmatchup
+    if have_edges:
+        weak = [c for c in cands
+                if c["edge"] is not None and c["edge"] <= AVOID_EDGE_LIMIT]
+        weak.sort(key=lambda c: c["edge"])
+        weak = [c for c in weak if c["score"] >= own_strengths[0]["score"] * 0.25]
+        if weak:
+            L += [f"{h}# Varo näitä ensimmäisillä pickeillä", "",
+                  "Oman poolin heropit jotka pärjäävät heikoiten juuri tätä "
+                  "vastustajaa vastaan:", ""]
+            L += md_table(["Hero", "Kuka meiltä", "Etu vs. uhat", "Kärsii vastaan"],
+                          [[hero_names.get(c["hero_id"], c["hero_id"]),
+                            _who_plays(c), _pp(c["edge"]),
+                            ", ".join(f"{hero_names.get(hid, hid)} {_pp(adv)}"
+                                      for hid, adv in c["vs"][-2:]) or "–"]
+                           for c in weak[:AVOID_COUNT]])
+            L.append("")
+    return L
+
+
+def own_team_lines(own_team, own_strengths, hero_names, level=2):
+    """Oman joukkueen sivulle: mitä meiltä todennäköisesti bannataan."""
+    h = "#" * level
+    if not own_strengths:
+        return []
+    return ([f"{h} 🪞 Oma joukkue — mitä meiltä bannataan", "",
+             "Tämä on **oma joukkueesi**, joten draft-suunnitelmien sijaan "
+             "tässä sama uhka-analyysi käännettynä: näin oma poolisi näyttää "
+             "vastustajan skoutille, eli tästä päästä bannit todennäköisesti "
+             "tulevat. Varmista että kärjen takana on vaihtoehtoja.", ""]
+            + ban_table(own_strengths, hero_names, DRAFT_BAN_COUNT) + [""])
 
 
 # ---------------------------------------------------------------------------
@@ -903,11 +1314,26 @@ def quality_lines(dupes, no_data, bad_ids, mismatches, team=None, level=2):
 
 
 def team_report(team, players, data, hero_names, dupes, today,
-                no_data, bad_ids, mismatches):
-    """Yhden joukkueen itsenäinen Markdown-raportti."""
-    L = [f"# {team} — pelikirja", ""]
+                no_data, bad_ids, mismatches, draft=None):
+    """Yhden joukkueen itsenäinen Markdown-raportti.
+
+    `draft` on valinnainen draft-konteksti oman joukkueen näkökulmasta:
+    {"team": oma joukkue, "strengths": {joukkue: heropit}, "matchups": {...}}.
+    """
+    own_team = (draft or {}).get("team")
+    L = [f"# {team} — pelikirja"
+         + (" · oma joukkue" if own_team and team == own_team else ""), ""]
     L += intro_lines(today)
     L += quality_lines(dupes, no_data, bad_ids, mismatches, team=team, level=2)
+
+    if own_team:
+        strengths = draft["strengths"]
+        if team == own_team:
+            L += own_team_lines(own_team, strengths.get(team, []), hero_names)
+        else:
+            L += draft_plan_lines(team, strengths.get(team, []), own_team,
+                                  strengths.get(own_team, []), hero_names,
+                                  draft.get("matchups") or {})
 
     # Rosteri
     L += ["## Rosteri", ""]
@@ -1018,10 +1444,15 @@ def team_report(team, players, data, hero_names, dupes, today,
 
 
 def index_report(teams, data, today, dupes, no_data, bad_ids, mismatches,
-                 with_pdf=False):
+                 with_pdf=False, draft=None):
     """Hakemistosivu: yleiskatsaus + linkit joukkueiden raportteihin."""
+    own_team = (draft or {}).get("team")
     L = ["# Turnauksen pelikirja — vastustajaskouttaus", ""]
     L += intro_lines(today)
+    if own_team:
+        L += [f"Näkökulma: **{own_team}**. Jokaisen vastustajan sivulla on "
+              f"draft-suunnitelma — bannijärjestys heidän uhkiaan vastaan ja "
+              f"pick-ehdotukset omasta heropoolista.", ""]
     L += ["Jokaisella joukkueella on oma kansionsa, josta löytyy raportti "
           "Markdownina" + (" ja PDF:nä" if with_pdf else "") + " sekä "
           "`raw/`-alikansiossa OpenDotan käsittelemätön vastausdata "
@@ -1035,7 +1466,10 @@ def index_report(teams, data, today, dupes, no_data, bad_ids, mismatches,
         mmrs = [p[1] for p in mains if p[1]]
         avg = sum(mmrs) / len(mmrs) if mmrs else 0
         slug = slugify(team)
-        row = [f"[{team}]({slug}/{slug}.md)", len(mains), len(subs),
+        label = f"[{team}]({slug}/{slug}.md)"
+        if team == own_team:
+            label += " _(oma)_"
+        row = [label, len(mains), len(subs),
                f"{avg:,.0f}".replace(",", " ") if mmrs else "–",
                f"{min(mmrs)}–{max(mmrs)}" if mmrs else "–"]
         if with_pdf:
@@ -1047,8 +1481,38 @@ def index_report(teams, data, today, dupes, no_data, bad_ids, mismatches,
         headers.append("PDF")
     L += md_table(headers, [r for r, _ in rows])
     L.append("")
+    L += ban_summary_lines(teams, draft, hero_names=(draft or {}).get("hero_names"))
     L += quality_lines(dupes, no_data, bad_ids, mismatches, team=None, level=2)
     return "\n".join(L).rstrip() + "\n"
+
+
+def ban_summary_lines(teams, draft, hero_names, level=2):
+    """Pikaviite: kunkin vastustajan kärkibannit yhdellä silmäyksellä."""
+    own_team = (draft or {}).get("team")
+    if not own_team or not hero_names:
+        return []
+    h = "#" * level
+    rows = []
+    for team, _players in teams:
+        if team == own_team:
+            continue
+        top = (draft["strengths"].get(team) or [])[:SUMMARY_BAN_COUNT]
+        if not top:
+            continue
+        slug = slugify(team)
+        rows.append([f"[{team}]({slug}/{slug}.md)"]
+                    + [f"{hero_names.get(r['hero_id'], r['hero_id'])} "
+                       f"({r['score']:.0f})" for r in top]
+                    + ["–"] * (SUMMARY_BAN_COUNT - len(top)))
+    if not rows:
+        return []
+    return ([f"{h} 🎯 Bannikärki joukkueittain", "",
+             f"Näkökulma **{own_team}**. Suluissa uhkaindeksi. Koko "
+             f"draft-suunnitelma pick-ehdotuksineen on joukkueen omalla "
+             f"sivulla.", ""]
+            + md_table(["Vastustaja"]
+                       + [f"{i}. banni" for i in range(1, SUMMARY_BAN_COUNT + 1)],
+                       rows) + [""])
 
 
 def write_raw_data(raw_dir: str, team: str, players, data, today: str) -> int:
@@ -1077,13 +1541,44 @@ def write_raw_data(raw_dir: str, team: str, players, data, today: str) -> int:
     return written
 
 
-def main():
+def parse_args(argv):
+    p = argparse.ArgumentParser(
+        description="Dota 2 -vastustajaskouttaus: raportit, sivusto ja "
+                    "draft-suunnitelmat OpenDotan datasta.")
+    p.add_argument("--pdf", action="store_true",
+                   help="kirjoita myös PDF per joukkue (valinnainen)")
+    p.add_argument("--oma", metavar="JOUKKUE",
+                   default=os.environ.get("OMA_JOUKKUE", ""),
+                   help="oma joukkue: draft-suunnitelmat lasketaan tämän "
+                        "näkökulmasta. Oletuksena joukkueet.txt:ssä "
+                        "merkintä \"(oma)\" otsikon perässä, tai "
+                        "ympäristömuuttuja OMA_JOUKKUE.")
+    p.add_argument("--ei-matchupeja", dest="matchups", action="store_false",
+                   help="älä hae heropien matchup-dataa; pick-ehdotukset "
+                        "perustuvat silloin pelkkään omaan heropooliin")
+    return p.parse_args(argv)
+
+
+def main(argv=None):
+    args = parse_args(argv)
+
     if not os.path.exists(INPUT_FILE):
         sys.exit(f"Syötetiedostoa ei löydy: {INPUT_FILE}")
 
-    teams = parse_teams(INPUT_FILE)
+    teams, own_from_file = parse_teams(INPUT_FILE)
     if not teams:
         sys.exit(f"Yhtään joukkuetta ei löytynyt tiedostosta {INPUT_FILE}")
+
+    own_team, own_err = resolve_own_team(teams, args.oma or own_from_file)
+    if own_err:
+        sys.exit(f"[VIRHE] --oma: {own_err}")
+    if own_team:
+        print(f"Oma joukkue: {own_team} — draft-suunnitelmat lasketaan "
+              f"tämän näkökulmasta.")
+    else:
+        print("Omaa joukkuetta ei ole valittu, joten draft-suunnitelmia ei "
+              "lasketa.\n  Valitse se lipulla --oma \"Joukkueen nimi\" tai "
+              "merkitsemällä joukkueet.txt:ssä otsikko: ## Joukkueeni (oma)")
 
     hero_names = load_hero_names()
     if not hero_names:
@@ -1120,10 +1615,30 @@ def main():
                 if persona and not nick_matches_persona(nick, persona):
                     mismatches.append((team, nick, persona, account_id))
 
+    # --- Draft-analyysi oman joukkueen näkökulmasta ---
+    draft = None
+    if own_team:
+        strengths = {team: hero_strengths(team, players, data)
+                     for team, players in teams}
+        matchups = {}
+        if args.matchups:
+            threat_ids = set()
+            for team, _players in teams:
+                if team == own_team:
+                    continue
+                threat_ids.update(r["hero_id"]
+                                  for r in strengths[team][:THREAT_POOL])
+            matchups = fetch_matchups(threat_ids)
+            if not matchups:
+                print("  [VAROITUS] matchup-dataa ei saatu — pick-ehdotukset "
+                      "perustuvat pelkkään omaan heropooliin.")
+        draft = {"team": own_team, "strengths": strengths,
+                 "matchups": matchups, "hero_names": hero_names}
+
     # --- Kirjoitus: yksi kansio per joukkue ---
     today = datetime.date.today().isoformat()
     os.makedirs(OUTPUT_DIR, exist_ok=True)
-    make_pdf = "--pdf" in sys.argv      # PDF on valinnainen, oletuksena pois
+    make_pdf = args.pdf                 # PDF on valinnainen, oletuksena pois
     pdf_ok = pdf_fail = 0
     team_pages = []
 
@@ -1134,7 +1649,7 @@ def main():
         os.makedirs(team_dir, exist_ok=True)
 
         md_text = team_report(team, players, data, hero_names, dupes, today,
-                              no_data, bad_ids, mismatches)
+                              no_data, bad_ids, mismatches, draft=draft)
         md_path = os.path.join(team_dir, f"{slug}.md")
         with open(md_path, "w", encoding="utf-8") as f:
             f.write(md_text)
@@ -1144,8 +1659,10 @@ def main():
         mains = [p for p in players if not p[3]]
         mmrs = [p[1] for p in mains if p[1]]
         avg = f"{sum(mmrs) / len(mmrs):,.0f}".replace(",", " ") if mmrs else "–"
-        team_pages.append((team, slug, md_text,
-                           f"{len(players)} pelaajaa · keski-MMR {avg}"))
+        sub = f"{len(players)} pelaajaa · keski-MMR {avg}"
+        if team == own_team:
+            sub += " · oma joukkue"
+        team_pages.append((team, slug, md_text, sub))
         print(f"{team}: {os.path.relpath(md_path, HERE)} (+{n_raw} raw-tiedostoa)")
 
         if make_pdf:
@@ -1155,7 +1672,7 @@ def main():
                 pdf_fail += 1
 
     index_md = index_report(teams, data, today, dupes, no_data, bad_ids,
-                            mismatches, with_pdf=make_pdf)
+                            mismatches, with_pdf=make_pdf, draft=draft)
     index_path = os.path.join(OUTPUT_DIR, "README.md")
     with open(index_path, "w", encoding="utf-8") as f:
         f.write(index_md)

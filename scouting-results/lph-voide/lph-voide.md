@@ -4,6 +4,75 @@ _Generoitu 2026-09-04 · lähde: [OpenDota](https://www.opendota.com/) · aineis
 
 Jokaisesta pelaajasta: kaikkien aikojen top-8 heropoolia, viimeisimmät ottelut (muoto + tämänhetkinen heropooli, enintään 100 ottelua) ja pelipaikkajakauma. Heropoolista on karsittu heropit joita on pelattu alle 3 kertaa. Turbo-ottelut jätetään muoto- ja heropoolilaskennasta pois aina kun normaaleja otteluita on tarpeeksi.
 
+## 🎯 Draft: Roshan ja Rähmäsilmät vs. LPH-VOIDE
+
+Bannit vastustajan uhkaindeksin mukaan, pickit oman joukkueen heropoolista. Uhkaindeksi yhdistää viimeaikaisen pelivolyymin, kaikkien aikojen kokemuksen ja voittoprosentin — suurempi on vaarallisempi. **Viim.** = pelit viimeisimmissä otteluissa, **Kaikkiaan** = pelit kaikkiaan. Sarakkeessa *Kuka pelaa* luku on pelaajan tuoreet pelit kyseisellä heropilla (`–/N` = ei tuoreita, N peliä historiassa).
+
+### Bannit — tässä järjestyksessä
+
+| # | Hero | Uhka | Viim. | Kaikkiaan | WR | Kuka pelaa |
+|---|---|---|---|---|---|---|
+| 1 | **Dawnbreaker** | 50 | 36 | 377 | 52% | Zonneb 31, Locke 2, Jooga 3 |
+| 2 | **Undying** | 50 | 30 | 968 | 56% | Keikari (sub) 22, Muffinssi 7, Locke 1, Jooga –/61 |
+| 3 | **Nature's Prophet** | 47 | 33 | 676 | 50% | Seinis 28, Keikari (sub) 5, Jooga –/68, Locke –/51 |
+| 4 | **Night Stalker** | 46 | 21 | 264 | 58% | Zonneb 21, Locke –/44, Seinis –/24, Jooga –/18 |
+| 5 | **Dazzle** | 46 | 29 | 780 | 52% | Seinis 25, Locke –/131, Muffinssi 4, Jooga –/70 |
+| 6 | **Jakiro** | 46 | 15 | 453 | 62% | Jooga 13, Locke 2, Keikari (sub) –/73, Muffinssi –/18 |
+| 7 | **Witch Doctor** | 46 | 27 | 1115 | 52% | Muffinssi 20, Jooga 6, Locke –/112, Keikari (sub) 1 |
+| 8 | **Warlock** | 45 | 22 | 264 | 55% | Muffinssi 16, Jooga 3, Locke 3, Keikari (sub) –/23 |
+| 9 | **Lone Druid** | 42 | 29 | 402 | 48% | Seinis 28, Jooga 1 |
+| 10 | **Rubick** | 41 | 24 | 1122 | 49% | Keikari (sub) 24, Jooga –/83, Locke –/38, Seinis –/19 |
+
+### Pickit — omasta poolista tätä vastaan
+
+**Etu** on painotettu voittoprosenttiero vastustajan uhkaheropeille OpenDotan ammattilaispelidatassa (väh. 50 peliä paria kohden, ja lukua on kutistettu otoskoon mukaan). Otokset ovat pieniä ja ammattilaispelit eri peliä kuin amatööriturnaus, joten tämä on karkea suuntaviiva — oma mukavuusalue painaa enemmän.
+
+| Hero | Pickki | Kuka meiltä | WR | Etu vs. uhat | Toimii erityisesti vastaan |
+|---|---|---|---|---|---|
+| **Earth Spirit** | 91 | tossu 22, Handels –/93, Osmo 12 | 48% | +1,2 pp | Rubick +5,8 pp, Clockwerk +2,2 pp |
+| **Ember Spirit** | 73 | tossu 10, Handels 1 | 53% | +1,8 pp | Warlock +5,4 pp, Witch Doctor +4,9 pp |
+| **Snapfire** | 70 | tenderi 9, Handels 5, tossu 3, Osmo –/27 | 49% | +1,0 pp | Witch Doctor +4,5 pp, Clockwerk +2,6 pp |
+| **Slardar** | 69 | tenderi 6, Handels 4, Osmo 1, tossu –/59 | 55% | +0,9 pp | Warlock +2,9 pp, Ogre Magi +2,8 pp |
+| **Treant Protector** | 69 | Handels –/89, tenderi –/35, Osmo 1, tossu –/17 | 57% | +4,3 pp | Jakiro +6,8 pp, Warlock +6,1 pp |
+| **Keeper of the Light** | 69 | Handels –/104, tossu 8, Osmo –/32 | 50% | +2,1 pp | Warlock +6,5 pp, Ringmaster +4,1 pp |
+| **Pangolier** | 66 | Handels 8, tossu 12, Osmo –/67, tenderi –/44 | 52% | -0,8 pp | Jakiro +4,1 pp, Ringmaster +1,5 pp |
+| **Venomancer** | 64 | Handels –/101, Osmo –/53, tossu –/26, tenderi 2 | 53% | +2,0 pp | Warlock +4,1 pp, Dawnbreaker +4,1 pp |
+| **Dazzle** | 63 | Handels –/103, Osmo –/59, tossu –/43, tenderi –/36 | 53% | +2,2 pp | Warlock +4,3 pp, Jakiro +3,9 pp |
+| **Lifestealer** | 62 | Osmo 2, Handels 2, tossu 1 | 52% | +1,4 pp | Witch Doctor +4,4 pp, Warlock +3,6 pp |
+| **Bane** | 62 | Handels 2, tossu –/32, Osmo –/25, tenderi –/19 | 50% | +2,1 pp | Dawnbreaker +4,5 pp, Warlock +3,6 pp |
+| **Alchemist** | 61 | tossu –/71, Osmo –/42, Handels –/41, tenderi –/20 | 48% | +2,5 pp | Ringmaster +5,3 pp, Undying +3,5 pp |
+
+### Pelaajakohtaisesti
+
+Kunkin oman pelaajan omasta poolista parhaat vaihtoehdot tätä vastustajaa vastaan:
+
+- **Handels**: **Bane** (154 peliä, 51%, +2,1 pp) · **Ember Spirit** (221 peliä, 52%, +1,8 pp) · **Faceless Void** (140 peliä, 61%, +0,2 pp)
+- **Osmo**: **Pudge** (141 peliä, 51%, +0,3 pp) · **Legion Commander** (136 peliä, 59%, -0,1 pp) · **Lifestealer** (104 peliä, 58%, +1,4 pp)
+- **tenderi**: **Slardar** (319 peliä, 52%, +0,9 pp) · **Nyx Assassin** (166 peliä, 49%, +0,5 pp) · **Dawnbreaker** (338 peliä, 54%, +0,7 pp)
+- **tossu**: **Ember Spirit** (160 peliä, 54%, +1,8 pp) · **Invoker** (726 peliä, 52%, +0,4 pp) · **Elder Titan** (163 peliä, 58%)
+
+### Kiistellyt heropit
+
+Näitä haluavat molemmat. Jos et banni, varaudu siihen että vastustaja ottaa ne — tai pickkaa itse ensin:
+
+| Hero | Meillä | Heillä | Heidän uhkansa |
+|---|---|---|---|
+| **Dazzle** | Handels –/103, Osmo –/59, tossu –/43, tenderi –/36 | Seinis 25, Locke –/131, Muffinssi 4, Jooga –/70 | 46 |
+| **Clockwerk** | tenderi 5, Handels 3, Osmo 2, tossu –/35 | Jooga 7, Keikari (sub) –/212, Locke 3, Seinis –/23 | 39 |
+| **Dawnbreaker** | tenderi –/338, Handels 3, Osmo 3, tossu –/20 | Zonneb 31, Locke 2, Jooga 3 | 50 |
+
+### Varo näitä ensimmäisillä pickeillä
+
+Oman poolin heropit jotka pärjäävät heikoiten juuri tätä vastustajaa vastaan:
+
+| Hero | Kuka meiltä | Etu vs. uhat | Kärsii vastaan |
+|---|---|---|---|
+| Chaos Knight | Handels –/63, Osmo 1, tossu –/29, tenderi 1 | -2,4 pp | Rubick -2,4 pp, Jakiro -4,6 pp |
+| Medusa | Handels –/43, tossu –/27 | -2,3 pp | Dawnbreaker -4,8 pp, Ogre Magi -6,8 pp |
+| Underlord | tenderi 1, Osmo –/34, Handels –/31 | -2,1 pp | Lone Druid -4,8 pp, Necrophos -5,4 pp |
+| Troll Warlord | Osmo 2, tossu –/40, Handels –/48 | -1,9 pp | Ogre Magi -2,7 pp, Nature's Prophet -4,2 pp |
+| Dark Willow | tossu –/46, Handels 2, tenderi –/30, Osmo –/23 | -1,9 pp | Clockwerk -4,9 pp, Nature's Prophet -5,1 pp |
+
 ## Rosteri
 
 | Pelaaja | MMR | Steam-nimi | Medal | Pelipaikat | Muoto | Viim. peli |

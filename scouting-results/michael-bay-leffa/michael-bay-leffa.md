@@ -13,6 +13,77 @@ Jokaisesta pelaajasta: kaikkien aikojen top-8 heropoolia, viimeisimmät ottelut 
 
 > Tarkista aina että raportin **Steam-nimi** vastaa odotettua pelaajaa. Jos ei vastaa, listan Steam ID on väärä.
 
+## 🎯 Draft: Roshan ja Rähmäsilmät vs. Michael Bay Leffa
+
+Bannit vastustajan uhkaindeksin mukaan, pickit oman joukkueen heropoolista. Uhkaindeksi yhdistää viimeaikaisen pelivolyymin, kaikkien aikojen kokemuksen ja voittoprosentin — suurempi on vaarallisempi. **Viim.** = pelit viimeisimmissä otteluissa, **Kaikkiaan** = pelit kaikkiaan. Sarakkeessa *Kuka pelaa* luku on pelaajan tuoreet pelit kyseisellä heropilla (`–/N` = ei tuoreita, N peliä historiassa).
+
+### Bannit — tässä järjestyksessä
+
+| # | Hero | Uhka | Viim. | Kaikkiaan | WR | Kuka pelaa |
+|---|---|---|---|---|---|---|
+| 1 | **Sniper** | 58 | 29 | 1010 | 61% | BurnIt 28, WhaleHacker 1, Jaasz –/85 |
+| 2 | **Tusk** | 50 | 29 | 272 | 53% | WhaleHacker 25, quasmane 4, Tot_Dog –/29, BurnIt –/17 |
+| 3 | **Phantom Lancer** | 44 | 15 | 701 | 57% | Jaasz 14, WhaleHacker –/328, BurnIt 1, Tot_Dog –/30 |
+| 4 | **Wraith King** | 43 | 12 | 423 | 58% | quasmane 12, BurnIt –/97, WhaleHacker –/102, Tot_Dog –/44 |
+| 5 | **Lina** | 43 | 22 | 268 | 50% | Jaasz 20, BurnIt 2, Tot_Dog –/63, WhaleHacker –/48 |
+| 6 | **Legion Commander** | 43 | 15 | 907 | 55% | Jaasz –/272, WhaleHacker 2, BurnIt 1, Tot_Dog 6 |
+| 7 | **Luna** | 42 | 13 | 530 | 56% | Jaasz 13, BurnIt –/244, Tot_Dog –/110, WhaleHacker –/46 |
+| 8 | **Drow Ranger** | 42 | 7 | 861 | 62% | Jaasz 4, BurnIt 3, WhaleHacker –/264, Tot_Dog –/45 |
+| 9 | **Tidehunter** | 42 | 13 | 220 | 55% | Tot_Dog 12, BurnIt –/28, Jaasz 1, quasmane –/16 |
+| 10 | **Outworld Destroyer** | 41 | 9 | 861 | 58% | WhaleHacker 9, BurnIt –/102, Jaasz –/27, quasmane –/20 |
+
+### Pickit — omasta poolista tätä vastaan
+
+**Etu** on painotettu voittoprosenttiero vastustajan uhkaheropeille OpenDotan ammattilaispelidatassa (väh. 50 peliä paria kohden, ja lukua on kutistettu otoskoon mukaan). Otokset ovat pieniä ja ammattilaispelit eri peliä kuin amatööriturnaus, joten tämä on karkea suuntaviiva — oma mukavuusalue painaa enemmän.
+
+| Hero | Pickki | Kuka meiltä | WR | Etu vs. uhat | Toimii erityisesti vastaan |
+|---|---|---|---|---|---|
+| **Earth Spirit** | 90 | tossu 22, Handels –/93, Osmo 12 | 48% | +1,1 pp | Slardar +3,0 pp, Lina +3,0 pp |
+| **Ember Spirit** | 78 | tossu 10, Handels 1 | 53% | +2,6 pp | Tidehunter +6,8 pp, Sniper +4,6 pp |
+| **Snapfire** | 76 | tenderi 9, Handels 5, tossu 3, Osmo –/27 | 49% | +1,8 pp | Tidehunter +4,8 pp, Luna +3,8 pp |
+| **Pangolier** | 72 | Handels 8, tossu 12, Osmo –/67, tenderi –/44 | 52% | +0,1 pp | Lina +4,9 pp, Tidehunter +2,9 pp |
+| **Treant Protector** | 69 | Handels –/89, tenderi –/35, Osmo 1, tossu –/17 | 57% | +4,3 pp | Tusk +9,4 pp, Tidehunter +6,0 pp |
+| **Slardar** | 69 | tenderi 6, Handels 4, Osmo 1, tossu –/59 | 55% | +0,8 pp | Tidehunter +4,0 pp, Drow Ranger +3,2 pp |
+| **Clockwerk** | 66 | tenderi 5, Handels 3, Osmo 2, tossu –/35 | 48% | +1,8 pp | Tidehunter +8,0 pp, Luna +5,2 pp |
+| **Nyx Assassin** | 65 | tenderi 8, Handels –/141, Osmo –/92, tossu –/43 | 52% | +1,3 pp | Slardar +2,9 pp, Tidehunter +2,8 pp |
+| **Keeper of the Light** | 65 | Handels –/104, tossu 8, Osmo –/32 | 50% | +1,6 pp | Lina +4,3 pp, Luna +4,0 pp |
+| **Pudge** | 63 | Osmo 7, Handels 4, tossu –/114 | 49% | +1,0 pp | Lina +6,0 pp, Wraith King +5,7 pp |
+| **Axe** | 61 | tenderi 3, Handels 1, tossu 1, Osmo 1 | 53% | +1,0 pp | Sniper +3,4 pp, Tidehunter +2,5 pp |
+| **Bane** | 60 | Handels 2, tossu –/32, Osmo –/25, tenderi –/19 | 50% | +1,9 pp | Snapfire +4,9 pp, Tusk +3,1 pp |
+
+### Pelaajakohtaisesti
+
+Kunkin oman pelaajan omasta poolista parhaat vaihtoehdot tätä vastustajaa vastaan:
+
+- **Handels**: **Vengeful Spirit** (222 peliä, 59%, +0,0 pp) · **Ember Spirit** (221 peliä, 52%, +2,6 pp) · **Pangolier** (273 peliä, 52%, +0,1 pp)
+- **Osmo**: **Pudge** (141 peliä, 51%, +1,0 pp) · **Legion Commander** (136 peliä, 59%, -0,1 pp) · **Shadow Fiend** (113 peliä, 52%, +0,8 pp)
+- **tenderi**: **Nyx Assassin** (166 peliä, 49%, +1,3 pp) · **Slardar** (319 peliä, 52%, +0,8 pp) · **Axe** (199 peliä, 54%, +1,0 pp)
+- **tossu**: **Ember Spirit** (160 peliä, 54%, +2,6 pp) · **Invoker** (726 peliä, 52%, +0,2 pp) · **Elder Titan** (163 peliä, 58%)
+
+### Kiistellyt heropit
+
+Näitä haluavat molemmat. Jos et banni, varaudu siihen että vastustaja ottaa ne — tai pickkaa itse ensin:
+
+| Hero | Meillä | Heillä | Heidän uhkansa |
+|---|---|---|---|
+| **Snapfire** | tenderi 9, Handels 5, tossu 3, Osmo –/27 | WhaleHacker 20, Tot_Dog –/60 | 39 |
+| **Slardar** | tenderi 6, Handels 4, Osmo 1, tossu –/59 | Tot_Dog 14, BurnIt 7, quasmane 2, Jaasz –/17 | 39 |
+| **Lina** | Handels 3, tossu 6, Osmo 2, tenderi 1 | Jaasz 20, BurnIt 2, Tot_Dog –/63, WhaleHacker –/48 | 43 |
+| **Wraith King** | Handels 1, Osmo 3, tenderi –/51, tossu –/37 | quasmane 12, BurnIt –/97, WhaleHacker –/102, Tot_Dog –/44 | 43 |
+| **Shadow Fiend** | Osmo 4, tossu –/78, Handels –/69 | BurnIt 6, WhaleHacker 1, Jaasz 6 | 38 |
+
+### Varo näitä ensimmäisillä pickeillä
+
+Oman poolin heropit jotka pärjäävät heikoiten juuri tätä vastustajaa vastaan:
+
+| Hero | Kuka meiltä | Etu vs. uhat | Kärsii vastaan |
+|---|---|---|---|
+| Tinker | tossu –/46, Handels –/18 | -2,5 pp | Shadow Fiend -3,4 pp, Snapfire -5,5 pp |
+| Oracle | tossu 6, Handels –/72 | -2,4 pp | Snapfire -2,1 pp, Shadow Fiend -2,8 pp |
+| Underlord | tenderi 1, Osmo –/34, Handels –/31 | -2,4 pp | Slardar -5,2 pp, Ursa -7,3 pp |
+| Morphling | tossu –/95, Handels –/75 | -2,4 pp | Sniper -4,8 pp, Luna -4,8 pp |
+| Sven | Osmo 2, Handels –/87, tossu –/22 | -2,4 pp | Shadow Fiend -4,2 pp, Sniper -4,5 pp |
+
 ## Rosteri
 
 | Pelaaja | MMR | Steam-nimi | Medal | Pelipaikat | Muoto | Viim. peli |

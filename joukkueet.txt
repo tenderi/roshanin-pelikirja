@@ -13,7 +13,7 @@ osQ | 6500 | STEAM_0:0:42097388
 Wilhart | 3372 | STEAM_0:0:49942901
 Uuzo | 4250 | STEAM_0:0:29004
 
-## Roshan ja Rähmäsilmät
+## Roshan ja Rähmäsilmät (oma)
 Osmo | 6000 | STEAM_0:0:11072197
 Handels | 3652 | STEAM_0:0:44546057
 Reijo (Kantor) | 4844 | STEAM_0:0:58796952

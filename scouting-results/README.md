@@ -4,6 +4,8 @@ _Generoitu 2026-09-04 · lähde: [OpenDota](https://www.opendota.com/) · aineis
 
 Jokaisesta pelaajasta: kaikkien aikojen top-8 heropoolia, viimeisimmät ottelut (muoto + tämänhetkinen heropooli, enintään 100 ottelua) ja pelipaikkajakauma. Heropoolista on karsittu heropit joita on pelattu alle 3 kertaa. Turbo-ottelut jätetään muoto- ja heropoolilaskennasta pois aina kun normaaleja otteluita on tarpeeksi.
 
+Näkökulma: **Roshan ja Rähmäsilmät**. Jokaisen vastustajan sivulla on draft-suunnitelma — bannijärjestys heidän uhkiaan vastaan ja pick-ehdotukset omasta heropoolista.
+
 Jokaisella joukkueella on oma kansionsa, josta löytyy raportti Markdownina sekä `raw/`-alikansiossa OpenDotan käsittelemätön vastausdata pelaajittain.
 
 ## Joukkueet
@@ -14,10 +16,24 @@ Jokaisella joukkueella on oma kansionsa, josta löytyy raportti Markdownina sek�
 | [BAKI HANMA BANKAI TENSEI](baki-hanma-bankai-tensei/baki-hanma-bankai-tensei.md) | 5 | 0 | 4 774 | 3372–6500 |
 | [Team Eclipse](team-eclipse/team-eclipse.md) | 5 | 0 | 4 751 | 3332–6000 |
 | [LPH-VOIDE](lph-voide/lph-voide.md) | 5 | 1 | 4 747 | 3795–5434 |
-| [Roshan ja Rähmäsilmät](roshan-ja-rahmasilmat/roshan-ja-rahmasilmat.md) | 5 | 0 | 4 732 | 3652–6000 |
+| [Roshan ja Rähmäsilmät](roshan-ja-rahmasilmat/roshan-ja-rahmasilmat.md) _(oma)_ | 5 | 0 | 4 732 | 3652–6000 |
 | [LXT DDF490Z](lxt-ddf490z/lxt-ddf490z.md) | 5 | 0 | 4 715 | 3402–5750 |
 | [Liminka Demons](liminka-demons/liminka-demons.md) | 5 | 1 | 4 437 | 3639–5750 |
 | [Cherry Cherry Lady](cherry-cherry-lady/cherry-cherry-lady.md) | 5 | 0 | 4 342 | 3068–6500 |
+
+## 🎯 Bannikärki joukkueittain
+
+Näkökulma **Roshan ja Rähmäsilmät**. Suluissa uhkaindeksi. Koko draft-suunnitelma pick-ehdotuksineen on joukkueen omalla sivulla.
+
+| Vastustaja | 1. banni | 2. banni | 3. banni |
+|---|---|---|---|
+| [LPH-VOIDE](lph-voide/lph-voide.md) | Dawnbreaker (50) | Undying (50) | Nature's Prophet (47) |
+| [BAKI HANMA BANKAI TENSEI](baki-hanma-bankai-tensei/baki-hanma-bankai-tensei.md) | Zeus (46) | Phantom Lancer (43) | Vengeful Spirit (43) |
+| [Cherry Cherry Lady](cherry-cherry-lady/cherry-cherry-lady.md) | Lich (58) | Crystal Maiden (50) | Invoker (46) |
+| [Team Eclipse](team-eclipse/team-eclipse.md) | Largo (66) | Snapfire (60) | Ember Spirit (59) |
+| [Liminka Demons](liminka-demons/liminka-demons.md) | Windranger (45) | Ogre Magi (44) | Invoker (41) |
+| [Michael Bay Leffa](michael-bay-leffa/michael-bay-leffa.md) | Sniper (58) | Tusk (50) | Phantom Lancer (44) |
+| [LXT DDF490Z](lxt-ddf490z/lxt-ddf490z.md) | Wraith King (76) | Dark Seer (62) | Undying (45) |
 
 ## ⚠️ Huomioita aineiston laadusta
 

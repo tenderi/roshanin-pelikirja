@@ -1,4 +1,4 @@
-# Roshan ja Rähmäsilmät — pelikirja
+# Roshan ja Rähmäsilmät — pelikirja · oma joukkue
 
 _Generoitu 2026-09-04 · lähde: [OpenDota](https://www.opendota.com/) · aineisto: `joukkueet.txt`_
 
@@ -9,6 +9,23 @@ Jokaisesta pelaajasta: kaikkien aikojen top-8 heropoolia, viimeisimmät ottelut 
 **Ei julkista dataa OpenDotassa** (yksityinen profiili tai Steam ID osoittaa väärään tiliin): Reijo (Kantor)
 
 > Tarkista aina että raportin **Steam-nimi** vastaa odotettua pelaajaa. Jos ei vastaa, listan Steam ID on väärä.
+
+## 🪞 Oma joukkue — mitä meiltä bannataan
+
+Tämä on **oma joukkueesi**, joten draft-suunnitelmien sijaan tässä sama uhka-analyysi käännettynä: näin oma poolisi näyttää vastustajan skoutille, eli tästä päästä bannit todennäköisesti tulevat. Varmista että kärjen takana on vaihtoehtoja.
+
+| # | Hero | Uhka | Viim. | Kaikkiaan | WR | Kuka pelaa |
+|---|---|---|---|---|---|---|
+| 1 | **Earth Spirit** | 53 | 34 | 208 | 48% | tossu 22, Handels –/93, Osmo 12 |
+| 2 | **Pangolier** | 47 | 20 | 432 | 52% | Handels 8, tossu 12, Osmo –/67, tenderi –/44 |
+| 3 | **Slardar** | 42 | 11 | 576 | 55% | tenderi 6, Handels 4, Osmo 1, tossu –/59 |
+| 4 | **Snapfire** | 42 | 17 | 272 | 49% | tenderi 9, Handels 5, tossu 3, Osmo –/27 |
+| 5 | **Ember Spirit** | 40 | 11 | 370 | 53% | tossu 10, Handels 1 |
+| 6 | **Earthshaker** | 40 | 10 | 361 | 54% | Handels 1, tossu –/80, Osmo 1, tenderi 8 |
+| 7 | **Lina** | 40 | 12 | 417 | 51% | Handels 3, tossu 6, Osmo 2, tenderi 1 |
+| 8 | **Faceless Void** | 39 | 5 | 299 | 58% | Handels 4, tossu 1, Osmo –/66 |
+| 9 | **Vengeful Spirit** | 39 | 8 | 492 | 54% | Handels 5, Osmo 3, tenderi –/111, tossu –/38 |
+| 10 | **Invoker** | 39 | 12 | 906 | 50% | tossu 12, Osmo –/133, Handels –/59 |
 
 ## Rosteri
 

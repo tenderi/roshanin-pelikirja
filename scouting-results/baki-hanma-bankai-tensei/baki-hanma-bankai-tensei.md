@@ -12,6 +12,73 @@ Jokaisesta pelaajasta: kaikkien aikojen top-8 heropoolia, viimeisimmät ottelut 
 
 > Tarkista aina että raportin **Steam-nimi** vastaa odotettua pelaajaa. Jos ei vastaa, listan Steam ID on väärä.
 
+## 🎯 Draft: Roshan ja Rähmäsilmät vs. BAKI HANMA BANKAI TENSEI
+
+Bannit vastustajan uhkaindeksin mukaan, pickit oman joukkueen heropoolista. Uhkaindeksi yhdistää viimeaikaisen pelivolyymin, kaikkien aikojen kokemuksen ja voittoprosentin — suurempi on vaarallisempi. **Viim.** = pelit viimeisimmissä otteluissa, **Kaikkiaan** = pelit kaikkiaan. Sarakkeessa *Kuka pelaa* luku on pelaajan tuoreet pelit kyseisellä heropilla (`–/N` = ei tuoreita, N peliä historiassa).
+
+### Bannit — tässä järjestyksessä
+
+| # | Hero | Uhka | Viim. | Kaikkiaan | WR | Kuka pelaa |
+|---|---|---|---|---|---|---|
+| 1 | **Zeus** | 46 | 18 | 358 | 57% | Wilhart 10, osQ 2, Uuzo 6, raato234 –/22 |
+| 2 | **Phantom Lancer** | 43 | 7 | 268 | 63% | raato234 5, osQ –/80, Uuzo –/28, moula 2 |
+| 3 | **Vengeful Spirit** | 43 | 12 | 195 | 58% | osQ 1, Uuzo 4, Wilhart 4, raato234 2 |
+| 4 | **Bounty Hunter** | 42 | 13 | 185 | 56% | Uuzo 2, Wilhart 7, osQ –/59, raato234 4 |
+| 5 | **Juggernaut** | 42 | 12 | 336 | 57% | raato234 4, Uuzo –/56, moula 8, osQ –/65 |
+| 6 | **Dazzle** | 42 | 8 | 275 | 60% | Wilhart 4, osQ 1, raato234 3, Uuzo –/20 |
+| 7 | **Tidehunter** | 42 | 9 | 180 | 59% | osQ 5, Wilhart 1, Uuzo 3 |
+| 8 | **Spirit Breaker** | 40 | 5 | 188 | 61% | Uuzo 4, Wilhart 1, osQ –/41, raato234 –/30 |
+| 9 | **Undying** | 40 | 8 | 141 | 61% | osQ –/57, Uuzo 6, Wilhart 2 |
+| 10 | **Bane** | 39 | 4 | 149 | 61% | Wilhart 3, osQ 1 |
+
+### Pickit — omasta poolista tätä vastaan
+
+**Etu** on painotettu voittoprosenttiero vastustajan uhkaheropeille OpenDotan ammattilaispelidatassa (väh. 50 peliä paria kohden, ja lukua on kutistettu otoskoon mukaan). Otokset ovat pieniä ja ammattilaispelit eri peliä kuin amatööriturnaus, joten tämä on karkea suuntaviiva — oma mukavuusalue painaa enemmän.
+
+| Hero | Pickki | Kuka meiltä | WR | Etu vs. uhat | Toimii erityisesti vastaan |
+|---|---|---|---|---|---|
+| **Earth Spirit** | 86 | tossu 22, Handels –/93, Osmo 12 | 48% | +0,6 pp | Undying +1,0 pp, Tidehunter +0,5 pp |
+| **Ember Spirit** | 73 | tossu 10, Handels 1 | 53% | +1,8 pp | Tidehunter +6,8 pp, Witch Doctor +4,9 pp |
+| **Keeper of the Light** | 70 | Handels –/104, tossu 8, Osmo –/32 | 50% | +2,3 pp | Tidehunter +4,0 pp, Spirit Breaker +3,1 pp |
+| **Treant Protector** | 69 | Handels –/89, tenderi –/35, Osmo 1, tossu –/17 | 57% | +3,8 pp | Tidehunter +6,0 pp, Spirit Breaker +5,8 pp |
+| **Dark Seer** | 69 | Osmo 5, Handels 1, tossu –/59, tenderi –/36 | 50% | +3,8 pp | Terrorblade +3,8 pp |
+| **Snapfire** | 67 | tenderi 9, Handels 5, tossu 3, Osmo –/27 | 49% | +0,6 pp | Tidehunter +4,8 pp, Witch Doctor +4,5 pp |
+| **Razor** | 66 | tenderi –/100, Handels –/67, tossu –/48, Osmo –/40 | 56% | +2,2 pp | Tidehunter +4,2 pp, Spirit Breaker +2,9 pp |
+| **Wraith King** | 65 | Handels 1, Osmo 3, tenderi –/51, tossu –/37 | 58% | +1,1 pp | Zeus +5,4 pp, Tidehunter +0,7 pp |
+| **Pangolier** | 63 | Handels 8, tossu 12, Osmo –/67, tenderi –/44 | 52% | -1,3 pp | Tidehunter +2,9 pp, Undying +1,0 pp |
+| **Juggernaut** | 62 | Handels 1, tossu –/115, Osmo 1 | 54% | +1,7 pp | Zeus +7,3 pp, Tidehunter +1,6 pp |
+| **Nyx Assassin** | 62 | tenderi 8, Handels –/141, Osmo –/92, tossu –/43 | 52% | +0,8 pp | Tidehunter +2,8 pp, Spirit Breaker +1,8 pp |
+| **Alchemist** | 61 | tossu –/71, Osmo –/42, Handels –/41, tenderi –/20 | 48% | +2,7 pp | Undying +3,5 pp, Tidehunter +2,7 pp |
+
+### Pelaajakohtaisesti
+
+Kunkin oman pelaajan omasta poolista parhaat vaihtoehdot tätä vastustajaa vastaan:
+
+- **Handels**: **Ember Spirit** (221 peliä, 52%, +1,8 pp) · **Juggernaut** (194 peliä, 52%, +1,7 pp) · **Earthshaker** (190 peliä, 59%, -0,0 pp)
+- **Osmo**: **Legion Commander** (136 peliä, 59%, +0,5 pp) · **Pudge** (141 peliä, 51%, +0,4 pp) · **Dark Seer** (88 peliä, 57%, +3,8 pp)
+- **tenderi**: **Brewmaster** (304 peliä, 59%, +0,9 pp) · **Nyx Assassin** (166 peliä, 49%, +0,8 pp) · **Slardar** (319 peliä, 52%, -0,5 pp)
+- **tossu**: **Ember Spirit** (160 peliä, 54%, +1,8 pp) · **Invoker** (726 peliä, 52%, +0,2 pp) · **Outworld Destroyer** (290 peliä, 56%)
+
+### Kiistellyt heropit
+
+Näitä haluavat molemmat. Jos et banni, varaudu siihen että vastustaja ottaa ne — tai pickkaa itse ensin:
+
+| Hero | Meillä | Heillä | Heidän uhkansa |
+|---|---|---|---|
+| **Juggernaut** | Handels 1, tossu –/115, Osmo 1 | raato234 4, Uuzo –/56, moula 8, osQ –/65 | 42 |
+
+### Varo näitä ensimmäisillä pickeillä
+
+Oman poolin heropit jotka pärjäävät heikoiten juuri tätä vastustajaa vastaan:
+
+| Hero | Kuka meiltä | Etu vs. uhat | Kärsii vastaan |
+|---|---|---|---|
+| Lycan | Handels –/51, Osmo –/21, tenderi –/16 | -3,1 pp | Bane -2,2 pp, Terrorblade -4,0 pp |
+| Warlock | Handels 1, tenderi –/42, Osmo –/17 | -2,0 pp | Dazzle -4,3 pp, Slark -5,6 pp |
+| Underlord | tenderi 1, Osmo –/34, Handels –/31 | -1,8 pp | Dazzle -3,0 pp, Mirana -4,5 pp |
+| Dragon Knight | Handels 1, tenderi 2, tossu –/40, Osmo –/25 | -1,7 pp | Bounty Hunter -5,1 pp, Terrorblade -5,2 pp |
+| Templar Assassin | tossu –/111, Osmo 1, Handels 1 | -1,6 pp | Terrorblade -3,3 pp, Bane -4,8 pp |
+
 ## Rosteri
 
 | Pelaaja | MMR | Steam-nimi | Medal | Pelipaikat | Muoto | Viim. peli |

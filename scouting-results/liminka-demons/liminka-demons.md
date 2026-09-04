@@ -12,6 +12,79 @@ Jokaisesta pelaajasta: kaikkien aikojen top-8 heropoolia, viimeisimmät ottelut 
 
 > Tarkista aina että raportin **Steam-nimi** vastaa odotettua pelaajaa. Jos ei vastaa, listan Steam ID on väärä.
 
+## 🎯 Draft: Roshan ja Rähmäsilmät vs. Liminka Demons
+
+Bannit vastustajan uhkaindeksin mukaan, pickit oman joukkueen heropoolista. Uhkaindeksi yhdistää viimeaikaisen pelivolyymin, kaikkien aikojen kokemuksen ja voittoprosentin — suurempi on vaarallisempi. **Viim.** = pelit viimeisimmissä otteluissa, **Kaikkiaan** = pelit kaikkiaan. Sarakkeessa *Kuka pelaa* luku on pelaajan tuoreet pelit kyseisellä heropilla (`–/N` = ei tuoreita, N peliä historiassa).
+
+### Bannit — tässä järjestyksessä
+
+| # | Hero | Uhka | Viim. | Kaikkiaan | WR | Kuka pelaa |
+|---|---|---|---|---|---|---|
+| 1 | **Windranger** | 45 | 28 | 276 | 51% | Hitsuri:D 11, boho –/78, tavern player 12, russian nightmare 4 |
+| 2 | **Ogre Magi** | 44 | 15 | 408 | 59% | Hitsuri:D 1, boho 11, Pebbles (sub) 3 |
+| 3 | **Invoker** | 41 | 26 | 420 | 48% | Hitsuri:D 20, boho –/89, tavern player 3, russian nightmare 3 |
+| 4 | **Jakiro** | 41 | 13 | 298 | 56% | boho 12, Hitsuri:D 1 |
+| 5 | **Juggernaut** | 40 | 6 | 140 | 64% | raky 6, Hitsuri:D –/42 |
+| 6 | **Crystal Maiden** | 39 | 5 | 359 | 60% | boho 3, Hitsuri:D 2 |
+| 7 | **Centaur Warrunner** | 38 | 15 | 120 | 61% | boho –/82, tavern player 8, Hitsuri:D 3, Pebbles (sub) 4 |
+| 8 | **Pudge** | 38 | 14 | 462 | 51% | Hitsuri:D 9, boho –/255, tavern player 3, Pebbles (sub) 2 |
+| 9 | **Elder Titan** | 38 | 7 | 280 | 56% | boho 7 |
+| 10 | **Omniknight** | 38 | 8 | 312 | 55% | boho 8, Hitsuri:D –/15 |
+
+### Pickit — omasta poolista tätä vastaan
+
+**Etu** on painotettu voittoprosenttiero vastustajan uhkaheropeille OpenDotan ammattilaispelidatassa (väh. 50 peliä paria kohden, ja lukua on kutistettu otoskoon mukaan). Otokset ovat pieniä ja ammattilaispelit eri peliä kuin amatööriturnaus, joten tämä on karkea suuntaviiva — oma mukavuusalue painaa enemmän.
+
+| Hero | Pickki | Kuka meiltä | WR | Etu vs. uhat | Toimii erityisesti vastaan |
+|---|---|---|---|---|---|
+| **Earth Spirit** | 94 | tossu 22, Handels –/93, Osmo 12 | 48% | +1,6 pp | Pudge +3,5 pp, Lina +3,0 pp |
+| **Snapfire** | 72 | tenderi 9, Handels 5, tossu 3, Osmo –/27 | 49% | +1,2 pp | Lich +3,7 pp, Crystal Maiden +3,6 pp |
+| **Treant Protector** | 69 | Handels –/89, tenderi –/35, Osmo 1, tossu –/17 | 57% | +4,5 pp | Invoker +8,0 pp, Windranger +7,9 pp |
+| **Pangolier** | 69 | Handels 8, tossu 12, Osmo –/67, tenderi –/44 | 52% | -0,3 pp | Lina +4,9 pp, Jakiro +4,1 pp |
+| **Ember Spirit** | 68 | tossu 10, Handels 1 | 53% | +1,0 pp | Windranger +5,5 pp, Lina +2,9 pp |
+| **Nyx Assassin** | 64 | tenderi 8, Handels –/141, Osmo –/92, tossu –/43 | 52% | +1,1 pp | Invoker +2,2 pp, Shadow Fiend +1,7 pp |
+| **Slardar** | 64 | tenderi 6, Handels 4, Osmo 1, tossu –/59 | 55% | +0,1 pp | Drow Ranger +3,2 pp, Lich +2,9 pp |
+| **Pudge** | 62 | Osmo 7, Handels 4, tossu –/114 | 49% | +0,9 pp | Lina +6,0 pp, Lich +4,2 pp |
+| **Enigma** | 62 | Handels –/55, tossu –/44, tenderi 1, Osmo –/24 | 48% | +3,4 pp | Shadow Fiend +5,0 pp, Windranger +4,5 pp |
+| **Invoker** | 61 | tossu 12, Osmo –/133, Handels –/59 | 50% | +0,5 pp | Lina +4,2 pp, Lich +3,0 pp |
+| **Alchemist** | 61 | tossu –/71, Osmo –/42, Handels –/41, tenderi –/20 | 48% | +2,5 pp | Shadow Fiend +3,9 pp, Jakiro +3,0 pp |
+| **Keeper of the Light** | 61 | Handels –/104, tossu 8, Osmo –/32 | 50% | +1,0 pp | Lina +4,3 pp, Lich +3,2 pp |
+
+### Pelaajakohtaisesti
+
+Kunkin oman pelaajan omasta poolista parhaat vaihtoehdot tätä vastustajaa vastaan:
+
+- **Handels**: **Vengeful Spirit** (222 peliä, 59%, -0,0 pp) · **Pangolier** (273 peliä, 52%, -0,3 pp) · **Earthshaker** (190 peliä, 59%, -0,0 pp)
+- **Osmo**: **Pudge** (141 peliä, 51%, +0,9 pp) · **Legion Commander** (136 peliä, 59%, +0,2 pp) · **Shadow Fiend** (113 peliä, 52%, +0,4 pp)
+- **tenderi**: **Nyx Assassin** (166 peliä, 49%, +1,1 pp) · **Slardar** (319 peliä, 52%, +0,1 pp) · **Brewmaster** (304 peliä, 59%, -0,0 pp)
+- **tossu**: **Ember Spirit** (160 peliä, 54%, +1,0 pp) · **Invoker** (726 peliä, 52%, +0,5 pp) · **Elder Titan** (163 peliä, 58%)
+
+### Kiistellyt heropit
+
+Näitä haluavat molemmat. Jos et banni, varaudu siihen että vastustaja ottaa ne — tai pickkaa itse ensin:
+
+| Hero | Meillä | Heillä | Heidän uhkansa |
+|---|---|---|---|
+| **Pudge** | Osmo 7, Handels 4, tossu –/114 | Hitsuri:D 9, boho –/255, tavern player 3, Pebbles (sub) 2 | 38 |
+| **Invoker** | tossu 12, Osmo –/133, Handels –/59 | Hitsuri:D 20, boho –/89, tavern player 3, russian nightmare 3 | 41 |
+| **Juggernaut** | Handels 1, tossu –/115, Osmo 1 | raky 6, Hitsuri:D –/42 | 40 |
+| **Bane** | Handels 2, tossu –/32, Osmo –/25, tenderi –/19 | boho –/205 | 35 |
+| **Jakiro** | Handels –/114, Osmo 2, tenderi 2 | boho 12, Hitsuri:D 1 | 41 |
+| **Shadow Fiend** | Osmo 4, tossu –/78, Handels –/69 | raky 4, Hitsuri:D 1, boho –/21, russian nightmare 4 | 35 |
+| **Centaur Warrunner** | Handels 3, tenderi –/95, Osmo –/69, tossu –/42 | boho –/82, tavern player 8, Hitsuri:D 3, Pebbles (sub) 4 | 38 |
+
+### Varo näitä ensimmäisillä pickeillä
+
+Oman poolin heropit jotka pärjäävät heikoiten juuri tätä vastustajaa vastaan:
+
+| Hero | Kuka meiltä | Etu vs. uhat | Kärsii vastaan |
+|---|---|---|---|
+| Medusa | Handels –/43, tossu –/27 | -2,5 pp | Shadow Fiend -4,7 pp, Ogre Magi -6,8 pp |
+| Outworld Destroyer | tossu 2, Handels –/97, Osmo –/16, tenderi –/15 | -2,4 pp | Shadow Fiend -1,9 pp, Pudge -2,9 pp |
+| Zeus | Handels 2, tossu –/86, Osmo 2, tenderi –/30 | -2,4 pp | Ogre Magi -4,3 pp, Juggernaut -7,3 pp |
+| Warlock | Handels 1, tenderi –/42, Osmo –/17 | -2,3 pp | Bane -3,6 pp, Pudge -6,3 pp |
+| Weaver | Handels –/65, Osmo –/43, tossu –/37 | -2,1 pp | Jakiro -4,1 pp, Centaur Warrunner -4,1 pp |
+
 ## Rosteri
 
 | Pelaaja | MMR | Steam-nimi | Medal | Pelipaikat | Muoto | Viim. peli |

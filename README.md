@@ -23,12 +23,40 @@ Jokaisesta pelaajasta:
 Joukkuetasolla lisäksi yhteenveto viimeaikaisista pickseistä eli
 todennäköisimmistä bannikohteista.
 
+## Draft-suunnitelma vastustajaa vastaan
+
+Kun **oma joukkue** on valittu, jokaisen vastustajan sivulle syntyy
+draft-suunnitelma juuri sinun näkökulmastasi:
+
+- **Bannit tärkeysjärjestyksessä** — vastustajan heropit uhkaindeksin mukaan.
+  Indeksi yhdistää viimeaikaisen pelivolyymin (mitä he oikeasti pickkaavat),
+  kaikkien aikojen kokemuksen ja voittoprosentin.
+- **Pickit omasta poolista** — mitä me osaamme pelata ja mikä siitä puree
+  juuri heidän uhkaheropeihinsa.
+- **Pelaajakohtaiset ehdotukset** — kunkin oman pelaajan omasta poolista.
+- **Kiistellyt heropit** — mitä molemmat haluavat, eli mikä katoaa jos et
+  banni tai pickkaa ensin.
+- **Varo näitä** — oman poolin heropit joilla on huono matchup tätä
+  vastustajaa vastaan.
+
+Oman joukkueen omalle sivulle tulee sama analyysi käännettynä: mitä *sinulta*
+todennäköisesti bannataan. Etusivulla on lisäksi pikaviite kunkin vastustajan
+kärkibanneista.
+
+Matchup-luvut ovat OpenDotan hero-matchup-datasta, joka perustuu
+ammattilaispeleihin. Otokset ovat pieniä, joten havaittu voittoprosenttiero
+kutistetaan otoskoon mukaan kohti nollaa eikä se yksin nosta heroa listan
+kärkeen — oma mukavuusalue painaa enemmän. Kohtele lukuja suuntaviivana, ei
+totuutena.
+
 ## Käyttö
 
 ```bash
 pip install requests
-python3 scout.py            # raportit, raakadata ja verkkosivusto
-python3 scout.py --pdf      # sama + PDF per joukkue (valinnainen)
+python3 scout.py                    # raportit, raakadata ja verkkosivusto
+python3 scout.py --oma "Joukkueeni" # + draft-suunnitelmat tätä vastaan
+python3 scout.py --pdf              # + PDF per joukkue (valinnainen)
+python3 scout.py --ei-matchupeja    # ohita matchup-haku (nopeampi)
 ```
 
 Pelaajalista luetaan tiedostosta [`joukkueet.txt`](joukkueet.txt), joka on
@@ -38,7 +66,21 @@ ainoa paikka jossa joukkueita ylläpidetään. Muoto:
 ## Joukkueen nimi
 Nick | MMR | STEAM_0:0:12345678
 (Varapelaaja | MMR | STEAM_0:0:87654321)
+
+## Oma joukkueeni (oma)
+...
 ```
+
+### Oman joukkueen valinta
+
+Työkalu ei tunne mitään joukkuetta erityisenä ennen kuin kerrot sen. Valinta
+tehdään yhdellä kolmesta tavasta, tässä järjestyksessä:
+
+1. `--oma "Joukkueen nimi"` — osittainen nimi riittää (`--oma roshan`)
+2. ympäristömuuttuja `OMA_JOUKKUE`
+3. `(oma)`-merkintä otsikon perässä `joukkueet.txt`:ssä
+
+Ilman valintaa raportit syntyvät ennallaan, ilman draft-osioita.
 
 Ajo kirjoittaa:
 
@@ -71,3 +113,6 @@ kansio `/docs`**. Sen jälkeen jokainen push päivittää sivuston.
   `joukkueet.txt`:ssä.
 - OpenDota rajoittaa pyyntömäärää (n. 60/min ilman avainta). Nopeampaa ajoa
   varten: `export OPENDOTA_API_KEY="oma-avaimesi"`.
+- Draft-suunnitelmat hakevat matchup-datan vastustajien uhkaheropeista
+  (muutamia kymmeniä lisäpyyntöjä ensimmäisellä ajolla, sen jälkeen
+  välimuistista).
