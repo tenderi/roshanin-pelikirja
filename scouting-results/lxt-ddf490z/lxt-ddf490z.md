@@ -6,15 +6,8 @@ Jokaisesta pelaajasta: kaikkien aikojen top-8 heropoolia, viimeisimmät ottelut 
 
 ## ⚠️ Huomioita aineiston laadusta
 
-**Samat Steam ID:t esiintyvät useammalla pelaajalla** — todennäköisesti kopiointivirhe `joukkueet.txt`:ssä, ja näiden pelaajien tiedot raportissa ovat siksi epäluotettavia:
-
-- `STEAM_0:1:59970345` → Morality, Jiri
-- `STEAM_0:1:116425` → wAly, FatKO
-
 **Steam-nimi ei muistuta listan nickiä** — yleensä pelaaja on vain vaihtanut Steam-nimeään, mutta tarkista ettei Steam ID osoita väärään tiliin:
 
-- Morality → Steam-nimi "Jiri" ([profiili](https://www.opendota.com/players/119940691))
-- wAly → Steam-nimi "fatKO" ([profiili](https://www.opendota.com/players/232851))
 - Ade → Steam-nimi "Alan 2 Rings" ([profiili](https://www.opendota.com/players/31724584))
 
 > Tarkista aina että raportin **Steam-nimi** vastaa odotettua pelaajaa. Jos ei vastaa, listan Steam ID on väärä.
@@ -27,16 +20,16 @@ Bannit vastustajan uhkaindeksin mukaan, pickit oman joukkueen heropoolista. Uhka
 
 | # | Hero | Uhka | Viim. | Kaikkiaan | WR | Kuka pelaa |
 |---|---|---|---|---|---|---|
-| 1 | **Wraith King** | 76 | 76 | 489 | 50% | wAly 33, FatKO 33, Morality 2, Jiri 2 |
-| 2 | **Dark Seer** | 62 | 28 | 548 | 67% | wAly 14, FatKO 14 |
-| 3 | **Undying** | 45 | 10 | 216 | 63% | Morality 5, Jiri 5, wAly –/48, FatKO –/48 |
-| 4 | **Legion Commander** | 43 | 17 | 311 | 53% | wAly 4, FatKO 4, Ade 3, Morality 3 |
-| 5 | **Mirana** | 41 | 14 | 627 | 54% | Ade –/447, Morality 7, Jiri 7, wAly –/49 |
-| 6 | **Axe** | 41 | 20 | 704 | 49% | wAly 9, FatKO 9, Ade –/38, Morality 1 |
-| 7 | **Spectre** | 41 | 8 | 369 | 59% | wAly –/126, FatKO –/126, Morality 2, Jiri 2 |
-| 8 | **Elder Titan** | 40 | 10 | 307 | 56% | wAly –/94, FatKO –/94, Morality 5, Jiri 5 |
-| 9 | **Clockwerk** | 40 | 6 | 1634 | 59% | wAly 2, FatKO 2, Ade –/62, Morality 1 |
-| 10 | **Earthshaker** | 39 | 12 | 2040 | 53% | wAly 4, FatKO 4, Morality 2, Jiri 2 |
+| 1 | **Legion Commander** | 57 | 36 | 486 | 55% | wAly 2, Morality 24, FatKO 4, Ade 3 |
+| 2 | **Wraith King** | 57 | 42 | 450 | 51% | FatKO 33, wAly –/138, Morality 1, Jiri 2 |
+| 3 | **Dark Seer** | 56 | 29 | 607 | 60% | FatKO 14, Morality 15, wAly –/56 |
+| 4 | **Dawnbreaker** | 41 | 7 | 309 | 60% | wAly 1, Morality 5, Jiri 1 |
+| 5 | **Drow Ranger** | 40 | 7 | 320 | 58% | FatKO –/108, wAly –/91, Morality –/82, Ade 7 |
+| 6 | **Sniper** | 39 | 13 | 309 | 52% | wAly 11, FatKO –/105, Morality 1, Jiri 1 |
+| 7 | **Enigma** | 38 | 4 | 571 | 59% | Morality 2, FatKO 2 |
+| 8 | **Snapfire** | 38 | 14 | 258 | 50% | Morality 11, Ade 2, wAly 1, Jiri –/30 |
+| 9 | **Zeus** | 38 | 10 | 232 | 53% | Morality 1, wAly 2, Ade 7, Jiri –/32 |
+| 10 | **Axe** | 38 | 12 | 634 | 51% | FatKO 9, wAly –/163, Morality 2, Ade –/38 |
 
 ### Pickit — omasta poolista tätä vastaan
 
@@ -44,27 +37,27 @@ Bannit vastustajan uhkaindeksin mukaan, pickit oman joukkueen heropoolista. Uhka
 
 | Hero | Pickki | Kuka meiltä | WR | Etu vs. uhat | Toimii erityisesti vastaan |
 |---|---|---|---|---|---|
-| **Earth Spirit** | 89 | tossu 22, Handels –/93, Osmo 12 | 48% | +0,9 pp | Clockwerk +2,2 pp, Undying +1,0 pp |
-| **Ember Spirit** | 77 | tossu 10, Handels 1 | 53% | +2,4 pp | Axe +6,1 pp, Dark Seer +4,9 pp |
-| **Earthshaker** | 77 | Handels 1, tossu –/80, Osmo 1, tenderi 8 | 54% | +2,4 pp | Wraith King +4,1 pp, Axe +3,5 pp |
-| **Keeper of the Light** | 71 | Handels –/104, tossu 8, Osmo –/32 | 50% | +3,1 pp | Clockwerk +3,8 pp, Axe +3,5 pp |
-| **Treant Protector** | 69 | Handels –/89, tenderi –/35, Osmo 1, tossu –/17 | 57% | +3,5 pp | Undying +4,1 pp, Drow Ranger +3,6 pp |
-| **Snapfire** | 68 | tenderi 9, Handels 5, tossu 3, Osmo –/27 | 49% | +0,7 pp | Clockwerk +2,6 pp, Legion Commander +2,4 pp |
-| **Venomancer** | 66 | Handels –/101, Osmo –/53, tossu –/26, tenderi 2 | 53% | +2,3 pp | Clockwerk +3,8 pp, Axe +0,9 pp |
-| **Bane** | 65 | Handels 2, tossu –/32, Osmo –/25, tenderi –/19 | 50% | +3,2 pp | Axe +7,6 pp, Earthshaker +4,2 pp |
-| **Enchantress** | 64 | tenderi 18, Handels –/39 | 43% | +2,4 pp | Earthshaker +3,2 pp, Clockwerk +2,8 pp |
-| **Pangolier** | 64 | Handels 8, tossu 12, Osmo –/67, tenderi –/44 | 52% | -1,1 pp | Nyx Assassin +1,2 pp, Undying +1,0 pp |
-| **Lina** | 63 | Handels 3, tossu 6, Osmo 2, tenderi 1 | 51% | +0,4 pp | Undying +1,7 pp, Axe +0,5 pp |
-| **Alchemist** | 61 | tossu –/71, Osmo –/42, Handels –/41, tenderi –/20 | 48% | +2,7 pp | Undying +3,5 pp, Axe +1,9 pp |
+| **Earth Spirit** | 88 | tossu 22, Handels –/93, Osmo 12 | 48% | +0,8 pp | Clockwerk +2,2 pp, Dawnbreaker +1,7 pp |
+| **Ember Spirit** | 78 | tossu 10, Handels 1 | 53% | +2,8 pp | Axe +6,1 pp, Dark Seer +4,9 pp |
+| **Snapfire** | 75 | tenderi 9, Handels 5, tossu 3, Osmo –/27 | 49% | +1,7 pp | Underlord +3,7 pp, Zeus +2,7 pp |
+| **Keeper of the Light** | 71 | Handels –/104, tossu 8, Osmo –/32 | 50% | +2,7 pp | Clockwerk +3,8 pp, Axe +3,5 pp |
+| **Treant Protector** | 69 | Handels –/89, tenderi –/35, Osmo 1, tossu –/17 | 57% | +4,5 pp | Underlord +7,7 pp, Dawnbreaker +6,0 pp |
+| **Earthshaker** | 68 | Handels 1, tossu –/80, Osmo 1, tenderi 8 | 54% | +1,2 pp | Wraith King +4,1 pp, Axe +3,5 pp |
+| **Slardar** | 65 | tenderi 6, Handels 4, Osmo 1, tossu –/59 | 55% | +0,2 pp | Underlord +5,3 pp, Drow Ranger +3,2 pp |
+| **Venomancer** | 65 | Handels –/101, Osmo –/53, tossu –/26, tenderi 2 | 53% | +2,1 pp | Dawnbreaker +4,1 pp, Clockwerk +3,8 pp |
+| **Bane** | 65 | Handels 2, tossu –/32, Osmo –/25, tenderi –/19 | 50% | +3,8 pp | Axe +7,6 pp, Snapfire +4,9 pp |
+| **Bounty Hunter** | 62 | Handels –/104, Osmo –/63, tossu –/25 | 50% | +4,1 pp | Snapfire +4,1 pp |
+| **Mirana** | 61 | Handels –/134, Osmo –/91, tossu –/71 | 48% | +2,5 pp | Underlord +4,5 pp, Undying +3,7 pp |
+| **Lina** | 60 | Handels 3, tossu 6, Osmo 2, tenderi 1 | 51% | +0,1 pp | Underlord +2,5 pp, Undying +1,7 pp |
 
 ### Pelaajakohtaisesti
 
 Kunkin oman pelaajan omasta poolista parhaat vaihtoehdot tätä vastustajaa vastaan:
 
-- **Handels**: **Earthshaker** (190 peliä, 59%, +2,4 pp) · **Bane** (154 peliä, 51%, +3,2 pp) · **Ember Spirit** (221 peliä, 52%, +2,4 pp)
-- **Osmo**: **Pudge** (141 peliä, 51%, +0,3 pp) · **Legion Commander** (136 peliä, 59%, -0,1 pp) · **Nature's Prophet** (99 peliä, 60%, +0,8 pp)
-- **tenderi**: **Dawnbreaker** (338 peliä, 54%, +0,8 pp) · **Slardar** (319 peliä, 52%, -0,6 pp) · **Axe** (199 peliä, 54%, -0,4 pp)
-- **tossu**: **Ember Spirit** (160 peliä, 54%, +2,4 pp) · **Outworld Destroyer** (290 peliä, 56%) · **Elder Titan** (163 peliä, 58%)
+- **Handels**: **Earthshaker** (190 peliä, 59%, +1,2 pp) · **Ember Spirit** (221 peliä, 52%, +2,8 pp) · **Bane** (154 peliä, 51%, +3,8 pp)
+- **Osmo**: **Pudge** (141 peliä, 51%, +0,3 pp) · **Legion Commander** (136 peliä, 59%, -0,9 pp) · **Shadow Fiend** (113 peliä, 52%, +0,5 pp)
+- **tenderi**: **Slardar** (319 peliä, 52%, +0,2 pp) · **Snapfire** (128 peliä, 51%, +1,7 pp) · **Nyx Assassin** (166 peliä, 49%, -0,0 pp)
+- **tossu**: **Ember Spirit** (160 peliä, 54%, +2,8 pp) · **Invoker** (726 peliä, 52%, -0,5 pp) · **Elder Titan** (163 peliä, 58%)
 
 ### Kiistellyt heropit
 
@@ -72,9 +65,11 @@ Näitä haluavat molemmat. Jos et banni, varaudu siihen että vastustaja ottaa n
 
 | Hero | Meillä | Heillä | Heidän uhkansa |
 |---|---|---|---|
-| **Earthshaker** | Handels 1, tossu –/80, Osmo 1, tenderi 8 | wAly 4, FatKO 4, Morality 2, Jiri 2 | 39 |
-| **Mirana** | Handels –/134, Osmo –/91, tossu –/71 | Ade –/447, Morality 7, Jiri 7, wAly –/49 | 41 |
-| **Clockwerk** | tenderi 5, Handels 3, Osmo 2, tossu –/35 | wAly 2, FatKO 2, Ade –/62, Morality 1 | 40 |
+| **Snapfire** | tenderi 9, Handels 5, tossu 3, Osmo –/27 | Morality 11, Ade 2, wAly 1, Jiri –/30 | 38 |
+| **Earthshaker** | Handels 1, tossu –/80, Osmo 1, tenderi 8 | FatKO 4, wAly 3, Morality –/48, Jiri 2 | 37 |
+| **Clockwerk** | tenderi 5, Handels 3, Osmo 2, tossu –/35 | FatKO 2, Ade –/62, wAly –/45, Morality –/37 | 37 |
+| **Dawnbreaker** | tenderi –/338, Handels 3, Osmo 3, tossu –/20 | wAly 1, Morality 5, Jiri 1 | 41 |
+| **Wraith King** | Handels 1, Osmo 3, tenderi –/51, tossu –/37 | FatKO 33, wAly –/138, Morality 1, Jiri 2 | 57 |
 
 ### Varo näitä ensimmäisillä pickeillä
 
@@ -82,18 +77,18 @@ Oman poolin heropit jotka pärjäävät heikoiten juuri tätä vastustajaa vasta
 
 | Hero | Kuka meiltä | Etu vs. uhat | Kärsii vastaan |
 |---|---|---|---|
-| Morphling | tossu –/95, Handels –/75 | -4,3 pp | Axe -4,3 pp |
-| Troll Warlord | Osmo 2, tossu –/40, Handels –/48 | -2,7 pp | Earthshaker -2,1 pp, Axe -3,3 pp |
-| Death Prophet | Handels 1, tenderi –/61, tossu –/42, Osmo –/31 | -2,7 pp | Axe -2,7 pp |
-| Underlord | tenderi 1, Osmo –/34, Handels –/31 | -2,6 pp | Mirana -4,5 pp, Drow Ranger -4,8 pp |
-| Bristleback | Handels –/47, Osmo 2, tossu –/40, tenderi –/23 | -2,4 pp | Axe -3,9 pp, Nyx Assassin -4,5 pp |
+| Tinker | tossu –/46, Handels –/18 | -5,5 pp | Snapfire -5,5 pp |
+| Phantom Lancer | Osmo 3, tossu 1, Handels –/50, tenderi 1 | -3,5 pp | Snapfire -3,5 pp |
+| Underlord | tenderi 1, Osmo –/34, Handels –/31 | -3,1 pp | Dawnbreaker -4,3 pp, Drow Ranger -4,8 pp |
+| Outworld Destroyer | tossu 2, Handels –/97, Osmo –/16, tenderi –/15 | -2,3 pp | Snapfire -2,3 pp |
+| Oracle | tossu 6, Handels –/72 | -2,1 pp | Snapfire -2,1 pp |
 
 ## Rosteri
 
 | Pelaaja | MMR | Steam-nimi | Medal | Pelipaikat | Muoto | Viim. peli |
 |---|---|---|---|---|---|---|
-| **Morality** | 5250 | Jiri | Ancient 1 | Safe 53% / Off 39% / Mid 8% | 48% (48-52) | 2026-09-02 |
-| **wAly** | 4674 | fatKO | Legend 3 | Off 48% / Safe 40% / Mid 9% | 50% (50-50) | 2026-09-02 |
+| **Morality** | 5250 | Morality | Divine 3 | Off 38% / Safe 37% / Mid 23% | 47% (47-53) | 2026-09-01 |
+| **wAly** | 4674 | wAlydesu~ | Divine 1 | Off 44% / Safe 42% / Mid 13% | 55% (55-45) | 2026-08-31 |
 | **Ade** | 5750 | Alan 2 Rings | Divine 3 | Off 60% / Safe 34% | 48% (48-52) | 2026-09-01 |
 | **FatKO** | 3402 | fatKO | Legend 3 | Off 48% / Safe 40% / Mid 9% | 50% (50-50) | 2026-09-02 |
 | **Jiri** | 4500 | Jiri | Ancient 1 | Safe 53% / Off 39% / Mid 8% | 48% (48-52) | 2026-09-02 |
@@ -104,84 +99,82 @@ Kaikkien pelaajien viimeaikaiset ottelut yhdessä — todennäköisimmät bannik
 
 | Hero | Pelit | Voitot | WR% | Kuka pelaa |
 |---|---|---|---|---|
-| Wraith King | 76 | 45 | 59% | Ade, FatKO, Jiri, Morality, wAly |
-| Primal Beast | 32 | 12 | 38% | FatKO, wAly |
-| Dark Seer | 30 | 16 | 53% | FatKO, Jiri, Morality, wAly |
-| Axe | 20 | 10 | 50% | FatKO, Jiri, Morality, wAly |
-| Legion Commander | 17 | 14 | 82% | Ade, FatKO, Jiri, Morality, wAly |
-| Mirana | 14 | 10 | 71% | Jiri, Morality |
-| Earthshaker | 12 | 0 | 0% | FatKO, Jiri, Morality, wAly |
-| Lifestealer | 11 | 4 | 36% | Ade, Jiri, Morality |
-| Elder Titan | 10 | 6 | 60% | Jiri, Morality |
-| Undying | 10 | 8 | 80% | Jiri, Morality |
-| Centaur Warrunner | 10 | 4 | 40% | FatKO, Jiri, Morality, wAly |
-| Weaver | 10 | 7 | 70% | Ade |
+| Wraith King | 42 | 24 | 57% | Ade, FatKO, Jiri, Morality |
+| Legion Commander | 36 | 25 | 69% | Ade, FatKO, Jiri, Morality, wAly |
+| Dark Seer | 30 | 16 | 53% | FatKO, Jiri, Morality |
+| Primal Beast | 17 | 7 | 41% | FatKO, Morality |
+| Lina | 16 | 7 | 44% | Jiri, wAly |
+| Doom | 14 | 5 | 36% | FatKO, Morality |
+| Snapfire | 14 | 5 | 36% | Ade, Morality, wAly |
+| Sniper | 13 | 6 | 46% | Jiri, Morality, wAly |
+| Axe | 12 | 5 | 42% | FatKO, Jiri, Morality |
+| Ember Spirit | 12 | 5 | 42% | Jiri, wAly |
+| Void Spirit | 11 | 9 | 82% | wAly |
+| Zeus | 10 | 2 | 20% | Ade, Morality, wAly |
 
 ## Pelaajat
 
 ### Morality
 
-- Steam-nimi **Jiri** · Listan MMR ~5250 · medal Ancient 1 · Steam ID `STEAM_0:1:59970345` · [OpenDota-profiili](https://www.opendota.com/players/119940691)
-- ⚠️ Sama Steam ID listalla myös: LXT DDF490Z / Jiri — tiedot voivat koskea väärää pelaajaa.
-- Kaikkien aikojen W/L: **1571V / 1578H** (50%)
-- Viimeiset 100 ottelua: **48V / 52H (48% WR)** · viimeisin peli 2026-09-02 · _ei turbo-otteluita_
-- Pelipaikat: Safe 53% / Off 39% / Mid 8%
+- Steam-nimi **Morality** · Listan MMR ~5250 · medal Divine 3 · Steam ID `STEAM_0:0:11518656` · [OpenDota-profiili](https://www.opendota.com/players/23037312)
+- Kaikkien aikojen W/L: **3954V / 3799H** (51%)
+- Viimeiset 100 ottelua: **47V / 53H (47% WR)** · viimeisin peli 2026-09-01 · _ei turbo-otteluita_
+- Pelipaikat: Off 38% / Safe 37% / Mid 23%
 
 **Viimeaikaiset heropit** (viim. 100 ottelua)
 
 | Hero | Pelit | Voitot | WR% |
 |---|---|---|---|
-| Mirana | 7 | 5 | 71% |
-| Elder Titan | 5 | 3 | 60% |
-| Undying | 5 | 4 | 80% |
-| Grimstroke | 3 | 2 | 67% |
-| Bane | 3 | 2 | 67% |
-| Treant Protector | 3 | 1 | 33% |
+| Legion Commander | 24 | 17 | 71% |
+| Dark Seer | 15 | 8 | 53% |
+| Doom | 12 | 4 | 33% |
+| Snapfire | 11 | 3 | 27% |
+| Dawnbreaker | 5 | 2 | 40% |
+| Tidehunter | 4 | 0 | 0% |
 
 **Top-heropit, kaikki ajat** (väh. 3 peliä)
 
 | Hero | Pelit | Voitot | WR% |
 |---|---|---|---|
-| Ogre Magi | 106 | 62 | 58% |
-| Oracle | 84 | 43 | 51% |
-| Grimstroke | 78 | 45 | 58% |
-| Lion | 76 | 40 | 53% |
-| Treant Protector | 65 | 34 | 52% |
-| Witch Doctor | 64 | 27 | 42% |
-| Undying | 60 | 36 | 60% |
-| Warlock | 58 | 32 | 55% |
+| Enigma | 482 | 297 | 62% |
+| Dark Seer | 277 | 150 | 54% |
+| Juggernaut | 189 | 113 | 60% |
+| Tinker | 155 | 83 | 54% |
+| Invoker | 150 | 74 | 49% |
+| Meepo | 149 | 78 | 52% |
+| Nature's Prophet | 141 | 67 | 48% |
+| Rubick | 132 | 62 | 47% |
 
 ### wAly
 
-- Steam-nimi **fatKO** · Listan MMR ~4674 · medal Legend 3 · Steam ID `STEAM_0:1:116425` · [OpenDota-profiili](https://www.opendota.com/players/232851)
-- ⚠️ Sama Steam ID listalla myös: LXT DDF490Z / FatKO — tiedot voivat koskea väärää pelaajaa.
-- Kaikkien aikojen W/L: **4594V / 4550H** (50%)
-- Viimeiset 100 ottelua: **50V / 50H (50% WR)** · viimeisin peli 2026-09-02 · _ei turbo-otteluita_
-- Pelipaikat: Off 48% / Safe 40% / Mid 9%
+- Steam-nimi **wAlydesu~** · Listan MMR ~4674 · medal Divine 1 · Steam ID `STEAM_0:0:37889695` · [OpenDota-profiili](https://www.opendota.com/players/75779390)
+- Kaikkien aikojen W/L: **3832V / 3840H** (50%)
+- Viimeiset 100 ottelua: **55V / 45H (55% WR)** · viimeisin peli 2026-08-31 · _ei turbo-otteluita_
+- Pelipaikat: Off 44% / Safe 42% / Mid 13%
 
 **Viimeaikaiset heropit** (viim. 100 ottelua)
 
 | Hero | Pelit | Voitot | WR% |
 |---|---|---|---|
-| Wraith King | 33 | 21 | 64% |
-| Primal Beast | 16 | 6 | 38% |
-| Dark Seer | 14 | 8 | 57% |
-| Axe | 9 | 5 | 56% |
-| Legion Commander | 4 | 3 | 75% |
-| Centaur Warrunner | 4 | 2 | 50% |
+| Lina | 14 | 7 | 50% |
+| Ember Spirit | 11 | 5 | 45% |
+| Void Spirit | 11 | 9 | 82% |
+| Sniper | 11 | 5 | 45% |
+| Rubick | 9 | 5 | 56% |
+| Pangolier | 5 | 4 | 80% |
 
 **Top-heropit, kaikki ajat** (väh. 3 peliä)
 
 | Hero | Pelit | Voitot | WR% |
 |---|---|---|---|
-| Earthshaker | 961 | 517 | 54% |
-| Clockwerk | 761 | 458 | 60% |
-| Phantom Assassin | 332 | 187 | 56% |
-| Axe | 301 | 152 | 50% |
-| Dark Seer | 274 | 184 | 67% |
-| Witch Doctor | 230 | 135 | 59% |
-| Rubick | 204 | 74 | 36% |
-| Wraith King | 203 | 100 | 49% |
+| Dawnbreaker | 241 | 151 | 63% |
+| Underlord | 234 | 138 | 59% |
+| Kunkka | 217 | 106 | 49% |
+| Centaur Warrunner | 206 | 119 | 58% |
+| Legion Commander | 201 | 124 | 62% |
+| Queen of Pain | 171 | 70 | 41% |
+| Axe | 163 | 91 | 56% |
+| Tidehunter | 158 | 82 | 52% |
 
 ### Ade
 
@@ -217,7 +210,6 @@ Kaikkien pelaajien viimeaikaiset ottelut yhdessä — todennäköisimmät bannik
 ### FatKO
 
 - Steam-nimi **fatKO** · Listan MMR ~3402 · medal Legend 3 · Steam ID `STEAM_0:1:116425` · [OpenDota-profiili](https://www.opendota.com/players/232851)
-- ⚠️ Sama Steam ID listalla myös: LXT DDF490Z / wAly — tiedot voivat koskea väärää pelaajaa.
 - Kaikkien aikojen W/L: **4594V / 4550H** (50%)
 - Viimeiset 100 ottelua: **50V / 50H (50% WR)** · viimeisin peli 2026-09-02 · _ei turbo-otteluita_
 - Pelipaikat: Off 48% / Safe 40% / Mid 9%
@@ -249,7 +241,6 @@ Kaikkien pelaajien viimeaikaiset ottelut yhdessä — todennäköisimmät bannik
 ### Jiri
 
 - Steam-nimi **Jiri** · Listan MMR ~4500 · medal Ancient 1 · Steam ID `STEAM_0:1:59970345` · [OpenDota-profiili](https://www.opendota.com/players/119940691)
-- ⚠️ Sama Steam ID listalla myös: LXT DDF490Z / Morality — tiedot voivat koskea väärää pelaajaa.
 - Kaikkien aikojen W/L: **1571V / 1578H** (50%)
 - Viimeiset 100 ottelua: **48V / 52H (48% WR)** · viimeisin peli 2026-09-02 · _ei turbo-otteluita_
 - Pelipaikat: Safe 53% / Off 39% / Mid 8%

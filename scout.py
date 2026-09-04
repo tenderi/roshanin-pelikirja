@@ -1516,9 +1516,16 @@ def ban_summary_lines(teams, draft, hero_names, level=2):
 
 
 def write_raw_data(raw_dir: str, team: str, players, data, today: str) -> int:
-    """Kirjoittaa OpenDotan raakavastaukset pelaajittain JSON-tiedostoiksi."""
+    """Kirjoittaa OpenDotan raakavastaukset pelaajittain JSON-tiedostoiksi.
+
+    Tiedosto nimetään nickin ja account_id:n mukaan, joten Steam ID:n
+    korjaaminen `joukkueet.txt`:ssä tuottaa uuden tiedoston. Vanha jäisi
+    kansioon vanhentuneena ja vääränä datana, joten lopuksi siivotaan pois
+    kaikki tiedostot joita tämä ajo ei kirjoittanut.
+    """
     os.makedirs(raw_dir, exist_ok=True)
     written = 0
+    keep = set()
     for nick, mmr, sid, is_sub in players:
         d = data.get((team, nick), {})
         payload = {
@@ -1534,10 +1541,16 @@ def write_raw_data(raw_dir: str, team: str, players, data, today: str) -> int:
                          ("profile", "wl", "heroes", "matches", "counts")},
         }
         acc = d.get("account_id") or "tuntematon"
-        path = os.path.join(raw_dir, f"{slugify(nick)}-{acc}.json")
-        with open(path, "w", encoding="utf-8") as f:
+        name = f"{slugify(nick)}-{acc}.json"
+        keep.add(name)
+        with open(os.path.join(raw_dir, name), "w", encoding="utf-8") as f:
             json.dump(payload, f, ensure_ascii=False, indent=1)
         written += 1
+
+    for stale in sorted(set(os.listdir(raw_dir)) - keep):
+        if stale.endswith(".json"):
+            os.remove(os.path.join(raw_dir, stale))
+            print(f"  [SIIVOUS] poistettu vanhentunut {stale}")
     return written
 
 

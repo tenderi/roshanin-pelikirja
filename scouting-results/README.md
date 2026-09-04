@@ -33,14 +33,9 @@ Näkökulma **Roshan ja Rähmäsilmät**. Suluissa uhkaindeksi. Koko draft-suunn
 | [Team Eclipse](team-eclipse/team-eclipse.md) | Largo (66) | Snapfire (60) | Ember Spirit (59) |
 | [Liminka Demons](liminka-demons/liminka-demons.md) | Windranger (45) | Ogre Magi (44) | Invoker (41) |
 | [Michael Bay Leffa](michael-bay-leffa/michael-bay-leffa.md) | Sniper (58) | Tusk (50) | Phantom Lancer (44) |
-| [LXT DDF490Z](lxt-ddf490z/lxt-ddf490z.md) | Wraith King (76) | Dark Seer (62) | Undying (45) |
+| [LXT DDF490Z](lxt-ddf490z/lxt-ddf490z.md) | Legion Commander (57) | Wraith King (57) | Dark Seer (56) |
 
 ## ⚠️ Huomioita aineiston laadusta
-
-**Samat Steam ID:t esiintyvät useammalla pelaajalla** — todennäköisesti kopiointivirhe `joukkueet.txt`:ssä, ja näiden pelaajien tiedot raportissa ovat siksi epäluotettavia:
-
-- `STEAM_0:1:59970345` → LXT DDF490Z / Morality, LXT DDF490Z / Jiri
-- `STEAM_0:1:116425` → LXT DDF490Z / wAly, LXT DDF490Z / FatKO
 
 **Ei julkista dataa OpenDotassa** (yksityinen profiili tai Steam ID osoittaa väärään tiliin): Roshan ja Rähmäsilmät / Reijo (Kantor)
 
@@ -51,8 +46,6 @@ Näkökulma **Roshan ja Rähmäsilmät**. Suluissa uhkaindeksi. Koko draft-suunn
 - Liminka Demons / Hitsuri:D → Steam-nimi "BUMTSIBUM :D :D" ([profiili](https://www.opendota.com/players/98915726))
 - Michael Bay Leffa / Jaasz → Steam-nimi "zsj" ([profiili](https://www.opendota.com/players/231633161))
 - Michael Bay Leffa / quasmane → Steam-nimi "noSpoon" ([profiili](https://www.opendota.com/players/26266405))
-- LXT DDF490Z / Morality → Steam-nimi "Jiri" ([profiili](https://www.opendota.com/players/119940691))
-- LXT DDF490Z / wAly → Steam-nimi "fatKO" ([profiili](https://www.opendota.com/players/232851))
 - LXT DDF490Z / Ade → Steam-nimi "Alan 2 Rings" ([profiili](https://www.opendota.com/players/31724584))
 
 > Tarkista aina että raportin **Steam-nimi** vastaa odotettua pelaajaa. Jos ei vastaa, listan Steam ID on väärä.
