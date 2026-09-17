@@ -4,54 +4,46 @@ Muffinssi | 4064 | STEAM_0:0:238873
 Zonneb | 5395 | STEAM_0:0:86250919
 Jooga | 3795 | STEAM_0:1:3624758
 Locke | 5049 | STEAM_0:1:33457391
-(Keikari | 4056 | STEAM_0:0:9919633)
+Keikari | 4056 | STEAM_0:0:9919633
 
-## BAKI HANMA BANKAI TENSEI
-moula | 5750 | STEAM_0:0:60955793
-raato234 | 4000 | STEAM_0:1:84693702
-osQ | 6500 | STEAM_0:0:42097388
-Wilhart | 3372 | STEAM_0:0:49942901
-Uuzo | 4250 | STEAM_0:0:29004
+## Roshan ja Rähmäsilmät
+Osmo | 6000 | STEAM_0:0:11072197
+KiviMajava | 5449 | STEAM_0:0:38504874
+Handels | 3652 | STEAM_0:0:44546057
+Reijo (Kantor) | 4844 | STEAM_0:0:58796952
+tenderi | 3666 | STEAM_0:0:12066016
 
-## Roshan ja Rähmäsilmät (oma)
-Osmo | 6000 | STEAM_0:0:11072197 | safelane
-Handels | 3652 | STEAM_0:0:44546057 | offlane
-Reijo (Kantor) | 4844 | STEAM_0:0:58796952 | soft support
-tenderi | 3666 | STEAM_0:0:12066016 | hard support
-tossu | 5500 | steam_0:0:6448173 | mid
+## 5x30 5min/day
+Morph 6750 STEAM_0:0:40340605
+Muffa 4704  STEAM_0:0:14748475
+Baggi 4597  STEAM_0:0:85087810
+Zigerik 4000 STEAM_0:0:46722625
+The Kivi 3750 STEAM_0:1:41379487
+
+## Gluehead Group
+BurnIt | 5471 | STEAM_0:0:21569215 , 
+Sepeli | 4558 | STEAM_0:1:43408828 , 
+atte | 6500 | STEAM_0:0:20190 
+Iorena | 3500 | STEAM_0:1:42979174
+Kanki | 3598 | STEAM_0:0:108895891
 
 ## Cherry Cherry Lady
 Tivi / 4412 / STEAM_0:1:64619766
-Baguettecat / 4249 / STEAM_0:1:42338061 
+Baguettecat / 4246 / STEAM_0:1:42338061 
 mangusti / 3482 / STEAM_0:1:70308514
-nonpu / 3068 / STEAM_0:1:62043471
-Pöykäri / 6500 / STEAM_0:0:96565428
+nonpu / 3081 / STEAM_0:1:62043471
+TRYFFELI / 5500 / STEAM_0:0:71320596 
 
-## Team Eclipse
-Illustral | 6000 | STEAM_0:0:24204145
-Fbr | 4583 | STEAM_0:1:39554393
-PostAlpha | 3840 | STEAM_0:1:125480192
-KarvaTurpa<3 | 3332 | STEAM_0:0:12736424
-Leipis | 6000 | STEAM_0:0:4698226
+## Satakunnan Autopelti
+TeuKq  4150 STEAM_0:1:20033482
+Spage 4235 STEAM_0:1:20363180
+tuomo 4438  STEAM_0:0:51075134 
+Kossiossi 5500 STEAM_0:0:65499418 
+Saclye 4371 STEAM_0:1:21894176
 
-## Liminka Demons
-Hitsuri:D | 3639 | STEAM_0:0:49457863
-raky | 4500 | STEAM_0:1:26272133
-boho | 5750 | STEAM_0:1:43830014
-tavern player | 4298 | STEAM_0:1:53807710
-russian nightmare | 4000 | STEAM_0:0:72782292
-(Pebbles | 5750 | STEAM_0:1:47768259)
-
-## Michael Bay Leffa
-Jaasz | 5430 | STEAM_0:1:115816580
-WhaleHacker | 6000 | STEAM_0:0:99894361
-BurnIt | 5471 | STEAM_0:0:21569215
-quasmane | 2831 | STEAM_0:1:13133202
+## Malttamattomat
+KurkkuMopo | 5750 | STEAM_0:0:58472138
+Abyss Astronaut | 5786 | STEAM_0:1:15453514
+Plehaz | 5000 | STEAM_0:1:11476879
+Ho ho hoe | 3098 | STEAM_0:0:57211743
 Tot_Dog | 4253 | STEAM_0:1:101310588
-
-## LXT DDF490Z    
-Morality  | 5250 | STEAM_0:0:11518656
-wAly  | 4674 | STEAM_0:0:37889695
-Ade | 5750  |  STEAM_0:0:15862292 
-FatKO | 3402 | STEAM_0:1:116425
-Jiri | 4500 | STEAM_0:1:59970345

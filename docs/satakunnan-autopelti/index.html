@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Satakunnan Autopelti — pelikirja</title>
+<style>
+:root {
+  --bg: #ffffff; --fg: #1a1d21; --muted: #5c6670; --line: #d8dee4;
+  --accent: #b02a2a; --card: #f6f8fa; --thead: #eef2f6; --zebra: #fafbfc;
+  --link: #14508c; --warn-bg: #fff8e5; --warn-line: #d8a531;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14171a; --fg: #e6e9ec; --muted: #9aa4ae; --line: #2c3238;
+    --accent: #ff6b6b; --card: #1b1f23; --thead: #21262c; --zebra: #191d21;
+    --link: #79b8ff; --warn-bg: #2a2313; --warn-line: #c9a227;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, sans-serif;
+}
+header.top {
+  position: sticky; top: 0; z-index: 10;
+  background: var(--bg); border-bottom: 1px solid var(--line);
+  padding: 12px 20px; display: flex; gap: 12px; align-items: baseline;
+  flex-wrap: wrap;
+}
+header.top a.home { color: var(--accent); font-weight: 700; text-decoration: none; }
+header.top .crumb { color: var(--muted); font-size: 14px; }
+main { max-width: 1000px; margin: 0 auto; padding: 24px 20px 80px; }
+h1 { font-size: 28px; line-height: 1.25; margin: 8px 0 4px; }
+h2 {
+  font-size: 21px; margin: 36px 0 10px; padding-bottom: 6px;
+  border-bottom: 2px solid var(--accent);
+}
+h3 {
+  font-size: 17px; margin: 26px 0 6px; color: var(--accent);
+  scroll-margin-top: 70px;
+}
+p { margin: 10px 0; }
+ul { margin: 10px 0 10px 22px; padding: 0; }
+li { margin: 4px 0; }
+a { color: var(--link); }
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.88em; background: var(--card); padding: 1px 5px;
+  border-radius: 4px;
+}
+blockquote {
+  margin: 14px 0; padding: 10px 14px; background: var(--warn-bg);
+  border-left: 4px solid var(--warn-line); border-radius: 0 6px 6px 0;
+}
+.tw { overflow-x: auto; margin: 12px 0 20px; -webkit-overflow-scrolling: touch; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td {
+  border: 1px solid var(--line); padding: 7px 10px; text-align: left;
+  vertical-align: top; white-space: nowrap;
+}
+td:last-child, th:last-child { white-space: normal; }
+th { background: var(--thead); font-weight: 600; position: sticky; top: 0; }
+tbody tr:nth-child(even) td { background: var(--zebra); }
+footer {
+  max-width: 1000px; margin: 0 auto; padding: 24px 20px 60px;
+  color: var(--muted); font-size: 13px; border-top: 1px solid var(--line);
+}
+.teamgrid {
+  display: grid; gap: 12px; margin: 18px 0 4px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+.teamgrid a {
+  display: block; padding: 14px 16px; background: var(--card);
+  border: 1px solid var(--line); border-radius: 8px; text-decoration: none;
+  color: var(--fg); font-weight: 600;
+}
+.teamgrid a:hover { border-color: var(--accent); }
+.teamgrid span { display: block; font-weight: 400; color: var(--muted);
+                 font-size: 13px; margin-top: 3px; }
+@media (max-width: 640px) {
+  body { font-size: 15px; }
+  h1 { font-size: 23px; }
+  main { padding: 16px 14px 60px; }
+  th, td { padding: 6px 8px; }
+}
+</style>
+</head>
+<body>
+<header class="top"><a class="home" href="../">Turnauksen pelikirja</a><span class="crumb">Satakunnan Autopelti</span></header>
+<main>
+<h1>Satakunnan Autopelti — pelikirja</h1>
+<p><em>Generoitu 2026-09-18 · lähde: <a href="https://www.opendota.com/">OpenDota</a> · aineisto: <code>joukkueet.txt</code></em></p>
+<p>Jokaisesta pelaajasta: kaikkien aikojen top-8 heropoolia, viimeisimmät ottelut (muoto + tämänhetkinen heropooli, enintään 100 ottelua) ja pelipaikkajakauma. Heropoolista on karsittu heropit joita on pelattu alle 3 kertaa. Turbo-ottelut jätetään muoto- ja heropoolilaskennasta pois aina kun normaaleja otteluita on tarpeeksi.</p>
+<h2 class="first">⚠️ Huomioita aineiston laadusta</h2>
+<p><strong>Steam-nimi ei muistuta listan nickiä</strong> — yleensä pelaaja on vain vaihtanut Steam-nimeään, mutta tarkista ettei Steam ID osoita väärään tiliin:</p>
+<ul>
+<li>tuomo → Steam-nimi "iF U SMURF, AT LEAST WIN" (<a href="https://www.opendota.com/players/102150268">profiili</a>)</li>
+</ul>
+<blockquote>Tarkista aina että raportin <strong>Steam-nimi</strong> vastaa odotettua pelaajaa. Jos ei vastaa, listan Steam ID on väärä.</blockquote>
+<h2>🎯 Draft: Roshan ja Rähmäsilmät vs. Satakunnan Autopelti</h2>
+<p>Bannit vastustajan uhkaindeksin mukaan, pickit oman joukkueen heropoolista. Uhkaindeksi yhdistää viimeaikaisen pelivolyymin, kaikkien aikojen kokemuksen ja voittoprosentin — suurempi on vaarallisempi. <strong>Viim.</strong> = pelit viimeisimmissä otteluissa, <strong>Kaikkiaan</strong> = pelit kaikkiaan. Sarakkeessa <em>Kuka pelaa</em> luku on pelaajan tuoreet pelit kyseisellä heropilla (<code>–/N</code> = ei tuoreita, N peliä historiassa).</p>
+<h3>Bannit — tässä järjestyksessä</h3>
+<div class="tw"><table><thead><tr><th width="7.4%">#</th><th width="19.4%">Hero</th><th width="12.1%">Uhka</th><th width="14.1%">Viim.</th><th width="22.3%">Kaikkiaan</th><th width="9.1%">WR</th><th width="15.5%">Kuka pelaa</th></tr></thead><tbody>
+<tr><td>1</td><td><strong>Largo</strong></td><td>47</td><td>20</td><td>375</td><td>56%</td><td>TeuKq 16, tuomo –/44, Saclye 4</td></tr>
+<tr><td>2</td><td><strong>Warlock</strong></td><td>42</td><td>13</td><td>960</td><td>55%</td><td>Saclye 13, TeuKq –/133, Spage –/37, tuomo –/18</td></tr>
+<tr><td>3</td><td><strong>Silencer</strong></td><td>40</td><td>10</td><td>360</td><td>56%</td><td>tuomo –/199, Saclye 10, TeuKq –/56, Kossiossi –/26</td></tr>
+<tr><td>4</td><td><strong>Invoker</strong></td><td>39</td><td>17</td><td>2150</td><td>49%</td><td>tuomo 9, Kossiossi 8, Spage –/149, TeuKq –/593</td></tr>
+<tr><td>5</td><td><strong>Wraith King</strong></td><td>39</td><td>8</td><td>301</td><td>56%</td><td>Spage 7, tuomo –/66, TeuKq –/41, Saclye 1</td></tr>
+<tr><td>6</td><td><strong>Snapfire</strong></td><td>39</td><td>21</td><td>508</td><td>45%</td><td>TeuKq 21, Spage –/37, Kossiossi –/21</td></tr>
+<tr><td>7</td><td><strong>Necrophos</strong></td><td>38</td><td>6</td><td>520</td><td>57%</td><td>TeuKq –/159, tuomo 2, Saclye –/99, Spage 3</td></tr>
+<tr><td>8</td><td><strong>Axe</strong></td><td>38</td><td>10</td><td>462</td><td>53%</td><td>TeuKq 1, Kossiossi 2, Spage 5, tuomo 1</td></tr>
+<tr><td>9</td><td><strong>Weaver</strong></td><td>38</td><td>13</td><td>416</td><td>50%</td><td>TeuKq 9, Spage 3, tuomo –/86, Kossiossi 1</td></tr>
+<tr><td>10</td><td><strong>Spectre</strong></td><td>38</td><td>5</td><td>296</td><td>57%</td><td>Spage 5, tuomo –/84, Kossiossi –/57, TeuKq –/25</td></tr>
+</tbody></table></div>
+<h3>Pickit — omasta poolista tätä vastaan</h3>
+<p><strong>Etu</strong> on painotettu voittoprosenttiero vastustajan uhkaheropeille OpenDotan ammattilaispelidatassa (väh. 50 peliä paria kohden, ja lukua on kutistettu otoskoon mukaan). Otokset ovat pieniä ja ammattilaispelit eri peliä kuin amatööriturnaus, joten tämä on karkea suuntaviiva — oma mukavuusalue painaa enemmän.</p>
+<div class="tw"><table><thead><tr><th width="20.7%">Hero</th><th width="14.6%">Pickki</th><th width="19.1%">Kuka meiltä</th><th width="8.3%">WR</th><th width="11.0%">Etu vs. uhat</th><th width="26.3%">Toimii erityisesti vastaan</th></tr></thead><tbody>
+<tr><td><strong>Spectre</strong></td><td>88</td><td>KiviMajava 2, Handels –/97, Reijo (Kantor) 10, Osmo 4</td><td>58%</td><td>–</td><td>–</td></tr>
+<tr><td><strong>Snapfire</strong></td><td>88</td><td>tenderi 12, Handels 5, Reijo (Kantor) 12, Osmo –/27</td><td>51%</td><td>+1,1 pp</td><td>Silencer +4,0 pp, Grimstroke +3,3 pp</td></tr>
+<tr><td><strong>Dawnbreaker</strong></td><td>86</td><td>tenderi –/338, KiviMajava 18, Osmo 3, Handels 3</td><td>51%</td><td>+0,5 pp</td><td>Earthshaker +4,0 pp, Axe +2,5 pp</td></tr>
+<tr><td><strong>Enchantress</strong></td><td>78</td><td>tenderi 28, Handels –/39, KiviMajava –/24</td><td>48%</td><td>+0,7 pp</td><td>Snapfire +1,8 pp, Warlock +1,7 pp</td></tr>
+<tr><td><strong>Storm Spirit</strong></td><td>76</td><td>KiviMajava 16, Reijo (Kantor) –/75, Handels –/69, Osmo 2</td><td>54%</td><td>+0,7 pp</td><td>Warlock +3,8 pp, Dragon Knight +2,4 pp</td></tr>
+<tr><td><strong>Treant Protector</strong></td><td>76</td><td>Handels –/89, tenderi –/35, Osmo 1, KiviMajava 5</td><td>55%</td><td>+4,2 pp</td><td>Invoker +8,0 pp, Warlock +6,1 pp</td></tr>
+<tr><td><strong>Puck</strong></td><td>71</td><td>Handels –/620, KiviMajava 13, Osmo 1, Reijo (Kantor) –/38</td><td>50%</td><td>+1,3 pp</td><td>Silencer +6,6 pp, Weaver +4,4 pp</td></tr>
+<tr><td><strong>Keeper of the Light</strong></td><td>68</td><td>Handels –/104, Osmo –/32, KiviMajava –/16</td><td>53%</td><td>+3,4 pp</td><td>Warlock +6,5 pp, Silencer +4,7 pp</td></tr>
+<tr><td><strong>Bane</strong></td><td>68</td><td>Handels 6, Osmo –/25, Reijo (Kantor) –/20, KiviMajava –/18</td><td>47%</td><td>+2,5 pp</td><td>Axe +8,0 pp, Snapfire +4,9 pp</td></tr>
+<tr><td><strong>Slardar</strong></td><td>67</td><td>tenderi 4, Handels 2, Osmo 1, Reijo (Kantor) 1</td><td>55%</td><td>+0,9 pp</td><td>Mars +4,7 pp, Weaver +3,6 pp</td></tr>
+<tr><td><strong>Centaur Warrunner</strong></td><td>67</td><td>Handels 4, tenderi –/95, Osmo –/69, KiviMajava 1</td><td>54%</td><td>+1,3 pp</td><td>Axe +4,5 pp, Weaver +4,3 pp</td></tr>
+<tr><td><strong>Ember Spirit</strong></td><td>67</td><td>Handels 3, Reijo (Kantor) 1, KiviMajava 4</td><td>48%</td><td>+1,9 pp</td><td>Axe +5,8 pp, Warlock +5,1 pp</td></tr>
+</tbody></table></div>
+<h3>Pelaajakohtaisesti</h3>
+<p>Kunkin oman pelaajan omasta poolista parhaat vaihtoehdot tätä vastustajaa vastaan:</p>
+<ul>
+<li><strong>Handels</strong>: <strong>Earthshaker</strong> (190 peliä, 59%, +1,4 pp) · <strong>Bane</strong> (163 peliä, 48%, +2,5 pp) · <strong>Ember Spirit</strong> (226 peliä, 52%, +1,9 pp)</li>
+<li><strong>KiviMajava</strong>: <strong>Storm Spirit</strong> (611 peliä, 54%, +0,7 pp) · <strong>Spectre</strong> (200 peliä, 62%) · <strong>Lone Druid</strong> (235 peliä, 56%)</li>
+<li><strong>Osmo</strong>: <strong>Pudge</strong> (146 peliä, 51%, +0,8 pp) · <strong>Legion Commander</strong> (135 peliä, 59%, -0,5 pp) · <strong>Night Stalker</strong> (106 peliä, 62%, +0,6 pp)</li>
+<li><strong>Reijo (Kantor)</strong>: <strong>Mirana</strong> (234 peliä, 58%, +1,3 pp) · <strong>Alchemist</strong> (169 peliä, 49%, +1,6 pp) · <strong>Timbersaw</strong> (134 peliä, 61%, -0,1 pp)</li>
+<li><strong>tenderi</strong>: <strong>Slardar</strong> (318 peliä, 53%, +0,9 pp) · <strong>Snapfire</strong> (135 peliä, 51%, +1,1 pp) · <strong>Dawnbreaker</strong> (338 peliä, 54%, +0,5 pp)</li>
+</ul>
+<h3>Kiistellyt heropit</h3>
+<p>Näitä haluavat molemmat. Jos et banni, varaudu siihen että vastustaja ottaa ne — tai pickkaa itse ensin:</p>
+<div class="tw"><table><thead><tr><th width="22.8%">Hero</th><th width="29.5%">Meillä</th><th width="29.5%">Heillä</th><th width="18.2%">Heidän uhkansa</th></tr></thead><tbody>
+<tr><td><strong>Spectre</strong></td><td>KiviMajava 2, Handels –/97, Reijo (Kantor) 10, Osmo 4</td><td>Spage 5, tuomo –/84, Kossiossi –/57, TeuKq –/25</td><td>38</td></tr>
+<tr><td><strong>Snapfire</strong></td><td>tenderi 12, Handels 5, Reijo (Kantor) 12, Osmo –/27</td><td>TeuKq 21, Spage –/37, Kossiossi –/21</td><td>39</td></tr>
+<tr><td><strong>Earthshaker</strong></td><td>Handels 1, KiviMajava –/77, Osmo 1, Reijo (Kantor) –/41</td><td>Spage 1, tuomo –/93, Kossiossi –/89, TeuKq –/30</td><td>37</td></tr>
+</tbody></table></div>
+<h3>Varo näitä ensimmäisillä pickeillä</h3>
+<p>Oman poolin heropit jotka pärjäävät heikoiten juuri tätä vastustajaa vastaan:</p>
+<div class="tw"><table><thead><tr><th width="21.1%">Hero</th><th width="36.2%">Kuka meiltä</th><th width="12.1%">Etu vs. uhat</th><th width="30.6%">Kärsii vastaan</th></tr></thead><tbody>
+<tr><td>Outworld Destroyer</td><td>Handels –/97, KiviMajava 1, Reijo (Kantor) 4, Osmo –/16</td><td>-2,6 pp</td><td>Snapfire -2,6 pp</td></tr>
+<tr><td>Silencer</td><td>Handels –/77, Osmo –/53, tenderi –/47, KiviMajava –/35</td><td>-2,1 pp</td><td>Snapfire -4,0 pp, Largo -5,4 pp</td></tr>
+<tr><td>Death Prophet</td><td>Handels 1, tenderi –/61, KiviMajava 1, Osmo –/31</td><td>-1,9 pp</td><td>Axe -2,9 pp, Snapfire -3,9 pp</td></tr>
+<tr><td>Troll Warlord</td><td>Osmo 2, Handels –/48, KiviMajava –/33</td><td>-1,6 pp</td><td>Warlock -2,7 pp, Dragon Knight -3,7 pp</td></tr>
+<tr><td>Ancient Apparition</td><td>Handels –/102, tenderi 1, KiviMajava –/39, Osmo –/39</td><td>-1,6 pp</td><td>Largo -3,4 pp, Snapfire -4,3 pp</td></tr>
+</tbody></table></div>
+<h2>Rosteri</h2>
+<div class="tw"><table><thead><tr><th width="19.4%">Pelaaja</th><th width="10.8%">MMR</th><th width="9.1%">Steam-nimi</th><th width="16.0%">Medal</th><th width="7.6%">Linjat</th><th width="16.0%">Muoto</th><th width="21.1%">Viim. peli</th></tr></thead><tbody>
+<tr><td><strong>TeuKq</strong></td><td>4150</td><td>TeuKq</td><td>Ancient 1</td><td>Off 35% / Mid 34% / Safe 31%</td><td>46% (46-54)</td><td>2026-09-17</td></tr>
+<tr><td><strong>Spage</strong></td><td>4235</td><td>Spage</td><td>Ancient 4</td><td>Off 49% / Safe 32% / Mid 18%</td><td>55% (55-45)</td><td>2026-09-12</td></tr>
+<tr><td><strong>tuomo</strong></td><td>4438</td><td>iF U SMURF, AT LEAST WIN</td><td>Ancient 2</td><td>Mid 65% / Safe 23% / Off 11%</td><td>41% (41-59)</td><td>2026-09-17</td></tr>
+<tr><td><strong>Kossiossi</strong></td><td>5500</td><td>Kossiossi</td><td>Ancient 1</td><td>Mid 41% / Off 31% / Safe 26%</td><td>49% (49-51)</td><td>2026-09-13</td></tr>
+<tr><td><strong>Saclye</strong></td><td>4371</td><td>Saclye</td><td>Ancient 3</td><td>Safe 64% / Off 34%</td><td>46% (46-54)</td><td>2026-09-17</td></tr>
+</tbody></table></div>
+<h2>Joukkueen viimeaikaiset picksit</h2>
+<p>Kaikkien pelaajien viimeaikaiset ottelut yhdessä — todennäköisimmät bannikohteet:</p>
+<div class="tw"><table><thead><tr><th width="21.1%">Hero</th><th width="14.1%">Pelit</th><th width="16.2%">Voitot</th><th width="10.1%">WR%</th><th width="38.5%">Kuka pelaa</th></tr></thead><tbody>
+<tr><td>Ringmaster</td><td>26</td><td>11</td><td>42%</td><td>TeuKq</td></tr>
+<tr><td>Snapfire</td><td>21</td><td>13</td><td>62%</td><td>TeuKq</td></tr>
+<tr><td>Largo</td><td>20</td><td>4</td><td>20%</td><td>Saclye, TeuKq</td></tr>
+<tr><td>Invoker</td><td>17</td><td>9</td><td>53%</td><td>Kossiossi, tuomo</td></tr>
+<tr><td>Weaver</td><td>13</td><td>5</td><td>38%</td><td>Kossiossi, Spage, TeuKq</td></tr>
+<tr><td>Grimstroke</td><td>13</td><td>7</td><td>54%</td><td>Saclye, tuomo</td></tr>
+<tr><td>Warlock</td><td>13</td><td>7</td><td>54%</td><td>Saclye</td></tr>
+<tr><td>Witch Doctor</td><td>11</td><td>4</td><td>36%</td><td>Saclye</td></tr>
+<tr><td>Axe</td><td>10</td><td>4</td><td>40%</td><td>Kossiossi, Saclye, Spage, TeuKq, tuomo</td></tr>
+<tr><td>Puck</td><td>10</td><td>5</td><td>50%</td><td>Spage, tuomo</td></tr>
+<tr><td>Silencer</td><td>10</td><td>7</td><td>70%</td><td>Saclye</td></tr>
+<tr><td>Sniper</td><td>9</td><td>5</td><td>56%</td><td>Kossiossi, Spage, tuomo</td></tr>
+</tbody></table></div>
+<h2>Pelaajat</h2>
+<h3>TeuKq</h3>
+<ul>
+<li>Steam-nimi <strong>TeuKq</strong> · Listan MMR ~4150 · medal Ancient 1 · Steam ID <code>STEAM_0:1:20033482</code> · <a href="https://www.opendota.com/players/40066965">OpenDota-profiili</a></li>
+<li>Kaikkien aikojen W/L: <strong>5899V / 6327H</strong> (48%)</li>
+<li>Viimeiset 100 ottelua: <strong>46V / 54H (46% WR)</strong> · viimeisin peli 2026-09-17 · <em>ei turbo-otteluita</em></li>
+<li>Pelipaikat: Off 35% / Mid 34% / Safe 31%</li>
+</ul>
+<p><strong>Viimeaikaiset heropit</strong> (viim. 100 ottelua)</p>
+<div class="tw"><table><thead><tr><th width="33.3%">Hero</th><th width="23.3%">Pelit</th><th width="26.7%">Voitot</th><th width="16.7%">WR%</th></tr></thead><tbody>
+<tr><td>Ringmaster</td><td>26</td><td>11</td><td>42%</td></tr>
+<tr><td>Snapfire</td><td>21</td><td>13</td><td>62%</td></tr>
+<tr><td>Largo</td><td>16</td><td>4</td><td>25%</td></tr>
+<tr><td>Weaver</td><td>9</td><td>3</td><td>33%</td></tr>
+<tr><td>Hoodwink</td><td>6</td><td>5</td><td>83%</td></tr>
+<tr><td>Techies</td><td>4</td><td>1</td><td>25%</td></tr>
+</tbody></table></div>
+<p><strong>Top-heropit, kaikki ajat</strong> (väh. 3 peliä)</p>
+<div class="tw"><table><thead><tr><th width="31.0%">Hero</th><th width="24.1%">Pelit</th><th width="27.6%">Voitot</th><th width="17.2%">WR%</th></tr></thead><tbody>
+<tr><td>Puck</td><td>813</td><td>423</td><td>52%</td></tr>
+<tr><td>Hoodwink</td><td>787</td><td>414</td><td>53%</td></tr>
+<tr><td>Invoker</td><td>593</td><td>273</td><td>46%</td></tr>
+<tr><td>Underlord</td><td>515</td><td>281</td><td>55%</td></tr>
+<tr><td>Muerta</td><td>503</td><td>235</td><td>47%</td></tr>
+<tr><td>Snapfire</td><td>450</td><td>203</td><td>45%</td></tr>
+<tr><td>Sand King</td><td>313</td><td>170</td><td>54%</td></tr>
+<tr><td>Largo</td><td>295</td><td>169</td><td>57%</td></tr>
+</tbody></table></div>
+<h3>Spage</h3>
+<ul>
+<li>Steam-nimi <strong>Spage</strong> · Listan MMR ~4235 · medal Ancient 4 · Steam ID <code>STEAM_0:1:20363180</code> · <a href="https://www.opendota.com/players/40726361">OpenDota-profiili</a></li>
+<li>Kaikkien aikojen W/L: <strong>5473V / 4507H</strong> (55%)</li>
+<li>Viimeiset 100 ottelua: <strong>55V / 45H (55% WR)</strong> · viimeisin peli 2026-09-12 · <em>ei turbo-otteluita</em></li>
+<li>Pelipaikat: Off 49% / Safe 32% / Mid 18%</li>
+</ul>
+<p><strong>Viimeaikaiset heropit</strong> (viim. 100 ottelua)</p>
+<div class="tw"><table><thead><tr><th width="39.4%">Hero</th><th width="21.2%">Pelit</th><th width="24.2%">Voitot</th><th width="15.2%">WR%</th></tr></thead><tbody>
+<tr><td>Wraith King</td><td>7</td><td>6</td><td>86%</td></tr>
+<tr><td>Faceless Void</td><td>6</td><td>5</td><td>83%</td></tr>
+<tr><td>Sniper</td><td>5</td><td>3</td><td>60%</td></tr>
+<tr><td>Tiny</td><td>5</td><td>2</td><td>40%</td></tr>
+<tr><td>Alchemist</td><td>5</td><td>2</td><td>40%</td></tr>
+<tr><td>Axe</td><td>5</td><td>0</td><td>0%</td></tr>
+</tbody></table></div>
+<p><strong>Top-heropit, kaikki ajat</strong> (väh. 3 peliä)</p>
+<div class="tw"><table><thead><tr><th width="35.5%">Hero</th><th width="22.6%">Pelit</th><th width="25.8%">Voitot</th><th width="16.1%">WR%</th></tr></thead><tbody>
+<tr><td>Tiny</td><td>385</td><td>218</td><td>57%</td></tr>
+<tr><td>Earthshaker</td><td>338</td><td>213</td><td>63%</td></tr>
+<tr><td>Pudge</td><td>253</td><td>156</td><td>62%</td></tr>
+<tr><td>Dark Seer</td><td>241</td><td>146</td><td>61%</td></tr>
+<tr><td>Rubick</td><td>218</td><td>113</td><td>52%</td></tr>
+<tr><td>Windranger</td><td>216</td><td>110</td><td>51%</td></tr>
+<tr><td>Sniper</td><td>212</td><td>116</td><td>55%</td></tr>
+<tr><td>Enigma</td><td>203</td><td>115</td><td>57%</td></tr>
+</tbody></table></div>
+<h3>tuomo</h3>
+<ul>
+<li>Steam-nimi <strong>iF U SMURF, AT LEAST WIN</strong> · Listan MMR ~4438 · medal Ancient 2 · Steam ID <code>STEAM_0:0:51075134</code> · <a href="https://www.opendota.com/players/102150268">OpenDota-profiili</a></li>
+<li>Kaikkien aikojen W/L: <strong>6229V / 6283H</strong> (50%)</li>
+<li>Viimeiset 100 ottelua: <strong>41V / 59H (41% WR)</strong> · viimeisin peli 2026-09-17 · <em>ei turbo-otteluita</em></li>
+<li>Pelipaikat: Mid 65% / Safe 23% / Off 11%</li>
+</ul>
+<p><strong>Viimeaikaiset heropit</strong> (viim. 100 ottelua)</p>
+<div class="tw"><table><thead><tr><th width="25.9%">Hero</th><th width="25.9%">Pelit</th><th width="29.6%">Voitot</th><th width="18.5%">WR%</th></tr></thead><tbody>
+<tr><td>Kez</td><td>9</td><td>2</td><td>22%</td></tr>
+<tr><td>Invoker</td><td>9</td><td>4</td><td>44%</td></tr>
+<tr><td>Puck</td><td>6</td><td>3</td><td>50%</td></tr>
+<tr><td>Mirana</td><td>6</td><td>4</td><td>67%</td></tr>
+<tr><td>Marci</td><td>5</td><td>1</td><td>20%</td></tr>
+<tr><td>Lina</td><td>5</td><td>0</td><td>0%</td></tr>
+</tbody></table></div>
+<p><strong>Top-heropit, kaikki ajat</strong> (väh. 3 peliä)</p>
+<div class="tw"><table><thead><tr><th width="39.4%">Hero</th><th width="21.2%">Pelit</th><th width="24.2%">Voitot</th><th width="15.2%">WR%</th></tr></thead><tbody>
+<tr><td>Invoker</td><td>1058</td><td>534</td><td>50%</td></tr>
+<tr><td>Lina</td><td>417</td><td>226</td><td>54%</td></tr>
+<tr><td>Storm Spirit</td><td>406</td><td>194</td><td>48%</td></tr>
+<tr><td>Shadow Fiend</td><td>371</td><td>179</td><td>48%</td></tr>
+<tr><td>Puck</td><td>346</td><td>156</td><td>45%</td></tr>
+<tr><td>Meepo</td><td>328</td><td>169</td><td>52%</td></tr>
+<tr><td>Queen of Pain</td><td>314</td><td>159</td><td>51%</td></tr>
+<tr><td>Morphling</td><td>302</td><td>128</td><td>42%</td></tr>
+</tbody></table></div>
+<h3>Kossiossi</h3>
+<ul>
+<li>Steam-nimi <strong>Kossiossi</strong> · Listan MMR ~5500 · medal Ancient 1 · Steam ID <code>STEAM_0:0:65499418</code> · <a href="https://www.opendota.com/players/130998836">OpenDota-profiili</a></li>
+<li>Kaikkien aikojen W/L: <strong>3030V / 3029H</strong> (50%)</li>
+<li>Viimeiset 100 ottelua: <strong>49V / 51H (49% WR)</strong> · viimeisin peli 2026-09-13 · <em>ei turbo-otteluita</em></li>
+<li>Pelipaikat: Mid 41% / Off 31% / Safe 26%</li>
+</ul>
+<p><strong>Viimeaikaiset heropit</strong> (viim. 100 ottelua)</p>
+<div class="tw"><table><thead><tr><th width="35.5%">Hero</th><th width="22.6%">Pelit</th><th width="25.8%">Voitot</th><th width="16.1%">WR%</th></tr></thead><tbody>
+<tr><td>Invoker</td><td>8</td><td>5</td><td>62%</td></tr>
+<tr><td>Razor</td><td>7</td><td>2</td><td>29%</td></tr>
+<tr><td>Windranger</td><td>4</td><td>2</td><td>50%</td></tr>
+<tr><td>Magnus</td><td>4</td><td>3</td><td>75%</td></tr>
+<tr><td>Pangolier</td><td>4</td><td>3</td><td>75%</td></tr>
+<tr><td>Dawnbreaker</td><td>3</td><td>3</td><td>100%</td></tr>
+</tbody></table></div>
+<p><strong>Top-heropit, kaikki ajat</strong> (väh. 3 peliä)</p>
+<div class="tw"><table><thead><tr><th width="37.5%">Hero</th><th width="21.9%">Pelit</th><th width="25.0%">Voitot</th><th width="15.6%">WR%</th></tr></thead><tbody>
+<tr><td>Invoker</td><td>350</td><td>170</td><td>49%</td></tr>
+<tr><td>Lone Druid</td><td>217</td><td>116</td><td>53%</td></tr>
+<tr><td>Pudge</td><td>155</td><td>89</td><td>57%</td></tr>
+<tr><td>Shadow Fiend</td><td>150</td><td>70</td><td>47%</td></tr>
+<tr><td>Magnus</td><td>125</td><td>66</td><td>53%</td></tr>
+<tr><td>Storm Spirit</td><td>122</td><td>64</td><td>52%</td></tr>
+<tr><td>Kunkka</td><td>121</td><td>61</td><td>50%</td></tr>
+<tr><td>Axe</td><td>117</td><td>70</td><td>60%</td></tr>
+</tbody></table></div>
+<h3>Saclye</h3>
+<ul>
+<li>Steam-nimi <strong>Saclye</strong> · Listan MMR ~4371 · medal Ancient 3 · Steam ID <code>STEAM_0:1:21894176</code> · <a href="https://www.opendota.com/players/43788353">OpenDota-profiili</a></li>
+<li>Kaikkien aikojen W/L: <strong>3523V / 3407H</strong> (51%)</li>
+<li>Viimeiset 100 ottelua: <strong>46V / 54H (46% WR)</strong> · viimeisin peli 2026-09-17 · <em>ei turbo-otteluita</em></li>
+<li>Pelipaikat: Safe 64% / Off 34%</li>
+</ul>
+<p><strong>Viimeaikaiset heropit</strong> (viim. 100 ottelua)</p>
+<div class="tw"><table><thead><tr><th width="37.5%">Hero</th><th width="21.9%">Pelit</th><th width="25.0%">Voitot</th><th width="15.6%">WR%</th></tr></thead><tbody>
+<tr><td>Warlock</td><td>13</td><td>7</td><td>54%</td></tr>
+<tr><td>Grimstroke</td><td>12</td><td>6</td><td>50%</td></tr>
+<tr><td>Witch Doctor</td><td>11</td><td>4</td><td>36%</td></tr>
+<tr><td>Silencer</td><td>10</td><td>7</td><td>70%</td></tr>
+<tr><td>Phoenix</td><td>6</td><td>3</td><td>50%</td></tr>
+<tr><td>Jakiro</td><td>5</td><td>3</td><td>60%</td></tr>
+</tbody></table></div>
+<p><strong>Top-heropit, kaikki ajat</strong> (väh. 3 peliä)</p>
+<div class="tw"><table><thead><tr><th width="42.9%">Hero</th><th width="20.0%">Pelit</th><th width="22.9%">Voitot</th><th width="14.3%">WR%</th></tr></thead><tbody>
+<tr><td>Warlock</td><td>772</td><td>425</td><td>55%</td></tr>
+<tr><td>Jakiro</td><td>595</td><td>308</td><td>52%</td></tr>
+<tr><td>Witch Doctor</td><td>519</td><td>264</td><td>51%</td></tr>
+<tr><td>Lich</td><td>404</td><td>209</td><td>52%</td></tr>
+<tr><td>Disruptor</td><td>338</td><td>170</td><td>50%</td></tr>
+<tr><td>Undying</td><td>324</td><td>185</td><td>57%</td></tr>
+<tr><td>Vengeful Spirit</td><td>264</td><td>147</td><td>56%</td></tr>
+<tr><td>Crystal Maiden</td><td>254</td><td>138</td><td>54%</td></tr>
+</tbody></table></div>
+<h2>Raakadata</h2><p>Tämän joukkueen käsittelemätön OpenDota-data: <a href="https://github.com/tenderi/roshanin-pelikirja/tree/main/scouting-results/satakunnan-autopelti/raw">scouting-results/satakunnan-autopelti/raw</a></p>
+</main>
+<footer>Generoitu 2026-09-18 · data: <a href="https://www.opendota.com/">OpenDota</a> · <a href="https://github.com/tenderi/roshanin-pelikirja">lähdekoodi ja raakadata GitHubissa</a></footer>
+</body>
+</html>

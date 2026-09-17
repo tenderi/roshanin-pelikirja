@@ -207,6 +207,33 @@ LANE_NAMES = {1: "Safe", 2: "Mid", 3: "Off", 4: "Jungle"}
 OWN_TEAM_MARKER = re.compile(r"\s*\((oma|own)\)\s*$", re.IGNORECASE)
 
 
+PLAYER_LINE_LOOSE = re.compile(
+    r"^(?P<nick>.+?)\s+(?P<mmr>\d[\d\s]*)\s+(?P<steam>STEAM_[0-5]:[01]:\d+)"
+    r"(?:\s+(?P<role>.+?))?\s*$", re.IGNORECASE)
+
+
+def split_player_line(line: str):
+    """Pilkkoo pelaajarivin kenttiin [nick, mmr, steam_id(, pelipaikka)].
+
+    Erotin on | tai /. Listat tulevat usein kopioituna eri lähteistä, joten
+    hyväksytään myös pelkällä välilyönnillä erotellut rivit
+    ("The Kivi 3750 STEAM_0:1:41379487") ja rivin lopun roskamerkit (", ").
+    Palauttaa None jos rivi ei jäsenny.
+    """
+    line = line.strip().rstrip(",;").strip()
+    if re.search(r"[|/]", line):
+        parts = [p.strip().strip(",;").strip() for p in re.split(r"\s*[|/]\s*", line)]
+        parts = [p for p in parts if p] if len(parts) > 4 else parts
+        return parts if len(parts) in (3, 4) else None
+    m = PLAYER_LINE_LOOSE.match(line)
+    if not m:
+        return None
+    parts = [m.group("nick"), m.group("mmr").strip(), m.group("steam")]
+    if m.group("role"):
+        parts.append(m.group("role"))
+    return parts
+
+
 def parse_teams(path: str):
     """Lukee `joukkueet.txt`:n.
 
@@ -245,8 +272,8 @@ def parse_teams(path: str):
                 print(f"  [VAROITUS] rivi {lineno} ennen joukkueotsikkoa: {line}")
                 continue
             is_sub = line.startswith("(") and line.rstrip().endswith(")")
-            parts = re.split(r"\s*[|/]\s*", line.strip("()").strip())
-            if len(parts) not in (3, 4):
+            parts = split_player_line(line.strip("()").strip())
+            if parts is None:
                 print(f"  [VAROITUS] rivi {lineno} ei jäsenny: {line}")
                 continue
             nick, mmr_s, steam_id = (p.strip() for p in parts[:3])
@@ -1863,6 +1890,23 @@ def parse_args(argv):
     return p.parse_args(argv)
 
 
+def remove_stale_team_dirs(slugs):
+    """Poistaa tulos- ja sivustohakemistoista joukkuekansiot joita ei enää
+    ole syötteessä. Kansio tunnistetaan joukkueen omaksi vain jos siinä on
+    skriptin itse kirjoittama pelikirja (slug.md tai index.html)."""
+    keep = set(slugs)
+    for base, marker in ((OUTPUT_DIR, "{slug}.md"), (SITE_DIR, "index.html")):
+        if not os.path.isdir(base):
+            continue
+        for name in sorted(os.listdir(base)):
+            path = os.path.join(base, name)
+            if name in keep or not os.path.isdir(path):
+                continue
+            if os.path.exists(os.path.join(path, marker.format(slug=name))):
+                shutil.rmtree(path)
+                print(f"  [SIIVOUS] poistettu vanhentunut {os.path.relpath(path, HERE)}/")
+
+
 def main(argv=None):
     args = parse_args(argv)
 
@@ -1990,6 +2034,10 @@ def main(argv=None):
     # --- GitHub Pages -sivusto ---
     n_pages = build_site(SITE_DIR, index_md, team_pages, today,
                          git_repo_web_url())
+
+    # Joukkueet jotka on poistettu syötteestä jäisivät muuten sivustolle
+    # ja tuloksiin vanhentuneina kansioina.
+    remove_stale_team_dirs([slugify(t) for t, _ in teams])
 
     print(f"\nValmis! {len(teams)} joukkuetta -> {os.path.relpath(OUTPUT_DIR, HERE)}/")
     print(f"Hakemistosivu: {os.path.relpath(index_path, HERE)}")

@@ -1,6 +1,6 @@
 # LPH-VOIDE — pelikirja
 
-_Generoitu 2026-09-04 · lähde: [OpenDota](https://www.opendota.com/) · aineisto: `joukkueet.txt`_
+_Generoitu 2026-09-18 · lähde: [OpenDota](https://www.opendota.com/) · aineisto: `joukkueet.txt`_
 
 Jokaisesta pelaajasta: kaikkien aikojen top-8 heropoolia, viimeisimmät ottelut (muoto + tämänhetkinen heropooli, enintään 100 ottelua) ja pelipaikkajakauma. Heropoolista on karsittu heropit joita on pelattu alle 3 kertaa. Turbo-ottelut jätetään muoto- ja heropoolilaskennasta pois aina kun normaaleja otteluita on tarpeeksi.
 
@@ -12,16 +12,16 @@ Bannit vastustajan uhkaindeksin mukaan, pickit oman joukkueen heropoolista. Uhka
 
 | # | Hero | Uhka | Viim. | Kaikkiaan | WR | Kuka pelaa |
 |---|---|---|---|---|---|---|
-| 1 | **Dawnbreaker** | 50 | 36 | 377 | 52% | Zonneb 31, Locke 2, Jooga 3 |
-| 2 | **Undying** | 50 | 30 | 968 | 56% | Keikari (sub) 22, Muffinssi 7, Locke 1, Jooga –/61 |
-| 3 | **Nature's Prophet** | 47 | 33 | 676 | 50% | Seinis 28, Keikari (sub) 5, Jooga –/68, Locke –/51 |
-| 4 | **Night Stalker** | 46 | 21 | 264 | 58% | Zonneb 21, Locke –/44, Seinis –/24, Jooga –/18 |
-| 5 | **Dazzle** | 46 | 29 | 780 | 52% | Seinis 25, Locke –/131, Muffinssi 4, Jooga –/70 |
-| 6 | **Jakiro** | 46 | 15 | 453 | 62% | Jooga 13, Locke 2, Keikari (sub) –/73, Muffinssi –/18 |
-| 7 | **Witch Doctor** | 46 | 27 | 1115 | 52% | Muffinssi 20, Jooga 6, Locke –/112, Keikari (sub) 1 |
-| 8 | **Warlock** | 45 | 22 | 264 | 55% | Muffinssi 16, Jooga 3, Locke 3, Keikari (sub) –/23 |
-| 9 | **Lone Druid** | 42 | 29 | 402 | 48% | Seinis 28, Jooga 1 |
-| 10 | **Rubick** | 41 | 24 | 1122 | 49% | Keikari (sub) 24, Jooga –/83, Locke –/38, Seinis –/19 |
+| 1 | **Undying** | 50 | 29 | 973 | 56% | Keikari 24, Muffinssi 4, Locke 1, Jooga –/61 |
+| 2 | **Night Stalker** | 47 | 24 | 269 | 57% | Zonneb 24, Locke –/44, Seinis –/24, Jooga –/18 |
+| 3 | **Dawnbreaker** | 45 | 27 | 382 | 52% | Zonneb 24, Locke –/80, Jooga 3 |
+| 4 | **Witch Doctor** | 45 | 26 | 1128 | 52% | Muffinssi 20, Jooga 5, Locke –/112, Keikari 1 |
+| 5 | **Jakiro** | 44 | 12 | 453 | 62% | Jooga 12, Locke –/91, Keikari –/73, Muffinssi –/18 |
+| 6 | **Warlock** | 44 | 22 | 270 | 54% | Muffinssi 17, Jooga 2, Locke 3, Keikari –/23 |
+| 7 | **Nature's Prophet** | 44 | 27 | 680 | 50% | Seinis 23, Jooga –/68, Keikari 4, Locke –/51 |
+| 8 | **Necrophos** | 42 | 16 | 355 | 56% | Zonneb 12, Locke 3, Keikari –/72, Jooga 1 |
+| 9 | **Rubick** | 40 | 21 | 1122 | 49% | Keikari 21, Jooga –/83, Locke –/38, Seinis –/19 |
+| 10 | **Clockwerk** | 39 | 11 | 514 | 55% | Jooga 8, Keikari –/212, Locke 3, Seinis –/23 |
 
 ### Pickit — omasta poolista tätä vastaan
 
@@ -29,27 +29,28 @@ Bannit vastustajan uhkaindeksin mukaan, pickit oman joukkueen heropoolista. Uhka
 
 | Hero | Pickki | Kuka meiltä | WR | Etu vs. uhat | Toimii erityisesti vastaan |
 |---|---|---|---|---|---|
-| **Earth Spirit** | 91 | tossu 22, Handels –/93, Osmo 12 | 48% | +1,2 pp | Rubick +5,8 pp, Clockwerk +2,2 pp |
-| **Ember Spirit** | 73 | tossu 10, Handels 1 | 53% | +1,8 pp | Warlock +5,4 pp, Witch Doctor +4,9 pp |
-| **Snapfire** | 70 | tenderi 9, Handels 5, tossu 3, Osmo –/27 | 49% | +1,0 pp | Witch Doctor +4,5 pp, Clockwerk +2,6 pp |
-| **Slardar** | 69 | tenderi 6, Handels 4, Osmo 1, tossu –/59 | 55% | +0,9 pp | Warlock +2,9 pp, Ogre Magi +2,8 pp |
-| **Treant Protector** | 69 | Handels –/89, tenderi –/35, Osmo 1, tossu –/17 | 57% | +4,3 pp | Jakiro +6,8 pp, Warlock +6,1 pp |
-| **Pangolier** | 66 | Handels 8, tossu 12, Osmo –/67, tenderi –/44 | 52% | -0,8 pp | Jakiro +4,1 pp, Ringmaster +1,5 pp |
-| **Venomancer** | 64 | Handels –/101, Osmo –/53, tossu –/26, tenderi 2 | 53% | +2,0 pp | Warlock +4,1 pp, Dawnbreaker +4,1 pp |
-| **Dazzle** | 63 | Handels –/103, Osmo –/59, tossu –/43, tenderi –/36 | 53% | +2,2 pp | Warlock +4,3 pp, Jakiro +3,9 pp |
-| **Lifestealer** | 62 | Osmo 2, Handels 2, tossu 1 | 52% | +1,4 pp | Witch Doctor +4,4 pp, Warlock +3,6 pp |
-| **Bane** | 62 | Handels 2, tossu –/32, Osmo –/25, tenderi –/19 | 50% | +2,1 pp | Dawnbreaker +4,5 pp, Warlock +3,6 pp |
-| **Alchemist** | 61 | tossu –/71, Osmo –/42, Handels –/41, tenderi –/20 | 48% | +2,5 pp | Ringmaster +5,3 pp, Undying +3,5 pp |
-| **Invoker** | 61 | tossu 12, Osmo –/133, Handels –/59 | 50% | +0,4 pp | Ringmaster +4,5 pp, Necrophos +2,4 pp |
+| **Spectre** | 88 | KiviMajava 2, Handels –/97, Reijo (Kantor) 10, Osmo 4 | 58% | – | – |
+| **Dawnbreaker** | 86 | tenderi –/338, KiviMajava 18, Osmo 3, Handels 3 | 51% | +0,5 pp | Axe +2,5 pp, Jakiro +2,4 pp |
+| **Snapfire** | 85 | tenderi 12, Handels 5, Reijo (Kantor) 12, Osmo –/27 | 51% | +0,7 pp | Witch Doctor +4,6 pp, Clockwerk +2,0 pp |
+| **Enchantress** | 83 | tenderi 28, Handels –/39, KiviMajava –/24 | 48% | +1,4 pp | Clockwerk +2,6 pp, Hoodwink +2,3 pp |
+| **Treant Protector** | 76 | Handels –/89, tenderi –/35, Osmo 1, KiviMajava 5 | 55% | +4,5 pp | Jakiro +6,8 pp, Warlock +6,1 pp |
+| **Lone Druid** | 76 | KiviMajava 6, Handels –/33 | 54% | +3,7 pp | Rubick +3,9 pp, Hoodwink +3,6 pp |
+| **Ember Spirit** | 71 | Handels 3, Reijo (Kantor) 1, KiviMajava 4 | 48% | +2,6 pp | Hoodwink +7,2 pp, Axe +5,8 pp |
+| **Storm Spirit** | 70 | KiviMajava 16, Reijo (Kantor) –/75, Handels –/69, Osmo 2 | 54% | -0,2 pp | Warlock +3,8 pp, Clockwerk +3,0 pp |
+| **Slardar** | 68 | tenderi 4, Handels 2, Osmo 1, Reijo (Kantor) 1 | 55% | +0,9 pp | Warlock +2,8 pp, Undying +2,7 pp |
+| **Bane** | 68 | Handels 6, Osmo –/25, Reijo (Kantor) –/20, KiviMajava –/18 | 47% | +2,6 pp | Axe +8,0 pp, Warlock +4,1 pp |
+| **Keeper of the Light** | 68 | Handels –/104, Osmo –/32, KiviMajava –/16 | 53% | +3,0 pp | Hoodwink +7,1 pp, Warlock +6,5 pp |
+| **Mirana** | 68 | Reijo (Kantor) 1, Handels –/134, Osmo –/91, KiviMajava –/65 | 55% | +2,1 pp | Undying +3,5 pp, Nature's Prophet +2,9 pp |
 
 ### Pelaajakohtaisesti
 
 Kunkin oman pelaajan omasta poolista parhaat vaihtoehdot tätä vastustajaa vastaan:
 
-- **Handels**: **Faceless Void** (140 peliä, 61%, +0,2 pp) · **Ember Spirit** (221 peliä, 52%, +1,8 pp) · **Pangolier** (273 peliä, 52%, -0,8 pp)
-- **Osmo**: **Legion Commander** (136 peliä, 59%, -0,1 pp) · **Lifestealer** (104 peliä, 58%, +1,4 pp) · **Shadow Fiend** (113 peliä, 52%, +0,5 pp)
-- **tenderi**: **Snapfire** (128 peliä, 51%, +1,0 pp) · **Sand King** (281 peliä, 52%, -0,8 pp) · **Enchantress** (95 peliä, 42%, +1,4 pp)
-- **tossu**: **Ember Spirit** (160 peliä, 54%, +1,8 pp) · **Invoker** (726 peliä, 52%, +0,4 pp) · **Outworld Destroyer** (290 peliä, 56%, -1,6 pp)
+- **Handels**: **Ember Spirit** (226 peliä, 52%, +2,6 pp) · **Bane** (163 peliä, 48%, +2,6 pp) · **Pangolier** (285 peliä, 53%, -1,2 pp)
+- **KiviMajava**: **Lone Druid** (235 peliä, 56%, +3,7 pp) · **Spectre** (200 peliä, 62%) · **Storm Spirit** (611 peliä, 54%, -0,2 pp)
+- **Osmo**: **Pudge** (146 peliä, 51%, +0,5 pp) · **Legion Commander** (135 peliä, 59%, -0,2 pp) · **Shadow Fiend** (118 peliä, 51%, +0,1 pp)
+- **Reijo (Kantor)**: **Mirana** (234 peliä, 58%, +2,1 pp) · **Alchemist** (169 peliä, 49%, +3,4 pp) · **Timbersaw** (134 peliä, 61%, +0,7 pp)
+- **tenderi**: **Slardar** (318 peliä, 53%, +0,9 pp) · **Enchantress** (115 peliä, 45%, +1,4 pp) · **Snapfire** (135 peliä, 51%, +0,7 pp)
 
 ### Kiistellyt heropit
 
@@ -57,10 +58,9 @@ Näitä haluavat molemmat. Jos et banni, varaudu siihen että vastustaja ottaa n
 
 | Hero | Meillä | Heillä | Heidän uhkansa |
 |---|---|---|---|
-| **Dazzle** | Handels –/103, Osmo –/59, tossu –/43, tenderi –/36 | Seinis 25, Locke –/131, Muffinssi 4, Jooga –/70 | 46 |
-| **Clockwerk** | tenderi 5, Handels 3, Osmo 2, tossu –/35 | Jooga 7, Keikari (sub) –/212, Locke 3, Seinis –/23 | 39 |
-| **Dawnbreaker** | tenderi –/338, Handels 3, Osmo 3, tossu –/20 | Zonneb 31, Locke 2, Jooga 3 | 50 |
-| **Rubick** | Handels –/263, tossu 3, Osmo –/68, tenderi 1 | Keikari (sub) 24, Jooga –/83, Locke –/38, Seinis –/19 | 41 |
+| **Dawnbreaker** | tenderi –/338, KiviMajava 18, Osmo 3, Handels 3 | Zonneb 24, Locke –/80, Jooga 3 | 45 |
+| **Lone Druid** | KiviMajava 6, Handels –/33 | Seinis 21, Jooga 1 | 39 |
+| **Necrophos** | Handels 1, KiviMajava 8, tenderi –/77, Osmo –/44 | Zonneb 12, Locke 3, Keikari –/72, Jooga 1 | 42 |
 
 ### Varo näitä ensimmäisillä pickeillä
 
@@ -68,22 +68,22 @@ Oman poolin heropit jotka pärjäävät heikoiten juuri tätä vastustajaa vasta
 
 | Hero | Kuka meiltä | Etu vs. uhat | Kärsii vastaan |
 |---|---|---|---|
-| Chaos Knight | Handels –/63, Osmo 1, tossu –/29, tenderi 1 | -2,4 pp | Rubick -2,4 pp, Jakiro -4,6 pp |
-| Medusa | Handels –/43, tossu –/27 | -2,3 pp | Dawnbreaker -4,8 pp, Ogre Magi -6,8 pp |
-| Underlord | tenderi 1, Osmo –/34, Handels –/31 | -2,1 pp | Lone Druid -4,8 pp, Necrophos -5,4 pp |
-| Troll Warlord | Osmo 2, tossu –/40, Handels –/48 | -1,9 pp | Ogre Magi -2,7 pp, Nature's Prophet -4,2 pp |
-| Dark Willow | tossu –/46, Handels 2, tenderi –/30, Osmo –/23 | -1,9 pp | Clockwerk -4,9 pp, Nature's Prophet -5,1 pp |
+| Death Prophet | Handels 1, tenderi –/61, KiviMajava 1, Osmo –/31 | -2,8 pp | Hoodwink -3,4 pp, Rubick -4,0 pp |
+| Underlord | tenderi 1, Handels 1, Osmo –/34 | -2,6 pp | Necrophos -5,9 pp, Hoodwink -6,5 pp |
+| Phantom Assassin | Handels 1, KiviMajava –/58, Reijo (Kantor) 1, Osmo 1 | -2,5 pp | Jakiro +0,0 pp, Rubick -5,4 pp |
+| Troll Warlord | Osmo 2, Handels –/48, KiviMajava –/33 | -2,3 pp | Jakiro -2,7 pp, Nature's Prophet -4,6 pp |
+| Chaos Knight | Handels –/63, Osmo 1, KiviMajava –/25, Reijo (Kantor) –/20 | -2,1 pp | Rubick -1,8 pp, Jakiro -4,5 pp |
 
 ## Rosteri
 
 | Pelaaja | MMR | Steam-nimi | Medal | Linjat | Muoto | Viim. peli |
 |---|---|---|---|---|---|---|
-| **Seinis** | 5434 | Seinis | Divine 5 | Mid 70% / Off 14% / Safe 12% | 46% (46-54) | 2026-09-02 |
-| **Muffinssi** | 4064 | Muffinssi | Ancient 1 | Safe 56% / Off 39% / Mid 5% | 45% (45-55) | 2026-09-03 |
-| **Zonneb** | 5395 | Zonneb | Divine 5 | Off 92% | 54% (54-46) | 2026-09-01 |
-| **Jooga** | 3795 | Jooga | Legend 4 | Off 44% / Safe 42% / Mid 10% | 54% (54-46) | 2026-09-01 |
-| **Locke** | 5049 | Locke | Divine 3 | Safe 44% / Off 40% / Mid 15% | 53% (53-47) | 2026-09-02 |
-| **Keikari** _(sub)_ | 4056 | Keikari | Ancient 1 | Off 62% / Safe 23% / Mid 15% | 44% (44-56) | 2026-08-30 |
+| **Seinis** | 5434 | Seinis | Divine 4 | Mid 70% / Off 14% / Safe 13% | 41% (41-59) | 2026-09-17 |
+| **Muffinssi** | 4064 | Muffinssi | Ancient 1 | Safe 56% / Off 38% | 42% (42-58) | 2026-09-17 |
+| **Zonneb** | 5395 | Zonneb | Divine 5 | Off 91% | 52% (52-48) | 2026-09-17 |
+| **Jooga** | 3795 | Jooga | Legend 5 | Off 44% / Safe 42% / Mid 10% | 50% (50-50) | 2026-09-15 |
+| **Locke** | 5049 | Locke | Divine 2 | Safe 45% / Off 40% / Mid 15% | 43% (43-57) | 2026-09-17 |
+| **Keikari** | 4056 | Keikari | Ancient 1 | Off 62% / Safe 23% / Mid 15% | 42% (42-58) | 2026-09-17 |
 
 ## Joukkueen viimeaikaiset picksit
 
@@ -91,131 +91,131 @@ Kaikkien pelaajien viimeaikaiset ottelut yhdessä — todennäköisimmät bannik
 
 | Hero | Pelit | Voitot | WR% | Kuka pelaa |
 |---|---|---|---|---|
-| Dawnbreaker | 36 | 20 | 56% | Jooga, Locke, Zonneb |
-| Nature's Prophet | 33 | 20 | 61% | Keikari, Seinis |
-| Undying | 30 | 16 | 53% | Keikari, Locke, Muffinssi |
-| Dazzle | 29 | 12 | 41% | Muffinssi, Seinis |
-| Lone Druid | 29 | 12 | 41% | Jooga, Seinis |
-| Witch Doctor | 28 | 16 | 57% | Jooga, Keikari, Muffinssi, Zonneb |
-| Rubick | 24 | 11 | 46% | Keikari |
-| Warlock | 22 | 13 | 59% | Jooga, Locke, Muffinssi |
-| Night Stalker | 21 | 14 | 67% | Zonneb |
+| Undying | 29 | 17 | 59% | Keikari, Locke, Muffinssi |
+| Nature's Prophet | 27 | 16 | 59% | Keikari, Seinis |
+| Witch Doctor | 27 | 14 | 52% | Jooga, Keikari, Muffinssi, Zonneb |
+| Dawnbreaker | 27 | 14 | 52% | Jooga, Zonneb |
+| Night Stalker | 24 | 14 | 58% | Zonneb |
+| Lone Druid | 23 | 9 | 39% | Jooga, Muffinssi, Seinis |
+| Warlock | 22 | 11 | 50% | Jooga, Locke, Muffinssi |
 | Ringmaster | 21 | 8 | 38% | Keikari, Locke |
-| Jakiro | 16 | 9 | 56% | Jooga, Locke, Zonneb |
-| Pudge | 15 | 6 | 40% | Keikari, Locke, Zonneb |
+| Rubick | 21 | 10 | 48% | Keikari |
+| Necrophos | 16 | 9 | 56% | Jooga, Locke, Zonneb |
+| Dazzle | 14 | 7 | 50% | Muffinssi, Seinis |
+| Pudge | 14 | 6 | 43% | Keikari, Locke, Zonneb |
 
 ## Pelaajat
 
 ### Seinis
 
-- Steam-nimi **Seinis** · Listan MMR ~5434 · medal Divine 5 · Steam ID `STEAM_0:0:52492418` · [OpenDota-profiili](https://www.opendota.com/players/104984836)
-- Kaikkien aikojen W/L: **2322V / 2330H** (50%)
-- Viimeiset 100 ottelua: **46V / 54H (46% WR)** · viimeisin peli 2026-09-02 · _ei turbo-otteluita_
-- Pelipaikat: Mid 70% / Off 14% / Safe 12%
+- Steam-nimi **Seinis** · Listan MMR ~5434 · medal Divine 4 · Steam ID `STEAM_0:0:52492418` · [OpenDota-profiili](https://www.opendota.com/players/104984836)
+- Kaikkien aikojen W/L: **2335V / 2358H** (50%)
+- Viimeiset 100 ottelua: **41V / 59H (41% WR)** · viimeisin peli 2026-09-17 · _ei turbo-otteluita_
+- Pelipaikat: Mid 70% / Off 14% / Safe 13%
 
 **Viimeaikaiset heropit** (viim. 100 ottelua)
 
 | Hero | Pelit | Voitot | WR% |
 |---|---|---|---|
-| Nature's Prophet | 28 | 19 | 68% |
-| Lone Druid | 28 | 12 | 43% |
-| Dazzle | 25 | 10 | 40% |
-| Meepo | 5 | 1 | 20% |
-| Enchantress | 5 | 2 | 40% |
-| Queen of Pain | 3 | 0 | 0% |
+| Nature's Prophet | 23 | 16 | 70% |
+| Lone Druid | 21 | 8 | 38% |
+| Earth Spirit | 12 | 4 | 33% |
+| Dazzle | 11 | 5 | 45% |
+| Shadow Fiend | 7 | 2 | 29% |
+| Meepo | 6 | 2 | 33% |
 
 **Top-heropit, kaikki ajat** (väh. 3 peliä)
 
 | Hero | Pelit | Voitot | WR% |
 |---|---|---|---|
-| Queen of Pain | 596 | 305 | 51% |
-| Nature's Prophet | 493 | 247 | 50% |
-| Dazzle | 428 | 228 | 53% |
-| Meepo | 362 | 202 | 56% |
-| Lone Druid | 349 | 172 | 49% |
+| Queen of Pain | 598 | 306 | 51% |
+| Nature's Prophet | 497 | 250 | 50% |
+| Dazzle | 432 | 229 | 53% |
+| Meepo | 363 | 203 | 56% |
+| Lone Druid | 353 | 172 | 49% |
 | Enchantress | 229 | 120 | 52% |
-| Chen | 160 | 98 | 61% |
-| Puck | 149 | 66 | 44% |
+| Chen | 161 | 98 | 61% |
+| Puck | 153 | 67 | 44% |
 
 ### Muffinssi
 
 - Steam-nimi **Muffinssi** · Listan MMR ~4064 · medal Ancient 1 · Steam ID `STEAM_0:0:238873` · [OpenDota-profiili](https://www.opendota.com/players/477746)
-- Kaikkien aikojen W/L: **2565V / 2559H** (50%)
-- Viimeiset 100 ottelua: **45V / 55H (45% WR)** · viimeisin peli 2026-09-03 · _ei turbo-otteluita_
-- Pelipaikat: Safe 56% / Off 39% / Mid 5%
+- Kaikkien aikojen W/L: **2588V / 2594H** (50%)
+- Viimeiset 100 ottelua: **42V / 58H (42% WR)** · viimeisin peli 2026-09-17 · _ei turbo-otteluita_
+- Pelipaikat: Safe 56% / Off 38%
 
 **Viimeaikaiset heropit** (viim. 100 ottelua)
 
 | Hero | Pelit | Voitot | WR% |
 |---|---|---|---|
-| Witch Doctor | 20 | 11 | 55% |
-| Warlock | 16 | 9 | 56% |
-| Dark Willow | 7 | 2 | 29% |
-| Ogre Magi | 7 | 6 | 86% |
-| Centaur Warrunner | 7 | 2 | 29% |
-| Undying | 7 | 2 | 29% |
+| Witch Doctor | 20 | 10 | 50% |
+| Warlock | 17 | 8 | 47% |
+| Razor | 7 | 2 | 29% |
+| Dark Willow | 7 | 5 | 71% |
+| Ogre Magi | 6 | 4 | 67% |
+| Winter Wyvern | 6 | 3 | 50% |
 
 **Top-heropit, kaikki ajat** (väh. 3 peliä)
 
 | Hero | Pelit | Voitot | WR% |
 |---|---|---|---|
-| Witch Doctor | 777 | 405 | 52% |
-| Vengeful Spirit | 369 | 199 | 54% |
-| Crystal Maiden | 270 | 133 | 49% |
+| Witch Doctor | 789 | 411 | 52% |
+| Vengeful Spirit | 370 | 199 | 54% |
+| Crystal Maiden | 271 | 133 | 49% |
 | Phantom Assassin | 248 | 113 | 46% |
-| Ogre Magi | 220 | 126 | 57% |
-| Shadow Shaman | 213 | 114 | 54% |
-| Undying | 191 | 107 | 56% |
+| Ogre Magi | 224 | 128 | 57% |
+| Shadow Shaman | 214 | 114 | 53% |
+| Undying | 194 | 109 | 56% |
 | Weaver | 180 | 89 | 49% |
 
 ### Zonneb
 
 - Steam-nimi **Zonneb** · Listan MMR ~5395 · medal Divine 5 · Steam ID `STEAM_0:0:86250919` · [OpenDota-profiili](https://www.opendota.com/players/172501838)
-- Kaikkien aikojen W/L: **657V / 598H** (52%)
-- Viimeiset 100 ottelua: **54V / 46H (54% WR)** · viimeisin peli 2026-09-01 · _ei turbo-otteluita_
-- Pelipaikat: Off 92%
+- Kaikkien aikojen W/L: **677V / 613H** (52%)
+- Viimeiset 100 ottelua: **52V / 48H (52% WR)** · viimeisin peli 2026-09-17 · _ei turbo-otteluita_
+- Pelipaikat: Off 91%
 
 **Viimeaikaiset heropit** (viim. 100 ottelua)
 
 | Hero | Pelit | Voitot | WR% |
 |---|---|---|---|
-| Dawnbreaker | 31 | 17 | 55% |
-| Night Stalker | 21 | 14 | 67% |
-| Necrophos | 10 | 6 | 60% |
-| Axe | 9 | 6 | 67% |
-| Pudge | 5 | 2 | 40% |
-| Slardar | 4 | 1 | 25% |
+| Night Stalker | 24 | 14 | 58% |
+| Dawnbreaker | 24 | 12 | 50% |
+| Necrophos | 12 | 7 | 58% |
+| Axe | 10 | 7 | 70% |
+| Razor | 5 | 2 | 40% |
+| Pudge | 5 | 3 | 60% |
 
 **Top-heropit, kaikki ajat** (väh. 3 peliä)
 
 | Hero | Pelit | Voitot | WR% |
 |---|---|---|---|
-| Dawnbreaker | 266 | 145 | 55% |
-| Night Stalker | 178 | 103 | 58% |
-| Necrophos | 121 | 64 | 53% |
-| Axe | 80 | 45 | 56% |
+| Dawnbreaker | 271 | 148 | 55% |
+| Night Stalker | 183 | 105 | 57% |
+| Necrophos | 127 | 68 | 54% |
+| Axe | 83 | 48 | 58% |
+| Legion Commander | 47 | 25 | 53% |
+| Slardar | 45 | 25 | 56% |
 | Earthshaker | 45 | 19 | 42% |
-| Slardar | 44 | 25 | 57% |
-| Legion Commander | 44 | 24 | 55% |
 | Phoenix | 38 | 17 | 45% |
 
 ### Jooga
 
-- Steam-nimi **Jooga** · Listan MMR ~3795 · medal Legend 4 · Steam ID `STEAM_0:1:3624758` · [OpenDota-profiili](https://www.opendota.com/players/7249517)
-- Kaikkien aikojen W/L: **3231V / 2998H** (52%)
-- Viimeiset 100 ottelua: **54V / 46H (54% WR)** · viimeisin peli 2026-09-01 · _ei turbo-otteluita_
+- Steam-nimi **Jooga** · Listan MMR ~3795 · medal Legend 5 · Steam ID `STEAM_0:1:3624758` · [OpenDota-profiili](https://www.opendota.com/players/7249517)
+- Kaikkien aikojen W/L: **3235V / 3006H** (52%)
+- Viimeiset 100 ottelua: **50V / 50H (50% WR)** · viimeisin peli 2026-09-15 · _ei turbo-otteluita_
 - Pelipaikat: Off 44% / Safe 42% / Mid 10%
 
 **Viimeaikaiset heropit** (viim. 100 ottelua)
 
 | Hero | Pelit | Voitot | WR% |
 |---|---|---|---|
-| Jakiro | 13 | 8 | 62% |
-| Clockwerk | 7 | 3 | 43% |
-| Shadow Demon | 7 | 4 | 57% |
-| Witch Doctor | 6 | 4 | 67% |
+| Jakiro | 12 | 7 | 58% |
+| Clockwerk | 8 | 4 | 50% |
+| Witch Doctor | 5 | 3 | 60% |
 | Crystal Maiden | 5 | 3 | 60% |
-| Lion | 3 | 3 | 100% |
+| Shadow Demon | 5 | 3 | 60% |
+| Shadow Shaman | 3 | 1 | 33% |
 
 **Top-heropit, kaikki ajat** (väh. 3 peliä)
 
@@ -223,8 +223,8 @@ Kaikkien pelaajien viimeaikaiset ottelut yhdessä — todennäköisimmät bannik
 |---|---|---|---|
 | Jakiro | 271 | 175 | 65% |
 | Mirana | 154 | 82 | 53% |
-| Clockwerk | 148 | 83 | 56% |
-| Witch Doctor | 144 | 79 | 55% |
+| Clockwerk | 149 | 84 | 56% |
+| Witch Doctor | 145 | 79 | 54% |
 | Dark Seer | 117 | 57 | 49% |
 | Crystal Maiden | 101 | 49 | 49% |
 | Luna | 96 | 58 | 60% |
@@ -232,52 +232,52 @@ Kaikkien pelaajien viimeaikaiset ottelut yhdessä — todennäköisimmät bannik
 
 ### Locke
 
-- Steam-nimi **Locke** · Listan MMR ~5049 · medal Divine 3 · Steam ID `STEAM_0:1:33457391` · [OpenDota-profiili](https://www.opendota.com/players/66914783)
-- Kaikkien aikojen W/L: **4253V / 4222H** (50%)
-- Viimeiset 100 ottelua: **53V / 47H (53% WR)** · viimeisin peli 2026-09-02 · _ei turbo-otteluita_
-- Pelipaikat: Safe 44% / Off 40% / Mid 15%
+- Steam-nimi **Locke** · Listan MMR ~5049 · medal Divine 2 · Steam ID `STEAM_0:1:33457391` · [OpenDota-profiili](https://www.opendota.com/players/66914783)
+- Kaikkien aikojen W/L: **4268V / 4249H** (50%)
+- Viimeiset 100 ottelua: **43V / 57H (43% WR)** · viimeisin peli 2026-09-17 · _ei turbo-otteluita_
+- Pelipaikat: Safe 45% / Off 40% / Mid 15%
 
 **Viimeaikaiset heropit** (viim. 100 ottelua)
 
 | Hero | Pelit | Voitot | WR% |
 |---|---|---|---|
-| Pudge | 8 | 3 | 38% |
-| Vengeful Spirit | 8 | 5 | 62% |
-| Lich | 7 | 5 | 71% |
-| Spectre | 5 | 3 | 60% |
+| Vengeful Spirit | 8 | 4 | 50% |
+| Spectre | 7 | 4 | 57% |
+| Pudge | 7 | 2 | 29% |
+| Crystal Maiden | 5 | 3 | 60% |
 | Mars | 5 | 3 | 60% |
-| Crystal Maiden | 4 | 3 | 75% |
+| Lich | 5 | 3 | 60% |
 
 **Top-heropit, kaikki ajat** (väh. 3 peliä)
 
 | Hero | Pelit | Voitot | WR% |
 |---|---|---|---|
-| Pudge | 431 | 234 | 54% |
-| Crystal Maiden | 220 | 116 | 53% |
+| Pudge | 432 | 234 | 54% |
+| Crystal Maiden | 222 | 117 | 53% |
+| Phantom Assassin | 209 | 102 | 49% |
 | Monkey King | 207 | 105 | 51% |
-| Phantom Assassin | 207 | 101 | 49% |
-| Mars | 201 | 99 | 49% |
-| Juggernaut | 187 | 95 | 51% |
+| Mars | 204 | 101 | 50% |
+| Juggernaut | 188 | 95 | 51% |
 | Axe | 179 | 93 | 52% |
 | Anti-Mage | 169 | 88 | 52% |
 
-### Keikari _(varapelaaja)_
+### Keikari
 
 - Steam-nimi **Keikari** · Listan MMR ~4056 · medal Ancient 1 · Steam ID `STEAM_0:0:9919633` · [OpenDota-profiili](https://www.opendota.com/players/19839266)
-- Kaikkien aikojen W/L: **4907V / 4734H** (51%)
-- Viimeiset 100 ottelua: **44V / 56H (44% WR)** · viimeisin peli 2026-08-30 · _ei turbo-otteluita_
+- Kaikkien aikojen W/L: **4910V / 4738H** (51%)
+- Viimeiset 100 ottelua: **42V / 58H (42% WR)** · viimeisin peli 2026-09-17 · _ei turbo-otteluita_
 - Pelipaikat: Off 62% / Safe 23% / Mid 15%
 
 **Viimeaikaiset heropit** (viim. 100 ottelua)
 
 | Hero | Pelit | Voitot | WR% |
 |---|---|---|---|
-| Rubick | 24 | 11 | 46% |
-| Undying | 22 | 13 | 59% |
-| Ringmaster | 20 | 8 | 40% |
+| Undying | 24 | 14 | 58% |
+| Rubick | 21 | 10 | 48% |
+| Ringmaster | 20 | 7 | 35% |
 | Underlord | 8 | 3 | 38% |
 | Hoodwink | 6 | 3 | 50% |
-| Nature's Prophet | 5 | 1 | 20% |
+| Tusk | 5 | 1 | 20% |
 
 **Top-heropit, kaikki ajat** (väh. 3 peliä)
 
@@ -285,9 +285,9 @@ Kaikkien pelaajien viimeaikaiset ottelut yhdessä — todennäköisimmät bannik
 |---|---|---|---|
 | Rubick | 982 | 481 | 49% |
 | Hoodwink | 782 | 444 | 57% |
-| Undying | 568 | 311 | 55% |
+| Undying | 570 | 312 | 55% |
 | Bounty Hunter | 337 | 182 | 54% |
-| Tusk | 306 | 150 | 49% |
-| Techies | 295 | 144 | 49% |
+| Tusk | 308 | 151 | 49% |
+| Techies | 296 | 144 | 49% |
 | Pudge | 250 | 118 | 47% |
 | Snapfire | 243 | 101 | 42% |
