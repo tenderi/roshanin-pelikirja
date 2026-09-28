@@ -12,15 +12,15 @@ Sama sisältö löytyy myös repon sisältä: [`scouting-results/`](scouting-res
 
 ## Mitä sivu kertoo
 
-Jokaisen joukkueen sivulla on kaksi osaa:
+Sivusto on englanniksi. Jokaisen joukkueen sivulla on kaksi osaa:
 
-- **Bannit** — kuusi heroa tärkeysjärjestyksessä, ja jokaisen kohdalla kenen
+- **Bans** — kuusi heroa tärkeysjärjestyksessä, ja jokaisen kohdalla kenen
   takia se kannattaa bannata. Järjestys painottaa joukkueen kovimpia
   pelaajia: pelaajan paino on (MMR / joukkueen kovin MMR)³, joten esimerkiksi
   3 700 MMR:n pelaaja painaa 6 500 MMR:n tähden rinnalla vain noin viidesosan.
   Pelaajan oma uhka heropilla yhdistää sen, mitä hän pelaa juuri nyt
   (osuus viimeisimmistä otteluista), kokemuksen heropilla ja voittoprosentin.
-- **Pelaajat** — kortti per pelaaja kovin MMR ensin: rank medal, linjat,
+- **Players** — kortti per pelaaja kovin MMR ensin: rank medal, linjat,
   muoto, kolme henkilökohtaista bannikohdetta sekä mitä hän pelaa nyt ja
   mitä on pelannut eniten kaikkiaan. Joukkueen bannilistalla olevat heropit
   on merkitty (`B1`, `B2`, ...).

@@ -603,12 +603,12 @@ def team_bans(team, players, data):
 
 
 def games_text(rg, ag) -> str:
-    """'12 viim. · 109 kaikkiaan' — tuoreet ensin, koska ne kertovat nykyhetkestä."""
+    """'12 recent · 109 total' — tuoreet ensin, koska ne kertovat nykyhetkestä."""
     parts = []
     if rg:
-        parts.append(f"{rg} viim.")
+        parts.append(f"{rg} recent")
     if ag:
-        parts.append(f"{ag} kaikkiaan")
+        parts.append(f"{ag} total")
     return " · ".join(parts) or "–"
 
 
@@ -664,7 +664,7 @@ def team_view(team, players, data, own_team=None):
 
 
 def fmt_mmr(x) -> str:
-    return f"{x:,.0f}".replace(",", " ") if x else "–"
+    return f"{x:,.0f}" if x else "–"
 
 
 # ---------------------------------------------------------------------------
@@ -1074,12 +1074,12 @@ def git_repo_web_url() -> str:
 def site_page(body: str, title: str, crumb: str, depth: int, today: str,
               repo_url: str) -> str:
     root = "../" * depth
-    nav = (f'<a class="home" href="{root or "./"}">Turnauksen pelikirja</a>'
+    nav = (f'<a class="home" href="{root or "./"}">Tournament playbook</a>'
            + (f'<span class="crumb">{html.escape(crumb)}</span>' if crumb else ""))
-    src = (f' · <a href="{repo_url}">lähdekoodi ja raakadata GitHubissa</a>'
+    src = (f' · <a href="{repo_url}">source and raw data on GitHub</a>'
            if repo_url else "")
     return f"""<!DOCTYPE html>
-<html lang="fi">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -1091,7 +1091,7 @@ def site_page(body: str, title: str, crumb: str, depth: int, today: str,
 <main>
 {body}
 </main>
-<footer>Generoitu {today} · data: <a href="https://www.opendota.com/">OpenDota</a>{src}</footer>
+<footer>Generated {today} · data: <a href="https://www.opendota.com/">OpenDota</a>{src}</footer>
 </body>
 </html>
 """
@@ -1119,7 +1119,7 @@ def wr_span(wr) -> str:
     if wr is None:
         return ""
     cls = " good" if wr >= 55 else " bad" if wr <= 45 else ""
-    return f'<span class="w num{cls}">{wr:.0f} %</span>'
+    return f'<span class="w num{cls}">{wr:.0f}%</span>'
 
 
 def ban_cards(bans, hf) -> str:
@@ -1129,9 +1129,9 @@ def ban_cards(bans, hf) -> str:
         for w in b["who"]:
             wr = wr_of(w["rw"] + w["aw"], w["rg"] + w["ag"])
             who.append(f'<div><b>{html.escape(w["nick"])}</b>'
-                       f'{" (vara)" if w["sub"] else ""} · {fmt_mmr(w["mmr"])}'
+                       f'{" (sub)" if w["sub"] else ""} · {fmt_mmr(w["mmr"])}'
                        f'<br>{games_text(w["rg"], w["ag"])}'
-                       + (f' · {wr:.0f} %' if wr is not None else "") + '</div>')
+                       + (f' · {wr:.0f}%' if wr is not None else "") + '</div>')
         out.append(f'<div class="ban"><span class="rank">{i}</span>'
                    f'{hf.img(b["hero_id"], 72)}<div>'
                    f'<div class="name">{hf.name(b["hero_id"])}</div>'
@@ -1142,11 +1142,10 @@ def ban_cards(bans, hf) -> str:
 
 def hero_list(rows, hf, ban_rank) -> str:
     if not rows:
-        return '<p class="empty">Ei tarpeeksi pelejä.</p>'
+        return '<p class="empty">Not enough games.</p>'
     out = ['<ul class="hl">']
     for hid, g, w in rows:
-        tag = (f'<span class="bt" title="Joukkueen bannilistalla sijalla '
-               f'{ban_rank[hid]}">B{ban_rank[hid]}</span>' if hid in ban_rank else "")
+        tag = (f'<span class="bt" title="#{ban_rank[hid]} on the team ban list">B{ban_rank[hid]}</span>' if hid in ban_rank else "")
         out.append(f'<li>{hf.img(hid, 36)}<span>{hf.name(hid)}{tag}</span>'
                    f'<span class="g num">{g}</span>{wr_span(w / g * 100)}</li>')
     out.append("</ul>")
@@ -1156,7 +1155,7 @@ def hero_list(rows, hf, ban_rank) -> str:
 def player_card(v, hf) -> str:
     tags = ""
     if v["sub"]:
-        tags += '<span class="tag">varapelaaja</span>'
+        tags += '<span class="tag">substitute</span>'
     if v.get("medal") and v["medal"] != "–":
         tags += f'<span class="tag">{html.escape(v["medal"])}</span>'
     head = (f'<div class="phead"><div><span class="pname">{html.escape(v["nick"])}'
@@ -1164,25 +1163,25 @@ def player_card(v, hf) -> str:
             f'{fmt_mmr(v["mmr"])}</b><span>MMR</span></div></div>')
     cls = "player sub-player" if v["sub"] else "player"
     if v["error"]:
-        return (f'<section class="{cls}">{head}<p class="empty">Steam ID -virhe: '
+        return (f'<section class="{cls}">{head}<p class="empty">Steam ID error: '
                 f'{html.escape(v["error"])}</p></section>')
     link = (f'<a href="https://www.opendota.com/players/{v["account_id"]}">'
             f'OpenDota</a>')
     if not v["public"]:
-        return (f'<section class="{cls}">{head}<p class="empty">Ei julkista dataa '
-                f'OpenDotassa — skouttaa käsin. {link}</p></section>')
+        return (f'<section class="{cls}">{head}<p class="empty">No public data on '
+                f'OpenDota — scout manually. {link}</p></section>')
 
     meta = []
     if v["persona"] and v["persona"] != v["nick"]:
-        meta.append(f'Steam: {html.escape(v["persona"])}')
+        meta.append(f'Steam name: {html.escape(v["persona"])}')
     if v["role"]:
         meta.append(ROLE_LABELS[v["role"]])
     if v["lanes"]:
         meta.append(html.escape(v["lanes"]))
     if v["form"]:
         w, n, wr, last = v["form"]
-        meta.append(f'viim. {n} peliä {w}–{n - w} ({wr:.0f} %)')
-        meta.append(f'pelannut viimeksi {last}')
+        meta.append(f'last {n} games {w}–{n - w} ({wr:.0f}%)')
+        meta.append(f'last played {last}')
     meta.append(link)
     meta_html = "".join(f"<span>{m}</span>" for m in meta)
 
@@ -1192,30 +1191,31 @@ def player_card(v, hf) -> str:
             f'<span class="chip">{hf.img(t["hero_id"], 48)}{hf.name(t["hero_id"])}'
             f'<small>{games_text(t["rg"], t["ag"])}</small></span>'
             for t in v["targets"])
-        targets = f'<div class="targets"><span class="lbl">Bannaa</span>{chips}</div>'
+        targets = f'<div class="targets"><span class="lbl">Ban</span>{chips}</div>'
 
     n_recent = v["form"][1] if v["form"] else 0
     pools = (f'<div class="pools">'
-             f'<div><h3>Pelaa nyt · viim. {n_recent} peliä</h3>'
+             f'<div><h3>Playing now · last {n_recent} games</h3>'
              f'{hero_list(v["recent"], hf, v["ban_rank"])}</div>'
-             f'<div><h3>Eniten pelatut kaikkiaan</h3>'
+             f'<div><h3>Most played all time</h3>'
              f'{hero_list(v["alltime"], hf, v["ban_rank"])}</div></div>')
     return (f'<section class="{cls}">{head}<div class="meta">{meta_html}</div>'
             f'{targets}{pools}</section>')
 
 
 def team_html(view, hf, today, quality_md, repo_url) -> str:
-    sub = (f'Keski-MMR {fmt_mmr(view["avg_mmr"])} · {view["n_mains"]} pelaajaa'
-           + (f' + {view["n_subs"]} varalla' if view["n_subs"] else "")
-           + (" · oma joukkue" if view["own"] else ""))
+    sub = (f'Average MMR {fmt_mmr(view["avg_mmr"])} · {view["n_mains"]} players'
+           + (f' + {view["n_subs"]} sub{"s" if view["n_subs"] > 1 else ""}'
+              if view["n_subs"] else "")
+           + (" · our team" if view["own"] else ""))
     B = [f'<h1>{html.escape(view["team"])}</h1><p class="sub">{sub}</p>']
     if view["bans"]:
-        B.append(f'<h2>{"Mitä meiltä bannataan" if view["own"] else "Bannit"}</h2>'
+        B.append(f'<h2>{"What they will ban from us" if view["own"] else "Bans"}</h2>'
                  f'<p class="note">{html.escape(ban_intro(view["own"]))}</p>')
         B.append(ban_cards(view["bans"], hf))
-    B.append('<h2>Pelaajat</h2><p class="note">Kovin MMR ensin. '
-             '<span class="bt">B1</span> = heropin sija joukkueen bannilistalla. '
-             'Voittoprosentti vihreällä kun ≥ 55 %, punaisella kun ≤ 45 %.</p>')
+    B.append('<h2>Players</h2><p class="note">Highest MMR first. '
+             '<span class="bt">B1</span> = the hero\'s place on the team ban list. '
+             'Win rate is green at ≥ 55% and red at ≤ 45%.</p>')
     B.append('<div class="players">')
     B += [player_card(v, hf) for v in view["players"]]
     B.append("</div>")
@@ -1224,19 +1224,19 @@ def team_html(view, hf, today, quality_md, repo_url) -> str:
                  + markdown_to_html("\n".join(quality_md), "", fragment=True)
                  + "</div>")
     if repo_url:
-        B.append(f'<p class="note" style="margin-top:24px">Raakadata: '
+        B.append(f'<p class="note" style="margin-top:24px">Raw data: '
                  f'<a href="{repo_url}/tree/main/scouting-results/{view["slug"]}/raw">'
                  f'scouting-results/{view["slug"]}/raw</a></p>')
-    return site_page("\n".join(B), f"{view['team']} — pelikirja", view["team"],
+    return site_page("\n".join(B), f"{view['team']} — playbook", view["team"],
                      1, today, repo_url)
 
 
 def index_html(views, hf, today, quality_md, own_team, repo_url) -> str:
-    B = ['<h1>Turnauksen pelikirja</h1>',
-         f'<p class="sub">Päivitetty {today}'
-         + (f' · näkökulma: {html.escape(own_team)}' if own_team else "") + '</p>',
-         '<h2>Joukkueet</h2><p class="note">Keski-MMR:n mukaan. Kortissa '
-         'joukkueen kovimmat pelaajat ja kolme ensimmäistä bannia.</p>',
+    B = ['<h1>Tournament playbook</h1>',
+         f'<p class="sub">Updated {today}'
+         + (f' · our team: {html.escape(own_team)}' if own_team else "") + '</p>',
+         '<h2>Teams</h2><p class="note">By average MMR. Each card shows the '
+         'team\'s two highest-MMR players and its first three bans.</p>',
          '<div class="teams">']
     for v in sorted(views, key=lambda v: -(v["avg_mmr"] or 0)):
         stars = [p for p in v["players"] if not p["sub"]][:2]
@@ -1244,11 +1244,11 @@ def index_html(views, hf, today, quality_md, own_team, repo_url) -> str:
             f'<span class="chip">{hf.img(b["hero_id"], 40)}{hf.name(b["hero_id"])}</span>'
             for b in v["bans"][:SUMMARY_BAN_COUNT])
         if v["own"] and bans:
-            bans = '<span class="ts" style="margin:0">Meiltä bannataan:</span>' + bans
+            bans = '<span class="ts" style="margin:0">They will ban from us:</span>' + bans
         B.append(f'<a class="team" href="{v["slug"]}/">'
                  f'<div class="tn">{html.escape(v["team"])}'
-                 + ('<span class="tag">oma</span>' if v["own"] else "")
-                 + f'</div><div class="ts">Keski-MMR {fmt_mmr(v["avg_mmr"])} · '
+                 + ('<span class="tag">us</span>' if v["own"] else "")
+                 + f'</div><div class="ts">Avg MMR {fmt_mmr(v["avg_mmr"])} · '
                  + " · ".join(f'{html.escape(p["nick"])} {fmt_mmr(p["mmr"])}'
                               for p in stars)
                  + f'</div><div class="tb">{bans}</div></a>')
@@ -1257,7 +1257,7 @@ def index_html(views, hf, today, quality_md, own_team, repo_url) -> str:
         B.append('<div class="quality">'
                  + markdown_to_html("\n".join(quality_md), "", fragment=True)
                  + "</div>")
-    return site_page("\n".join(B), "Turnauksen pelikirja", "", 0, today, repo_url)
+    return site_page("\n".join(B), "Tournament playbook", "", 0, today, repo_url)
 
 
 def build_site(site_dir: str, views, hf, today: str, repo_url: str,
@@ -1298,21 +1298,24 @@ def slugify(name: str) -> str:
 def intro_lines(today: str):
     """Raporttien yhteinen selitysteksti."""
     return [
-        f"_Generoitu {today} · lähde: [OpenDota](https://www.opendota.com/) · "
-        f"aineisto: `joukkueet.txt`_",
+        f"_Generated {today} · source: [OpenDota](https://www.opendota.com/) · "
+        f"roster: `joukkueet.txt`_",
         "",
     ]
 
 
 def ban_intro(own: bool) -> str:
     if own:
-        return ("Sama laskenta kuin vastustajien sivuilla, käännettynä: nämä "
-                "vastustaja todennäköisimmin bannaa meiltä.")
-    return (f"Järjestys painottaa kovimpia pelaajia: pelaajan paino on "
-            f"(MMR / joukkueen kovin MMR){'²³'[MMR_WEIGHT_EXP - 2] if MMR_WEIGHT_EXP in (2, 3) else f'^{MMR_WEIGHT_EXP}'}, eli kovimman "
-            f"pelaajan heropit menevät kärkeen. Pelaajan oma uhka yhdistää "
-            f"sen, mitä hän pelaa juuri nyt, kokemuksen heropilla ja "
-            f"voittoprosentin.")
+        return ("The same calculation as on the opponents' pages, turned "
+                "around: these are the heroes opponents are most likely to "
+                "ban from us.")
+    power = ('²³'[MMR_WEIGHT_EXP - 2] if MMR_WEIGHT_EXP in (2, 3)
+             else f"^{MMR_WEIGHT_EXP}")
+    return (f"Ordered to focus on the strongest players: each player counts "
+            f"(MMR / team's top MMR){power}, so the highest-MMR players' "
+            f"heroes come first. A player's threat on a hero combines how "
+            f"much they play it right now, their experience on it and their "
+            f"win rate.")
 
 
 def quality_lines(dupes, no_data, bad_ids, mismatches, team=None, level=2):
@@ -1328,85 +1331,86 @@ def quality_lines(dupes, no_data, bad_ids, mismatches, team=None, level=2):
 
     fmt = (lambda t, n: n) if team else (lambda t, n: f"{t} / {n}")
     h = "#" * level
-    L = [f"{h} Huomioita aineiston laadusta", ""]
+    L = [f"{h} Data quality notes", ""]
     if d_items:
-        L += ["**Samat Steam ID:t esiintyvät useammalla pelaajalla** — "
-              "todennäköisesti kopiointivirhe `joukkueet.txt`:ssä, ja näiden "
-              "pelaajien tiedot raportissa ovat siksi epäluotettavia:", ""]
+        L += ["**The same Steam ID appears for more than one player** — "
+              "probably a copy-paste error in `joukkueet.txt`, so these "
+              "players' data is unreliable:", ""]
         for sid, names in d_items:
             L.append(f"- `{sid}` → " + ", ".join(fmt(t, n) for t, n in names))
         L.append("")
     if bad:
-        L += ["**Steam ID ei jäsenny:**", ""]
+        L += ["**Steam ID could not be parsed:**", ""]
         L += [f"- {fmt(t, n)}: {e}" for t, n, e in bad]
         L.append("")
     if nd:
-        L += ["**Ei julkista dataa OpenDotassa** (yksityinen profiili tai "
-              "Steam ID osoittaa väärään tiliin): "
+        L += ["**No public data on OpenDota** (private profile, or the "
+              "Steam ID points to the wrong account): "
               + ", ".join(fmt(t, n) for t, n in nd), ""]
     if mm:
-        L += ["**Steam-nimi ei muistuta listan nickiä** — yleensä pelaaja on vain "
-              "vaihtanut Steam-nimeään, mutta tarkista ettei Steam ID osoita "
-              "väärään tiliin:", ""]
+        L += ["**Steam name doesn't resemble the listed nick** — usually the "
+              "player has just renamed on Steam, but check that the Steam ID "
+              "isn't pointing to the wrong account:", ""]
         for t, n, p, a in mm:
-            L.append(f"- {fmt(t, n)} → Steam-nimi \"{p}\" "
-                     f"([profiili](https://www.opendota.com/players/{a}))")
+            L.append(f"- {fmt(t, n)} → Steam name \"{p}\" "
+                     f"([profile](https://www.opendota.com/players/{a}))")
         L.append("")
     return L
 
 
 def who_text(w) -> str:
-    """'Satowi (6000): 12 viim. · 109 kaikkiaan · 67 %'"""
+    """'Satowi (6,000): 12 recent · 109 total · 67%'"""
     wr = wr_of(w["rw"] + w["aw"], w["rg"] + w["ag"])
-    return (f"{w['nick']}{' (vara)' if w['sub'] else ''} ({fmt_mmr(w['mmr'])}): "
-            f"{games_text(w['rg'], w['ag'])}" + (f" · {wr:.0f} %" if wr is not None else ""))
+    return (f"{w['nick']}{' (sub)' if w['sub'] else ''} ({fmt_mmr(w['mmr'])}): "
+            f"{games_text(w['rg'], w['ag'])}" + (f" · {wr:.0f}%" if wr is not None else ""))
 
 
 def team_report(view, hero_names, today, quality):
     """Yhden joukkueen Markdown-pelikirja (repoa ja PDF:ää varten)."""
     name = lambda hid: hero_names.get(hid, f"Hero {hid}")
-    L = [f"# {view['team']}" + (" (oma joukkue)" if view["own"] else ""), ""]
+    L = [f"# {view['team']}" + (" (our team)" if view["own"] else ""), ""]
     L += intro_lines(today)
-    L += [f"Keski-MMR **{fmt_mmr(view['avg_mmr'])}** · {view['n_mains']} pelaajaa"
-          + (f" + {view['n_subs']} varalla" if view["n_subs"] else ""), ""]
+    L += [f"Average MMR **{fmt_mmr(view['avg_mmr'])}** · {view['n_mains']} players"
+          + (f" + {view['n_subs']} sub{'s' if view['n_subs'] > 1 else ''}"
+             if view["n_subs"] else ""), ""]
 
     if view["bans"]:
-        L += ["## " + ("Mitä meiltä bannataan" if view["own"] else "Bannit"), "",
+        L += ["## " + ("What they will ban from us" if view["own"] else "Bans"), "",
               ban_intro(view["own"]), ""]
-        L += md_table(["#", "Hero", "Kenen takia"],
+        L += md_table(["#", "Hero", "Because of"],
                       [[i, f"**{name(b['hero_id'])}**",
                         "; ".join(who_text(w) for w in b["who"])]
                        for i, b in enumerate(view["bans"], 1)])
         L.append("")
 
-    L += ["## Pelaajat (MMR-järjestyksessä)", ""]
+    L += ["## Players (highest MMR first)", ""]
     for v in view["players"]:
         head = f"### {v['nick']} — {fmt_mmr(v['mmr'])}"
         if v.get("medal"):
             head += f" · {v['medal']}"
-        L += [head + (" · varapelaaja" if v["sub"] else ""), ""]
+        L += [head + (" · substitute" if v["sub"] else ""), ""]
         if v["error"]:
-            L += [f"- Steam ID -virhe: {v['error']}", ""]
+            L += [f"- Steam ID error: {v['error']}", ""]
             continue
         link = f"[OpenDota](https://www.opendota.com/players/{v['account_id']})"
         if not v["public"]:
-            L += [f"- **Ei julkista dataa OpenDotassa** — skouttaa käsin. {link}", ""]
+            L += [f"- **No public data on OpenDota** — scout manually. {link}", ""]
             continue
         facts = []
         if v["persona"] and v["persona"] != v["nick"]:
-            facts.append(f"Steam-nimi {v['persona']}")
+            facts.append(f"Steam name {v['persona']}")
         if v["role"]:
             facts.append(ROLE_LABELS[v["role"]])
         if v["lanes"]:
             facts.append(v["lanes"])
         if v["form"]:
             w, n, wr, last = v["form"]
-            facts.append(f"viim. {n}: {w}–{n - w} ({wr:.0f} %)")
-            facts.append(f"viimeisin peli {last}")
+            facts.append(f"last {n}: {w}–{n - w} ({wr:.0f}%)")
+            facts.append(f"last played {last}")
         facts.append(link)
         L += ["- " + " · ".join(facts)]
         if v["targets"]:
-            L.append("- **Bannikohteet:** " + " · ".join(
+            L.append("- **Ban targets:** " + " · ".join(
                 f"{name(t['hero_id'])} ({games_text(t['rg'], t['ag'])})"
                 for t in v["targets"]))
         L.append("")
@@ -1416,12 +1420,12 @@ def team_report(view, hero_names, today, quality):
             for lst in (v["recent"], v["alltime"]):
                 if i < len(lst):
                     hid, g, w = lst[i]
-                    row += [name(hid), f"{g} · {w / g * 100:.0f} %"]
+                    row += [name(hid), f"{g} · {w / g * 100:.0f}%"]
                 else:
                     row += ["", ""]
             rows.append(row)
         if rows:
-            L += md_table(["Nyt pelaa", "Pelit · WR", "Kaikkiaan", "Pelit · WR"], rows)
+            L += md_table(["Playing now", "Games · WR", "All time", "Games · WR"], rows)
             L.append("")
 
     L += quality
@@ -1431,24 +1435,24 @@ def team_report(view, hero_names, today, quality):
 def index_report(views, hero_names, today, quality, own_team, with_pdf=False):
     """Hakemistosivu: joukkueet, kovimmat pelaajat ja kärkibannit."""
     name = lambda hid: hero_names.get(hid, f"Hero {hid}")
-    L = ["# Turnauksen pelikirja", ""]
+    L = ["# Tournament playbook", ""]
     L += intro_lines(today)
     if own_team:
-        L += [f"Näkökulma: **{own_team}**.", ""]
+        L += [f"Our team: **{own_team}**.", ""]
     rows = []
     for v in sorted(views, key=lambda v: -(v["avg_mmr"] or 0)):
         label = f"[{v['team']}]({v['slug']}/{v['slug']}.md)"
         if v["own"]:
-            label += " _(oma)_"
+            label += " _(us)_"
         stars = [p for p in v["players"] if not p["sub"]][:2]
         row = [label, fmt_mmr(v["avg_mmr"]),
                ", ".join(f"{p['nick']} {fmt_mmr(p['mmr'])}" for p in stars),
-               ("meiltä: " if v["own"] else "")
+               ("from us: " if v["own"] else "")
                + ", ".join(name(b["hero_id"]) for b in v["bans"][:SUMMARY_BAN_COUNT])]
         if with_pdf:
             row.append(f"[PDF]({v['slug']}/{v['slug']}.pdf)")
         rows.append(row)
-    L += md_table(["Joukkue", "Keski-MMR", "Kovimmat", "Kärkibannit"]
+    L += md_table(["Team", "Avg MMR", "Top players", "Top bans"]
                   + (["PDF"] if with_pdf else []), rows)
     L.append("")
     L += quality
