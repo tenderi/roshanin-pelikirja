@@ -121,7 +121,8 @@ STRATZ_TOKEN = os.environ.get("STRATZ_API_TOKEN", "").strip()
 STRATZ_DELAY = 0.3               # ilmaistaso: 20/s, 250/min, 2000/h
 MIN_POSITIONED_GAMES = 10        # näin monesta pelistä pelipaikkajakauma näytetään
 MAX_RETRIES = 4                  # 429/5xx-uudelleenyritysten maksimimäärä
-MATCH_FETCH_LIMIT = 100          # kuinka monta viimeisintä ottelua haetaan
+MATCH_FETCH_LIMIT = 100          # "viimeaikaiset" = näin monta viimeisintä ottelua
+LONG_MATCH_LIMIT = 500           # pidempi jakso: haetaan OpenDotasta näin monta
 MIN_RANKED_FOR_FILTER = 10       # jos ei-turbo-otteluita väh. näin monta, turbot jätetään pois
 TURBO_GAME_MODE = 23             # OpenDota game_mode: Turbo
 TOP_HERO_COUNT = 8               # montako heropia per pelaaja, kaikki ajat
@@ -355,15 +356,18 @@ def api_get(path: str, params: dict = None, use_cache: bool = True):
     return None
 
 
-STRATZ_MATCHES_QUERY = """
-query ($id: Long!, $take: Int!) {
-  player(steamAccountId: $id) {
-    matches(request: {take: $take}) {
-      id startDateTime gameMode didRadiantWin
-      players(steamAccountId: $id) { heroId position isVictory }
-    }
-  }
-}"""
+STRATZ_PAGE = 100                # STRATZ palauttaa enintään näin monta ottelua per haku
+STRATZ_MATCH_FIELDS = ("id startDateTime gameMode didRadiantWin "
+                       "players(steamAccountId: $id) { heroId position isVictory }")
+
+
+def stratz_matches_query(total: int) -> str:
+    """Yksi GraphQL-kysely joka hakee `total` ottelua sivuina (aliakset p0, p1...)."""
+    pages = " ".join(
+        f"p{i}: matches(request: {{take: {STRATZ_PAGE}, skip: {i * STRATZ_PAGE}}}) "
+        f"{{ {STRATZ_MATCH_FIELDS} }}"
+        for i in range(-(-total // STRATZ_PAGE)))
+    return f"query ($id: Long!) {{ player(steamAccountId: $id) {{ {pages} }} }}"
 
 
 def stratz_matches(account_id: int):
@@ -375,7 +379,7 @@ def stratz_matches(account_id: int):
     """
     if not STRATZ_TOKEN:
         return None
-    params = {"take": MATCH_FETCH_LIMIT}
+    params = {"take": LONG_MATCH_LIMIT}
     cache_file = _cache_path(f"/stratz/players/{account_id}/matches", params)
     if os.path.exists(cache_file):
         try:
@@ -385,8 +389,8 @@ def stratz_matches(account_id: int):
             pass
     headers = {"Authorization": f"Bearer {STRATZ_TOKEN}",
                "User-Agent": "STRATZ_API"}
-    body = {"query": STRATZ_MATCHES_QUERY,
-            "variables": {"id": account_id, "take": MATCH_FETCH_LIMIT}}
+    body = {"query": stratz_matches_query(LONG_MATCH_LIMIT),
+            "variables": {"id": account_id}}
     for attempt in range(1, MAX_RETRIES + 1):
         try:
             resp = requests.post(STRATZ_URL, json=body, headers=headers, timeout=30)
@@ -405,7 +409,8 @@ def stratz_matches(account_id: int):
             print(f"  [VIRHE] STRATZ -> HTTP {resp.status_code} "
                   f"{(payload.get('errors') or [{}])[0].get('message', '')}")
             return None
-        data = ((payload.get("data") or {}).get("player") or {}).get("matches") or []
+        player = (payload.get("data") or {}).get("player") or {}
+        data = [m for i in range(len(player)) for m in (player.get(f"p{i}") or [])]
         os.makedirs(CACHE_DIR, exist_ok=True)
         with open(cache_file, "w", encoding="utf-8") as f:
             json.dump(data, f)
@@ -419,7 +424,7 @@ def merge_stratz(od_matches, sz_matches):
 
     Yhteisiin otteluihin lisätään `position` (1–5). Vain STRATZin tuntemat
     ottelut lisätään OpenDotan muotoon muunnettuina, jos ne osuvat samaan
-    aikaikkunaan. Tulos on uusimmasta vanhimpaan, enintään MATCH_FETCH_LIMIT.
+    aikaikkunaan. Tulos on uusimmasta vanhimpaan.
     Palauttaa (ottelut, lisättyjen määrä).
     """
     od_matches = [dict(m) for m in (od_matches or [])]
@@ -449,7 +454,7 @@ def merge_stratz(od_matches, sz_matches):
             "position": pos, "source": "stratz"})
         added += 1
     od_matches.sort(key=lambda m: -(m.get("start_time") or 0))
-    return od_matches[:MATCH_FETCH_LIMIT], added
+    return od_matches, added
 
 
 def position_split(matches):
@@ -504,7 +509,7 @@ def fetch_player(account_id: int) -> dict:
         ("profile", f"/players/{account_id}", None),
         ("wl",      f"/players/{account_id}/wl", None),
         ("heroes",  f"/players/{account_id}/heroes", None),
-        ("matches", f"/players/{account_id}/matches", {"limit": MATCH_FETCH_LIMIT}),
+        ("matches", f"/players/{account_id}/matches", {"limit": LONG_MATCH_LIMIT}),
         ("counts",  f"/players/{account_id}/counts", None),
     ):
         cache_file = _cache_path(path, params or {})
@@ -776,6 +781,11 @@ def player_view(team, player, data, ban_rank):
                   or lane_split(d.get("counts")))
     v["hero_pos"] = hero_positions(d.get("analyzed"))
     v["recent"] = recent_heroes(d.get("analyzed"))
+    long_ = d.get("analyzed_long") or []
+    # 500 pelin sarake vain jos historia on oikeasti pidempi kuin 100 peliä
+    v["n_long"] = len(long_) if len(long_) > len(d.get("analyzed") or []) else 0
+    v["long"] = recent_heroes(long_) if v["n_long"] else []
+    v["hero_pos_long"] = hero_positions(long_)
     v["alltime"] = top_heroes(d.get("heroes"))
     v["targets"] = player_threats(d)[:PLAYER_BAN_COUNT]
     v["ban_rank"] = ban_rank
@@ -1148,7 +1158,8 @@ h2 { font-size: 19px; margin: 32px 0 6px; }
 .chip { display: inline-flex; align-items: center; gap: 6px; font-weight: 600;
         font-size: 14px; }
 .chip small { font-weight: 400; color: var(--muted); }
-.pools { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 24px; }
+.pools { display: grid; gap: 6px 24px;
+         grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
 .pools h3 { font-size: 12px; text-transform: uppercase; letter-spacing: .04em;
             color: var(--muted); margin: 0 0 4px; font-weight: 700; }
 .hl { list-style: none; margin: 0; padding: 0; }
@@ -1184,7 +1195,6 @@ footer { max-width: 1100px; margin: 0 auto; padding: 20px 16px 50px;
          color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); }
 @media (max-width: 640px) {
   h1 { font-size: 23px; }
-  .pools { grid-template-columns: 1fr; }
   .pools > div + div { margin-top: 8px; }
 }
 """
@@ -1334,11 +1344,15 @@ def player_card(v, hf) -> str:
         targets = f'<div class="targets"><span class="lbl">Ban</span>{chips}</div>'
 
     n_recent = v["form"][1] if v["form"] else 0
-    pools = (f'<div class="pools">'
-             f'<div><h3>Playing now · last {n_recent} games</h3>'
-             f'{hero_list(v["recent"], hf, v["ban_rank"], v.get("hero_pos"))}</div>'
-             f'<div><h3>Most played all time</h3>'
-             f'{hero_list(v["alltime"], hf, v["ban_rank"])}</div></div>')
+    cols = [(f"Last {n_recent} games",
+             hero_list(v["recent"], hf, v["ban_rank"], v.get("hero_pos")))]
+    if v["n_long"]:
+        cols.append((f"Last {v['n_long']} games",
+                     hero_list(v["long"], hf, v["ban_rank"], v["hero_pos_long"])))
+    cols.append(("All time", hero_list(v["alltime"], hf, v["ban_rank"])))
+    pools = ('<div class="pools">'
+             + "".join(f"<div><h3>{h}</h3>{body}</div>" for h, body in cols)
+             + "</div>")
     return (f'<section class="{cls}">{head}<div class="meta">{meta_html}</div>'
             f'{targets}{pools}</section>')
 
@@ -1558,9 +1572,10 @@ def team_report(view, hero_names, today, quality):
                 for t in v["targets"]))
         L.append("")
         rows = []
-        for i in range(max(len(v["recent"]), len(v["alltime"]))):
+        lists = [v["recent"]] + ([v["long"]] if v["n_long"] else []) + [v["alltime"]]
+        for i in range(max(len(x) for x in lists)):
             row = []
-            for lst in (v["recent"], v["alltime"]):
+            for lst in lists:
                 if i < len(lst):
                     hid, g, w = lst[i]
                     row += [name(hid), f"{g} · {w / g * 100:.0f}%"]
@@ -1568,7 +1583,9 @@ def team_report(view, hero_names, today, quality):
                     row += ["", ""]
             rows.append(row)
         if rows:
-            L += md_table(["Playing now", "Games · WR", "All time", "Games · WR"], rows)
+            n_recent = v["form"][1] if v["form"] else 0
+            heads = [f"Last {n_recent}"] + ([f"Last {v['n_long']}"] if v["n_long"] else []) + ["All time"]
+            L += md_table([x for h in heads for x in (h, "Games · WR")], rows)
             L.append("")
 
     L += quality
@@ -1632,7 +1649,9 @@ def write_raw_data(raw_dir: str, team: str, players, data, today: str) -> int:
         name = f"{slugify(nick)}-{acc}.json"
         keep.add(name)
         with open(os.path.join(raw_dir, name), "w", encoding="utf-8") as f:
-            json.dump(payload, f, ensure_ascii=False, indent=1)
+            # tiivis muoto: 500 ottelua per lähde tekisi sisennetystä
+            # tiedostosta satoja tuhansia rivejä per ajo
+            json.dump(payload, f, ensure_ascii=False, separators=(",", ":"))
         written += 1
 
     for stale in sorted(set(os.listdir(raw_dir)) - keep):
@@ -1721,7 +1740,9 @@ def main(argv=None):
             d["account_id"] = account_id
             d["stratz"] = stratz_matches(account_id)
             merged, d["stratz_added"] = merge_stratz(d.get("matches"), d["stratz"])
-            d["analyzed"], d["sample_note"] = usable_matches(merged)
+            usable, d["sample_note"] = usable_matches(merged)
+            d["analyzed"] = usable[:MATCH_FETCH_LIMIT]
+            d["analyzed_long"] = usable[:LONG_MATCH_LIMIT]
             data[(team, nick)] = d
             if not has_public_data(d):
                 no_data.append((team, nick))

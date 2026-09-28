@@ -21,8 +21,9 @@ Sivusto on englanniksi. Jokaisen joukkueen sivulla on kaksi osaa:
   Pelaajan oma uhka heropilla yhdistää sen, mitä hän pelaa juuri nyt
   (osuus viimeisimmistä otteluista), kokemuksen heropilla ja voittoprosentin.
 - **Players** — kortti per pelaaja kovin MMR ensin: rank medal, linjat,
-  muoto, kolme henkilökohtaista bannikohdetta sekä mitä hän pelaa nyt ja
-  mitä on pelannut eniten kaikkiaan. Joukkueen bannilistalla olevat heropit
+  muoto, kolme henkilökohtaista bannikohdetta sekä heropooli kolmelta
+  jaksolta: viimeiset 100 peliä, viimeiset 500 peliä ja kaikki ajat.
+  Joukkueen bannilistalla olevat heropit
   on merkitty (`B1`, `B2`, ...).
 
 Etusivulla on jokaisesta joukkueesta keski-MMR, kaksi kovinta pelaajaa ja
