@@ -1,6 +1,6 @@
 # Roshan ja Rähmäsilmät — pelikirja · oma joukkue
 
-_Generoitu 2026-09-18 · lähde: [OpenDota](https://www.opendota.com/) · aineisto: `joukkueet.txt`_
+_Generoitu 2026-09-28 · lähde: [OpenDota](https://www.opendota.com/) · aineisto: `joukkueet.txt`_
 
 Jokaisesta pelaajasta: kaikkien aikojen top-8 heropoolia, viimeisimmät ottelut (muoto + tämänhetkinen heropooli, enintään 100 ottelua) ja pelipaikkajakauma. Heropoolista on karsittu heropit joita on pelattu alle 3 kertaa. Turbo-ottelut jätetään muoto- ja heropoolilaskennasta pois aina kun normaaleja otteluita on tarpeeksi.
 
@@ -10,31 +10,31 @@ Yleispätevät pickit koko turnauskenttää vastaan — nämä eivät ole sidott
 
 | Pelaaja | Hero | Rooli | Pelit | Oma WR | Patch-WR | Kenttäetu | Indeksi |
 |---|---|---|---|---|---|---|---|
-| **Osmo** | Legion Commander | Carry, Disabler | 135 | 59% | 52,7% | -0,2 pp | 85 |
-|  | Pudge | Disabler, Initiator | 146 | 51% | 50,6% | +0,5 pp | 84 |
-|  | Night Stalker | Carry, Initiator | 106 | 62% | 52,5% | -0,0 pp | 70 |
-|  | Lifestealer | Carry, Durable | 104 | 58% | 52,9% | +0,4 pp | 69 |
-|  | Vengeful Spirit | Support, Initiator | 129 | 47% | 52,4% | +0,0 pp | 68 |
+| **Osmo** | Legion Commander | Carry, Disabler | 135 | 59% | 52,7% | +0,3 pp | 87 |
+|  | Pudge | Disabler, Initiator | 146 | 51% | 50,6% | +0,6 pp | 84 |
+|  | Lifestealer | Carry, Durable | 104 | 58% | 52,9% | +0,5 pp | 69 |
+|  | Night Stalker | Carry, Initiator | 106 | 62% | 52,5% | -0,3 pp | 69 |
+|  | Vengeful Spirit | Support, Initiator | 129 | 47% | 52,4% | -0,3 pp | 67 |
 | **KiviMajava** | Spectre | Carry, Durable | 200 | 62% | 53,4% | – | 89 |
-|  | Storm Spirit | Carry, Escape | 611 | 54% | 47,0% | -0,6 pp | 68 |
-|  | Lone Druid | Carry, Pusher | 235 | 56% | 48,1% | – | 68 |
-|  | Dawnbreaker | Carry, Durable | 126 | 48% | 52,1% | +0,6 pp | 66 |
-|  | Zeus | Nuker, Carry | 190 | 57% | 49,6% | -0,0 pp | 66 |
-| **Handels** | Vengeful Spirit | Support, Initiator | 221 | 59% | 52,4% | +0,0 pp | 83 |
-|  | Earthshaker | Support, Initiator | 190 | 59% | 50,9% | +0,9 pp | 79 |
-|  | Ember Spirit | Carry, Escape | 226 | 52% | 50,1% | +2,0 pp | 75 |
-|  | Bane | Support, Disabler | 163 | 48% | 50,8% | +1,7 pp | 75 |
-|  | Juggernaut | Carry, Pusher | 194 | 52% | 52,7% | +0,6 pp | 73 |
-| **Reijo (Kantor)** | Mirana | Carry, Support | 234 | 58% | 51,5% | +2,2 pp | 94 |
-|  | Alchemist | Carry, Support | 169 | 49% | 46,7% | +2,1 pp | 67 |
-|  | Timbersaw | Nuker, Durable | 134 | 61% | 45,1% | -0,3 pp | 62 |
+|  | Lone Druid | Carry, Pusher | 235 | 56% | 48,1% | +4,1 pp | 75 |
+|  | Storm Spirit | Carry, Escape | 611 | 54% | 47,0% | -0,0 pp | 71 |
+|  | Dawnbreaker | Carry, Durable | 126 | 48% | 52,1% | +1,2 pp | 69 |
+|  | Zeus | Nuker, Carry | 190 | 57% | 49,6% | -1,1 pp | 61 |
+| **Handels** | Vengeful Spirit | Support, Initiator | 221 | 59% | 52,4% | -0,3 pp | 82 |
+|  | Ember Spirit | Carry, Escape | 226 | 52% | 50,1% | +2,5 pp | 77 |
+|  | Juggernaut | Carry, Pusher | 194 | 52% | 52,7% | +1,4 pp | 77 |
+|  | Earthshaker | Support, Initiator | 190 | 59% | 50,9% | -0,3 pp | 74 |
+|  | Bane | Support, Disabler | 163 | 48% | 50,8% | +1,0 pp | 71 |
+| **Reijo (Kantor)** | Mirana | Carry, Support | 234 | 58% | 51,5% | +0,9 pp | 89 |
+|  | Timbersaw | Nuker, Durable | 134 | 61% | 45,1% | +1,1 pp | 69 |
+|  | Alchemist | Carry, Support | 169 | 49% | 46,7% | +2,4 pp | 68 |
 |  | Spectre | Carry, Durable | 57 | 61% | 53,4% | – | 52 |
-|  | Weaver | Carry, Escape | 116 | 59% | 46,8% | -0,6 pp | 49 |
-| **tenderi** | Brewmaster | Carry, Initiator | 308 | 58% | 52,3% | -0,3 pp | 86 |
-|  | Nyx Assassin | Disabler, Nuker | 168 | 48% | 52,6% | +0,7 pp | 82 |
-|  | Dawnbreaker | Carry, Durable | 338 | 54% | 52,1% | +0,6 pp | 80 |
-|  | Snapfire | Support, Nuker | 135 | 51% | 49,1% | +1,1 pp | 74 |
-|  | Slardar | Carry, Durable | 318 | 53% | 49,3% | -0,2 pp | 72 |
+|  | Juggernaut | Carry, Pusher | 53 | 58% | 52,7% | +1,4 pp | 47 |
+| **tenderi** | Brewmaster | Carry, Initiator | 308 | 58% | 52,3% | +0,6 pp | 90 |
+|  | Nyx Assassin | Disabler, Nuker | 168 | 48% | 52,6% | +1,3 pp | 85 |
+|  | Dawnbreaker | Carry, Durable | 338 | 54% | 52,1% | +1,2 pp | 83 |
+|  | Slardar | Carry, Durable | 318 | 53% | 49,3% | +0,8 pp | 76 |
+|  | Snapfire | Support, Nuker | 135 | 51% | 49,1% | +1,7 pp | 76 |
 
 **Pelit** on pelaajan omat pelit heropilla (tuoreet + kaikkien aikojen), **Oma WR** hänen voittoprosenttinsa sillä. **Patch-WR** on heropin voittoprosentti kaikilla pelaajilla bracketeissa Legend-Divine. **Kenttäetu** on painotettu voittoprosenttiero turnauksen uhkaheropeille ammattilaisdatassa.
 

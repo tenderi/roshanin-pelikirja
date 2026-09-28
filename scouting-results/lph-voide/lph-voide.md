@@ -1,6 +1,6 @@
 # LPH-VOIDE — pelikirja
 
-_Generoitu 2026-09-18 · lähde: [OpenDota](https://www.opendota.com/) · aineisto: `joukkueet.txt`_
+_Generoitu 2026-09-28 · lähde: [OpenDota](https://www.opendota.com/) · aineisto: `joukkueet.txt`_
 
 Jokaisesta pelaajasta: kaikkien aikojen top-8 heropoolia, viimeisimmät ottelut (muoto + tämänhetkinen heropooli, enintään 100 ottelua) ja pelipaikkajakauma. Heropoolista on karsittu heropit joita on pelattu alle 3 kertaa. Turbo-ottelut jätetään muoto- ja heropoolilaskennasta pois aina kun normaaleja otteluita on tarpeeksi.
 
@@ -12,16 +12,16 @@ Bannit vastustajan uhkaindeksin mukaan, pickit oman joukkueen heropoolista. Uhka
 
 | # | Hero | Uhka | Viim. | Kaikkiaan | WR | Kuka pelaa |
 |---|---|---|---|---|---|---|
-| 1 | **Undying** | 50 | 29 | 973 | 56% | Keikari 24, Muffinssi 4, Locke 1, Jooga –/61 |
+| 1 | **Undying** | 50 | 29 | 973 | 56% | Keikari (sub) 24, Muffinssi 4, Locke 1, Jooga –/61 |
 | 2 | **Night Stalker** | 47 | 24 | 269 | 57% | Zonneb 24, Locke –/44, Seinis –/24, Jooga –/18 |
 | 3 | **Dawnbreaker** | 45 | 27 | 382 | 52% | Zonneb 24, Locke –/80, Jooga 3 |
-| 4 | **Witch Doctor** | 45 | 26 | 1128 | 52% | Muffinssi 20, Jooga 5, Locke –/112, Keikari 1 |
-| 5 | **Jakiro** | 44 | 12 | 453 | 62% | Jooga 12, Locke –/91, Keikari –/73, Muffinssi –/18 |
-| 6 | **Warlock** | 44 | 22 | 270 | 54% | Muffinssi 17, Jooga 2, Locke 3, Keikari –/23 |
-| 7 | **Nature's Prophet** | 44 | 27 | 680 | 50% | Seinis 23, Jooga –/68, Keikari 4, Locke –/51 |
-| 8 | **Necrophos** | 42 | 16 | 355 | 56% | Zonneb 12, Locke 3, Keikari –/72, Jooga 1 |
-| 9 | **Rubick** | 40 | 21 | 1122 | 49% | Keikari 21, Jooga –/83, Locke –/38, Seinis –/19 |
-| 10 | **Clockwerk** | 39 | 11 | 514 | 55% | Jooga 8, Keikari –/212, Locke 3, Seinis –/23 |
+| 4 | **Witch Doctor** | 45 | 26 | 1128 | 52% | Muffinssi 20, Jooga 5, Locke –/112, Keikari (sub) 1 |
+| 5 | **Jakiro** | 44 | 12 | 453 | 62% | Jooga 12, Locke –/91, Keikari (sub) –/73, Muffinssi –/18 |
+| 6 | **Warlock** | 44 | 22 | 270 | 54% | Muffinssi 17, Jooga 2, Locke 3, Keikari (sub) –/23 |
+| 7 | **Nature's Prophet** | 44 | 27 | 680 | 50% | Seinis 23, Jooga –/68, Keikari (sub) 4, Locke –/51 |
+| 8 | **Necrophos** | 42 | 16 | 355 | 56% | Zonneb 12, Locke 3, Keikari (sub) –/72, Jooga 1 |
+| 9 | **Rubick** | 40 | 21 | 1122 | 49% | Keikari (sub) 21, Jooga –/83, Locke –/38, Seinis –/19 |
+| 10 | **Clockwerk** | 39 | 11 | 514 | 55% | Jooga 8, Keikari (sub) –/212, Locke 3, Seinis –/23 |
 
 ### Pickit — omasta poolista tätä vastaan
 
@@ -60,7 +60,7 @@ Näitä haluavat molemmat. Jos et banni, varaudu siihen että vastustaja ottaa n
 |---|---|---|---|
 | **Dawnbreaker** | tenderi –/338, KiviMajava 18, Osmo 3, Handels 3 | Zonneb 24, Locke –/80, Jooga 3 | 45 |
 | **Lone Druid** | KiviMajava 6, Handels –/33 | Seinis 21, Jooga 1 | 39 |
-| **Necrophos** | Handels 1, KiviMajava 8, tenderi –/77, Osmo –/44 | Zonneb 12, Locke 3, Keikari –/72, Jooga 1 | 42 |
+| **Necrophos** | Handels 1, KiviMajava 8, tenderi –/77, Osmo –/44 | Zonneb 12, Locke 3, Keikari (sub) –/72, Jooga 1 | 42 |
 
 ### Varo näitä ensimmäisillä pickeillä
 
@@ -83,7 +83,7 @@ Oman poolin heropit jotka pärjäävät heikoiten juuri tätä vastustajaa vasta
 | **Zonneb** | 5395 | Zonneb | Divine 5 | Off 91% | 52% (52-48) | 2026-09-17 |
 | **Jooga** | 3795 | Jooga | Legend 5 | Off 44% / Safe 42% / Mid 10% | 50% (50-50) | 2026-09-15 |
 | **Locke** | 5049 | Locke | Divine 2 | Safe 45% / Off 40% / Mid 15% | 43% (43-57) | 2026-09-17 |
-| **Keikari** | 4056 | Keikari | Ancient 1 | Off 62% / Safe 23% / Mid 15% | 42% (42-58) | 2026-09-17 |
+| **Keikari** _(sub)_ | 4056 | Keikari | Ancient 1 | Off 62% / Safe 23% / Mid 15% | 42% (42-58) | 2026-09-17 |
 
 ## Joukkueen viimeaikaiset picksit
 
@@ -261,7 +261,7 @@ Kaikkien pelaajien viimeaikaiset ottelut yhdessä — todennäköisimmät bannik
 | Axe | 179 | 93 | 52% |
 | Anti-Mage | 169 | 88 | 52% |
 
-### Keikari
+### Keikari _(varapelaaja)_
 
 - Steam-nimi **Keikari** · Listan MMR ~4056 · medal Ancient 1 · Steam ID `STEAM_0:0:9919633` · [OpenDota-profiili](https://www.opendota.com/players/19839266)
 - Kaikkien aikojen W/L: **4910V / 4738H** (51%)

@@ -1,6 +1,6 @@
 # Malttamattomat — pelikirja
 
-_Generoitu 2026-09-18 · lähde: [OpenDota](https://www.opendota.com/) · aineisto: `joukkueet.txt`_
+_Generoitu 2026-09-28 · lähde: [OpenDota](https://www.opendota.com/) · aineisto: `joukkueet.txt`_
 
 Jokaisesta pelaajasta: kaikkien aikojen top-8 heropoolia, viimeisimmät ottelut (muoto + tämänhetkinen heropooli, enintään 100 ottelua) ja pelipaikkajakauma. Heropoolista on karsittu heropit joita on pelattu alle 3 kertaa. Turbo-ottelut jätetään muoto- ja heropoolilaskennasta pois aina kun normaaleja otteluita on tarpeeksi.
 
@@ -12,16 +12,16 @@ Bannit vastustajan uhkaindeksin mukaan, pickit oman joukkueen heropoolista. Uhka
 
 | # | Hero | Uhka | Viim. | Kaikkiaan | WR | Kuka pelaa |
 |---|---|---|---|---|---|---|
-| 1 | **Lich** | 52 | 26 | 429 | 57% | Tot_Dog 4, Ho ho hoe 21, Plehaz 1, Abyss Astronaut –/54 |
-| 2 | **Tidehunter** | 49 | 19 | 312 | 59% | Tot_Dog 14, KurkkuMopo 2, Abyss Astronaut 1, Plehaz 2 |
-| 3 | **Lifestealer** | 48 | 22 | 505 | 55% | KurkkuMopo 7, Abyss Astronaut 2, Plehaz 13, Tot_Dog –/32 |
-| 4 | **Vengeful Spirit** | 46 | 22 | 702 | 54% | KurkkuMopo 12, Tot_Dog 9, Abyss Astronaut 1, Plehaz –/41 |
-| 5 | **Shadow Fiend** | 44 | 17 | 241 | 54% | Abyss Astronaut 10, Plehaz 6, KurkkuMopo 1 |
-| 6 | **Necrophos** | 43 | 8 | 175 | 62% | KurkkuMopo 5, Abyss Astronaut –/58, Tot_Dog –/35, Plehaz 3 |
-| 7 | **Warlock** | 41 | 12 | 297 | 55% | Tot_Dog 3, Plehaz –/59, Abyss Astronaut –/60, Ho ho hoe 9 |
-| 8 | **Winter Wyvern** | 40 | 9 | 207 | 56% | Tot_Dog 6, KurkkuMopo 1, Ho ho hoe 2 |
-| 9 | **Sven** | 39 | 9 | 535 | 56% | KurkkuMopo 5, Abyss Astronaut 2, Tot_Dog –/17, Plehaz 2 |
-| 10 | **Drow Ranger** | 39 | 9 | 324 | 55% | KurkkuMopo 5, Abyss Astronaut 2, Tot_Dog –/45, Plehaz 2 |
+| 1 | **Primal Beast** | 50 | 23 | 146 | 58% | Abyss Astronaut 18, Hegulator –/32, Admiral R[A]t doto 5, Zigerik –/20 |
+| 2 | **Tidehunter** | 49 | 21 | 386 | 57% | Tot_Dog 14, Admiral R[A]t doto 5, Zigerik 1, Abyss Astronaut 1 |
+| 3 | **Spectre** | 44 | 14 | 287 | 57% | Hegulator 14, Zigerik –/101, Abyss Astronaut –/97 |
+| 4 | **Pangolier** | 43 | 15 | 422 | 55% | Abyss Astronaut 6, Hegulator 7, Admiral R[A]t doto 2, Tot_Dog –/22 |
+| 5 | **Shadow Fiend** | 42 | 18 | 620 | 51% | Abyss Astronaut 10, Hegulator 7, Admiral R[A]t doto 1, Zigerik –/55 |
+| 6 | **Sniper** | 42 | 9 | 369 | 59% | Zigerik –/220, Hegulator –/92, Admiral R[A]t doto 9, Abyss Astronaut –/26 |
+| 7 | **Nature's Prophet** | 41 | 19 | 493 | 50% | Hegulator 15, Admiral R[A]t doto 3, Zigerik 1, Abyss Astronaut –/38 |
+| 8 | **Lich** | 41 | 7 | 466 | 60% | Tot_Dog 4, Hegulator 3, Zigerik –/58, Abyss Astronaut –/54 |
+| 9 | **Centaur Warrunner** | 41 | 9 | 276 | 58% | Abyss Astronaut 1, Admiral R[A]t doto 5, Zigerik 1, Tot_Dog 1 |
+| 10 | **Vengeful Spirit** | 40 | 14 | 746 | 52% | Tot_Dog 9, Zigerik 1, Abyss Astronaut 1, Hegulator 3 |
 
 ### Pickit — omasta poolista tätä vastaan
 
@@ -29,28 +29,28 @@ Bannit vastustajan uhkaindeksin mukaan, pickit oman joukkueen heropoolista. Uhka
 
 | Hero | Pickki | Kuka meiltä | WR | Etu vs. uhat | Toimii erityisesti vastaan |
 |---|---|---|---|---|---|
-| **Snapfire** | 90 | tenderi 12, Handels 5, Reijo (Kantor) 12, Osmo –/27 | 51% | +1,4 pp | Tidehunter +5,5 pp, Winter Wyvern +4,0 pp |
+| **Snapfire** | 90 | tenderi 12, Handels 5, Reijo (Kantor) 12, Osmo –/27 | 51% | +1,4 pp | Tidehunter +5,5 pp, Pangolier +3,9 pp |
+| **Dawnbreaker** | 88 | tenderi –/338, KiviMajava 18, Osmo 3, Handels 3 | 51% | +0,8 pp | Underlord +3,9 pp, Vengeful Spirit +3,7 pp |
 | **Spectre** | 88 | KiviMajava 2, Handels –/97, Reijo (Kantor) 10, Osmo 4 | 58% | – | – |
-| **Dawnbreaker** | 81 | tenderi –/338, KiviMajava 18, Osmo 3, Handels 3 | 51% | -0,2 pp | Sven +4,2 pp, Vengeful Spirit +3,7 pp |
-| **Treant Protector** | 76 | Handels –/89, tenderi –/35, Osmo 1, KiviMajava 5 | 55% | +3,9 pp | Tidehunter +6,1 pp, Warlock +6,1 pp |
-| **Lone Druid** | 76 | KiviMajava 6, Handels –/33 | 54% | +4,6 pp | Shadow Fiend +4,6 pp |
-| **Enchantress** | 75 | tenderi 28, Handels –/39, KiviMajava –/24 | 48% | +0,4 pp | Warlock +1,7 pp, Treant Protector +1,0 pp |
-| **Nyx Assassin** | 73 | tenderi 6, Handels –/141, Osmo –/92, Reijo (Kantor) –/29 | 54% | +2,2 pp | Tidehunter +3,1 pp, Lifestealer +2,5 pp |
-| **Storm Spirit** | 72 | KiviMajava 16, Reijo (Kantor) –/75, Handels –/69, Osmo 2 | 54% | +0,2 pp | Warlock +3,8 pp, Sven +2,4 pp |
-| **Alchemist** | 66 | Reijo (Kantor) 1, Osmo 1, KiviMajava –/34, Handels –/41 | 48% | +3,8 pp | Lifestealer +4,5 pp, Shadow Fiend +4,4 pp |
-| **Slardar** | 65 | tenderi 4, Handels 2, Osmo 1, Reijo (Kantor) 1 | 55% | +0,5 pp | Lifestealer +4,0 pp, Tidehunter +3,8 pp |
-| **Pudge** | 64 | Osmo 9, Handels 4, Reijo (Kantor) –/63, KiviMajava –/48 | 48% | +0,9 pp | Warlock +5,8 pp, Lich +5,1 pp |
-| **Puck** | 64 | Handels –/620, KiviMajava 13, Osmo 1, Reijo (Kantor) –/38 | 50% | +0,3 pp | Warlock +3,4 pp, Crystal Maiden +2,6 pp |
+| **Enchantress** | 77 | tenderi 28, Handels –/39, KiviMajava –/24 | 48% | +0,6 pp | Ursa +3,3 pp, Nature's Prophet +1,5 pp |
+| **Treant Protector** | 76 | Handels –/89, tenderi –/35, Osmo 1, KiviMajava 5 | 55% | +5,1 pp | Underlord +7,9 pp, Centaur Warrunner +6,3 pp |
+| **Lone Druid** | 76 | KiviMajava 6, Handels –/33 | 54% | +4,4 pp | Underlord +4,8 pp, Shadow Fiend +4,6 pp |
+| **Storm Spirit** | 71 | KiviMajava 16, Reijo (Kantor) –/75, Handels –/69, Osmo 2 | 54% | +0,0 pp | Troll Warlord +2,2 pp, Primal Beast +1,8 pp |
+| **Slardar** | 71 | tenderi 4, Handels 2, Osmo 1, Reijo (Kantor) 1 | 55% | +1,4 pp | Underlord +5,1 pp, Tidehunter +3,8 pp |
+| **Clockwerk** | 71 | tenderi 8, Handels 2, Osmo 1, Reijo (Kantor) –/35 | 48% | +2,1 pp | Tidehunter +7,6 pp, Pangolier +4,7 pp |
+| **Pudge** | 68 | Osmo 9, Handels 4, Reijo (Kantor) –/63, KiviMajava –/48 | 48% | +1,4 pp | Lich +5,1 pp, Underlord +3,8 pp |
+| **Drow Ranger** | 67 | Handels 4, KiviMajava 1, Osmo –/57 | 52% | +1,7 pp | Underlord +5,1 pp, Lich +3,3 pp |
+| **Naga Siren** | 66 | KiviMajava –/93, Osmo –/38, Handels –/33 | 51% | +3,2 pp | Pangolier +3,2 pp, Ursa +3,2 pp |
 
 ### Pelaajakohtaisesti
 
 Kunkin oman pelaajan omasta poolista parhaat vaihtoehdot tätä vastustajaa vastaan:
 
-- **Handels**: **Earthshaker** (190 peliä, 59%, +1,0 pp) · **Pangolier** (285 peliä, 53%, -0,6 pp) · **Vengeful Spirit** (221 peliä, 59%, -0,0 pp)
-- **KiviMajava**: **Lone Druid** (235 peliä, 56%, +4,6 pp) · **Spectre** (200 peliä, 62%) · **Storm Spirit** (611 peliä, 54%, +0,2 pp)
-- **Osmo**: **Pudge** (146 peliä, 51%, +0,9 pp) · **Legion Commander** (135 peliä, 59%, -1,1 pp) · **Shadow Fiend** (118 peliä, 51%, +0,7 pp)
-- **Reijo (Kantor)**: **Mirana** (234 peliä, 58%, +1,0 pp) · **Alchemist** (169 peliä, 49%, +3,8 pp) · **Timbersaw** (134 peliä, 61%, -0,2 pp)
-- **tenderi**: **Nyx Assassin** (168 peliä, 48%, +2,2 pp) · **Snapfire** (135 peliä, 51%, +1,4 pp) · **Brewmaster** (308 peliä, 58%, -0,0 pp)
+- **Handels**: **Pangolier** (285 peliä, 53%, -0,4 pp) · **Vengeful Spirit** (221 peliä, 59%, +0,2 pp) · **Ember Spirit** (226 peliä, 52%, +1,6 pp)
+- **KiviMajava**: **Lone Druid** (235 peliä, 56%, +4,4 pp) · **Spectre** (200 peliä, 62%) · **Storm Spirit** (611 peliä, 54%, +0,0 pp)
+- **Osmo**: **Pudge** (146 peliä, 51%, +1,4 pp) · **Legion Commander** (135 peliä, 59%, -0,4 pp) · **Shadow Fiend** (118 peliä, 51%, +0,7 pp)
+- **Reijo (Kantor)**: **Mirana** (234 peliä, 58%, +1,0 pp) · **Alchemist** (169 peliä, 49%, +2,8 pp) · **Timbersaw** (134 peliä, 61%, +0,6 pp)
+- **tenderi**: **Brewmaster** (308 peliä, 58%, +0,6 pp) · **Slardar** (318 peliä, 53%, +1,4 pp) · **Clockwerk** (176 peliä, 45%, +2,1 pp)
 
 ### Kiistellyt heropit
 
@@ -58,11 +58,10 @@ Näitä haluavat molemmat. Jos et banni, varaudu siihen että vastustaja ottaa n
 
 | Hero | Meillä | Heillä | Heidän uhkansa |
 |---|---|---|---|
-| **Spectre** | KiviMajava 2, Handels –/97, Reijo (Kantor) 10, Osmo 4 | KurkkuMopo 7, Abyss Astronaut –/97, Plehaz 5 | 38 |
-| **Treant Protector** | Handels –/89, tenderi –/35, Osmo 1, KiviMajava 5 | Tot_Dog 4, KurkkuMopo –/26, Plehaz 1, Abyss Astronaut –/26 | 38 |
-| **Lifestealer** | Osmo 2, Handels 2, Reijo (Kantor) 1, KiviMajava –/28 | KurkkuMopo 7, Abyss Astronaut 2, Plehaz 13, Tot_Dog –/32 | 48 |
-| **Drow Ranger** | Handels 4, KiviMajava 1, Osmo –/57 | KurkkuMopo 5, Abyss Astronaut 2, Tot_Dog –/45, Plehaz 2 | 39 |
-| **Vengeful Spirit** | Handels 4, Osmo 3, tenderi –/111, Reijo (Kantor) –/33 | KurkkuMopo 12, Tot_Dog 9, Abyss Astronaut 1, Plehaz –/41 | 46 |
+| **Spectre** | KiviMajava 2, Handels –/97, Reijo (Kantor) 10, Osmo 4 | Hegulator 14, Zigerik –/101, Abyss Astronaut –/97 | 44 |
+| **Pangolier** | Handels 13, Osmo –/67, tenderi –/44, Reijo (Kantor) 3 | Abyss Astronaut 6, Hegulator 7, Admiral R[A]t doto 2, Tot_Dog –/22 | 43 |
+| **Necrophos** | Handels 1, KiviMajava 8, tenderi –/77, Osmo –/44 | Zigerik –/89, Abyss Astronaut –/58, Hegulator 2, Tot_Dog –/35 | 40 |
+| **Vengeful Spirit** | Handels 4, Osmo 3, tenderi –/111, Reijo (Kantor) –/33 | Tot_Dog 9, Zigerik 1, Abyss Astronaut 1, Hegulator 3 | 40 |
 
 ### Varo näitä ensimmäisillä pickeillä
 
@@ -70,20 +69,20 @@ Oman poolin heropit jotka pärjäävät heikoiten juuri tätä vastustajaa vasta
 
 | Hero | Kuka meiltä | Etu vs. uhat | Kärsii vastaan |
 |---|---|---|---|
-| Underlord | tenderi 1, Handels 1, Osmo –/34 | -2,6 pp | Necrophos -5,9 pp, Treant Protector -7,9 pp |
-| Faceless Void | Handels 3, KiviMajava 1, Osmo –/66, Reijo (Kantor) –/53 | -2,3 pp | Warlock -1,7 pp, Tidehunter -3,5 pp |
-| Sven | Osmo 3, Handels –/87, KiviMajava –/45, Reijo (Kantor) –/24 | -2,1 pp | Lich -4,0 pp, Shadow Fiend -4,2 pp |
+| Underlord | tenderi 1, Handels 1, Osmo –/34 | -2,3 pp | Necrophos -5,9 pp, Ursa -7,2 pp |
+| Medusa | Handels –/43, KiviMajava –/26, Reijo (Kantor) –/22 | -2,0 pp | Shadow Fiend -4,7 pp, Centaur Warrunner -5,0 pp |
 | Outworld Destroyer | Handels –/97, KiviMajava 1, Reijo (Kantor) 4, Osmo –/16 | -1,9 pp | Shadow Fiend -1,9 pp |
-| Phantom Assassin | Handels 1, KiviMajava –/58, Reijo (Kantor) 1, Osmo 1 | -1,9 pp | Shadow Fiend -1,1 pp, Lifestealer -3,5 pp |
+| Sven | Osmo 3, Handels –/87, KiviMajava –/45, Reijo (Kantor) –/24 | -1,9 pp | Lich -4,0 pp, Shadow Fiend -4,2 pp |
+| Mars | tenderi –/98, Handels 1, Osmo 3 | -1,9 pp | Underlord -3,4 pp, Dazzle -3,4 pp |
 
 ## Rosteri
 
 | Pelaaja | MMR | Steam-nimi | Medal | Linjat | Muoto | Viim. peli |
 |---|---|---|---|---|---|---|
-| **KurkkuMopo** | 5750 | KurkkuMopo | Immortal | Safe 59% / Off 27% / Mid 13% | 41% (41-59) | 2026-09-17 |
+| **Hegulator** | 4393 | Hegulator | Ancient 5 | Safe 58% / Mid 23% / Off 15% | 56% (56-44) | 2026-09-27 |
 | **Abyss Astronaut** | 5786 | Abyss Astronaut | Immortal | Mid 51% / Safe 27% / Off 22% | 53% (53-47) | 2026-09-17 |
-| **Plehaz** | 5000 | Plehaz | Ancient 3 | Safe 56% / Off 35% / Mid 9% | 52% (52-48) | 2026-09-17 |
-| **Ho ho hoe** | 3098 | Ho ho hoe | Archon 5 | Off 58% / Safe 39% | 38% (38-62) | 2026-09-17 |
+| **Admiral R[A]t doto** | 4955 | Admiral R[A]t doto | Divine 2 | Off 42% / Safe 33% / Mid 22% | 51% (51-49) | 2026-09-25 |
+| **Zigerik** | 4000 | Zigerik | Ancient 3 | Safe 43% / Off 31% / Mid 24% | 51% (51-49) | 2026-09-17 |
 | **Tot_Dog** | 4253 | Tot_Dog | Ancient 5 | Safe 62% / Off 33% | 54% (54-46) | 2026-09-16 |
 
 ## Joukkueen viimeaikaiset picksit
@@ -92,51 +91,51 @@ Kaikkien pelaajien viimeaikaiset ottelut yhdessä — todennäköisimmät bannik
 
 | Hero | Pelit | Voitot | WR% | Kuka pelaa |
 |---|---|---|---|---|
-| Lich | 26 | 14 | 54% | Ho ho hoe, Plehaz, Tot_Dog |
-| Vengeful Spirit | 22 | 11 | 50% | Abyss Astronaut, KurkkuMopo, Tot_Dog |
-| Lifestealer | 22 | 12 | 55% | Abyss Astronaut, KurkkuMopo, Plehaz |
-| Tidehunter | 20 | 13 | 65% | Abyss Astronaut, Ho ho hoe, KurkkuMopo, Plehaz, Tot_Dog |
-| Primal Beast | 18 | 12 | 67% | Abyss Astronaut |
-| Shadow Fiend | 17 | 8 | 47% | Abyss Astronaut, KurkkuMopo, Plehaz |
-| Skywrath Mage | 15 | 6 | 40% | Ho ho hoe |
-| Slardar | 13 | 6 | 46% | KurkkuMopo, Tot_Dog |
-| Spectre | 12 | 6 | 50% | KurkkuMopo, Plehaz |
-| Crystal Maiden | 12 | 5 | 42% | Ho ho hoe, Tot_Dog |
-| Warlock | 12 | 2 | 17% | Ho ho hoe, Tot_Dog |
-| Drow Ranger | 10 | 3 | 30% | Abyss Astronaut, Ho ho hoe, KurkkuMopo, Plehaz |
+| Primal Beast | 23 | 13 | 57% | Abyss Astronaut, Admiral R[A]t doto |
+| Tidehunter | 21 | 11 | 52% | Abyss Astronaut, Admiral R[A]t doto, Tot_Dog, Zigerik |
+| Nature's Prophet | 19 | 12 | 63% | Admiral R[A]t doto, Hegulator, Zigerik |
+| Slardar | 19 | 9 | 47% | Admiral R[A]t doto, Tot_Dog, Zigerik |
+| Shadow Fiend | 18 | 8 | 44% | Abyss Astronaut, Admiral R[A]t doto, Hegulator |
+| Pangolier | 15 | 7 | 47% | Abyss Astronaut, Admiral R[A]t doto, Hegulator |
+| Spectre | 14 | 12 | 86% | Hegulator |
+| Vengeful Spirit | 14 | 8 | 57% | Abyss Astronaut, Hegulator, Tot_Dog, Zigerik |
+| Lion | 13 | 4 | 31% | Abyss Astronaut, Admiral R[A]t doto, Tot_Dog, Zigerik |
+| Legion Commander | 13 | 7 | 54% | Admiral R[A]t doto, Tot_Dog, Zigerik |
+| Dazzle | 12 | 4 | 33% | Admiral R[A]t doto, Tot_Dog, Zigerik |
+| Lifestealer | 11 | 2 | 18% | Abyss Astronaut, Admiral R[A]t doto, Hegulator |
 
 ## Pelaajat
 
-### KurkkuMopo
+### Hegulator
 
-- Steam-nimi **KurkkuMopo** · Listan MMR ~5750 · medal Immortal · Steam ID `STEAM_0:0:58472138` · [OpenDota-profiili](https://www.opendota.com/players/116944276)
-- Kaikkien aikojen W/L: **5384V / 5187H** (51%)
-- Viimeiset 100 ottelua: **41V / 59H (41% WR)** · viimeisin peli 2026-09-17 · _ei turbo-otteluita_
-- Pelipaikat: Safe 59% / Off 27% / Mid 13%
+- Steam-nimi **Hegulator** · Listan MMR ~4393 · medal Ancient 5 · Steam ID `STEAM_0:1:26175813` · [OpenDota-profiili](https://www.opendota.com/players/52351627)
+- Kaikkien aikojen W/L: **5160V / 4588H** (53%)
+- Viimeiset 100 ottelua: **56V / 44H (56% WR)** · viimeisin peli 2026-09-27 · _ei turbo-otteluita_
+- Pelipaikat: Safe 58% / Mid 23% / Off 15%
 
 **Viimeaikaiset heropit** (viim. 100 ottelua)
 
 | Hero | Pelit | Voitot | WR% |
 |---|---|---|---|
-| Vengeful Spirit | 12 | 5 | 42% |
-| Spectre | 7 | 2 | 29% |
-| Lifestealer | 7 | 6 | 86% |
-| Dragon Knight | 6 | 2 | 33% |
-| Tiny | 6 | 4 | 67% |
-| Sven | 5 | 3 | 60% |
+| Nature's Prophet | 15 | 8 | 53% |
+| Spectre | 14 | 12 | 86% |
+| Troll Warlord | 8 | 7 | 88% |
+| Lifestealer | 8 | 2 | 25% |
+| Ursa | 7 | 2 | 29% |
+| Shadow Fiend | 7 | 3 | 43% |
 
 **Top-heropit, kaikki ajat** (väh. 3 peliä)
 
 | Hero | Pelit | Voitot | WR% |
 |---|---|---|---|
-| Juggernaut | 723 | 430 | 59% |
-| Sven | 431 | 243 | 56% |
-| Lifestealer | 325 | 190 | 58% |
-| Phantom Lancer | 302 | 165 | 55% |
-| Faceless Void | 259 | 122 | 47% |
-| Gyrocopter | 256 | 134 | 52% |
-| Phantom Assassin | 253 | 138 | 55% |
-| Axe | 243 | 135 | 56% |
+| Tinker | 577 | 311 | 54% |
+| Juggernaut | 356 | 185 | 52% |
+| Ursa | 326 | 173 | 53% |
+| Shadow Fiend | 318 | 144 | 45% |
+| Wraith King | 263 | 160 | 61% |
+| Lifestealer | 245 | 116 | 47% |
+| Alchemist | 221 | 102 | 46% |
+| Rubick | 211 | 109 | 52% |
 
 ### Abyss Astronaut
 
@@ -169,67 +168,67 @@ Kaikkien pelaajien viimeaikaiset ottelut yhdessä — todennäköisimmät bannik
 | Windranger | 186 | 102 | 55% |
 | Shadow Fiend | 185 | 107 | 58% |
 
-### Plehaz
+### Admiral R[A]t doto
 
-- Steam-nimi **Plehaz** · Listan MMR ~5000 · medal Ancient 3 · Steam ID `STEAM_0:1:11476879` · [OpenDota-profiili](https://www.opendota.com/players/22953759)
-- Kaikkien aikojen W/L: **1110V / 1329H** (46%)
-- Viimeiset 100 ottelua: **52V / 48H (52% WR)** · viimeisin peli 2026-09-17 · _ei turbo-otteluita_
-- Pelipaikat: Safe 56% / Off 35% / Mid 9%
-
-**Viimeaikaiset heropit** (viim. 100 ottelua)
-
-| Hero | Pelit | Voitot | WR% |
-|---|---|---|---|
-| Lifestealer | 13 | 6 | 46% |
-| Tinker | 10 | 5 | 50% |
-| Shadow Fiend | 6 | 3 | 50% |
-| Phantom Lancer | 6 | 2 | 33% |
-| Lina | 5 | 2 | 40% |
-| Spectre | 5 | 4 | 80% |
-
-**Top-heropit, kaikki ajat** (väh. 3 peliä)
-
-| Hero | Pelit | Voitot | WR% |
-|---|---|---|---|
-| Ogre Magi | 125 | 75 | 60% |
-| Jakiro | 66 | 39 | 59% |
-| Warlock | 59 | 43 | 73% |
-| Lion | 57 | 28 | 49% |
-| Lich | 55 | 29 | 53% |
-| Grimstroke | 54 | 28 | 52% |
-| Dazzle | 54 | 25 | 46% |
-| Juggernaut | 50 | 19 | 38% |
-
-### Ho ho hoe
-
-- Steam-nimi **Ho ho hoe** · Listan MMR ~3098 · medal Archon 5 · Steam ID `STEAM_0:0:57211743` · [OpenDota-profiili](https://www.opendota.com/players/114423486)
-- Kaikkien aikojen W/L: **136V / 179H** (43%)
-- Viimeiset 100 ottelua: **38V / 62H (38% WR)** · viimeisin peli 2026-09-17 · _ei turbo-otteluita_
-- Pelipaikat: Off 58% / Safe 39%
+- Steam-nimi **Admiral R[A]t doto** · Listan MMR ~4955 · medal Divine 2 · Steam ID `STEAM_0:0:87317914` · [OpenDota-profiili](https://www.opendota.com/players/174635828)
+- Kaikkien aikojen W/L: **1972V / 1515H** (57%)
+- Viimeiset 100 ottelua: **51V / 49H (51% WR)** · viimeisin peli 2026-09-25 · _ei turbo-otteluita_
+- Pelipaikat: Off 42% / Safe 33% / Mid 22%
 
 **Viimeaikaiset heropit** (viim. 100 ottelua)
 
 | Hero | Pelit | Voitot | WR% |
 |---|---|---|---|
-| Lich | 21 | 10 | 48% |
-| Skywrath Mage | 15 | 6 | 40% |
-| Warlock | 9 | 1 | 11% |
-| Crystal Maiden | 7 | 3 | 43% |
-| Dark Willow | 7 | 4 | 57% |
-| Lion | 3 | 0 | 0% |
+| Sniper | 9 | 6 | 67% |
+| Enchantress | 7 | 3 | 43% |
+| Centaur Warrunner | 5 | 4 | 80% |
+| Tidehunter | 5 | 1 | 20% |
+| Underlord | 5 | 3 | 60% |
+| Primal Beast | 5 | 1 | 20% |
 
 **Top-heropit, kaikki ajat** (väh. 3 peliä)
 
 | Hero | Pelit | Voitot | WR% |
 |---|---|---|---|
-| Skywrath Mage | 66 | 34 | 52% |
-| Warlock | 41 | 20 | 49% |
-| Lich | 23 | 12 | 52% |
-| Shadow Shaman | 22 | 11 | 50% |
-| Dark Willow | 17 | 7 | 41% |
-| Bane | 13 | 6 | 46% |
-| Lion | 11 | 5 | 45% |
-| Dazzle | 10 | 6 | 60% |
+| Pudge | 175 | 95 | 54% |
+| Nature's Prophet | 126 | 67 | 53% |
+| Juggernaut | 87 | 53 | 61% |
+| Rubick | 78 | 42 | 54% |
+| Clockwerk | 78 | 39 | 50% |
+| Sand King | 74 | 41 | 55% |
+| Enchantress | 69 | 43 | 62% |
+| Tidehunter | 68 | 40 | 59% |
+
+### Zigerik
+
+- Steam-nimi **Zigerik** · Listan MMR ~4000 · medal Ancient 3 · Steam ID `STEAM_0:0:46722625` · [OpenDota-profiili](https://www.opendota.com/players/93445250)
+- Kaikkien aikojen W/L: **6840V / 6566H** (51%)
+- Viimeiset 100 ottelua: **51V / 49H (51% WR)** · viimeisin peli 2026-09-17 · _ei turbo-otteluita_
+- Pelipaikat: Safe 43% / Off 31% / Mid 24%
+
+**Viimeaikaiset heropit** (viim. 100 ottelua)
+
+| Hero | Pelit | Voitot | WR% |
+|---|---|---|---|
+| Lion | 10 | 3 | 30% |
+| Bounty Hunter | 9 | 5 | 56% |
+| Pudge | 8 | 5 | 62% |
+| Slardar | 7 | 3 | 43% |
+| Tusk | 6 | 1 | 17% |
+| Dazzle | 5 | 1 | 20% |
+
+**Top-heropit, kaikki ajat** (väh. 3 peliä)
+
+| Hero | Pelit | Voitot | WR% |
+|---|---|---|---|
+| Witch Doctor | 638 | 344 | 54% |
+| Lion | 603 | 323 | 54% |
+| Pudge | 410 | 208 | 51% |
+| Silencer | 353 | 187 | 53% |
+| Bloodseeker | 298 | 171 | 57% |
+| Grimstroke | 274 | 136 | 50% |
+| Windranger | 267 | 142 | 53% |
+| Tusk | 261 | 129 | 49% |
 
 ### Tot_Dog
 
