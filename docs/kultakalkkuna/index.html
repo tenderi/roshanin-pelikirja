@@ -6,318 +6,148 @@
 <title>KultaKalkkuna — pelikirja</title>
 <style>
 :root {
-  --bg: #ffffff; --fg: #1a1d21; --muted: #5c6670; --line: #d8dee4;
-  --accent: #b02a2a; --card: #f6f8fa; --thead: #eef2f6; --zebra: #fafbfc;
-  --link: #14508c; --warn-bg: #fff8e5; --warn-line: #d8a531;
+  --bg: #f4f5f7; --panel: #ffffff; --fg: #1a1d21; --muted: #5f6873;
+  --line: #dfe3e8; --accent: #b3261e; --accent-soft: #fbeae8;
+  --good: #1e7b3a; --bad: #b3261e; --link: #14508c;
+  --warn-bg: #fff8e5; --warn-line: #d8a531;
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #14171a; --fg: #e6e9ec; --muted: #9aa4ae; --line: #2c3238;
-    --accent: #ff6b6b; --card: #1b1f23; --thead: #21262c; --zebra: #191d21;
-    --link: #79b8ff; --warn-bg: #2a2313; --warn-line: #c9a227;
+    --bg: #111418; --panel: #1a1e23; --fg: #e6e9ec; --muted: #98a2ad;
+    --line: #2b3138; --accent: #ff7a70; --accent-soft: #3a1f1d;
+    --good: #5fd38a; --bad: #ff7a70; --link: #79b8ff;
+    --warn-bg: #2a2313; --warn-line: #c9a227;
   }
 }
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
 body {
   margin: 0; background: var(--bg); color: var(--fg);
-  font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
         "Helvetica Neue", Arial, sans-serif;
 }
+a { color: var(--link); }
 header.top {
-  position: sticky; top: 0; z-index: 10;
-  background: var(--bg); border-bottom: 1px solid var(--line);
-  padding: 12px 20px; display: flex; gap: 12px; align-items: baseline;
-  flex-wrap: wrap;
+  position: sticky; top: 0; z-index: 10; background: var(--panel);
+  border-bottom: 1px solid var(--line); padding: 10px 16px;
+  display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap;
 }
 header.top a.home { color: var(--accent); font-weight: 700; text-decoration: none; }
-header.top .crumb { color: var(--muted); font-size: 14px; }
-main { max-width: 1000px; margin: 0 auto; padding: 24px 20px 80px; }
-h1 { font-size: 28px; line-height: 1.25; margin: 8px 0 4px; }
-h2 {
-  font-size: 21px; margin: 36px 0 10px; padding-bottom: 6px;
-  border-bottom: 2px solid var(--accent);
-}
-h3 {
-  font-size: 17px; margin: 26px 0 6px; color: var(--accent);
-  scroll-margin-top: 70px;
-}
-p { margin: 10px 0; }
-ul { margin: 10px 0 10px 22px; padding: 0; }
-li { margin: 4px 0; }
-a { color: var(--link); }
-code {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 0.88em; background: var(--card); padding: 1px 5px;
-  border-radius: 4px;
-}
-blockquote {
-  margin: 14px 0; padding: 10px 14px; background: var(--warn-bg);
-  border-left: 4px solid var(--warn-line); border-radius: 0 6px 6px 0;
-}
-.tw { overflow-x: auto; margin: 12px 0 20px; -webkit-overflow-scrolling: touch; }
-table { border-collapse: collapse; width: 100%; font-size: 14px; }
-th, td {
-  border: 1px solid var(--line); padding: 7px 10px; text-align: left;
-  vertical-align: top; white-space: nowrap;
-}
-td:last-child, th:last-child { white-space: normal; }
-th { background: var(--thead); font-weight: 600; position: sticky; top: 0; }
-tbody tr:nth-child(even) td { background: var(--zebra); }
-footer {
-  max-width: 1000px; margin: 0 auto; padding: 24px 20px 60px;
-  color: var(--muted); font-size: 13px; border-top: 1px solid var(--line);
-}
-.teamgrid {
-  display: grid; gap: 12px; margin: 18px 0 4px;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-}
-.teamgrid a {
-  display: block; padding: 14px 16px; background: var(--card);
-  border: 1px solid var(--line); border-radius: 8px; text-decoration: none;
-  color: var(--fg); font-weight: 600;
-}
-.teamgrid a:hover { border-color: var(--accent); }
-.teamgrid span { display: block; font-weight: 400; color: var(--muted);
-                 font-size: 13px; margin-top: 3px; }
+header.top .crumb { color: var(--muted); }
+main { max-width: 1100px; margin: 0 auto; padding: 20px 16px 60px; }
+h1 { font-size: 28px; line-height: 1.2; margin: 6px 0 4px; }
+h2 { font-size: 19px; margin: 32px 0 6px; }
+.sub, .note { color: var(--muted); }
+.note { font-size: 13px; margin: 0 0 12px; max-width: 70ch; }
+.num { font-variant-numeric: tabular-nums; }
+.hero-img { display: block; border-radius: 4px; background: var(--line);
+            object-fit: cover; flex: none; }
+.good { color: var(--good); }
+.bad { color: var(--bad); }
+
+/* Bannit */
+.bans { display: grid; gap: 10px;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+.ban { display: flex; gap: 10px; align-items: flex-start; padding: 10px;
+       background: var(--panel); border: 1px solid var(--line); border-radius: 8px; }
+.ban .rank { font-weight: 800; font-size: 18px; color: var(--accent);
+             width: 1.4em; text-align: center; flex: none; line-height: 40px; }
+.ban .name { font-weight: 700; }
+.ban .who { font-size: 13px; color: var(--muted); line-height: 1.35; }
+.ban .who div + div { margin-top: 5px; }
+.ban .who b { color: var(--fg); font-weight: 600; }
+
+/* Pelaajakortit */
+.players { display: grid; gap: 14px; }
+.player { background: var(--panel); border: 1px solid var(--line);
+          border-radius: 10px; padding: 14px 16px; }
+.player.sub-player { opacity: .85; }
+.phead { display: flex; justify-content: space-between; gap: 12px;
+         align-items: flex-start; }
+.pname { font-size: 20px; font-weight: 700; line-height: 1.2; }
+.tag { display: inline-block; font-size: 12px; font-weight: 600; padding: 1px 7px;
+       border-radius: 10px; background: var(--bg); color: var(--muted);
+       border: 1px solid var(--line); vertical-align: 3px; margin-left: 6px; }
+.mmr { text-align: right; flex: none; }
+.mmr b { display: block; font-size: 22px; line-height: 1.1; }
+.mmr span { font-size: 12px; color: var(--muted); }
+.meta { color: var(--muted); font-size: 13px; margin: 4px 0 10px; }
+.meta span + span::before { content: " · "; }
+.targets { display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+           padding: 8px 10px; margin-bottom: 12px; border-radius: 8px;
+           background: var(--accent-soft); }
+.targets .lbl { font-size: 12px; font-weight: 700; color: var(--accent);
+                text-transform: uppercase; letter-spacing: .04em; margin-right: 2px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; font-weight: 600;
+        font-size: 14px; }
+.chip small { font-weight: 400; color: var(--muted); }
+.pools { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 24px; }
+.pools h3 { font-size: 12px; text-transform: uppercase; letter-spacing: .04em;
+            color: var(--muted); margin: 0 0 4px; font-weight: 700; }
+.hl { list-style: none; margin: 0; padding: 0; }
+.hl li { display: grid; grid-template-columns: 36px 1fr auto 3.2em;
+         gap: 8px; align-items: center; padding: 3px 0;
+         border-top: 1px solid var(--line); font-size: 14px; }
+.hl li:first-child { border-top: 0; }
+.hl .g { color: var(--muted); text-align: right; }
+.hl .w { text-align: right; }
+.bt { font-size: 11px; font-weight: 700; color: var(--accent);
+      border: 1px solid var(--accent); border-radius: 4px; padding: 0 4px;
+      margin-left: 6px; }
+.empty { color: var(--muted); font-style: italic; }
+
+/* Etusivu */
+.teams { display: grid; gap: 12px;
+         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+.team { display: block; padding: 14px 16px; background: var(--panel);
+        border: 1px solid var(--line); border-radius: 10px;
+        color: var(--fg); text-decoration: none; }
+.team:hover { border-color: var(--accent); }
+.team .tn { font-weight: 700; font-size: 17px; }
+.team .ts { color: var(--muted); font-size: 13px; margin: 2px 0 10px; }
+.team .tb { display: flex; flex-direction: column; gap: 5px; }
+
+.quality { margin-top: 36px; padding: 12px 16px; background: var(--warn-bg);
+           border-left: 4px solid var(--warn-line); border-radius: 0 8px 8px 0;
+           font-size: 14px; }
+.quality h2 { margin-top: 0; font-size: 16px; }
+.quality ul { margin: 6px 0 10px 20px; padding: 0; }
+footer { max-width: 1100px; margin: 0 auto; padding: 20px 16px 50px;
+         color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); }
 @media (max-width: 640px) {
-  body { font-size: 15px; }
   h1 { font-size: 23px; }
-  main { padding: 16px 14px 60px; }
-  th, td { padding: 6px 8px; }
+  .pools { grid-template-columns: 1fr; }
+  .pools > div + div { margin-top: 8px; }
 }
 </style>
 </head>
 <body>
 <header class="top"><a class="home" href="../">Turnauksen pelikirja</a><span class="crumb">KultaKalkkuna</span></header>
 <main>
-<h1>KultaKalkkuna — pelikirja</h1>
-<p><em>Generoitu 2026-09-28 · lähde: <a href="https://www.opendota.com/">OpenDota</a> · aineisto: <code>joukkueet.txt</code></em></p>
-<p>Jokaisesta pelaajasta: kaikkien aikojen top-8 heropoolia, viimeisimmät ottelut (muoto + tämänhetkinen heropooli, enintään 100 ottelua) ja pelipaikkajakauma. Heropoolista on karsittu heropit joita on pelattu alle 3 kertaa. Turbo-ottelut jätetään muoto- ja heropoolilaskennasta pois aina kun normaaleja otteluita on tarpeeksi.</p>
-<h2 class="first">⚠️ Huomioita aineiston laadusta</h2>
+<h1>KultaKalkkuna</h1><p class="sub">Keski-MMR 4 774 · 5 pelaajaa</p>
+<h2>Bannit</h2><p class="note">Järjestys painottaa kovimpia pelaajia: pelaajan paino on (MMR / joukkueen kovin MMR)³, eli kovimman pelaajan heropit menevät kärkeen. Pelaajan oma uhka yhdistää sen, mitä hän pelaa juuri nyt, kokemuksen heropilla ja voittoprosentin.</p>
+<div class="bans">
+<div class="ban"><span class="rank">1</span><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/mirana.png" width="72" height="40" alt="" loading="lazy"><div><div class="name">Mirana</div><div class="who"><div><b>Miikkalele</b> · 5 001<br>42 viim. · 78 kaikkiaan · 62 %</div><div><b>Satowi</b> · 6 000<br>12 viim. · 109 kaikkiaan · 52 %</div></div></div></div>
+<div class="ban"><span class="rank">2</span><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/luna.png" width="72" height="40" alt="" loading="lazy"><div><div class="name">Luna</div><div class="who"><div><b>f0rtuna</b> · 6 500<br>11 viim. · 375 kaikkiaan · 55 %</div></div></div></div>
+<div class="ban"><span class="rank">3</span><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/bounty_hunter.png" width="72" height="40" alt="" loading="lazy"><div><div class="name">Bounty Hunter</div><div class="who"><div><b>Satowi</b> · 6 000<br>8 viim. · 104 kaikkiaan · 54 %</div><div><b>f0rtuna</b> · 6 500<br>1 viim. · 112 kaikkiaan · 50 %</div><div><b>Miikkalele</b> · 5 001<br>3 viim. · 85 kaikkiaan · 57 %</div></div></div></div>
+<div class="ban"><span class="rank">4</span><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/spectre.png" width="72" height="40" alt="" loading="lazy"><div><div class="name">Spectre</div><div class="who"><div><b>f0rtuna</b> · 6 500<br>8 viim. · 433 kaikkiaan · 57 %</div></div></div></div>
+<div class="ban"><span class="rank">5</span><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/night_stalker.png" width="72" height="40" alt="" loading="lazy"><div><div class="name">Night Stalker</div><div class="who"><div><b>f0rtuna</b> · 6 500<br>5 viim. · 119 kaikkiaan · 51 %</div><div><b>Miikkalele</b> · 5 001<br>8 viim. · 39 kaikkiaan · 47 %</div></div></div></div>
+<div class="ban"><span class="rank">6</span><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/clinkz.png" width="72" height="40" alt="" loading="lazy"><div><div class="name">Clinkz</div><div class="who"><div><b>f0rtuna</b> · 6 500<br>12 viim. · 133 kaikkiaan · 43 %</div></div></div></div>
+</div>
+<h2>Pelaajat</h2><p class="note">Kovin MMR ensin. <span class="bt">B1</span> = heropin sija joukkueen bannilistalla. Voittoprosentti vihreällä kun ≥ 55 %, punaisella kun ≤ 45 %.</p>
+<div class="players">
+<section class="player"><div class="phead"><div><span class="pname">f0rtuna</span><span class="tag">Immortal</span></div><div class="mmr"><b class="num">6 500</b><span>MMR</span></div></div><div class="meta"><span>Steam: Työtön eläin divine</span><span>Safe 60% / Off 20% / Mid 20%</span><span>viim. 100 peliä 58–42 (58 %)</span><span>pelannut viimeksi 2026-09-28</span><span><a href="https://www.opendota.com/players/33923304">OpenDota</a></span></div><div class="targets"><span class="lbl">Bannaa</span><span class="chip"><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/luna.png" width="48" height="27" alt="" loading="lazy">Luna<small>11 viim. · 375 kaikkiaan</small></span><span class="chip"><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/spectre.png" width="48" height="27" alt="" loading="lazy">Spectre<small>8 viim. · 433 kaikkiaan</small></span><span class="chip"><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/clinkz.png" width="48" height="27" alt="" loading="lazy">Clinkz<small>12 viim. · 133 kaikkiaan</small></span></div><div class="pools"><div><h3>Pelaa nyt · viim. 100 peliä</h3><ul class="hl"><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/clinkz.png" width="36" height="20" alt="" loading="lazy"><span>Clinkz<span class="bt" title="Joukkueen bannilistalla sijalla 6">B6</span></span><span class="g num">12</span><span class="w num good">67 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/luna.png" width="36" height="20" alt="" loading="lazy"><span>Luna<span class="bt" title="Joukkueen bannilistalla sijalla 2">B2</span></span><span class="g num">11</span><span class="w num good">64 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/spectre.png" width="36" height="20" alt="" loading="lazy"><span>Spectre<span class="bt" title="Joukkueen bannilistalla sijalla 4">B4</span></span><span class="g num">8</span><span class="w num">50 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/juggernaut.png" width="36" height="20" alt="" loading="lazy"><span>Juggernaut</span><span class="g num">8</span><span class="w num">50 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/phantom_lancer.png" width="36" height="20" alt="" loading="lazy"><span>Phantom Lancer</span><span class="g num">6</span><span class="w num">50 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/vengefulspirit.png" width="36" height="20" alt="" loading="lazy"><span>Vengeful Spirit</span><span class="g num">6</span><span class="w num bad">17 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/sven.png" width="36" height="20" alt="" loading="lazy"><span>Sven</span><span class="g num">6</span><span class="w num bad">33 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/night_stalker.png" width="36" height="20" alt="" loading="lazy"><span>Night Stalker<span class="bt" title="Joukkueen bannilistalla sijalla 5">B5</span></span><span class="g num">5</span><span class="w num good">80 %</span></li></ul></div><div><h3>Eniten pelatut kaikkiaan</h3><ul class="hl"><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/templar_assassin.png" width="36" height="20" alt="" loading="lazy"><span>Templar Assassin</span><span class="g num">693</span><span class="w num">52 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/life_stealer.png" width="36" height="20" alt="" loading="lazy"><span>Lifestealer</span><span class="g num">692</span><span class="w num good">55 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/juggernaut.png" width="36" height="20" alt="" loading="lazy"><span>Juggernaut</span><span class="g num">566</span><span class="w num">51 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/phantom_assassin.png" width="36" height="20" alt="" loading="lazy"><span>Phantom Assassin</span><span class="g num">520</span><span class="w num">55 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/ursa.png" width="36" height="20" alt="" loading="lazy"><span>Ursa</span><span class="g num">442</span><span class="w num">54 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/spectre.png" width="36" height="20" alt="" loading="lazy"><span>Spectre<span class="bt" title="Joukkueen bannilistalla sijalla 4">B4</span></span><span class="g num">433</span><span class="w num good">57 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/drow_ranger.png" width="36" height="20" alt="" loading="lazy"><span>Drow Ranger</span><span class="g num">398</span><span class="w num">52 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/faceless_void.png" width="36" height="20" alt="" loading="lazy"><span>Faceless Void</span><span class="g num">391</span><span class="w num">51 %</span></li></ul></div></div></section>
+<section class="player"><div class="phead"><div><span class="pname">Satowi</span><span class="tag">Immortal</span></div><div class="mmr"><b class="num">6 000</b><span>MMR</span></div></div><div class="meta"><span>Off 59% / Safe 34% / Mid 7%</span><span>viim. 100 peliä 61–39 (61 %)</span><span>pelannut viimeksi 2026-09-28</span><span><a href="https://www.opendota.com/players/131143117">OpenDota</a></span></div><div class="targets"><span class="lbl">Bannaa</span><span class="chip"><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/mirana.png" width="48" height="27" alt="" loading="lazy">Mirana<small>12 viim. · 109 kaikkiaan</small></span><span class="chip"><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/treant.png" width="48" height="27" alt="" loading="lazy">Treant Protector<small>8 viim. · 53 kaikkiaan</small></span><span class="chip"><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/bounty_hunter.png" width="48" height="27" alt="" loading="lazy">Bounty Hunter<small>8 viim. · 104 kaikkiaan</small></span></div><div class="pools"><div><h3>Pelaa nyt · viim. 100 peliä</h3><ul class="hl"><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/mirana.png" width="36" height="20" alt="" loading="lazy"><span>Mirana<span class="bt" title="Joukkueen bannilistalla sijalla 1">B1</span></span><span class="g num">12</span><span class="w num good">67 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/bounty_hunter.png" width="36" height="20" alt="" loading="lazy"><span>Bounty Hunter<span class="bt" title="Joukkueen bannilistalla sijalla 3">B3</span></span><span class="g num">8</span><span class="w num good">75 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/treant.png" width="36" height="20" alt="" loading="lazy"><span>Treant Protector</span><span class="g num">8</span><span class="w num good">75 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/winter_wyvern.png" width="36" height="20" alt="" loading="lazy"><span>Winter Wyvern</span><span class="g num">6</span><span class="w num good">83 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/rattletrap.png" width="36" height="20" alt="" loading="lazy"><span>Clockwerk</span><span class="g num">5</span><span class="w num good">60 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/dark_willow.png" width="36" height="20" alt="" loading="lazy"><span>Dark Willow</span><span class="g num">5</span><span class="w num bad">40 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/enchantress.png" width="36" height="20" alt="" loading="lazy"><span>Enchantress</span><span class="g num">4</span><span class="w num good">100 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/hoodwink.png" width="36" height="20" alt="" loading="lazy"><span>Hoodwink</span><span class="g num">4</span><span class="w num">50 %</span></li></ul></div><div><h3>Eniten pelatut kaikkiaan</h3><ul class="hl"><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/earthshaker.png" width="36" height="20" alt="" loading="lazy"><span>Earthshaker</span><span class="g num">217</span><span class="w num good">59 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/rubick.png" width="36" height="20" alt="" loading="lazy"><span>Rubick</span><span class="g num">191</span><span class="w num">45 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/pudge.png" width="36" height="20" alt="" loading="lazy"><span>Pudge</span><span class="g num">131</span><span class="w num">52 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/nyx_assassin.png" width="36" height="20" alt="" loading="lazy"><span>Nyx Assassin</span><span class="g num">127</span><span class="w num good">55 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/rattletrap.png" width="36" height="20" alt="" loading="lazy"><span>Clockwerk</span><span class="g num">125</span><span class="w num good">62 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/tiny.png" width="36" height="20" alt="" loading="lazy"><span>Tiny</span><span class="g num">125</span><span class="w num">54 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/earth_spirit.png" width="36" height="20" alt="" loading="lazy"><span>Earth Spirit</span><span class="g num">120</span><span class="w num">50 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/mirana.png" width="36" height="20" alt="" loading="lazy"><span>Mirana<span class="bt" title="Joukkueen bannilistalla sijalla 1">B1</span></span><span class="g num">109</span><span class="w num">50 %</span></li></ul></div></div></section>
+<section class="player"><div class="phead"><div><span class="pname">Miikkalele</span><span class="tag">Divine 4</span></div><div class="mmr"><b class="num">5 001</b><span>MMR</span></div></div><div class="meta"><span>Off 72% / Safe 20% / Mid 8%</span><span>viim. 100 peliä 56–44 (56 %)</span><span>pelannut viimeksi 2026-09-28</span><span><a href="https://www.opendota.com/players/48987897">OpenDota</a></span></div><div class="targets"><span class="lbl">Bannaa</span><span class="chip"><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/mirana.png" width="48" height="27" alt="" loading="lazy">Mirana<small>42 viim. · 78 kaikkiaan</small></span><span class="chip"><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/keeper_of_the_light.png" width="48" height="27" alt="" loading="lazy">Keeper of the Light<small>8 viim. · 52 kaikkiaan</small></span><span class="chip"><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/night_stalker.png" width="48" height="27" alt="" loading="lazy">Night Stalker<small>8 viim. · 39 kaikkiaan</small></span></div><div class="pools"><div><h3>Pelaa nyt · viim. 100 peliä</h3><ul class="hl"><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/mirana.png" width="36" height="20" alt="" loading="lazy"><span>Mirana<span class="bt" title="Joukkueen bannilistalla sijalla 1">B1</span></span><span class="g num">42</span><span class="w num good">67 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/night_stalker.png" width="36" height="20" alt="" loading="lazy"><span>Night Stalker<span class="bt" title="Joukkueen bannilistalla sijalla 5">B5</span></span><span class="g num">8</span><span class="w num">50 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/keeper_of_the_light.png" width="36" height="20" alt="" loading="lazy"><span>Keeper of the Light</span><span class="g num">8</span><span class="w num good">75 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/centaur.png" width="36" height="20" alt="" loading="lazy"><span>Centaur Warrunner</span><span class="g num">4</span><span class="w num">50 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/lycan.png" width="36" height="20" alt="" loading="lazy"><span>Lycan</span><span class="g num">3</span><span class="w num good">67 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/vengefulspirit.png" width="36" height="20" alt="" loading="lazy"><span>Vengeful Spirit</span><span class="g num">3</span><span class="w num good">67 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/dark_seer.png" width="36" height="20" alt="" loading="lazy"><span>Dark Seer</span><span class="g num">3</span><span class="w num bad">0 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/rubick.png" width="36" height="20" alt="" loading="lazy"><span>Rubick</span><span class="g num">3</span><span class="w num bad">0 %</span></li></ul></div><div><h3>Eniten pelatut kaikkiaan</h3><ul class="hl"><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/bounty_hunter.png" width="36" height="20" alt="" loading="lazy"><span>Bounty Hunter<span class="bt" title="Joukkueen bannilistalla sijalla 3">B3</span></span><span class="g num">85</span><span class="w num good">58 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/mirana.png" width="36" height="20" alt="" loading="lazy"><span>Mirana<span class="bt" title="Joukkueen bannilistalla sijalla 1">B1</span></span><span class="g num">78</span><span class="w num good">59 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/rubick.png" width="36" height="20" alt="" loading="lazy"><span>Rubick</span><span class="g num">54</span><span class="w num">46 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/dark_willow.png" width="36" height="20" alt="" loading="lazy"><span>Dark Willow</span><span class="g num">53</span><span class="w num">53 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/keeper_of_the_light.png" width="36" height="20" alt="" loading="lazy"><span>Keeper of the Light</span><span class="g num">52</span><span class="w num good">56 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/night_stalker.png" width="36" height="20" alt="" loading="lazy"><span>Night Stalker<span class="bt" title="Joukkueen bannilistalla sijalla 5">B5</span></span><span class="g num">39</span><span class="w num">46 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/hoodwink.png" width="36" height="20" alt="" loading="lazy"><span>Hoodwink</span><span class="g num">38</span><span class="w num bad">45 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/treant.png" width="36" height="20" alt="" loading="lazy"><span>Treant Protector</span><span class="g num">35</span><span class="w num good">60 %</span></li></ul></div></div></section>
+<section class="player"><div class="phead"><div><span class="pname">Jelo</span><span class="tag">Ancient 2</span></div><div class="mmr"><b class="num">3 721</b><span>MMR</span></div></div><div class="meta"><span>Steam: Jeloxale</span><span>Mid 55% / Off 23% / Safe 22%</span><span>viim. 100 peliä 58–42 (58 %)</span><span>pelannut viimeksi 2026-09-28</span><span><a href="https://www.opendota.com/players/121263552">OpenDota</a></span></div><div class="targets"><span class="lbl">Bannaa</span><span class="chip"><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/dragon_knight.png" width="48" height="27" alt="" loading="lazy">Dragon Knight<small>22 viim. · 55 kaikkiaan</small></span><span class="chip"><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/sniper.png" width="48" height="27" alt="" loading="lazy">Sniper<small>9 viim. · 49 kaikkiaan</small></span><span class="chip"><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/hoodwink.png" width="48" height="27" alt="" loading="lazy">Hoodwink<small>7 viim. · 199 kaikkiaan</small></span></div><div class="pools"><div><h3>Pelaa nyt · viim. 100 peliä</h3><ul class="hl"><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/dragon_knight.png" width="36" height="20" alt="" loading="lazy"><span>Dragon Knight</span><span class="g num">22</span><span class="w num good">59 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/obsidian_destroyer.png" width="36" height="20" alt="" loading="lazy"><span>Outworld Destroyer</span><span class="g num">9</span><span class="w num good">67 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/sniper.png" width="36" height="20" alt="" loading="lazy"><span>Sniper</span><span class="g num">9</span><span class="w num good">89 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/lina.png" width="36" height="20" alt="" loading="lazy"><span>Lina</span><span class="g num">8</span><span class="w num">50 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/hoodwink.png" width="36" height="20" alt="" loading="lazy"><span>Hoodwink</span><span class="g num">7</span><span class="w num good">71 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/zuus.png" width="36" height="20" alt="" loading="lazy"><span>Zeus</span><span class="g num">6</span><span class="w num">50 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/lich.png" width="36" height="20" alt="" loading="lazy"><span>Lich</span><span class="g num">5</span><span class="w num good">60 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/necrolyte.png" width="36" height="20" alt="" loading="lazy"><span>Necrophos</span><span class="g num">3</span><span class="w num bad">33 %</span></li></ul></div><div><h3>Eniten pelatut kaikkiaan</h3><ul class="hl"><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/hoodwink.png" width="36" height="20" alt="" loading="lazy"><span>Hoodwink</span><span class="g num">199</span><span class="w num good">61 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/obsidian_destroyer.png" width="36" height="20" alt="" loading="lazy"><span>Outworld Destroyer</span><span class="g num">75</span><span class="w num good">60 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/dragon_knight.png" width="36" height="20" alt="" loading="lazy"><span>Dragon Knight</span><span class="g num">55</span><span class="w num">55 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/zuus.png" width="36" height="20" alt="" loading="lazy"><span>Zeus</span><span class="g num">54</span><span class="w num good">61 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/sniper.png" width="36" height="20" alt="" loading="lazy"><span>Sniper</span><span class="g num">49</span><span class="w num good">69 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/gyrocopter.png" width="36" height="20" alt="" loading="lazy"><span>Gyrocopter</span><span class="g num">37</span><span class="w num good">62 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/omniknight.png" width="36" height="20" alt="" loading="lazy"><span>Omniknight</span><span class="g num">33</span><span class="w num good">64 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/slardar.png" width="36" height="20" alt="" loading="lazy"><span>Slardar</span><span class="g num">31</span><span class="w num good">58 %</span></li></ul></div></div></section>
+<section class="player"><div class="phead"><div><span class="pname">Mondi</span><span class="tag">Archon 4</span></div><div class="mmr"><b class="num">2 648</b><span>MMR</span></div></div><div class="meta"><span>Steam: mondi</span><span>Off 61% / Safe 36%</span><span>viim. 100 peliä 62–38 (62 %)</span><span>pelannut viimeksi 2026-09-28</span><span><a href="https://www.opendota.com/players/31637889">OpenDota</a></span></div><div class="targets"><span class="lbl">Bannaa</span><span class="chip"><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/dawnbreaker.png" width="48" height="27" alt="" loading="lazy">Dawnbreaker<small>9 viim. · 14 kaikkiaan</small></span><span class="chip"><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/undying.png" width="48" height="27" alt="" loading="lazy">Undying<small>8 viim. · 11 kaikkiaan</small></span><span class="chip"><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/snapfire.png" width="48" height="27" alt="" loading="lazy">Snapfire<small>6 viim. · 8 kaikkiaan</small></span></div><div class="pools"><div><h3>Pelaa nyt · viim. 100 peliä</h3><ul class="hl"><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/dawnbreaker.png" width="36" height="20" alt="" loading="lazy"><span>Dawnbreaker</span><span class="g num">9</span><span class="w num good">89 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/undying.png" width="36" height="20" alt="" loading="lazy"><span>Undying</span><span class="g num">8</span><span class="w num good">62 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/snapfire.png" width="36" height="20" alt="" loading="lazy"><span>Snapfire</span><span class="g num">6</span><span class="w num good">67 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/mirana.png" width="36" height="20" alt="" loading="lazy"><span>Mirana<span class="bt" title="Joukkueen bannilistalla sijalla 1">B1</span></span><span class="g num">5</span><span class="w num good">100 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/hoodwink.png" width="36" height="20" alt="" loading="lazy"><span>Hoodwink</span><span class="g num">4</span><span class="w num good">75 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/venomancer.png" width="36" height="20" alt="" loading="lazy"><span>Venomancer</span><span class="g num">4</span><span class="w num good">100 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/zuus.png" width="36" height="20" alt="" loading="lazy"><span>Zeus</span><span class="g num">4</span><span class="w num bad">25 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/jakiro.png" width="36" height="20" alt="" loading="lazy"><span>Jakiro</span><span class="g num">4</span><span class="w num bad">25 %</span></li></ul></div><div><h3>Eniten pelatut kaikkiaan</h3><ul class="hl"><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/dawnbreaker.png" width="36" height="20" alt="" loading="lazy"><span>Dawnbreaker</span><span class="g num">14</span><span class="w num good">71 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/jakiro.png" width="36" height="20" alt="" loading="lazy"><span>Jakiro</span><span class="g num">12</span><span class="w num">50 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/undying.png" width="36" height="20" alt="" loading="lazy"><span>Undying</span><span class="g num">11</span><span class="w num good">64 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/vengefulspirit.png" width="36" height="20" alt="" loading="lazy"><span>Vengeful Spirit</span><span class="g num">10</span><span class="w num good">60 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/witch_doctor.png" width="36" height="20" alt="" loading="lazy"><span>Witch Doctor</span><span class="g num">9</span><span class="w num good">56 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/snapfire.png" width="36" height="20" alt="" loading="lazy"><span>Snapfire</span><span class="g num">8</span><span class="w num good">62 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/mirana.png" width="36" height="20" alt="" loading="lazy"><span>Mirana<span class="bt" title="Joukkueen bannilistalla sijalla 1">B1</span></span><span class="g num">6</span><span class="w num good">83 %</span></li><li><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/phoenix.png" width="36" height="20" alt="" loading="lazy"><span>Phoenix</span><span class="g num">6</span><span class="w num good">83 %</span></li></ul></div></div></section>
+</div>
+<div class="quality"><h2 class="first">Huomioita aineiston laadusta</h2>
 <p><strong>Steam-nimi ei muistuta listan nickiä</strong> — yleensä pelaaja on vain vaihtanut Steam-nimeään, mutta tarkista ettei Steam ID osoita väärään tiliin:</p>
 <ul>
 <li>f0rtuna → Steam-nimi "Työtön eläin divine" (<a href="https://www.opendota.com/players/33923304">profiili</a>)</li>
-</ul>
-<blockquote>Tarkista aina että raportin <strong>Steam-nimi</strong> vastaa odotettua pelaajaa. Jos ei vastaa, listan Steam ID on väärä.</blockquote>
-<h2>🎯 Draft: Roshan ja Rähmäsilmät vs. KultaKalkkuna</h2>
-<p>Bannit vastustajan uhkaindeksin mukaan, pickit oman joukkueen heropoolista. Uhkaindeksi yhdistää viimeaikaisen pelivolyymin, kaikkien aikojen kokemuksen ja voittoprosentin — suurempi on vaarallisempi. <strong>Viim.</strong> = pelit viimeisimmissä otteluissa, <strong>Kaikkiaan</strong> = pelit kaikkiaan. Sarakkeessa <em>Kuka pelaa</em> luku on pelaajan tuoreet pelit kyseisellä heropilla (<code>–/N</code> = ei tuoreita, N peliä historiassa).</p>
-<h3>Bannit — tässä järjestyksessä</h3>
-<div class="tw"><table><thead><tr><th width="7.4%">#</th><th width="22.8%">Hero</th><th width="12.1%">Uhka</th><th width="14.1%">Viim.</th><th width="22.3%">Kaikkiaan</th><th width="9.1%">WR</th><th width="12.1%">Kuka pelaa</th></tr></thead><tbody>
-<tr><td>1</td><td><strong>Mirana</strong></td><td>69</td><td>60</td><td>276</td><td>53%</td><td>Miikkalele 42, Satowi 12, f0rtuna 1, Mondi 5</td></tr>
-<tr><td>2</td><td><strong>Dragon Knight</strong></td><td>47</td><td>26</td><td>298</td><td>51%</td><td>f0rtuna 2, Jelo 22, Satowi 2</td></tr>
-<tr><td>3</td><td><strong>Hoodwink</strong></td><td>45</td><td>16</td><td>280</td><td>57%</td><td>Jelo 7, Satowi 4, Miikkalele 1, Mondi 4</td></tr>
-<tr><td>4</td><td><strong>Undying</strong></td><td>42</td><td>14</td><td>148</td><td>55%</td><td>f0rtuna 4, Satowi 2, Mondi 8</td></tr>
-<tr><td>5</td><td><strong>Dawnbreaker</strong></td><td>41</td><td>14</td><td>146</td><td>55%</td><td>f0rtuna 1, Mondi 9, Satowi 1, Jelo 3</td></tr>
-<tr><td>6</td><td><strong>Bounty Hunter</strong></td><td>41</td><td>14</td><td>303</td><td>54%</td><td>Satowi 8, f0rtuna 1, Miikkalele 3, Mondi 2</td></tr>
-<tr><td>7</td><td><strong>Luna</strong></td><td>41</td><td>11</td><td>393</td><td>55%</td><td>f0rtuna 11, Satowi –/18</td></tr>
-<tr><td>8</td><td><strong>Lich</strong></td><td>39</td><td>5</td><td>164</td><td>60%</td><td>f0rtuna –/79, Satowi –/53, Jelo 5, Miikkalele –/18</td></tr>
-<tr><td>9</td><td><strong>Spectre</strong></td><td>39</td><td>8</td><td>456</td><td>56%</td><td>f0rtuna 8, Satowi –/23</td></tr>
-<tr><td>10</td><td><strong>Zeus</strong></td><td>39</td><td>11</td><td>272</td><td>53%</td><td>f0rtuna –/170, Jelo 6, Satowi 1, Mondi 4</td></tr>
-</tbody></table></div>
-<h3>Pickit — omasta poolista tätä vastaan</h3>
-<p><strong>Etu</strong> on painotettu voittoprosenttiero vastustajan uhkaheropeille OpenDotan ammattilaispelidatassa (väh. 50 peliä paria kohden, ja lukua on kutistettu otoskoon mukaan). Otokset ovat pieniä ja ammattilaispelit eri peliä kuin amatööriturnaus, joten tämä on karkea suuntaviiva — oma mukavuusalue painaa enemmän.</p>
-<div class="tw"><table><thead><tr><th width="19.9%">Hero</th><th width="14.1%">Pickki</th><th width="21.1%">Kuka meiltä</th><th width="8.0%">WR</th><th width="10.6%">Etu vs. uhat</th><th width="26.3%">Toimii erityisesti vastaan</th></tr></thead><tbody>
-<tr><td><strong>Dawnbreaker</strong></td><td>88</td><td>tenderi –/338, KiviMajava 18, Osmo 3, Handels 3</td><td>51%</td><td>+0,8 pp</td><td>Sven +4,2 pp, Sniper +2,1 pp</td></tr>
-<tr><td><strong>Spectre</strong></td><td>88</td><td>KiviMajava 2, Handels –/97, Reijo (Kantor) 10, Osmo 4</td><td>58%</td><td>–</td><td>–</td></tr>
-<tr><td><strong>Snapfire</strong></td><td>87</td><td>tenderi 12, Handels 5, Reijo (Kantor) 12, Osmo –/27</td><td>51%</td><td>+1,0 pp</td><td>Luna +3,8 pp, Lich +3,6 pp</td></tr>
-<tr><td><strong>Enchantress</strong></td><td>81</td><td>tenderi 28, Handels –/39, KiviMajava –/24</td><td>48%</td><td>+1,2 pp</td><td>Clockwerk +2,6 pp, Hoodwink +2,3 pp</td></tr>
-<tr><td><strong>Treant Protector</strong></td><td>76</td><td>Handels –/89, tenderi –/35, Osmo 1, KiviMajava 5</td><td>55%</td><td>+4,1 pp</td><td>Dawnbreaker +6,0 pp, Hoodwink +5,3 pp</td></tr>
-<tr><td><strong>Lone Druid</strong></td><td>76</td><td>KiviMajava 6, Handels –/33</td><td>54%</td><td>+3,6 pp</td><td>Hoodwink +3,6 pp</td></tr>
-<tr><td><strong>Faceless Void</strong></td><td>71</td><td>Handels 3, KiviMajava 1, Osmo –/66, Reijo (Kantor) –/53</td><td>57%</td><td>+1,7 pp</td><td>Dawnbreaker +4,3 pp, Dragon Knight +2,6 pp</td></tr>
-<tr><td><strong>Ember Spirit</strong></td><td>70</td><td>Handels 3, Reijo (Kantor) 1, KiviMajava 4</td><td>48%</td><td>+2,4 pp</td><td>Hoodwink +7,2 pp, Undying +5,1 pp</td></tr>
-<tr><td><strong>Wraith King</strong></td><td>69</td><td>Handels 1, Osmo 5, KiviMajava –/63, tenderi –/51</td><td>56%</td><td>+1,0 pp</td><td>Zeus +5,6 pp, Sniper +0,5 pp</td></tr>
-<tr><td><strong>Storm Spirit</strong></td><td>68</td><td>KiviMajava 16, Reijo (Kantor) –/75, Handels –/69, Osmo 2</td><td>54%</td><td>-0,4 pp</td><td>Clockwerk +3,0 pp, Sven +2,4 pp</td></tr>
-<tr><td><strong>Keeper of the Light</strong></td><td>68</td><td>Handels –/104, Osmo –/32, KiviMajava –/16</td><td>53%</td><td>+3,3 pp</td><td>Hoodwink +7,1 pp, Dragon Knight +4,2 pp</td></tr>
-<tr><td><strong>Nyx Assassin</strong></td><td>67</td><td>tenderi 6, Handels –/141, Osmo –/92, Reijo (Kantor) –/29</td><td>54%</td><td>+1,3 pp</td><td>Hoodwink +2,5 pp, Dragon Knight +1,7 pp</td></tr>
-</tbody></table></div>
-<h3>Pelaajakohtaisesti</h3>
-<p>Kunkin oman pelaajan omasta poolista parhaat vaihtoehdot tätä vastustajaa vastaan:</p>
-<ul>
-<li><strong>Handels</strong>: <strong>Ember Spirit</strong> (226 peliä, 52%, +2,4 pp) · <strong>Faceless Void</strong> (139 peliä, 61%, +1,7 pp) · <strong>Bane</strong> (163 peliä, 48%, +1,7 pp)</li>
-<li><strong>KiviMajava</strong>: <strong>Lone Druid</strong> (235 peliä, 56%, +3,6 pp) · <strong>Spectre</strong> (200 peliä, 62%) · <strong>Storm Spirit</strong> (611 peliä, 54%, -0,4 pp)</li>
-<li><strong>Osmo</strong>: <strong>Pudge</strong> (146 peliä, 51%, +0,5 pp) · <strong>Legion Commander</strong> (135 peliä, 59%, -0,1 pp) · <strong>Shadow Fiend</strong> (118 peliä, 51%, +0,3 pp)</li>
-<li><strong>Reijo (Kantor)</strong>: <strong>Mirana</strong> (234 peliä, 58%, +1,1 pp) · <strong>Timbersaw</strong> (134 peliä, 61%, +0,2 pp) · <strong>Alchemist</strong> (169 peliä, 49%, +0,8 pp)</li>
-<li><strong>tenderi</strong>: <strong>Nyx Assassin</strong> (168 peliä, 48%, +1,3 pp) · <strong>Slardar</strong> (318 peliä, 53%, +0,5 pp) · <strong>Snapfire</strong> (135 peliä, 51%, +1,0 pp)</li>
-</ul>
-<h3>Kiistellyt heropit</h3>
-<p>Näitä haluavat molemmat. Jos et banni, varaudu siihen että vastustaja ottaa ne — tai pickkaa itse ensin:</p>
-<div class="tw"><table><thead><tr><th width="22.8%">Hero</th><th width="29.8%">Meillä</th><th width="29.2%">Heillä</th><th width="18.2%">Heidän uhkansa</th></tr></thead><tbody>
-<tr><td><strong>Dawnbreaker</strong></td><td>tenderi –/338, KiviMajava 18, Osmo 3, Handels 3</td><td>f0rtuna 1, Mondi 9, Satowi 1, Jelo 3</td><td>41</td></tr>
-<tr><td><strong>Spectre</strong></td><td>KiviMajava 2, Handels –/97, Reijo (Kantor) 10, Osmo 4</td><td>f0rtuna 8, Satowi –/23</td><td>39</td></tr>
-<tr><td><strong>Bounty Hunter</strong></td><td>Handels –/104, Osmo –/63, KiviMajava –/30, Reijo (Kantor) –/22</td><td>Satowi 8, f0rtuna 1, Miikkalele 3, Mondi 2</td><td>41</td></tr>
-<tr><td><strong>Mirana</strong></td><td>Reijo (Kantor) 1, Handels –/134, Osmo –/91, KiviMajava –/65</td><td>Miikkalele 42, Satowi 12, f0rtuna 1, Mondi 5</td><td>69</td></tr>
-</tbody></table></div>
-<h3>Varo näitä ensimmäisillä pickeillä</h3>
-<p>Oman poolin heropit jotka pärjäävät heikoiten juuri tätä vastustajaa vastaan:</p>
-<div class="tw"><table><thead><tr><th width="19.4%">Hero</th><th width="38.5%">Kuka meiltä</th><th width="12.1%">Etu vs. uhat</th><th width="30.0%">Kärsii vastaan</th></tr></thead><tbody>
-<tr><td>Phantom Lancer</td><td>KiviMajava 2, Osmo 3, Handels –/50, Reijo (Kantor) –/25</td><td>-3,1 pp</td><td>Hoodwink -3,1 pp</td></tr>
-<tr><td>Morphling</td><td>Handels –/75, KiviMajava –/19</td><td>-2,0 pp</td><td>Luna -4,4 pp, Sniper -4,8 pp</td></tr>
-<tr><td>Underlord</td><td>tenderi 1, Handels 1, Osmo –/34</td><td>-1,9 pp</td><td>Mirana -5,0 pp, Hoodwink -6,5 pp</td></tr>
-<tr><td>Silencer</td><td>Handels –/77, Osmo –/53, tenderi –/47, KiviMajava –/35</td><td>-1,9 pp</td><td>Clockwerk -3,8 pp, Hoodwink -5,9 pp</td></tr>
-<tr><td>Ursa</td><td>Handels 1, KiviMajava –/101, Osmo 1, tenderi 1</td><td>-1,8 pp</td><td>Lich -3,6 pp, Sniper -4,1 pp</td></tr>
-</tbody></table></div>
-<h2>Rosteri</h2>
-<div class="tw"><table><thead><tr><th width="17.0%">Pelaaja</th><th width="8.7%">MMR</th><th width="17.0%">Steam-nimi</th><th width="14.3%">Medal</th><th width="13.0%">Linjat</th><th width="12.9%">Muoto</th><th width="17.0%">Viim. peli</th></tr></thead><tbody>
-<tr><td><strong>f0rtuna</strong></td><td>6500</td><td>Työtön eläin divine</td><td>Immortal</td><td>Safe 60% / Off 20% / Mid 20%</td><td>58% (58-42)</td><td>2026-09-28</td></tr>
-<tr><td><strong>Jelo</strong></td><td>3721</td><td>Jeloxale</td><td>Ancient 2</td><td>Mid 55% / Off 23% / Safe 22%</td><td>58% (58-42)</td><td>2026-09-28</td></tr>
-<tr><td><strong>Miikkalele</strong></td><td>5001</td><td>Miikkalele</td><td>Divine 4</td><td>Off 72% / Safe 20% / Mid 8%</td><td>56% (56-44)</td><td>2026-09-28</td></tr>
-<tr><td><strong>Satowi</strong></td><td>6000</td><td>Satowi</td><td>Immortal</td><td>Off 59% / Safe 34% / Mid 7%</td><td>61% (61-39)</td><td>2026-09-28</td></tr>
-<tr><td><strong>Mondi</strong></td><td>2648</td><td>mondi</td><td>Archon 4</td><td>Off 61% / Safe 36%</td><td>62% (62-38)</td><td>2026-09-28</td></tr>
-</tbody></table></div>
-<h2>Joukkueen viimeaikaiset picksit</h2>
-<p>Kaikkien pelaajien viimeaikaiset ottelut yhdessä — todennäköisimmät bannikohteet:</p>
-<div class="tw"><table><thead><tr><th width="22.7%">Hero</th><th width="14.1%">Pelit</th><th width="16.2%">Voitot</th><th width="10.1%">WR%</th><th width="36.9%">Kuka pelaa</th></tr></thead><tbody>
-<tr><td>Mirana</td><td>60</td><td>41</td><td>68%</td><td>Miikkalele, Mondi, Satowi, f0rtuna</td></tr>
-<tr><td>Dragon Knight</td><td>28</td><td>16</td><td>57%</td><td>Jelo, Miikkalele, Mondi, Satowi, f0rtuna</td></tr>
-<tr><td>Hoodwink</td><td>16</td><td>10</td><td>62%</td><td>Jelo, Miikkalele, Mondi, Satowi</td></tr>
-<tr><td>Night Stalker</td><td>15</td><td>9</td><td>60%</td><td>Jelo, Miikkalele, Satowi, f0rtuna</td></tr>
-<tr><td>Dawnbreaker</td><td>15</td><td>13</td><td>87%</td><td>Jelo, Miikkalele, Mondi, Satowi, f0rtuna</td></tr>
-<tr><td>Undying</td><td>14</td><td>10</td><td>71%</td><td>Mondi, Satowi, f0rtuna</td></tr>
-<tr><td>Bounty Hunter</td><td>14</td><td>9</td><td>64%</td><td>Miikkalele, Mondi, Satowi, f0rtuna</td></tr>
-<tr><td>Treant Protector</td><td>13</td><td>8</td><td>62%</td><td>Miikkalele, Mondi, Satowi</td></tr>
-<tr><td>Clinkz</td><td>12</td><td>8</td><td>67%</td><td>f0rtuna</td></tr>
-<tr><td>Luna</td><td>11</td><td>7</td><td>64%</td><td>f0rtuna</td></tr>
-<tr><td>Keeper of the Light</td><td>11</td><td>8</td><td>73%</td><td>Miikkalele, Satowi, f0rtuna</td></tr>
-<tr><td>Zeus</td><td>11</td><td>5</td><td>45%</td><td>Jelo, Mondi, Satowi</td></tr>
-</tbody></table></div>
-<h2>Pelaajat</h2>
-<h3>f0rtuna</h3>
-<ul>
-<li>Steam-nimi <strong>Työtön eläin divine</strong> · Listan MMR ~6500 · medal Immortal · Steam ID <code>STEAM_0:0:16961652</code> · <a href="https://www.opendota.com/players/33923304">OpenDota-profiili</a></li>
-<li>Kaikkien aikojen W/L: <strong>8079V / 8059H</strong> (50%)</li>
-<li>Viimeiset 100 ottelua: <strong>58V / 42H (58% WR)</strong> · viimeisin peli 2026-09-28 · <em>ei turbo-otteluita</em></li>
-<li>Pelipaikat: Safe 60% / Off 20% / Mid 20%</li>
-</ul>
-<p><strong>Viimeaikaiset heropit</strong> (viim. 100 ottelua)</p>
-<div class="tw"><table><thead><tr><th width="42.9%">Hero</th><th width="20.0%">Pelit</th><th width="22.9%">Voitot</th><th width="14.3%">WR%</th></tr></thead><tbody>
-<tr><td>Clinkz</td><td>12</td><td>8</td><td>67%</td></tr>
-<tr><td>Luna</td><td>11</td><td>7</td><td>64%</td></tr>
-<tr><td>Spectre</td><td>8</td><td>4</td><td>50%</td></tr>
-<tr><td>Juggernaut</td><td>8</td><td>4</td><td>50%</td></tr>
-<tr><td>Phantom Lancer</td><td>6</td><td>3</td><td>50%</td></tr>
-<tr><td>Vengeful Spirit</td><td>6</td><td>1</td><td>17%</td></tr>
-</tbody></table></div>
-<p><strong>Top-heropit, kaikki ajat</strong> (väh. 3 peliä)</p>
-<div class="tw"><table><thead><tr><th width="44.4%">Hero</th><th width="19.4%">Pelit</th><th width="22.2%">Voitot</th><th width="13.9%">WR%</th></tr></thead><tbody>
-<tr><td>Templar Assassin</td><td>693</td><td>358</td><td>52%</td></tr>
-<tr><td>Lifestealer</td><td>692</td><td>382</td><td>55%</td></tr>
-<tr><td>Juggernaut</td><td>566</td><td>290</td><td>51%</td></tr>
-<tr><td>Phantom Assassin</td><td>520</td><td>284</td><td>55%</td></tr>
-<tr><td>Ursa</td><td>442</td><td>238</td><td>54%</td></tr>
-<tr><td>Spectre</td><td>433</td><td>246</td><td>57%</td></tr>
-<tr><td>Drow Ranger</td><td>398</td><td>206</td><td>52%</td></tr>
-<tr><td>Faceless Void</td><td>391</td><td>201</td><td>51%</td></tr>
-</tbody></table></div>
-<h3>Jelo</h3>
-<ul>
-<li>Steam-nimi <strong>Jeloxale</strong> · Listan MMR ~3721 · medal Ancient 2 · Steam ID <code>STEAM_0:0:60631776</code> · <a href="https://www.opendota.com/players/121263552">OpenDota-profiili</a></li>
-<li>Kaikkien aikojen W/L: <strong>572V / 468H</strong> (55%)</li>
-<li>Viimeiset 100 ottelua: <strong>58V / 42H (58% WR)</strong> · viimeisin peli 2026-09-28 · <em>ei turbo-otteluita</em></li>
-<li>Pelipaikat: Mid 55% / Off 23% / Safe 22%</li>
-</ul>
-<p><strong>Viimeaikaiset heropit</strong> (viim. 100 ottelua)</p>
-<div class="tw"><table><thead><tr><th width="47.4%">Hero</th><th width="18.4%">Pelit</th><th width="21.1%">Voitot</th><th width="13.2%">WR%</th></tr></thead><tbody>
-<tr><td>Dragon Knight</td><td>22</td><td>13</td><td>59%</td></tr>
-<tr><td>Outworld Destroyer</td><td>9</td><td>6</td><td>67%</td></tr>
-<tr><td>Sniper</td><td>9</td><td>8</td><td>89%</td></tr>
-<tr><td>Lina</td><td>8</td><td>4</td><td>50%</td></tr>
-<tr><td>Hoodwink</td><td>7</td><td>5</td><td>71%</td></tr>
-<tr><td>Zeus</td><td>6</td><td>3</td><td>50%</td></tr>
-</tbody></table></div>
-<p><strong>Top-heropit, kaikki ajat</strong> (väh. 3 peliä)</p>
-<div class="tw"><table><thead><tr><th width="47.4%">Hero</th><th width="18.4%">Pelit</th><th width="21.1%">Voitot</th><th width="13.2%">WR%</th></tr></thead><tbody>
-<tr><td>Hoodwink</td><td>199</td><td>121</td><td>61%</td></tr>
-<tr><td>Outworld Destroyer</td><td>75</td><td>45</td><td>60%</td></tr>
-<tr><td>Dragon Knight</td><td>55</td><td>30</td><td>55%</td></tr>
-<tr><td>Zeus</td><td>54</td><td>33</td><td>61%</td></tr>
-<tr><td>Sniper</td><td>49</td><td>34</td><td>69%</td></tr>
-<tr><td>Gyrocopter</td><td>37</td><td>23</td><td>62%</td></tr>
-<tr><td>Omniknight</td><td>33</td><td>21</td><td>64%</td></tr>
-<tr><td>Slardar</td><td>31</td><td>18</td><td>58%</td></tr>
-</tbody></table></div>
-<h3>Miikkalele</h3>
-<ul>
-<li>Steam-nimi <strong>Miikkalele</strong> · Listan MMR ~5001 · medal Divine 4 · Steam ID <code>STEAM_0:1:24493948</code> · <a href="https://www.opendota.com/players/48987897">OpenDota-profiili</a></li>
-<li>Kaikkien aikojen W/L: <strong>616V / 614H</strong> (50%)</li>
-<li>Viimeiset 100 ottelua: <strong>56V / 44H (56% WR)</strong> · viimeisin peli 2026-09-28 · <em>ei turbo-otteluita</em></li>
-<li>Pelipaikat: Off 72% / Safe 20% / Mid 8%</li>
-</ul>
-<p><strong>Viimeaikaiset heropit</strong> (viim. 100 ottelua)</p>
-<div class="tw"><table><thead><tr><th width="48.7%">Hero</th><th width="17.9%">Pelit</th><th width="20.5%">Voitot</th><th width="12.8%">WR%</th></tr></thead><tbody>
-<tr><td>Mirana</td><td>42</td><td>28</td><td>67%</td></tr>
-<tr><td>Night Stalker</td><td>8</td><td>4</td><td>50%</td></tr>
-<tr><td>Keeper of the Light</td><td>8</td><td>6</td><td>75%</td></tr>
-<tr><td>Centaur Warrunner</td><td>4</td><td>2</td><td>50%</td></tr>
-<tr><td>Lycan</td><td>3</td><td>2</td><td>67%</td></tr>
-<tr><td>Vengeful Spirit</td><td>3</td><td>2</td><td>67%</td></tr>
-</tbody></table></div>
-<p><strong>Top-heropit, kaikki ajat</strong> (väh. 3 peliä)</p>
-<div class="tw"><table><thead><tr><th width="48.7%">Hero</th><th width="17.9%">Pelit</th><th width="20.5%">Voitot</th><th width="12.8%">WR%</th></tr></thead><tbody>
-<tr><td>Bounty Hunter</td><td>85</td><td>49</td><td>58%</td></tr>
-<tr><td>Mirana</td><td>78</td><td>46</td><td>59%</td></tr>
-<tr><td>Rubick</td><td>54</td><td>25</td><td>46%</td></tr>
-<tr><td>Dark Willow</td><td>53</td><td>28</td><td>53%</td></tr>
-<tr><td>Keeper of the Light</td><td>52</td><td>29</td><td>56%</td></tr>
-<tr><td>Night Stalker</td><td>39</td><td>18</td><td>46%</td></tr>
-<tr><td>Hoodwink</td><td>38</td><td>17</td><td>45%</td></tr>
-<tr><td>Treant Protector</td><td>35</td><td>21</td><td>60%</td></tr>
-</tbody></table></div>
-<h3>Satowi</h3>
-<ul>
-<li>Steam-nimi <strong>Satowi</strong> · Listan MMR ~6000 · medal Immortal · Steam ID <code>STEAM_0:1:65571558</code> · <a href="https://www.opendota.com/players/131143117">OpenDota-profiili</a></li>
-<li>Kaikkien aikojen W/L: <strong>2821V / 2484H</strong> (53%)</li>
-<li>Viimeiset 100 ottelua: <strong>61V / 39H (61% WR)</strong> · viimeisin peli 2026-09-28 · <em>ei turbo-otteluita</em></li>
-<li>Pelipaikat: Off 59% / Safe 34% / Mid 7%</li>
-</ul>
-<p><strong>Viimeaikaiset heropit</strong> (viim. 100 ottelua)</p>
-<div class="tw"><table><thead><tr><th width="44.4%">Hero</th><th width="19.4%">Pelit</th><th width="22.2%">Voitot</th><th width="13.9%">WR%</th></tr></thead><tbody>
-<tr><td>Mirana</td><td>12</td><td>8</td><td>67%</td></tr>
-<tr><td>Bounty Hunter</td><td>8</td><td>6</td><td>75%</td></tr>
-<tr><td>Treant Protector</td><td>8</td><td>6</td><td>75%</td></tr>
-<tr><td>Winter Wyvern</td><td>6</td><td>5</td><td>83%</td></tr>
-<tr><td>Clockwerk</td><td>5</td><td>3</td><td>60%</td></tr>
-<tr><td>Dark Willow</td><td>5</td><td>2</td><td>40%</td></tr>
-</tbody></table></div>
-<p><strong>Top-heropit, kaikki ajat</strong> (väh. 3 peliä)</p>
-<div class="tw"><table><thead><tr><th width="37.5%">Hero</th><th width="21.9%">Pelit</th><th width="25.0%">Voitot</th><th width="15.6%">WR%</th></tr></thead><tbody>
-<tr><td>Earthshaker</td><td>217</td><td>128</td><td>59%</td></tr>
-<tr><td>Rubick</td><td>191</td><td>86</td><td>45%</td></tr>
-<tr><td>Pudge</td><td>131</td><td>68</td><td>52%</td></tr>
-<tr><td>Nyx Assassin</td><td>127</td><td>70</td><td>55%</td></tr>
-<tr><td>Clockwerk</td><td>125</td><td>77</td><td>62%</td></tr>
-<tr><td>Tiny</td><td>125</td><td>68</td><td>54%</td></tr>
-<tr><td>Earth Spirit</td><td>120</td><td>60</td><td>50%</td></tr>
-<tr><td>Mirana</td><td>109</td><td>55</td><td>50%</td></tr>
-</tbody></table></div>
-<h3>Mondi</h3>
-<ul>
-<li>Steam-nimi <strong>mondi</strong> · Listan MMR ~2648 · medal Archon 4 · Steam ID <code>STEAM_0:1:15818944</code> · <a href="https://www.opendota.com/players/31637889">OpenDota-profiili</a></li>
-<li>Kaikkien aikojen W/L: <strong>121V / 102H</strong> (54%)</li>
-<li>Viimeiset 100 ottelua: <strong>62V / 38H (62% WR)</strong> · viimeisin peli 2026-09-28 · <em>ei turbo-otteluita</em></li>
-<li>Pelipaikat: Off 61% / Safe 36%</li>
-</ul>
-<p><strong>Viimeaikaiset heropit</strong> (viim. 100 ottelua)</p>
-<div class="tw"><table><thead><tr><th width="35.5%">Hero</th><th width="22.6%">Pelit</th><th width="25.8%">Voitot</th><th width="16.1%">WR%</th></tr></thead><tbody>
-<tr><td>Dawnbreaker</td><td>9</td><td>8</td><td>89%</td></tr>
-<tr><td>Undying</td><td>8</td><td>5</td><td>62%</td></tr>
-<tr><td>Snapfire</td><td>6</td><td>4</td><td>67%</td></tr>
-<tr><td>Mirana</td><td>5</td><td>5</td><td>100%</td></tr>
-<tr><td>Hoodwink</td><td>4</td><td>3</td><td>75%</td></tr>
-<tr><td>Venomancer</td><td>4</td><td>4</td><td>100%</td></tr>
-</tbody></table></div>
-<p><strong>Top-heropit, kaikki ajat</strong> (väh. 3 peliä)</p>
-<div class="tw"><table><thead><tr><th width="42.9%">Hero</th><th width="20.0%">Pelit</th><th width="22.9%">Voitot</th><th width="14.3%">WR%</th></tr></thead><tbody>
-<tr><td>Dawnbreaker</td><td>14</td><td>10</td><td>71%</td></tr>
-<tr><td>Jakiro</td><td>12</td><td>6</td><td>50%</td></tr>
-<tr><td>Undying</td><td>11</td><td>7</td><td>64%</td></tr>
-<tr><td>Vengeful Spirit</td><td>10</td><td>6</td><td>60%</td></tr>
-<tr><td>Witch Doctor</td><td>9</td><td>5</td><td>56%</td></tr>
-<tr><td>Snapfire</td><td>8</td><td>5</td><td>62%</td></tr>
-<tr><td>Mirana</td><td>6</td><td>5</td><td>83%</td></tr>
-<tr><td>Phoenix</td><td>6</td><td>5</td><td>83%</td></tr>
-</tbody></table></div>
-<h2>Raakadata</h2><p>Tämän joukkueen käsittelemätön OpenDota-data: <a href="https://github.com/tenderi/roshanin-pelikirja/tree/main/scouting-results/kultakalkkuna/raw">scouting-results/kultakalkkuna/raw</a></p>
+</ul></div>
+<p class="note" style="margin-top:24px">Raakadata: <a href="https://github.com/tenderi/roshanin-pelikirja/tree/main/scouting-results/kultakalkkuna/raw">scouting-results/kultakalkkuna/raw</a></p>
 </main>
 <footer>Generoitu 2026-09-28 · data: <a href="https://www.opendota.com/">OpenDota</a> · <a href="https://github.com/tenderi/roshanin-pelikirja">lähdekoodi ja raakadata GitHubissa</a></footer>
 </body>

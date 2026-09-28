@@ -6,119 +6,138 @@
 <title>Turnauksen pelikirja</title>
 <style>
 :root {
-  --bg: #ffffff; --fg: #1a1d21; --muted: #5c6670; --line: #d8dee4;
-  --accent: #b02a2a; --card: #f6f8fa; --thead: #eef2f6; --zebra: #fafbfc;
-  --link: #14508c; --warn-bg: #fff8e5; --warn-line: #d8a531;
+  --bg: #f4f5f7; --panel: #ffffff; --fg: #1a1d21; --muted: #5f6873;
+  --line: #dfe3e8; --accent: #b3261e; --accent-soft: #fbeae8;
+  --good: #1e7b3a; --bad: #b3261e; --link: #14508c;
+  --warn-bg: #fff8e5; --warn-line: #d8a531;
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #14171a; --fg: #e6e9ec; --muted: #9aa4ae; --line: #2c3238;
-    --accent: #ff6b6b; --card: #1b1f23; --thead: #21262c; --zebra: #191d21;
-    --link: #79b8ff; --warn-bg: #2a2313; --warn-line: #c9a227;
+    --bg: #111418; --panel: #1a1e23; --fg: #e6e9ec; --muted: #98a2ad;
+    --line: #2b3138; --accent: #ff7a70; --accent-soft: #3a1f1d;
+    --good: #5fd38a; --bad: #ff7a70; --link: #79b8ff;
+    --warn-bg: #2a2313; --warn-line: #c9a227;
   }
 }
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
 body {
   margin: 0; background: var(--bg); color: var(--fg);
-  font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
         "Helvetica Neue", Arial, sans-serif;
 }
+a { color: var(--link); }
 header.top {
-  position: sticky; top: 0; z-index: 10;
-  background: var(--bg); border-bottom: 1px solid var(--line);
-  padding: 12px 20px; display: flex; gap: 12px; align-items: baseline;
-  flex-wrap: wrap;
+  position: sticky; top: 0; z-index: 10; background: var(--panel);
+  border-bottom: 1px solid var(--line); padding: 10px 16px;
+  display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap;
 }
 header.top a.home { color: var(--accent); font-weight: 700; text-decoration: none; }
-header.top .crumb { color: var(--muted); font-size: 14px; }
-main { max-width: 1000px; margin: 0 auto; padding: 24px 20px 80px; }
-h1 { font-size: 28px; line-height: 1.25; margin: 8px 0 4px; }
-h2 {
-  font-size: 21px; margin: 36px 0 10px; padding-bottom: 6px;
-  border-bottom: 2px solid var(--accent);
-}
-h3 {
-  font-size: 17px; margin: 26px 0 6px; color: var(--accent);
-  scroll-margin-top: 70px;
-}
-p { margin: 10px 0; }
-ul { margin: 10px 0 10px 22px; padding: 0; }
-li { margin: 4px 0; }
-a { color: var(--link); }
-code {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 0.88em; background: var(--card); padding: 1px 5px;
-  border-radius: 4px;
-}
-blockquote {
-  margin: 14px 0; padding: 10px 14px; background: var(--warn-bg);
-  border-left: 4px solid var(--warn-line); border-radius: 0 6px 6px 0;
-}
-.tw { overflow-x: auto; margin: 12px 0 20px; -webkit-overflow-scrolling: touch; }
-table { border-collapse: collapse; width: 100%; font-size: 14px; }
-th, td {
-  border: 1px solid var(--line); padding: 7px 10px; text-align: left;
-  vertical-align: top; white-space: nowrap;
-}
-td:last-child, th:last-child { white-space: normal; }
-th { background: var(--thead); font-weight: 600; position: sticky; top: 0; }
-tbody tr:nth-child(even) td { background: var(--zebra); }
-footer {
-  max-width: 1000px; margin: 0 auto; padding: 24px 20px 60px;
-  color: var(--muted); font-size: 13px; border-top: 1px solid var(--line);
-}
-.teamgrid {
-  display: grid; gap: 12px; margin: 18px 0 4px;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-}
-.teamgrid a {
-  display: block; padding: 14px 16px; background: var(--card);
-  border: 1px solid var(--line); border-radius: 8px; text-decoration: none;
-  color: var(--fg); font-weight: 600;
-}
-.teamgrid a:hover { border-color: var(--accent); }
-.teamgrid span { display: block; font-weight: 400; color: var(--muted);
-                 font-size: 13px; margin-top: 3px; }
+header.top .crumb { color: var(--muted); }
+main { max-width: 1100px; margin: 0 auto; padding: 20px 16px 60px; }
+h1 { font-size: 28px; line-height: 1.2; margin: 6px 0 4px; }
+h2 { font-size: 19px; margin: 32px 0 6px; }
+.sub, .note { color: var(--muted); }
+.note { font-size: 13px; margin: 0 0 12px; max-width: 70ch; }
+.num { font-variant-numeric: tabular-nums; }
+.hero-img { display: block; border-radius: 4px; background: var(--line);
+            object-fit: cover; flex: none; }
+.good { color: var(--good); }
+.bad { color: var(--bad); }
+
+/* Bannit */
+.bans { display: grid; gap: 10px;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+.ban { display: flex; gap: 10px; align-items: flex-start; padding: 10px;
+       background: var(--panel); border: 1px solid var(--line); border-radius: 8px; }
+.ban .rank { font-weight: 800; font-size: 18px; color: var(--accent);
+             width: 1.4em; text-align: center; flex: none; line-height: 40px; }
+.ban .name { font-weight: 700; }
+.ban .who { font-size: 13px; color: var(--muted); line-height: 1.35; }
+.ban .who div + div { margin-top: 5px; }
+.ban .who b { color: var(--fg); font-weight: 600; }
+
+/* Pelaajakortit */
+.players { display: grid; gap: 14px; }
+.player { background: var(--panel); border: 1px solid var(--line);
+          border-radius: 10px; padding: 14px 16px; }
+.player.sub-player { opacity: .85; }
+.phead { display: flex; justify-content: space-between; gap: 12px;
+         align-items: flex-start; }
+.pname { font-size: 20px; font-weight: 700; line-height: 1.2; }
+.tag { display: inline-block; font-size: 12px; font-weight: 600; padding: 1px 7px;
+       border-radius: 10px; background: var(--bg); color: var(--muted);
+       border: 1px solid var(--line); vertical-align: 3px; margin-left: 6px; }
+.mmr { text-align: right; flex: none; }
+.mmr b { display: block; font-size: 22px; line-height: 1.1; }
+.mmr span { font-size: 12px; color: var(--muted); }
+.meta { color: var(--muted); font-size: 13px; margin: 4px 0 10px; }
+.meta span + span::before { content: " · "; }
+.targets { display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+           padding: 8px 10px; margin-bottom: 12px; border-radius: 8px;
+           background: var(--accent-soft); }
+.targets .lbl { font-size: 12px; font-weight: 700; color: var(--accent);
+                text-transform: uppercase; letter-spacing: .04em; margin-right: 2px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; font-weight: 600;
+        font-size: 14px; }
+.chip small { font-weight: 400; color: var(--muted); }
+.pools { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 24px; }
+.pools h3 { font-size: 12px; text-transform: uppercase; letter-spacing: .04em;
+            color: var(--muted); margin: 0 0 4px; font-weight: 700; }
+.hl { list-style: none; margin: 0; padding: 0; }
+.hl li { display: grid; grid-template-columns: 36px 1fr auto 3.2em;
+         gap: 8px; align-items: center; padding: 3px 0;
+         border-top: 1px solid var(--line); font-size: 14px; }
+.hl li:first-child { border-top: 0; }
+.hl .g { color: var(--muted); text-align: right; }
+.hl .w { text-align: right; }
+.bt { font-size: 11px; font-weight: 700; color: var(--accent);
+      border: 1px solid var(--accent); border-radius: 4px; padding: 0 4px;
+      margin-left: 6px; }
+.empty { color: var(--muted); font-style: italic; }
+
+/* Etusivu */
+.teams { display: grid; gap: 12px;
+         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+.team { display: block; padding: 14px 16px; background: var(--panel);
+        border: 1px solid var(--line); border-radius: 10px;
+        color: var(--fg); text-decoration: none; }
+.team:hover { border-color: var(--accent); }
+.team .tn { font-weight: 700; font-size: 17px; }
+.team .ts { color: var(--muted); font-size: 13px; margin: 2px 0 10px; }
+.team .tb { display: flex; flex-direction: column; gap: 5px; }
+
+.quality { margin-top: 36px; padding: 12px 16px; background: var(--warn-bg);
+           border-left: 4px solid var(--warn-line); border-radius: 0 8px 8px 0;
+           font-size: 14px; }
+.quality h2 { margin-top: 0; font-size: 16px; }
+.quality ul { margin: 6px 0 10px 20px; padding: 0; }
+footer { max-width: 1100px; margin: 0 auto; padding: 20px 16px 50px;
+         color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); }
 @media (max-width: 640px) {
-  body { font-size: 15px; }
   h1 { font-size: 23px; }
-  main { padding: 16px 14px 60px; }
-  th, td { padding: 6px 8px; }
+  .pools { grid-template-columns: 1fr; }
+  .pools > div + div { margin-top: 8px; }
 }
 </style>
 </head>
 <body>
 <header class="top"><a class="home" href="./">Turnauksen pelikirja</a></header>
 <main>
-<h1>Turnauksen pelikirja — vastustajaskouttaus</h1>
-<p><em>Generoitu 2026-09-28 · lähde: <a href="https://www.opendota.com/">OpenDota</a> · aineisto: <code>joukkueet.txt</code></em></p>
-<p>Jokaisesta pelaajasta: kaikkien aikojen top-8 heropoolia, viimeisimmät ottelut (muoto + tämänhetkinen heropooli, enintään 100 ottelua) ja pelipaikkajakauma. Heropoolista on karsittu heropit joita on pelattu alle 3 kertaa. Turbo-ottelut jätetään muoto- ja heropoolilaskennasta pois aina kun normaaleja otteluita on tarpeeksi.</p>
-<p>Näkökulma: <strong>Roshan ja Rähmäsilmät</strong>. Jokaisen vastustajan sivulla on draft-suunnitelma — bannijärjestys heidän uhkiaan vastaan ja pick-ehdotukset omasta heropoolista.</p>
-<p>Jokaisella joukkueella on oma kansionsa, josta löytyy raportti Markdownina sekä <code>raw/</code>-alikansiossa OpenDotan käsittelemätön vastausdata pelaajittain.</p>
-<h2 class="first">Joukkueet</h2>
-<div class="tw"><table><thead><tr><th width="28.1%">Joukkue</th><th width="20.2%">Pelaajia</th><th width="18.2%">Varalla</th><th width="14.0%">Keski-MMR</th><th width="19.4%">MMR-haitari</th></tr></thead><tbody>
-<tr><td><a href="baki-hanma-bankai-tensei/">BAKI HANMA BANKAI TENSEI</a></td><td>5</td><td>0</td><td>4 774</td><td>3372–6500</td></tr>
-<tr><td><a href="kultakalkkuna/">KultaKalkkuna</a></td><td>5</td><td>0</td><td>4 774</td><td>2648–6500</td></tr>
-<tr><td><a href="lph-voide/">LPH-VOIDE</a></td><td>5</td><td>1</td><td>4 747</td><td>3795–5434</td></tr>
-<tr><td><a href="roshan-ja-rahmasilmat/">Roshan ja Rähmäsilmät</a> <em>(oma)</em></td><td>5</td><td>0</td><td>4 722</td><td>3652–6000</td></tr>
-<tr><td><a href="lxt-ddf490z/">LXT DDF490Z</a></td><td>5</td><td>0</td><td>4 715</td><td>3402–5750</td></tr>
-<tr><td><a href="malttamattomat/">Malttamattomat</a></td><td>5</td><td>0</td><td>4 677</td><td>4000–5786</td></tr>
-<tr><td><a href="smoke-without-plan/">Smoke Without Plan</a></td><td>5</td><td>0</td><td>4 670</td><td>3332–6500</td></tr>
-<tr><td><a href="liminka-demons/">Liminka Demons</a></td><td>5</td><td>1</td><td>4 437</td><td>3639–5750</td></tr>
-</tbody></table></div>
-<h2>🎯 Bannikärki joukkueittain</h2>
-<p>Näkökulma <strong>Roshan ja Rähmäsilmät</strong>. Suluissa uhkaindeksi. Koko draft-suunnitelma pick-ehdotuksineen on joukkueen omalla sivulla.</p>
-<div class="tw"><table><thead><tr><th width="28.0%">Vastustaja</th><th width="19.8%">1. banni</th><th width="25.6%">2. banni</th><th width="26.7%">3. banni</th></tr></thead><tbody>
-<tr><td><a href="baki-hanma-bankai-tensei/">BAKI HANMA BANKAI TENSEI</a></td><td>Zeus (47)</td><td>Phantom Lancer (45)</td><td>Juggernaut (43)</td></tr>
-<tr><td><a href="liminka-demons/">Liminka Demons</a></td><td>Invoker (45)</td><td>Centaur Warrunner (44)</td><td>Juggernaut (43)</td></tr>
-<tr><td><a href="kultakalkkuna/">KultaKalkkuna</a></td><td>Mirana (69)</td><td>Dragon Knight (47)</td><td>Hoodwink (45)</td></tr>
-<tr><td><a href="lxt-ddf490z/">LXT DDF490Z</a></td><td>Dark Seer (58)</td><td>Legion Commander (56)</td><td>Dawnbreaker (42)</td></tr>
-<tr><td><a href="lph-voide/">LPH-VOIDE</a></td><td>Undying (50)</td><td>Night Stalker (47)</td><td>Dawnbreaker (45)</td></tr>
-<tr><td><a href="smoke-without-plan/">Smoke Without Plan</a></td><td>Hoodwink (58)</td><td>Largo (43)</td><td>Outworld Destroyer (43)</td></tr>
-<tr><td><a href="malttamattomat/">Malttamattomat</a></td><td>Primal Beast (50)</td><td>Tidehunter (49)</td><td>Spectre (44)</td></tr>
-</tbody></table></div>
-<h2>⚠️ Huomioita aineiston laadusta</h2>
+<h1>Turnauksen pelikirja</h1>
+<p class="sub">Päivitetty 2026-09-28 · näkökulma: Roshan ja Rähmäsilmät</p>
+<h2>Joukkueet</h2><p class="note">Keski-MMR:n mukaan. Kortissa joukkueen kovimmat pelaajat ja kolme ensimmäistä bannia.</p>
+<div class="teams">
+<a class="team" href="baki-hanma-bankai-tensei/"><div class="tn">BAKI HANMA BANKAI TENSEI</div><div class="ts">Keski-MMR 4 774 · osQ 6 500 · moula 5 750</div><div class="tb"><span class="chip"><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/largo.png" width="40" height="22" alt="" loading="lazy">Largo</span><span class="chip"><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/slark.png" width="40" height="22" alt="" loading="lazy">Slark</span><span class="chip"><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/juggernaut.png" width="40" height="22" alt="" loading="lazy">Juggernaut</span></div></a>
+<a class="team" href="kultakalkkuna/"><div class="tn">KultaKalkkuna</div><div class="ts">Keski-MMR 4 774 · f0rtuna 6 500 · Satowi 6 000</div><div class="tb"><span class="chip"><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/mirana.png" width="40" height="22" alt="" loading="lazy">Mirana</span><span class="chip"><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/luna.png" width="40" height="22" alt="" loading="lazy">Luna</span><span class="chip"><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/bounty_hunter.png" width="40" height="22" alt="" loading="lazy">Bounty Hunter</span></div></a>
+<a class="team" href="lph-voide/"><div class="tn">LPH-VOIDE</div><div class="ts">Keski-MMR 4 747 · Seinis 5 434 · Zonneb 5 395</div><div class="tb"><span class="chip"><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/night_stalker.png" width="40" height="22" alt="" loading="lazy">Night Stalker</span><span class="chip"><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/dawnbreaker.png" width="40" height="22" alt="" loading="lazy">Dawnbreaker</span><span class="chip"><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/furion.png" width="40" height="22" alt="" loading="lazy">Nature&#x27;s Prophet</span></div></a>
+<a class="team" href="roshan-ja-rahmasilmat/"><div class="tn">Roshan ja Rähmäsilmät<span class="tag">oma</span></div><div class="ts">Keski-MMR 4 722 · Osmo 6 000 · KiviMajava 5 449</div><div class="tb"><span class="ts" style="margin:0">Meiltä bannataan:</span><span class="chip"><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/dawnbreaker.png" width="40" height="22" alt="" loading="lazy">Dawnbreaker</span><span class="chip"><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/storm_spirit.png" width="40" height="22" alt="" loading="lazy">Storm Spirit</span><span class="chip"><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/spectre.png" width="40" height="22" alt="" loading="lazy">Spectre</span></div></a>
+<a class="team" href="lxt-ddf490z/"><div class="tn">LXT DDF490Z</div><div class="ts">Keski-MMR 4 715 · Ade 5 750 · Morality 5 250</div><div class="tb"><span class="chip"><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/legion_commander.png" width="40" height="22" alt="" loading="lazy">Legion Commander</span><span class="chip"><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/dark_seer.png" width="40" height="22" alt="" loading="lazy">Dark Seer</span><span class="chip"><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/windrunner.png" width="40" height="22" alt="" loading="lazy">Windranger</span></div></a>
+<a class="team" href="malttamattomat/"><div class="tn">Malttamattomat</div><div class="ts">Keski-MMR 4 677 · Abyss Astronaut 5 786 · Admiral R[A]t doto 4 955</div><div class="tb"><span class="chip"><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/primal_beast.png" width="40" height="22" alt="" loading="lazy">Primal Beast</span><span class="chip"><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/nevermore.png" width="40" height="22" alt="" loading="lazy">Shadow Fiend</span><span class="chip"><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/pangolier.png" width="40" height="22" alt="" loading="lazy">Pangolier</span></div></a>
+<a class="team" href="smoke-without-plan/"><div class="tn">Smoke Without Plan</div><div class="ts">Keski-MMR 4 670 · Pöykäri 6 500 · Illustral 6 000</div><div class="tb"><span class="chip"><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/invoker.png" width="40" height="22" alt="" loading="lazy">Invoker</span><span class="chip"><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/slark.png" width="40" height="22" alt="" loading="lazy">Slark</span><span class="chip"><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/lina.png" width="40" height="22" alt="" loading="lazy">Lina</span></div></a>
+<a class="team" href="liminka-demons/"><div class="tn">Liminka Demons</div><div class="ts">Keski-MMR 4 437 · boho 5 750 · raky 4 500</div><div class="tb"><span class="chip"><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/windrunner.png" width="40" height="22" alt="" loading="lazy">Windranger</span><span class="chip"><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/invoker.png" width="40" height="22" alt="" loading="lazy">Invoker</span><span class="chip"><img class="hero-img" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/omniknight.png" width="40" height="22" alt="" loading="lazy">Omniknight</span></div></a>
+</div>
+<div class="quality"><h2 class="first">Huomioita aineiston laadusta</h2>
 <p><strong>Steam-nimi ei muistuta listan nickiä</strong> — yleensä pelaaja on vain vaihtanut Steam-nimeään, mutta tarkista ettei Steam ID osoita väärään tiliin:</p>
 <ul>
 <li>BAKI HANMA BANKAI TENSEI / raato234 → Steam-nimi "ohi" (<a href="https://www.opendota.com/players/169387405">profiili</a>)</li>
@@ -126,18 +145,7 @@ footer {
 <li>KultaKalkkuna / f0rtuna → Steam-nimi "Työtön eläin divine" (<a href="https://www.opendota.com/players/33923304">profiili</a>)</li>
 <li>LXT DDF490Z / Ade → Steam-nimi "Alan 2 Rings" (<a href="https://www.opendota.com/players/31724584">profiili</a>)</li>
 <li>Smoke Without Plan / dRiim1k → Steam-nimi "Hemuel L. Jackson" (<a href="https://www.opendota.com/players/10306193">profiili</a>)</li>
-</ul>
-<blockquote>Tarkista aina että raportin <strong>Steam-nimi</strong> vastaa odotettua pelaajaa. Jos ei vastaa, listan Steam ID on väärä.</blockquote>
-<div class="teamgrid">
-<a href="baki-hanma-bankai-tensei/">BAKI HANMA BANKAI TENSEI<span>5 pelaajaa · keski-MMR 4 774</span></a>
-<a href="liminka-demons/">Liminka Demons<span>6 pelaajaa · keski-MMR 4 437</span></a>
-<a href="kultakalkkuna/">KultaKalkkuna<span>5 pelaajaa · keski-MMR 4 774</span></a>
-<a href="lxt-ddf490z/">LXT DDF490Z<span>5 pelaajaa · keski-MMR 4 715</span></a>
-<a href="lph-voide/">LPH-VOIDE<span>6 pelaajaa · keski-MMR 4 747</span></a>
-<a href="roshan-ja-rahmasilmat/">Roshan ja Rähmäsilmät<span>5 pelaajaa · keski-MMR 4 722 · oma joukkue</span></a>
-<a href="smoke-without-plan/">Smoke Without Plan<span>5 pelaajaa · keski-MMR 4 670</span></a>
-<a href="malttamattomat/">Malttamattomat<span>5 pelaajaa · keski-MMR 4 677</span></a>
-</div>
+</ul></div>
 </main>
 <footer>Generoitu 2026-09-28 · data: <a href="https://www.opendota.com/">OpenDota</a> · <a href="https://github.com/tenderi/roshanin-pelikirja">lähdekoodi ja raakadata GitHubissa</a></footer>
 </body>
