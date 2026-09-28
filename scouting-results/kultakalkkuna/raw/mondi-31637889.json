@@ -3256,5 +3256,1309 @@
     }
    }
   }
+ },
+ "stratz": {
+  "matches": [
+   {
+    "id": 8997551810,
+    "startDateTime": 1789319547,
+    "gameMode": "CAPTAINS_MODE",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 85,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8997411915,
+    "startDateTime": 1789314820,
+    "gameMode": "CAPTAINS_MODE",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 83,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8997252929,
+    "startDateTime": 1789310026,
+    "gameMode": "CAPTAINS_MODE",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 83,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8985964488,
+    "startDateTime": 1788704806,
+    "gameMode": "CAPTAINS_MODE",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 85,
+      "position": null,
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8956515007,
+    "startDateTime": 1787257913,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 16,
+      "position": "POSITION_3",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8954874562,
+    "startDateTime": 1787169716,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 50,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8952938456,
+    "startDateTime": 1787073896,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 23,
+      "position": "POSITION_3",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8946018262,
+    "startDateTime": 1786746930,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 87,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8945981710,
+    "startDateTime": 1786744673,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 40,
+      "position": "POSITION_4",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8945911987,
+    "startDateTime": 1786741021,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 22,
+      "position": "POSITION_4",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8945837088,
+    "startDateTime": 1786737576,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 135,
+      "position": "POSITION_3",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8945657758,
+    "startDateTime": 1786730538,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 21,
+      "position": "POSITION_3",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8945541059,
+    "startDateTime": 1786726422,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 15,
+      "position": "POSITION_3",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8934470112,
+    "startDateTime": 1786139113,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 20,
+      "position": "POSITION_4",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8934334362,
+    "startDateTime": 1786132599,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 129,
+      "position": "POSITION_3",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8933987913,
+    "startDateTime": 1786118919,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 50,
+      "position": "POSITION_4",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8933776881,
+    "startDateTime": 1786111809,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 136,
+      "position": "POSITION_5",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8809836927,
+    "startDateTime": 1778701062,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 3,
+      "position": "POSITION_4",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8809717837,
+    "startDateTime": 1778694680,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 27,
+      "position": null,
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8800316729,
+    "startDateTime": 1778081547,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 9,
+      "position": "POSITION_4",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8786955595,
+    "startDateTime": 1777198098,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 123,
+      "position": "POSITION_4",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8786104164,
+    "startDateTime": 1777141162,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 123,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8785054021,
+    "startDateTime": 1777085083,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 16,
+      "position": "POSITION_3",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8784693393,
+    "startDateTime": 1777058943,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 64,
+      "position": "POSITION_4",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8784613996,
+    "startDateTime": 1777055410,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 30,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8784501862,
+    "startDateTime": 1777050725,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 135,
+      "position": null,
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8784353582,
+    "startDateTime": 1777044690,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 121,
+      "position": "POSITION_4",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8784185709,
+    "startDateTime": 1777038027,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 40,
+      "position": "POSITION_4",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8784075586,
+    "startDateTime": 1777032978,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 40,
+      "position": "POSITION_4",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8773020016,
+    "startDateTime": 1776281593,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 131,
+      "position": null,
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8772961050,
+    "startDateTime": 1776278272,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 128,
+      "position": "POSITION_4",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8772850096,
+    "startDateTime": 1776272751,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 135,
+      "position": "POSITION_3",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8772734330,
+    "startDateTime": 1776267367,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 99,
+      "position": "POSITION_3",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8772630954,
+    "startDateTime": 1776262946,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 135,
+      "position": "POSITION_3",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8766654642,
+    "startDateTime": 1775893291,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 84,
+      "position": "POSITION_5",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8766267366,
+    "startDateTime": 1775860027,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 40,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8632757585,
+    "startDateTime": 1767401669,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 27,
+      "position": "POSITION_4",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8628680648,
+    "startDateTime": 1767153057,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 22,
+      "position": "POSITION_4",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8481848343,
+    "startDateTime": 1758913161,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 111,
+      "position": "POSITION_4",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8480323399,
+    "startDateTime": 1758831193,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 64,
+      "position": "POSITION_5",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8480173667,
+    "startDateTime": 1758824870,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 37,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8251213750,
+    "startDateTime": 1744427777,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 85,
+      "position": "POSITION_5",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8241167185,
+    "startDateTime": 1743753821,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 64,
+      "position": "POSITION_5",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8232900887,
+    "startDateTime": 1743188670,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 37,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8232755235,
+    "startDateTime": 1743181679,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 64,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8232680387,
+    "startDateTime": 1743178284,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 30,
+      "position": "POSITION_4",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8232446775,
+    "startDateTime": 1743168595,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 68,
+      "position": "POSITION_5",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8225172521,
+    "startDateTime": 1742681503,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 138,
+      "position": "POSITION_4",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8225103569,
+    "startDateTime": 1742677242,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 123,
+      "position": "POSITION_4",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8225047943,
+    "startDateTime": 1742674293,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 20,
+      "position": "POSITION_5",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8223304247,
+    "startDateTime": 1742576489,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 27,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8223044347,
+    "startDateTime": 1742565842,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 20,
+      "position": "POSITION_4",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8222954175,
+    "startDateTime": 1742562043,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 30,
+      "position": "POSITION_5",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8222898242,
+    "startDateTime": 1742559350,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 14,
+      "position": "POSITION_4",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8222828571,
+    "startDateTime": 1742555491,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 119,
+      "position": "POSITION_5",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8222766549,
+    "startDateTime": 1742551388,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 119,
+      "position": "POSITION_4",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8090825750,
+    "startDateTime": 1734764475,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 121,
+      "position": "POSITION_4",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8090780706,
+    "startDateTime": 1734761326,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 22,
+      "position": "POSITION_4",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8090568908,
+    "startDateTime": 1734743138,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 121,
+      "position": "POSITION_5",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8089325076,
+    "startDateTime": 1734682867,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 45,
+      "position": "POSITION_5",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8089270494,
+    "startDateTime": 1734678371,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 85,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8089175866,
+    "startDateTime": 1734669301,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 121,
+      "position": "POSITION_4",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8089069584,
+    "startDateTime": 1734658596,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 96,
+      "position": "POSITION_5",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8088798406,
+    "startDateTime": 1734637804,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 102,
+      "position": "POSITION_5",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8079911328,
+    "startDateTime": 1734107303,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 102,
+      "position": "POSITION_5",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8079782009,
+    "startDateTime": 1734102333,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 22,
+      "position": "POSITION_4",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8079310236,
+    "startDateTime": 1734077086,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 29,
+      "position": "POSITION_5",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8079284801,
+    "startDateTime": 1734074847,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 102,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8079268430,
+    "startDateTime": 1734073310,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 129,
+      "position": "POSITION_3",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8070436802,
+    "startDateTime": 1733535326,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 64,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8070396032,
+    "startDateTime": 1733531265,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 110,
+      "position": "POSITION_3",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8070357421,
+    "startDateTime": 1733527704,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 112,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8070310163,
+    "startDateTime": 1733524122,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 135,
+      "position": "POSITION_3",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8059556184,
+    "startDateTime": 1732902207,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 45,
+      "position": "POSITION_4",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8059368907,
+    "startDateTime": 1732895364,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 85,
+      "position": "POSITION_4",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8051104904,
+    "startDateTime": 1732411311,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 15,
+      "position": "POSITION_1",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 7891053209,
+    "startDateTime": 1723331841,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 30,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 7890959043,
+    "startDateTime": 1723325761,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 18,
+      "position": "POSITION_4",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 7889377463,
+    "startDateTime": 1723247403,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 64,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 7889319341,
+    "startDateTime": 1723242835,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 15,
+      "position": "POSITION_3",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 7889217089,
+    "startDateTime": 1723236900,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 65,
+      "position": "POSITION_5",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 7889137632,
+    "startDateTime": 1723233222,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 20,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 7889081967,
+    "startDateTime": 1723230831,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 87,
+      "position": "POSITION_5",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 7888973105,
+    "startDateTime": 1723226337,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 29,
+      "position": "POSITION_3",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 7888646750,
+    "startDateTime": 1723214257,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 51,
+      "position": "POSITION_5",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 7887783209,
+    "startDateTime": 1723158278,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 102,
+      "position": "POSITION_4",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 7887021068,
+    "startDateTime": 1723123592,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 20,
+      "position": "POSITION_3",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 7886941712,
+    "startDateTime": 1723120572,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 18,
+      "position": "POSITION_4",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 7886856698,
+    "startDateTime": 1723116878,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 18,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 7878100390,
+    "startDateTime": 1722640093,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 67,
+      "position": "POSITION_1",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 7876244301,
+    "startDateTime": 1722538846,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 119,
+      "position": "POSITION_4",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 7876141867,
+    "startDateTime": 1722534627,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 81,
+      "position": "POSITION_3",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 7875971614,
+    "startDateTime": 1722527744,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 69,
+      "position": "POSITION_3",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 7875880583,
+    "startDateTime": 1722524462,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 135,
+      "position": "POSITION_3",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 7875678675,
+    "startDateTime": 1722517410,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 2,
+      "position": "POSITION_3",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 7868437024,
+    "startDateTime": 1722123811,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 119,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 7868393794,
+    "startDateTime": 1722120541,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 64,
+      "position": "POSITION_5",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 7868334520,
+    "startDateTime": 1722116798,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 18,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 7868276546,
+    "startDateTime": 1722113869,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 37,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 7868197020,
+    "startDateTime": 1722110336,
+    "gameMode": "CAPTAINS_DRAFT",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 37,
+      "position": "POSITION_5",
+      "isVictory": false
+     }
+    ]
+   }
+  ]
  }
 }

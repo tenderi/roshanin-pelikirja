@@ -1,6 +1,6 @@
 # KultaKalkkuna
 
-_Generated 2026-09-28 · source: [OpenDota](https://www.opendota.com/) · roster: `joukkueet.txt`_
+_Generated 2026-09-28 · source: [OpenDota](https://www.opendota.com/) + [STRATZ](https://stratz.com/) · roster: `joukkueet.txt`_
 
 Average MMR **4,774** · 5 players
 
@@ -10,19 +10,19 @@ Ordered to focus on the strongest players: each player counts (MMR / team's top 
 
 | # | Hero | Because of |
 |---|---|---|
-| 1 | **Mirana** | Miikkalele (5,001): 42 recent · 78 total · 62%; Satowi (6,000): 12 recent · 109 total · 52% |
-| 2 | **Luna** | f0rtuna (6,500): 11 recent · 375 total · 55% |
-| 3 | **Bounty Hunter** | Satowi (6,000): 8 recent · 104 total · 54%; f0rtuna (6,500): 1 recent · 112 total · 50%; Miikkalele (5,001): 3 recent · 85 total · 57% |
-| 4 | **Spectre** | f0rtuna (6,500): 8 recent · 433 total · 57% |
-| 5 | **Night Stalker** | f0rtuna (6,500): 5 recent · 119 total · 51%; Miikkalele (5,001): 8 recent · 39 total · 47% |
-| 6 | **Clinkz** | f0rtuna (6,500): 12 recent · 133 total · 43% |
+| 1 | **Mirana** | Miikkalele (5,001, pos 4): 42 recent · 78 total · 62%; Satowi (6,000, pos 4): 12 recent · 109 total · 52% |
+| 2 | **Luna** | f0rtuna (6,500, pos 1): 11 recent · 375 total · 55% |
+| 3 | **Bounty Hunter** | Satowi (6,000, pos 4): 8 recent · 104 total · 54%; f0rtuna (6,500, pos 4): 1 recent · 112 total · 50% |
+| 4 | **Night Stalker** | f0rtuna (6,500, pos 3): 5 recent · 119 total · 51%; Miikkalele (5,001, pos 3): 10 recent · 41 total · 47% |
+| 5 | **Spectre** | f0rtuna (6,500, pos 1): 8 recent · 433 total · 57% |
+| 6 | **Clinkz** | f0rtuna (6,500, pos 1): 12 recent · 133 total · 43% |
 
 ## Players (highest MMR first)
 
 ### f0rtuna — 6,500 · Immortal
 
-- Steam name Työtön eläin divine · Safe 60% / Off 20% / Mid 20% · last 100: 58–42 (58%) · last played 2026-09-28 · [OpenDota](https://www.opendota.com/players/33923304)
-- **Ban targets:** Luna (11 recent · 375 total) · Spectre (8 recent · 433 total) · Clinkz (12 recent · 133 total)
+- Steam name Työtön eläin divine · Pos 1 72% / Pos 5 9% / Pos 3 9% / Pos 4 8% · last 100: 58–42 (58%) · last played 2026-09-28 · [OpenDota](https://www.opendota.com/players/33923304)
+- **Ban targets:** Luna (pos 1, 11 recent · 375 total) · Spectre (pos 1, 8 recent · 433 total) · Clinkz (pos 1, 12 recent · 133 total)
 
 | Playing now | Games · WR | All time | Games · WR |
 |---|---|---|---|
@@ -37,8 +37,8 @@ Ordered to focus on the strongest players: each player counts (MMR / team's top 
 
 ### Satowi — 6,000 · Immortal
 
-- Off 59% / Safe 34% / Mid 7% · last 100: 61–39 (61%) · last played 2026-09-28 · [OpenDota](https://www.opendota.com/players/131143117)
-- **Ban targets:** Mirana (12 recent · 109 total) · Treant Protector (8 recent · 53 total) · Bounty Hunter (8 recent · 104 total)
+- Pos 5 36% / Pos 4 34% / Pos 2 19% / Pos 3 8% · last 100: 61–39 (61%) · last played 2026-09-28 · [OpenDota](https://www.opendota.com/players/131143117)
+- **Ban targets:** Mirana (pos 4, 12 recent · 109 total) · Treant Protector (pos 5, 8 recent · 53 total) · Bounty Hunter (pos 4, 8 recent · 104 total)
 
 | Playing now | Games · WR | All time | Games · WR |
 |---|---|---|---|
@@ -53,24 +53,24 @@ Ordered to focus on the strongest players: each player counts (MMR / team's top 
 
 ### Miikkalele — 5,001 · Divine 4
 
-- Off 72% / Safe 20% / Mid 8% · last 100: 56–44 (56%) · last played 2026-09-28 · [OpenDota](https://www.opendota.com/players/48987897)
-- **Ban targets:** Mirana (42 recent · 78 total) · Keeper of the Light (8 recent · 52 total) · Night Stalker (8 recent · 39 total)
+- Pos 4 47% / Pos 3 33% / Pos 5 20% · last 100: 55–45 (55%) · last played 2026-09-28 · [OpenDota](https://www.opendota.com/players/48987897)
+- **Ban targets:** Mirana (pos 4, 42 recent · 78 total) · Keeper of the Light (pos 4, 8 recent · 52 total) · Night Stalker (pos 3, 10 recent · 41 total)
 
 | Playing now | Games · WR | All time | Games · WR |
 |---|---|---|---|
 | Mirana | 42 · 67% | Bounty Hunter | 85 · 58% |
-| Night Stalker | 8 · 50% | Mirana | 78 · 59% |
+| Night Stalker | 10 · 50% | Mirana | 78 · 59% |
 | Keeper of the Light | 8 · 75% | Rubick | 54 · 46% |
 | Centaur Warrunner | 4 · 50% | Dark Willow | 53 · 53% |
 | Lycan | 3 · 67% | Keeper of the Light | 52 · 56% |
-| Vengeful Spirit | 3 · 67% | Night Stalker | 39 · 46% |
+| Vengeful Spirit | 3 · 67% | Night Stalker | 41 · 46% |
 | Dark Seer | 3 · 0% | Hoodwink | 38 · 45% |
 | Rubick | 3 · 0% | Treant Protector | 35 · 60% |
 
 ### Jelo — 3,721 · Ancient 2
 
-- Steam name Jeloxale · Mid 55% / Off 23% / Safe 22% · last 100: 58–42 (58%) · last played 2026-09-28 · [OpenDota](https://www.opendota.com/players/121263552)
-- **Ban targets:** Dragon Knight (22 recent · 55 total) · Sniper (9 recent · 49 total) · Hoodwink (7 recent · 199 total)
+- Steam name Jeloxale · Pos 2 60% / Pos 5 15% / Pos 4 13% / Pos 3 11% · last 100: 58–42 (58%) · last played 2026-09-28 · [OpenDota](https://www.opendota.com/players/121263552)
+- **Ban targets:** Dragon Knight (pos 2, 22 recent · 55 total) · Sniper (pos 2, 9 recent · 49 total) · Hoodwink (pos 4, 7 recent · 199 total)
 
 | Playing now | Games · WR | All time | Games · WR |
 |---|---|---|---|
@@ -85,8 +85,8 @@ Ordered to focus on the strongest players: each player counts (MMR / team's top 
 
 ### Mondi — 2,648 · Archon 4
 
-- Steam name mondi · Off 61% / Safe 36% · last 100: 62–38 (62%) · last played 2026-09-28 · [OpenDota](https://www.opendota.com/players/31637889)
-- **Ban targets:** Dawnbreaker (9 recent · 14 total) · Undying (8 recent · 11 total) · Snapfire (6 recent · 8 total)
+- Steam name mondi · Pos 5 39% / Pos 4 37% / Pos 3 24% (from 41 games) · last 100: 62–38 (62%) · last played 2026-09-28 · [OpenDota](https://www.opendota.com/players/31637889)
+- **Ban targets:** Dawnbreaker (pos 3, 9 recent · 14 total) · Undying (pos 5, 8 recent · 11 total) · Snapfire (pos 4, 6 recent · 8 total)
 
 | Playing now | Games · WR | All time | Games · WR |
 |---|---|---|---|

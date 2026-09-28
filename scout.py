@@ -116,6 +116,10 @@ CACHE_DIR = os.path.join(HERE, ".cache")
 OPENDOTA_BASE = "https://api.opendota.com/api"
 API_KEY = os.environ.get("OPENDOTA_API_KEY", "").strip()
 REQUEST_DELAY = 1.1 if not API_KEY else 0.15  # sekuntia pyyntöjen välillä
+STRATZ_URL = "https://api.stratz.com/graphql"
+STRATZ_TOKEN = os.environ.get("STRATZ_API_TOKEN", "").strip()
+STRATZ_DELAY = 0.3               # ilmaistaso: 20/s, 250/min, 2000/h
+MIN_POSITIONED_GAMES = 10        # näin monesta pelistä pelipaikkajakauma näytetään
 MAX_RETRIES = 4                  # 429/5xx-uudelleenyritysten maksimimäärä
 MATCH_FETCH_LIMIT = 100          # kuinka monta viimeisintä ottelua haetaan
 MIN_RANKED_FOR_FILTER = 10       # jos ei-turbo-otteluita väh. näin monta, turbot jätetään pois
@@ -351,6 +355,131 @@ def api_get(path: str, params: dict = None, use_cache: bool = True):
     return None
 
 
+STRATZ_MATCHES_QUERY = """
+query ($id: Long!, $take: Int!) {
+  player(steamAccountId: $id) {
+    matches(request: {take: $take}) {
+      id startDateTime gameMode didRadiantWin
+      players(steamAccountId: $id) { heroId position isVictory }
+    }
+  }
+}"""
+
+
+def stratz_matches(account_id: int):
+    """Pelaajan viimeisimmät ottelut STRATZista, tai None.
+
+    STRATZ tietää jokaisesta ottelusta pelaajan pelipaikan (pos 1–5), jota
+    OpenDotan linjadata ei erottele: safe lane voi olla kantaja tai hard
+    support. Ilman tokenia (STRATZ_API_TOKEN) palauttaa None.
+    """
+    if not STRATZ_TOKEN:
+        return None
+    params = {"take": MATCH_FETCH_LIMIT}
+    cache_file = _cache_path(f"/stratz/players/{account_id}/matches", params)
+    if os.path.exists(cache_file):
+        try:
+            with open(cache_file, encoding="utf-8") as f:
+                return json.load(f)
+        except (OSError, ValueError):
+            pass
+    headers = {"Authorization": f"Bearer {STRATZ_TOKEN}",
+               "User-Agent": "STRATZ_API"}
+    body = {"query": STRATZ_MATCHES_QUERY,
+            "variables": {"id": account_id, "take": MATCH_FETCH_LIMIT}}
+    for attempt in range(1, MAX_RETRIES + 1):
+        try:
+            resp = requests.post(STRATZ_URL, json=body, headers=headers, timeout=30)
+        except requests.RequestException as e:
+            print(f"  [VIRHE] STRATZ-pyyntö epäonnistui: {e}")
+            time.sleep(3 * attempt)
+            continue
+        if resp.status_code in (429, 500, 502, 503, 504):
+            time.sleep(5 * attempt)
+            continue
+        try:
+            payload = resp.json()
+        except ValueError:
+            payload = {}
+        if resp.status_code != 200 or payload.get("errors"):
+            print(f"  [VIRHE] STRATZ -> HTTP {resp.status_code} "
+                  f"{(payload.get('errors') or [{}])[0].get('message', '')}")
+            return None
+        data = ((payload.get("data") or {}).get("player") or {}).get("matches") or []
+        os.makedirs(CACHE_DIR, exist_ok=True)
+        with open(cache_file, "w", encoding="utf-8") as f:
+            json.dump(data, f)
+        time.sleep(STRATZ_DELAY)
+        return data
+    return None
+
+
+def merge_stratz(od_matches, sz_matches):
+    """Yhdistää STRATZin ottelut OpenDotan otteluihin match_id:n mukaan.
+
+    Yhteisiin otteluihin lisätään `position` (1–5). Vain STRATZin tuntemat
+    ottelut lisätään OpenDotan muotoon muunnettuina, jos ne osuvat samaan
+    aikaikkunaan. Tulos on uusimmasta vanhimpaan, enintään MATCH_FETCH_LIMIT.
+    Palauttaa (ottelut, lisättyjen määrä).
+    """
+    od_matches = [dict(m) for m in (od_matches or [])]
+    if not sz_matches:
+        return od_matches, 0
+    by_id = {m.get("match_id"): m for m in od_matches}
+    oldest = min((m.get("start_time") or 0 for m in od_matches), default=0)
+    added = 0
+    for sm in sz_matches:
+        me = (sm.get("players") or [{}])[0]
+        pos = me.get("position") or ""
+        pos = int(pos[-1]) if pos.startswith("POSITION_") else None
+        m = by_id.get(sm.get("id"))
+        if m is not None:
+            m["position"] = pos
+            continue
+        if (sm.get("startDateTime") or 0) < oldest or me.get("isVictory") is None:
+            continue
+        rw = sm.get("didRadiantWin")
+        od_matches.append({
+            "match_id": sm["id"], "hero_id": me.get("heroId"),
+            "start_time": sm.get("startDateTime"),
+            "game_mode": TURBO_GAME_MODE if sm.get("gameMode") == "TURBO" else 0,
+            "radiant_win": rw,
+            # player_slot < 128 = radiant; päätellään voitosta
+            "player_slot": 0 if me["isVictory"] == rw else 128,
+            "position": pos, "source": "stratz"})
+        added += 1
+    od_matches.sort(key=lambda m: -(m.get("start_time") or 0))
+    return od_matches[:MATCH_FETCH_LIMIT], added
+
+
+def position_split(matches):
+    """'Pos 1 69% / Pos 4 8% / ...' STRATZin pelipaikoista, tai None.
+
+    STRATZin otteluhistoriassa on joillakin pelaajilla isoja aukkoja, joten
+    alle MIN_POSITIONED_GAMES pelistä ei väitetä mitään (kutsuja käyttää
+    silloin OpenDotan linjajakaumaa), ja vajaasta otoksesta kerrotaan koko.
+    """
+    matches = matches or []
+    c = Counter(m["position"] for m in matches if m.get("position"))
+    total = sum(c.values())
+    if total < MIN_POSITIONED_GAMES:
+        return None
+    text = " / ".join(f"Pos {p} {n / total * 100:.0f}%"
+                      for p, n in c.most_common() if n / total >= 0.05)
+    if total < 0.8 * len(matches):
+        text += f" (from {total} games)"
+    return text
+
+
+def hero_positions(matches):
+    """hero_id -> tavallisin pelipaikka viimeisimmissä otteluissa."""
+    per = defaultdict(Counter)
+    for m in matches or []:
+        if m.get("hero_id") and m.get("position"):
+            per[m["hero_id"]][m["position"]] += 1
+    return {hid: c.most_common(1)[0][0] for hid, c in per.items()}
+
+
 HERO_SLUGS = {}  # hero_id -> kuvatiedoston nimi (täytetään load_hero_names:ssa)
 
 
@@ -550,13 +679,14 @@ def player_threats(d):
             rw[hid] += 1
     alltime = {h["hero_id"]: (h.get("games", 0), h.get("win", 0))
                for h in (d.get("heroes") or []) if h.get("games")}
+    pos = hero_positions(matches)
     out = []
     for hid in set(rg) | set(alltime):
         a_g, a_w = alltime.get(hid, (0, 0))
         if rg[hid] < MIN_RECENT_FOR_BAN and a_g < MIN_ALLTIME_FOR_BAN:
             continue
         out.append({"hero_id": hid, "rg": rg[hid], "rw": rw[hid],
-                    "ag": a_g, "aw": a_w,
+                    "ag": a_g, "aw": a_w, "pos": pos.get(hid),
                     "score": _strength_score(rg[hid], rw[hid], a_g, a_w,
                                              len(matches))})
     return sorted(out, key=lambda r: -r["score"])
@@ -602,6 +732,10 @@ def team_bans(team, players, data):
     return sorted(bans.values(), key=lambda r: -r["score"])
 
 
+def pos_text(p) -> str:
+    return f"pos {p}" if p else ""
+
+
 def games_text(rg, ag) -> str:
     """'12 recent · 109 total' — tuoreet ensin, koska ne kertovat nykyhetkestä."""
     parts = []
@@ -638,7 +772,9 @@ def player_view(team, player, data, ban_rank):
     v["wl"] = (wl.get("win", 0), wl.get("lose", 0))
     v["form"] = recent_form(d.get("analyzed"))
     v["sample_note"] = d.get("sample_note")
-    v["lanes"] = lane_split(d.get("counts"))
+    v["lanes"] = (position_split(d.get("analyzed"))
+                  or lane_split(d.get("counts")))
+    v["hero_pos"] = hero_positions(d.get("analyzed"))
     v["recent"] = recent_heroes(d.get("analyzed"))
     v["alltime"] = top_heroes(d.get("heroes"))
     v["targets"] = player_threats(d)[:PLAYER_BAN_COUNT]
@@ -1022,6 +1158,7 @@ h2 { font-size: 19px; margin: 32px 0 6px; }
 .hl li:first-child { border-top: 0; }
 .hl .g { color: var(--muted); text-align: right; }
 .hl .w { text-align: right; }
+.hl .pos { color: var(--muted); font-size: 12px; }
 .bt { font-size: 11px; font-weight: 700; color: var(--accent);
       border: 1px solid var(--accent); border-radius: 4px; padding: 0 4px;
       margin-left: 6px; }
@@ -1091,7 +1228,7 @@ def site_page(body: str, title: str, crumb: str, depth: int, today: str,
 <main>
 {body}
 </main>
-<footer>Generated {today} · data: <a href="https://www.opendota.com/">OpenDota</a>{src}</footer>
+<footer>Generated {today} · data: <a href="https://www.opendota.com/">OpenDota</a>{" + <a href=\"https://stratz.com/\">STRATZ</a>" if STRATZ_TOKEN else ""}{src}</footer>
 </body>
 </html>
 """
@@ -1130,7 +1267,8 @@ def ban_cards(bans, hf) -> str:
             wr = wr_of(w["rw"] + w["aw"], w["rg"] + w["ag"])
             who.append(f'<div><b>{html.escape(w["nick"])}</b>'
                        f'{" (sub)" if w["sub"] else ""} · {fmt_mmr(w["mmr"])}'
-                       f'<br>{games_text(w["rg"], w["ag"])}'
+                       + (f' · {pos_text(w["pos"])}' if w.get("pos") else "")
+                       + f'<br>{games_text(w["rg"], w["ag"])}'
                        + (f' · {wr:.0f}%' if wr is not None else "") + '</div>')
         out.append(f'<div class="ban"><span class="rank">{i}</span>'
                    f'{hf.img(b["hero_id"], 72)}<div>'
@@ -1140,13 +1278,15 @@ def ban_cards(bans, hf) -> str:
     return "\n".join(out)
 
 
-def hero_list(rows, hf, ban_rank) -> str:
+def hero_list(rows, hf, ban_rank, positions=None) -> str:
     if not rows:
         return '<p class="empty">Not enough games.</p>'
     out = ['<ul class="hl">']
     for hid, g, w in rows:
         tag = (f'<span class="bt" title="#{ban_rank[hid]} on the team ban list">B{ban_rank[hid]}</span>' if hid in ban_rank else "")
-        out.append(f'<li>{hf.img(hid, 36)}<span>{hf.name(hid)}{tag}</span>'
+        p = (positions or {}).get(hid)
+        ptag = f' <small class="pos">{pos_text(p)}</small>' if p else ""
+        out.append(f'<li>{hf.img(hid, 36)}<span>{hf.name(hid)}{ptag}{tag}</span>'
                    f'<span class="g num">{g}</span>{wr_span(w / g * 100)}</li>')
     out.append("</ul>")
     return "".join(out)
@@ -1189,14 +1329,14 @@ def player_card(v, hf) -> str:
     if v["targets"]:
         chips = "".join(
             f'<span class="chip">{hf.img(t["hero_id"], 48)}{hf.name(t["hero_id"])}'
-            f'<small>{games_text(t["rg"], t["ag"])}</small></span>'
+            f'<small>{", ".join(x for x in (pos_text(t["pos"]), games_text(t["rg"], t["ag"])) if x)}</small></span>'
             for t in v["targets"])
         targets = f'<div class="targets"><span class="lbl">Ban</span>{chips}</div>'
 
     n_recent = v["form"][1] if v["form"] else 0
     pools = (f'<div class="pools">'
              f'<div><h3>Playing now · last {n_recent} games</h3>'
-             f'{hero_list(v["recent"], hf, v["ban_rank"])}</div>'
+             f'{hero_list(v["recent"], hf, v["ban_rank"], v.get("hero_pos"))}</div>'
              f'<div><h3>Most played all time</h3>'
              f'{hero_list(v["alltime"], hf, v["ban_rank"])}</div></div>')
     return (f'<section class="{cls}">{head}<div class="meta">{meta_html}</div>'
@@ -1298,7 +1438,8 @@ def slugify(name: str) -> str:
 def intro_lines(today: str):
     """Raporttien yhteinen selitysteksti."""
     return [
-        f"_Generated {today} · source: [OpenDota](https://www.opendota.com/) · "
+        f"_Generated {today} · source: [OpenDota](https://www.opendota.com/)"
+        + (" + [STRATZ](https://stratz.com/)" if STRATZ_TOKEN else "") + " · "
         f"roster: `joukkueet.txt`_",
         "",
     ]
@@ -1361,7 +1502,8 @@ def quality_lines(dupes, no_data, bad_ids, mismatches, team=None, level=2):
 def who_text(w) -> str:
     """'Satowi (6,000): 12 recent · 109 total · 67%'"""
     wr = wr_of(w["rw"] + w["aw"], w["rg"] + w["ag"])
-    return (f"{w['nick']}{' (sub)' if w['sub'] else ''} ({fmt_mmr(w['mmr'])}): "
+    return (f"{w['nick']}{' (sub)' if w['sub'] else ''} ({fmt_mmr(w['mmr'])}"
+            + (f", {pos_text(w['pos'])}" if w.get("pos") else "") + "): "
             f"{games_text(w['rg'], w['ag'])}" + (f" · {wr:.0f}%" if wr is not None else ""))
 
 
@@ -1411,7 +1553,8 @@ def team_report(view, hero_names, today, quality):
         L += ["- " + " · ".join(facts)]
         if v["targets"]:
             L.append("- **Ban targets:** " + " · ".join(
-                f"{name(t['hero_id'])} ({games_text(t['rg'], t['ag'])})"
+                f"{name(t['hero_id'])} ("
+                + ", ".join(x for x in (pos_text(t["pos"]), games_text(t['rg'], t['ag'])) if x) + ")"
                 for t in v["targets"]))
         L.append("")
         rows = []
@@ -1483,6 +1626,7 @@ def write_raw_data(raw_dir: str, team: str, players, data, today: str) -> int:
             "virhe": d.get("error"),
             "opendota": {k: d.get(k) for k in
                          ("profile", "wl", "heroes", "matches", "counts")},
+            "stratz": {"matches": d.get("stratz")},
         }
         acc = d.get("account_id") or "tuntematon"
         name = f"{slugify(nick)}-{acc}.json"
@@ -1545,6 +1689,9 @@ def main(argv=None):
         sys.exit(f"[VIRHE] --oma: {own_err}")
     if own_team:
         print(f"Oma joukkue: {own_team}")
+    if not STRATZ_TOKEN:
+        print("STRATZ_API_TOKEN puuttuu — pelipaikat (pos 1–5) jäävät pois, "
+              "käytetään pelkkää OpenDotaa.")
 
     hero_names = load_hero_names()
     if not hero_names:
@@ -1572,7 +1719,9 @@ def main(argv=None):
                 continue
             d = fetch_player(account_id)
             d["account_id"] = account_id
-            d["analyzed"], d["sample_note"] = usable_matches(d.get("matches"))
+            d["stratz"] = stratz_matches(account_id)
+            merged, d["stratz_added"] = merge_stratz(d.get("matches"), d["stratz"])
+            d["analyzed"], d["sample_note"] = usable_matches(merged)
             data[(team, nick)] = d
             if not has_public_data(d):
                 no_data.append((team, nick))

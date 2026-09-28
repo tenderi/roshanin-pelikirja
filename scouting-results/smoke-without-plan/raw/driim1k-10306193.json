@@ -3448,5 +3448,1309 @@
     }
    }
   }
+ },
+ "stratz": {
+  "matches": [
+   {
+    "id": 9016691335,
+    "startDateTime": 1790413889,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 30,
+      "position": "POSITION_5",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 9016646603,
+    "startDateTime": 1790411458,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 30,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 9016242297,
+    "startDateTime": 1790378984,
+    "gameMode": "TURBO",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 26,
+      "position": null,
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 9016224561,
+    "startDateTime": 1790377488,
+    "gameMode": "TURBO",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 110,
+      "position": null,
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 9016195995,
+    "startDateTime": 1790375242,
+    "gameMode": "TURBO",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 110,
+      "position": null,
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 9016175550,
+    "startDateTime": 1790373812,
+    "gameMode": "TURBO",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 93,
+      "position": null,
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 9015744614,
+    "startDateTime": 1790355342,
+    "gameMode": "CAPTAINS_MODE",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 26,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 9015589894,
+    "startDateTime": 1790349772,
+    "gameMode": "CAPTAINS_MODE",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 123,
+      "position": null,
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 9014130053,
+    "startDateTime": 1790264010,
+    "gameMode": "TURBO",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 138,
+      "position": "POSITION_2",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 9012649486,
+    "startDateTime": 1790175304,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 23,
+      "position": "POSITION_3",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 9012564039,
+    "startDateTime": 1790172214,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 136,
+      "position": null,
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 9009975351,
+    "startDateTime": 1790008429,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 96,
+      "position": "POSITION_3",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 9009899919,
+    "startDateTime": 1790005598,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 8,
+      "position": "POSITION_1",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 9008661496,
+    "startDateTime": 1789928046,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 110,
+      "position": "POSITION_5",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 9008597752,
+    "startDateTime": 1789925672,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 30,
+      "position": "POSITION_5",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 9008489128,
+    "startDateTime": 1789921795,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 123,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 9008033681,
+    "startDateTime": 1789906927,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 104,
+      "position": "POSITION_3",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 9007950932,
+    "startDateTime": 1789903853,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 2,
+      "position": null,
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 9007726673,
+    "startDateTime": 1789893562,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 43,
+      "position": "POSITION_3",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 9007676602,
+    "startDateTime": 1789890832,
+    "gameMode": "TURBO",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 92,
+      "position": "POSITION_2",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 9007644760,
+    "startDateTime": 1789888952,
+    "gameMode": "TURBO",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 104,
+      "position": null,
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 9007619776,
+    "startDateTime": 1789887357,
+    "gameMode": "TURBO",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 104,
+      "position": "POSITION_2",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 9007593485,
+    "startDateTime": 1789885606,
+    "gameMode": "TURBO",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 104,
+      "position": null,
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 9007008427,
+    "startDateTime": 1789845361,
+    "gameMode": "TURBO",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 26,
+      "position": null,
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 9006949375,
+    "startDateTime": 1789843147,
+    "gameMode": "TURBO",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 90,
+      "position": null,
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 9006420105,
+    "startDateTime": 1789824871,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 67,
+      "position": null,
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 9006202995,
+    "startDateTime": 1789816896,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 26,
+      "position": "POSITION_5",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 9005577059,
+    "startDateTime": 1789777695,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 26,
+      "position": "POSITION_5",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 9004809022,
+    "startDateTime": 1789743657,
+    "gameMode": "CAPTAINS_MODE",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 123,
+      "position": null,
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 9003184404,
+    "startDateTime": 1789655201,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 123,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 9003110901,
+    "startDateTime": 1789652668,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 26,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 9003045622,
+    "startDateTime": 1789650256,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 30,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 9001883474,
+    "startDateTime": 1789573923,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 96,
+      "position": "POSITION_3",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 9001741960,
+    "startDateTime": 1789568917,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 84,
+      "position": "POSITION_3",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 9001630386,
+    "startDateTime": 1789564971,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 9,
+      "position": "POSITION_5",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 9000282773,
+    "startDateTime": 1789482843,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 135,
+      "position": "POSITION_3",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 9000137466,
+    "startDateTime": 1789477702,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 108,
+      "position": "POSITION_3",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8998917975,
+    "startDateTime": 1789400221,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 26,
+      "position": "POSITION_4",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8998831198,
+    "startDateTime": 1789397268,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 26,
+      "position": "POSITION_4",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8998699555,
+    "startDateTime": 1789392782,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 64,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8997253957,
+    "startDateTime": 1789310053,
+    "gameMode": "CAPTAINS_MODE",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 123,
+      "position": "POSITION_5",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8997033000,
+    "startDateTime": 1789303371,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 123,
+      "position": "POSITION_4",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8996938084,
+    "startDateTime": 1789300273,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 15,
+      "position": "POSITION_1",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8996865540,
+    "startDateTime": 1789297697,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 48,
+      "position": "POSITION_1",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8995022286,
+    "startDateTime": 1789214331,
+    "gameMode": "TURBO",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 96,
+      "position": "POSITION_3",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8994910801,
+    "startDateTime": 1789209930,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 123,
+      "position": "POSITION_5",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8994837746,
+    "startDateTime": 1789206710,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 26,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8994756657,
+    "startDateTime": 1789202960,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 123,
+      "position": "POSITION_4",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8994676090,
+    "startDateTime": 1789198954,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 123,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8994328238,
+    "startDateTime": 1789172715,
+    "gameMode": "TURBO",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 26,
+      "position": null,
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8994307171,
+    "startDateTime": 1789170720,
+    "gameMode": "TURBO",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 26,
+      "position": null,
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8993711991,
+    "startDateTime": 1789144983,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 123,
+      "position": null,
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8993602116,
+    "startDateTime": 1789141557,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 26,
+      "position": null,
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8993493058,
+    "startDateTime": 1789138295,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 100,
+      "position": "POSITION_5",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8993415353,
+    "startDateTime": 1789135943,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 26,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8992152082,
+    "startDateTime": 1789059854,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 85,
+      "position": null,
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8992038954,
+    "startDateTime": 1789055755,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 123,
+      "position": "POSITION_4",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8991922776,
+    "startDateTime": 1789051834,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 31,
+      "position": "POSITION_4",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8991814633,
+    "startDateTime": 1789048270,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 30,
+      "position": "POSITION_4",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8990788708,
+    "startDateTime": 1788977646,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 26,
+      "position": null,
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8990710712,
+    "startDateTime": 1788974527,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 123,
+      "position": "POSITION_5",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8990541020,
+    "startDateTime": 1788968047,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 26,
+      "position": "POSITION_4",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8990465835,
+    "startDateTime": 1788965363,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 26,
+      "position": "POSITION_4",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8990389213,
+    "startDateTime": 1788962683,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 26,
+      "position": "POSITION_4",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8989223323,
+    "startDateTime": 1788886882,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 123,
+      "position": null,
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8989145958,
+    "startDateTime": 1788883987,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 123,
+      "position": "POSITION_4",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8989074631,
+    "startDateTime": 1788881392,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 49,
+      "position": "POSITION_1",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8988998949,
+    "startDateTime": 1788878761,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 70,
+      "position": "POSITION_1",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8988913250,
+    "startDateTime": 1788875772,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 49,
+      "position": "POSITION_1",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8987724334,
+    "startDateTime": 1788799292,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 26,
+      "position": null,
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8987524896,
+    "startDateTime": 1788792227,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 123,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8986295752,
+    "startDateTime": 1788715750,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 26,
+      "position": "POSITION_4",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8986202787,
+    "startDateTime": 1788712430,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 26,
+      "position": "POSITION_5",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8986131857,
+    "startDateTime": 1788710001,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 123,
+      "position": "POSITION_4",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8986035052,
+    "startDateTime": 1788706901,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 123,
+      "position": "POSITION_4",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8985568928,
+    "startDateTime": 1788691712,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 108,
+      "position": "POSITION_3",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8985495103,
+    "startDateTime": 1788688790,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 123,
+      "position": "POSITION_5",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8984265115,
+    "startDateTime": 1788625206,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 110,
+      "position": null,
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8984143466,
+    "startDateTime": 1788621355,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 110,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8984036059,
+    "startDateTime": 1788618005,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 30,
+      "position": "POSITION_5",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8983951244,
+    "startDateTime": 1788615334,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 123,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8983808926,
+    "startDateTime": 1788610461,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 123,
+      "position": "POSITION_4",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8983712923,
+    "startDateTime": 1788606760,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 26,
+      "position": "POSITION_4",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8982298488,
+    "startDateTime": 1788533137,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 123,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8982183323,
+    "startDateTime": 1788529371,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 123,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8980887397,
+    "startDateTime": 1788451343,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 123,
+      "position": "POSITION_5",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8980804593,
+    "startDateTime": 1788448395,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 123,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8979548010,
+    "startDateTime": 1788371252,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 123,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8979481788,
+    "startDateTime": 1788368707,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 30,
+      "position": "POSITION_4",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8979346055,
+    "startDateTime": 1788363718,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 123,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8979256607,
+    "startDateTime": 1788360618,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 110,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8979185757,
+    "startDateTime": 1788358187,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 123,
+      "position": "POSITION_5",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8979110608,
+    "startDateTime": 1788355584,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 123,
+      "position": "POSITION_4",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8977744515,
+    "startDateTime": 1788273869,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 128,
+      "position": "POSITION_4",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8977656432,
+    "startDateTime": 1788271002,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 123,
+      "position": "POSITION_4",
+      "isVictory": true
+     }
+    ]
+   },
+   {
+    "id": 8974440678,
+    "startDateTime": 1788101806,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 123,
+      "position": "POSITION_5",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8974261116,
+    "startDateTime": 1788096627,
+    "gameMode": "TURBO",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 97,
+      "position": "POSITION_5",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8971784422,
+    "startDateTime": 1787992963,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 123,
+      "position": "POSITION_5",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8971708180,
+    "startDateTime": 1787989449,
+    "gameMode": "ALL_PICK_RANKED",
+    "didRadiantWin": false,
+    "players": [
+     {
+      "heroId": 123,
+      "position": "POSITION_5",
+      "isVictory": false
+     }
+    ]
+   },
+   {
+    "id": 8970960161,
+    "startDateTime": 1787944889,
+    "gameMode": "TURBO",
+    "didRadiantWin": true,
+    "players": [
+     {
+      "heroId": 26,
+      "position": "POSITION_5",
+      "isVictory": false
+     }
+    ]
+   }
+  ]
  }
 }

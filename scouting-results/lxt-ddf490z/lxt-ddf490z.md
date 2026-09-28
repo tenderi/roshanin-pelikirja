@@ -1,6 +1,6 @@
 # LXT DDF490Z
 
-_Generated 2026-09-28 · source: [OpenDota](https://www.opendota.com/) · roster: `joukkueet.txt`_
+_Generated 2026-09-28 · source: [OpenDota](https://www.opendota.com/) + [STRATZ](https://stratz.com/) · roster: `joukkueet.txt`_
 
 Average MMR **4,715** · 5 players
 
@@ -10,35 +10,35 @@ Ordered to focus on the strongest players: each player counts (MMR / team's top 
 
 | # | Hero | Because of |
 |---|---|---|
-| 1 | **Legion Commander** | Morality (5,250): 25 recent · 106 total · 53%; Ade (5,750): 4 recent · 54 total · 52% |
-| 2 | **Dark Seer** | Morality (5,250): 20 recent · 282 total · 54%; fatko (3,402): 12 recent · 281 total · 66% |
-| 3 | **Windranger** | Ade (5,750): 7 recent · 233 total · 52%; Morality (5,250): 120 total · 53% |
-| 4 | **Weaver** | Ade (5,750): 9 recent · 100 total · 51% |
-| 5 | **Juggernaut** | Ade (5,750): 4 recent · 43 total · 51%; Morality (5,250): 189 total · 60%; Jiri (4,500): 3 recent · 45 total · 52% |
-| 6 | **Pudge** | Ade (5,750): 3 recent · 210 total · 53%; Morality (5,250): 98 total · 57% |
+| 1 | **Legion Commander** | Morality (5,250, pos 3): 25 recent · 106 total · 53%; Ade (5,750, pos 1): 4 recent · 54 total · 52% |
+| 2 | **Dark Seer** | Morality (5,250, pos 3): 20 recent · 282 total · 54%; fatko (3,402, pos 3): 12 recent · 281 total · 66% |
+| 3 | **Windranger** | Ade (5,750, pos 1): 6 recent · 233 total · 51%; Morality (5,250): 120 total · 53% |
+| 4 | **Weaver** | Ade (5,750, pos 1): 9 recent · 100 total · 51% |
+| 5 | **Juggernaut** | Ade (5,750, pos 1): 4 recent · 43 total · 51%; Morality (5,250): 189 total · 60%; Jiri (4,500, pos 1): 3 recent · 45 total · 52% |
+| 6 | **Pudge** | Ade (5,750, pos 3): 3 recent · 210 total · 53%; Morality (5,250): 98 total · 57% |
 
 ## Players (highest MMR first)
 
 ### Ade — 5,750 · Divine 2
 
-- Steam name Alan 2 Rings · Off 60% / Safe 35% · last 100: 45–55 (45%) · last played 2026-09-28 · [OpenDota](https://www.opendota.com/players/31724584)
-- **Ban targets:** Weaver (9 recent · 100 total) · Windranger (7 recent · 233 total) · Lifestealer (7 recent · 64 total)
+- Steam name Alan 2 Rings · Pos 1 59% / Pos 4 14% / Pos 5 13% / Pos 3 12% · last 100: 44–56 (44%) · last played 2026-09-28 · [OpenDota](https://www.opendota.com/players/31724584)
+- **Ban targets:** Weaver (pos 1, 9 recent · 100 total) · Windranger (pos 1, 6 recent · 233 total) · Lifestealer (pos 1, 7 recent · 64 total)
 
 | Playing now | Games · WR | All time | Games · WR |
 |---|---|---|---|
 | Weaver | 9 · 67% | Mirana | 447 · 55% |
-| Windranger | 7 · 71% | Nyx Assassin | 269 · 57% |
-| Lifestealer | 7 · 43% | Windranger | 233 · 51% |
-| Zeus | 7 · 43% | Pudge | 210 · 53% |
+| Lifestealer | 7 · 43% | Nyx Assassin | 269 · 57% |
+| Zeus | 7 · 43% | Windranger | 233 · 51% |
+| Windranger | 6 · 67% | Pudge | 210 · 53% |
 | Ursa | 5 · 60% | Hoodwink | 198 · 56% |
 | Wraith King | 5 · 60% | Spirit Breaker | 148 · 55% |
-| Earth Spirit | 4 · 0% | Ringmaster | 147 · 56% |
-| Juggernaut | 4 · 50% | Lion | 146 · 53% |
+| Kez | 4 · 25% | Ringmaster | 147 · 56% |
+| Earth Spirit | 4 · 0% | Lion | 146 · 53% |
 
 ### Morality — 5,250 · Divine 3
 
-- Off 39% / Safe 37% / Mid 23% · last 100: 59–41 (59%) · last played 2026-09-24 · [OpenDota](https://www.opendota.com/players/23037312)
-- **Ban targets:** Legion Commander (25 recent · 106 total) · Dark Seer (20 recent · 282 total) · Underlord (8 recent · 47 total)
+- Pos 3 88% / Pos 2 8% · last 100: 59–41 (59%) · last played 2026-09-24 · [OpenDota](https://www.opendota.com/players/23037312)
+- **Ban targets:** Legion Commander (pos 3, 25 recent · 106 total) · Dark Seer (pos 3, 20 recent · 282 total) · Underlord (pos 3, 8 recent · 47 total)
 
 | Playing now | Games · WR | All time | Games · WR |
 |---|---|---|---|
@@ -53,12 +53,12 @@ Ordered to focus on the strongest players: each player counts (MMR / team's top 
 
 ### Waly — 4,674 · Ancient 4
 
-- Steam name wAlydesu~ · Off 43% / Safe 42% / Mid 14% · last 100: 45–55 (45%) · last played 2026-09-28 · [OpenDota](https://www.opendota.com/players/75779390)
-- **Ban targets:** Outworld Destroyer (11 recent · 57 total) · Dragon Knight (10 recent · 60 total) · Queen of Pain (7 recent · 178 total)
+- Steam name wAlydesu~ · Pos 2 96% · last 100: 45–55 (45%) · last played 2026-09-28 · [OpenDota](https://www.opendota.com/players/75779390)
+- **Ban targets:** Outworld Destroyer (pos 2, 12 recent · 58 total) · Dragon Knight (pos 2, 10 recent · 60 total) · Queen of Pain (pos 2, 7 recent · 178 total)
 
 | Playing now | Games · WR | All time | Games · WR |
 |---|---|---|---|
-| Outworld Destroyer | 11 · 45% | Dawnbreaker | 242 · 63% |
+| Outworld Destroyer | 12 · 42% | Dawnbreaker | 242 · 63% |
 | Lina | 10 · 40% | Underlord | 234 · 59% |
 | Dragon Knight | 10 · 40% | Kunkka | 218 · 49% |
 | Ember Spirit | 9 · 44% | Centaur Warrunner | 208 · 58% |
@@ -69,8 +69,8 @@ Ordered to focus on the strongest players: each player counts (MMR / team's top 
 
 ### Jiri — 4,500 · Legend 4
 
-- Safe 54% / Off 38% / Mid 8% · last 100: 51–49 (51%) · last played 2026-09-28 · [OpenDota](https://www.opendota.com/players/119940691)
-- **Ban targets:** Mirana (6 recent · 48 total) · Skywrath Mage (5 recent · 55 total) · Snapfire (7 recent · 37 total)
+- Pos 5 42% / Pos 1 32% / Pos 4 10% / Pos 3 9% / Pos 2 7% · last 100: 52–48 (52%) · last played 2026-09-28 · [OpenDota](https://www.opendota.com/players/119940691)
+- **Ban targets:** Mirana (pos 5, 6 recent · 48 total) · Skywrath Mage (pos 5, 5 recent · 55 total) · Snapfire (pos 4, 7 recent · 37 total)
 
 | Playing now | Games · WR | All time | Games · WR |
 |---|---|---|---|
@@ -85,8 +85,8 @@ Ordered to focus on the strongest players: each player counts (MMR / team's top 
 
 ### fatko — 3,402 · Legend 1
 
-- Steam name fatKO · Off 49% / Safe 40% / Mid 9% · last 100: 40–60 (40%) · last played 2026-09-27 · [OpenDota](https://www.opendota.com/players/232851)
-- **Ban targets:** Witch Doctor (15 recent · 245 total) · Dark Seer (12 recent · 281 total) · Bounty Hunter (9 recent · 42 total)
+- Steam name fatKO · Pos 3 40% / Pos 4 34% / Pos 5 22% · last 100: 40–60 (40%) · last played 2026-09-27 · [OpenDota](https://www.opendota.com/players/232851)
+- **Ban targets:** Witch Doctor (pos 5, 15 recent · 245 total) · Dark Seer (pos 3, 12 recent · 281 total) · Bounty Hunter (pos 4, 9 recent · 42 total)
 
 | Playing now | Games · WR | All time | Games · WR |
 |---|---|---|---|

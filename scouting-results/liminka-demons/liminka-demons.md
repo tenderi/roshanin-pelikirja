@@ -1,6 +1,6 @@
 # Liminka Demons
 
-_Generated 2026-09-28 · source: [OpenDota](https://www.opendota.com/) · roster: `joukkueet.txt`_
+_Generated 2026-09-28 · source: [OpenDota](https://www.opendota.com/) + [STRATZ](https://stratz.com/) · roster: `joukkueet.txt`_
 
 Average MMR **4,437** · 5 players + 1 sub
 
@@ -10,19 +10,19 @@ Ordered to focus on the strongest players: each player counts (MMR / team's top 
 
 | # | Hero | Because of |
 |---|---|---|
-| 1 | **Windranger** | boho (5,750): 3 recent · 81 total · 50%; raky (4,500): 8 recent · 29 total · 51%; Hitsuri:D (3,639): 6 recent · 153 total · 57% |
-| 2 | **Invoker** | tavern player (4,298): 16 recent · 19 total · 49%; Hitsuri:D (3,639): 10 recent · 333 total · 47%; boho (5,750): 89 total · 53% |
-| 3 | **Omniknight** | boho (5,750): 8 recent · 305 total · 58% |
-| 4 | **Elder Titan** | boho (5,750): 8 recent · 287 total · 57% |
-| 5 | **Lich** | boho (5,750): 7 recent · 244 total · 61% |
-| 6 | **Centaur Warrunner** | tavern player (4,298): 8 recent · 16 total · 79%; Pebbles (sub) (5,750): 7 recent · 16 total · 57%; boho (5,750): 82 total · 55% |
+| 1 | **Invoker** | tavern player (4,298, pos 4): 16 recent · 19 total · 49%; Hitsuri:D (3,639, pos 4): 10 recent · 333 total · 47%; boho (5,750): 89 total · 53% |
+| 2 | **Windranger** | boho (5,750, pos 5): 3 recent · 81 total · 50%; raky (4,500, pos 1): 8 recent · 29 total · 51%; Hitsuri:D (3,639, pos 4): 5 recent · 153 total · 58% |
+| 3 | **Omniknight** | boho (5,750, pos 5): 8 recent · 305 total · 58% |
+| 4 | **Elder Titan** | boho (5,750, pos 5): 8 recent · 287 total · 57% |
+| 5 | **Lich** | boho (5,750, pos 5): 7 recent · 244 total · 61% |
+| 6 | **Centaur Warrunner** | tavern player (4,298, pos 3): 8 recent · 16 total · 79%; Pebbles (sub) (5,750, pos 3): 7 recent · 16 total · 57%; boho (5,750): 82 total · 55% |
 
 ## Players (highest MMR first)
 
 ### boho — 5,750 · Divine 2
 
-- Safe 62% / Off 36% · last 100: 48–52 (48%) · last played 2026-09-28 · [OpenDota](https://www.opendota.com/players/87660029)
-- **Ban targets:** Omniknight (8 recent · 305 total) · Elder Titan (8 recent · 287 total) · Lich (7 recent · 244 total)
+- Pos 5 82% / Pos 4 10% / Pos 3 6% · last 100: 48–52 (48%) · last played 2026-09-28 · [OpenDota](https://www.opendota.com/players/87660029)
+- **Ban targets:** Omniknight (pos 5, 8 recent · 305 total) · Elder Titan (pos 5, 8 recent · 287 total) · Lich (pos 5, 7 recent · 244 total)
 
 | Playing now | Games · WR | All time | Games · WR |
 |---|---|---|---|
@@ -37,13 +37,13 @@ Ordered to focus on the strongest players: each player counts (MMR / team's top 
 
 ### raky — 4,500 · Ancient 4
 
-- Safe 97% · last 100: 51–49 (51%) · last played 2026-09-28 · [OpenDota](https://www.opendota.com/players/52544267)
-- **Ban targets:** Juggernaut (10 recent · 108 total) · Sven (11 recent · 94 total) · Tiny (9 recent · 26 total)
+- Pos 1 100% · last 100: 52–48 (52%) · last played 2026-09-28 · [OpenDota](https://www.opendota.com/players/52544267)
+- **Ban targets:** Juggernaut (pos 1, 11 recent · 109 total) · Sven (pos 1, 11 recent · 94 total) · Tiny (pos 1, 9 recent · 26 total)
 
 | Playing now | Games · WR | All time | Games · WR |
 |---|---|---|---|
-| Sven | 11 · 45% | Drow Ranger | 113 · 56% |
-| Juggernaut | 10 · 50% | Juggernaut | 108 · 63% |
+| Juggernaut | 11 · 55% | Drow Ranger | 113 · 56% |
+| Sven | 11 · 45% | Juggernaut | 109 · 63% |
 | Tiny | 9 · 78% | Sven | 94 · 59% |
 | Luna | 8 · 50% | Ursa | 89 · 57% |
 | Windranger | 8 · 75% | Shadow Fiend | 86 · 56% |
@@ -53,8 +53,8 @@ Ordered to focus on the strongest players: each player counts (MMR / team's top 
 
 ### tavern player — 4,298 · Ancient 3
 
-- Off 90% / Safe 8% · last 100: 46–54 (46%) · last played 2026-09-28 · [OpenDota](https://www.opendota.com/players/107615421)
-- **Ban targets:** Invoker (16 recent · 19 total) · Centaur Warrunner (8 recent · 16 total) · Dragon Knight (8 recent · 9 total)
+- Pos 3 57% / Pos 4 22% / Pos 5 12% · last 100: 46–54 (46%) · last played 2026-09-28 · [OpenDota](https://www.opendota.com/players/107615421)
+- **Ban targets:** Invoker (pos 4, 16 recent · 19 total) · Centaur Warrunner (pos 3, 8 recent · 16 total) · Dragon Knight (pos 3, 8 recent · 9 total)
 
 | Playing now | Games · WR | All time | Games · WR |
 |---|---|---|---|
@@ -69,8 +69,8 @@ Ordered to focus on the strongest players: each player counts (MMR / team's top 
 
 ### russian nightmare — 4,000 · Legend 2
 
-- Mid 73% / Safe 27% · last 100: 48–52 (48%) · last played 2026-09-14 · [OpenDota](https://www.opendota.com/players/145564584)
-- **Ban targets:** Ember Spirit (15 recent · 91 total) · Void Spirit (8 recent · 47 total) · Pangolier (8 recent · 11 total)
+- Pos 2 74% / Pos 1 17% · last 100: 48–52 (48%) · last played 2026-09-14 · [OpenDota](https://www.opendota.com/players/145564584)
+- **Ban targets:** Ember Spirit (pos 2, 15 recent · 91 total) · Void Spirit (pos 2, 8 recent · 47 total) · Pangolier (pos 2, 8 recent · 11 total)
 
 | Playing now | Games · WR | All time | Games · WR |
 |---|---|---|---|
@@ -85,24 +85,24 @@ Ordered to focus on the strongest players: each player counts (MMR / team's top 
 
 ### Hitsuri:D — 3,639 · Ancient 2
 
-- Steam name excavator · Off 50% / Safe 36% / Mid 14% · last 100: 46–54 (46%) · last played 2026-09-26 · [OpenDota](https://www.opendota.com/players/98915726)
-- **Ban targets:** Invoker (10 recent · 333 total) · Pudge (7 recent · 200 total) · Windranger (6 recent · 153 total)
+- Steam name excavator · Pos 4 37% / Pos 3 34% / Pos 2 15% / Pos 5 9% / Pos 1 5% · last 91: 42–49 (46%) · last played 2026-09-26 · [OpenDota](https://www.opendota.com/players/98915726)
+- **Ban targets:** Invoker (pos 4, 10 recent · 333 total) · Pudge (pos 4, 6 recent · 200 total) · Windranger (pos 4, 5 recent · 153 total)
 
 | Playing now | Games · WR | All time | Games · WR |
 |---|---|---|---|
 | Invoker | 10 · 50% | Invoker | 333 · 47% |
-| Pudge | 7 · 71% | Ogre Magi | 226 · 65% |
-| Windranger | 6 · 33% | Pudge | 200 · 54% |
-| Jakiro | 6 · 67% | Phantom Assassin | 173 · 53% |
-| Centaur Warrunner | 4 · 75% | Windranger | 153 · 58% |
-| Snapfire | 3 · 67% | Sniper | 116 · 53% |
-| Bounty Hunter | 3 · 67% | Queen of Pain | 88 · 55% |
-| Nature's Prophet | 3 · 33% | Spirit Breaker | 88 · 48% |
+| Pudge | 6 · 83% | Ogre Magi | 226 · 65% |
+| Jakiro | 6 · 67% | Pudge | 200 · 54% |
+| Windranger | 5 · 40% | Phantom Assassin | 173 · 53% |
+| Snapfire | 3 · 67% | Windranger | 153 · 58% |
+| Bounty Hunter | 3 · 67% | Sniper | 116 · 53% |
+| Dawnbreaker | 2 · 0% | Queen of Pain | 88 · 55% |
+| Centaur Warrunner | 2 · 50% | Spirit Breaker | 88 · 48% |
 
 ### Pebbles — 5,750 · Immortal · substitute
 
-- Steam name pebbles · Off 64% / Safe 29% / Mid 7% · last 100: 53–47 (53%) · last played 2026-09-14 · [OpenDota](https://www.opendota.com/players/95536519)
-- **Ban targets:** Dawnbreaker (9 recent · 10 total) · Centaur Warrunner (7 recent · 16 total) · Tidehunter (5 recent · 11 total)
+- Steam name pebbles · Pos 3 57% / Pos 4 15% / Pos 2 13% / Pos 1 8% / Pos 5 6% · last 99: 53–46 (54%) · last played 2026-09-14 · [OpenDota](https://www.opendota.com/players/95536519)
+- **Ban targets:** Dawnbreaker (pos 3, 9 recent · 10 total) · Centaur Warrunner (pos 3, 7 recent · 16 total) · Tidehunter (pos 3, 5 recent · 11 total)
 
 | Playing now | Games · WR | All time | Games · WR |
 |---|---|---|---|

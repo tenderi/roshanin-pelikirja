@@ -99,3 +99,9 @@ kansio `/docs`**. Sen jälkeen jokainen push päivittää sivuston.
   `joukkueet.txt`:ssä.
 - OpenDota rajoittaa pyyntömäärää (n. 60/min ilman avainta). Nopeampaa ajoa
   varten: `export OPENDOTA_API_KEY="oma-avaimesi"`.
+- **STRATZ** (valinnainen): jos ympäristömuuttuja `STRATZ_API_TOKEN` on
+  asetettu, jokaisen ottelun pelipaikka (pos 1–5) haetaan STRATZista ja
+  näytetään korteissa OpenDotan linjajakauman sijaan. Molemmissa olevat
+  ottelut ovat identtisiä (hero ja tulos), joten ne yhdistetään match ID:n
+  mukaan; kummankin puuttuvat ottelut täydennetään toisesta. Ilman tokenia
+  käytetään pelkkää OpenDotaa.

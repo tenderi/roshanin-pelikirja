@@ -1,6 +1,6 @@
 # Malttamattomat
 
-_Generated 2026-09-28 · source: [OpenDota](https://www.opendota.com/) · roster: `joukkueet.txt`_
+_Generated 2026-09-28 · source: [OpenDota](https://www.opendota.com/) + [STRATZ](https://stratz.com/) · roster: `joukkueet.txt`_
 
 Average MMR **4,677** · 5 players
 
@@ -10,51 +10,51 @@ Ordered to focus on the strongest players: each player counts (MMR / team's top 
 
 | # | Hero | Because of |
 |---|---|---|
-| 1 | **Primal Beast** | Abyss Astronaut (5,786): 18 recent · 83 total · 60% |
-| 2 | **Shadow Fiend** | Abyss Astronaut (5,786): 10 recent · 185 total · 57%; Hegulator (4,393): 7 recent · 318 total · 45% |
-| 3 | **Pangolier** | Abyss Astronaut (5,786): 6 recent · 233 total · 58%; Hegulator (4,393): 7 recent · 129 total · 52% |
-| 4 | **Tidehunter** | Tot_Dog (4,253): 14 recent · 137 total · 55%; Admiral R[A]t doto (4,955): 5 recent · 68 total · 56%; Abyss Astronaut (5,786): 1 recent · 65 total · 62% |
-| 5 | **Nature's Prophet** | Hegulator (4,393): 15 recent · 102 total · 55%; Admiral R[A]t doto (4,955): 3 recent · 126 total · 54% |
-| 6 | **Vengeful Spirit** | Tot_Dog (4,253): 9 recent · 433 total · 51%; Abyss Astronaut (5,786): 1 recent · 103 total · 56% |
+| 1 | **Pangolier** | Abyss Astronaut (5,786, pos 2): 7 recent · 237 total · 58%; Hegulator (4,393, pos 2): 7 recent · 129 total · 52% |
+| 2 | **Primal Beast** | Abyss Astronaut (5,786, pos 2): 12 recent · 85 total · 58%; Admiral R[A]t doto (4,955, pos 3): 3 recent · 11 total · 43% |
+| 3 | **Tidehunter** | Tot_Dog (4,253, pos 3): 10 recent · 137 total · 54%; Admiral R[A]t doto (4,955, pos 3): 3 recent · 68 total · 58%; Abyss Astronaut (5,786, pos 3): 2 recent · 66 total · 63% |
+| 4 | **Shadow Fiend** | Abyss Astronaut (5,786, pos 2): 5 recent · 185 total · 58%; Hegulator (4,393, pos 1): 7 recent · 318 total · 45% |
+| 5 | **Windranger** | Abyss Astronaut (5,786, pos 2): 3 recent · 187 total · 54%; Zigerik (4,000, pos 4): 3 recent · 268 total · 53% |
+| 6 | **Nature's Prophet** | Hegulator (4,393, pos 1): 15 recent · 102 total · 55%; Admiral R[A]t doto (4,955): 1 recent · 126 total · 54% |
 
 ## Players (highest MMR first)
 
 ### Abyss Astronaut — 5,786 · Immortal
 
-- Mid 51% / Safe 27% / Off 22% · last 100: 53–47 (53%) · last played 2026-09-17 · [OpenDota](https://www.opendota.com/players/30907029)
-- **Ban targets:** Primal Beast (18 recent · 83 total) · Shadow Fiend (10 recent · 185 total) · Pangolier (6 recent · 233 total)
+- Pos 2 75% / Pos 3 11% / Pos 1 8% / Pos 4 6% · last 100: 55–45 (55%) · last played 2026-09-28 · [OpenDota](https://www.opendota.com/players/30907029)
+- **Ban targets:** Primal Beast (pos 2, 12 recent · 85 total) · Pangolier (pos 2, 7 recent · 237 total) · Shadow Fiend (pos 2, 5 recent · 185 total)
 
 | Playing now | Games · WR | All time | Games · WR |
 |---|---|---|---|
-| Primal Beast | 18 · 67% | Pangolier | 233 · 58% |
-| Shadow Fiend | 10 · 50% | Puck | 226 · 55% |
-| Pangolier | 6 · 50% | Kunkka | 210 · 52% |
-| Invoker | 3 · 67% | Invoker | 196 · 47% |
-| Queen of Pain | 3 · 33% | Magnus | 188 · 51% |
-| Zeus | 3 · 67% | Mars | 187 · 61% |
-| Storm Spirit | 2 · 100% | Windranger | 186 · 55% |
-| Dawnbreaker | 2 · 50% | Shadow Fiend | 185 · 58% |
+| Primal Beast | 12 · 50% | Pangolier | 237 · 58% |
+| Pangolier | 7 · 57% | Puck | 226 · 55% |
+| Ember Spirit | 6 · 50% | Kunkka | 211 · 52% |
+| Zeus | 6 · 50% | Invoker | 199 · 47% |
+| Invoker | 5 · 40% | Magnus | 190 · 51% |
+| Death Prophet | 5 · 60% | Mars | 187 · 61% |
+| Shadow Fiend | 5 · 60% | Windranger | 187 · 55% |
+| Queen of Pain | 4 · 25% | Shadow Fiend | 185 · 58% |
 
 ### Admiral R[A]t doto — 4,955 · Divine 2
 
-- Off 42% / Safe 33% / Mid 22% · last 100: 51–49 (51%) · last played 2026-09-25 · [OpenDota](https://www.opendota.com/players/174635828)
-- **Ban targets:** Sniper (9 recent · 31 total) · Enchantress (7 recent · 69 total) · Underlord (5 recent · 52 total)
+- Pos 3 57% / Pos 1 20% / Pos 2 10% / Pos 5 8% / Pos 4 5% · last 47: 24–23 (51%) · last played 2026-09-25 · [OpenDota](https://www.opendota.com/players/174635828)
+- **Ban targets:** Dragon Knight (pos 3, 4 recent · 30 total) · Enchantress (pos 5, 3 recent · 69 total) · Tidehunter (pos 3, 3 recent · 68 total)
 
 | Playing now | Games · WR | All time | Games · WR |
 |---|---|---|---|
-| Sniper | 9 · 67% | Pudge | 175 · 54% |
-| Enchantress | 7 · 43% | Nature's Prophet | 126 · 53% |
-| Centaur Warrunner | 5 · 80% | Juggernaut | 87 · 61% |
-| Tidehunter | 5 · 20% | Rubick | 78 · 54% |
-| Underlord | 5 · 60% | Clockwerk | 78 · 50% |
-| Primal Beast | 5 · 20% | Sand King | 74 · 55% |
-| Legion Commander | 5 · 80% | Enchantress | 69 · 62% |
-| Dragon Knight | 4 · 100% | Tidehunter | 68 · 59% |
+| Dragon Knight | 4 · 100% | Pudge | 175 · 54% |
+| Centaur Warrunner | 3 · 67% | Nature's Prophet | 126 · 53% |
+| Tidehunter | 3 · 33% | Juggernaut | 87 · 61% |
+| Enchantress | 3 · 33% | Rubick | 78 · 54% |
+| Primal Beast | 3 · 0% | Clockwerk | 78 · 50% |
+| Medusa | 3 · 0% | Sand King | 74 · 55% |
+| Slardar | 2 · 100% | Enchantress | 69 · 62% |
+| Underlord | 2 · 100% | Tidehunter | 68 · 59% |
 
 ### Hegulator — 4,393 · Ancient 5
 
-- Safe 58% / Mid 23% / Off 15% · last 100: 56–44 (56%) · last played 2026-09-27 · [OpenDota](https://www.opendota.com/players/52351627)
-- **Ban targets:** Spectre (14 recent · 89 total) · Nature's Prophet (15 recent · 102 total) · Troll Warlord (8 recent · 190 total)
+- Pos 1 71% / Pos 3 11% / Pos 2 8% / Pos 4 6% · last 100: 56–44 (56%) · last played 2026-09-27 · [OpenDota](https://www.opendota.com/players/52351627)
+- **Ban targets:** Spectre (pos 1, 14 recent · 89 total) · Nature's Prophet (pos 1, 15 recent · 102 total) · Troll Warlord (pos 1, 8 recent · 190 total)
 
 | Playing now | Games · WR | All time | Games · WR |
 |---|---|---|---|
@@ -69,32 +69,32 @@ Ordered to focus on the strongest players: each player counts (MMR / team's top 
 
 ### Tot_Dog — 4,253 · Ancient 5
 
-- Safe 62% / Off 33% · last 100: 54–46 (54%) · last played 2026-09-16 · [OpenDota](https://www.opendota.com/players/202621177)
-- **Ban targets:** Tidehunter (14 recent · 137 total) · Vengeful Spirit (9 recent · 433 total) · Slardar (10 recent · 299 total)
+- Pos 5 55% / Pos 3 31% / Pos 4 12% · last 100: 54–46 (54%) · last played 2026-09-25 · [OpenDota](https://www.opendota.com/players/202621177)
+- **Ban targets:** Bane (pos 5, 15 recent · 93 total) · Vengeful Spirit (pos 5, 11 recent · 437 total) · Tidehunter (pos 3, 10 recent · 137 total)
 
 | Playing now | Games · WR | All time | Games · WR |
 |---|---|---|---|
-| Tidehunter | 14 · 57% | Ogre Magi | 502 · 55% |
-| Slardar | 10 · 40% | Vengeful Spirit | 433 · 51% |
-| Vengeful Spirit | 9 · 56% | Jakiro | 427 · 53% |
-| Bane | 8 · 62% | Lion | 403 · 51% |
-| Legion Commander | 7 · 29% | Disruptor | 390 · 52% |
-| Winter Wyvern | 6 · 50% | Crystal Maiden | 350 · 52% |
-| Undying | 5 · 80% | Slardar | 299 · 44% |
-| Crystal Maiden | 5 · 40% | Lich | 261 · 58% |
+| Bane | 15 · 47% | Ogre Magi | 502 · 55% |
+| Vengeful Spirit | 11 · 64% | Vengeful Spirit | 437 · 51% |
+| Tidehunter | 10 · 50% | Jakiro | 427 · 53% |
+| Hoodwink | 8 · 50% | Lion | 403 · 51% |
+| Winter Wyvern | 8 · 62% | Disruptor | 390 · 52% |
+| Centaur Warrunner | 7 · 57% | Crystal Maiden | 350 · 52% |
+| Undying | 6 · 67% | Slardar | 300 · 44% |
+| Slardar | 6 · 17% | Lich | 262 · 58% |
 
 ### Zigerik — 4,000 · Ancient 3
 
-- Safe 43% / Off 31% / Mid 24% · last 100: 51–49 (51%) · last played 2026-09-17 · [OpenDota](https://www.opendota.com/players/93445250)
-- **Ban targets:** Lion (10 recent · 603 total) · Bounty Hunter (9 recent · 165 total) · Pudge (8 recent · 410 total)
+- Pos 4 42% / Pos 5 23% / Pos 3 23% / Pos 1 6% / Pos 2 6% · last 100: 52–48 (52%) · last played 2026-09-28 · [OpenDota](https://www.opendota.com/players/93445250)
+- **Ban targets:** Bounty Hunter (pos 4, 13 recent · 169 total) · Lion (pos 4, 9 recent · 607 total) · Pudge (pos 4, 8 recent · 411 total)
 
 | Playing now | Games · WR | All time | Games · WR |
 |---|---|---|---|
-| Lion | 10 · 30% | Witch Doctor | 638 · 54% |
-| Bounty Hunter | 9 · 56% | Lion | 603 · 54% |
-| Pudge | 8 · 62% | Pudge | 410 · 51% |
-| Slardar | 7 · 43% | Silencer | 353 · 53% |
-| Tusk | 6 · 17% | Bloodseeker | 298 · 57% |
-| Dazzle | 5 · 20% | Grimstroke | 274 · 50% |
-| Dark Willow | 4 · 50% | Windranger | 267 · 53% |
-| Oracle | 3 · 67% | Tusk | 261 · 49% |
+| Bounty Hunter | 13 · 62% | Witch Doctor | 639 · 54% |
+| Lion | 9 · 33% | Lion | 607 · 53% |
+| Pudge | 8 · 50% | Pudge | 411 · 51% |
+| Dark Willow | 7 · 57% | Silencer | 353 · 53% |
+| Slardar | 7 · 43% | Bloodseeker | 298 · 57% |
+| Tusk | 5 · 20% | Grimstroke | 274 · 50% |
+| Keeper of the Light | 3 · 100% | Windranger | 268 · 53% |
+| Techies | 3 · 67% | Tusk | 261 · 49% |
